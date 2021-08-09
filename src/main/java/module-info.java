@@ -6,7 +6,12 @@ module ku.cs {
     exports ku.cs;
     exports ku.cs.controllers;
     opens ku.cs.controllers to javafx.fxml;
+
     opens ku.cs.login.controllers to javafx.fxml;
+
     exports ku.cs.admin.controllers;
     opens ku.cs.admin.controllers to javafx.fxml;
+
+    exports ku.cs.seller.controllers;
+    opens ku.cs.seller.controllers to javafx.fxml;
 }
