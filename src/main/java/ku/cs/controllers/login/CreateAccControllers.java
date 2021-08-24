@@ -1,4 +1,4 @@
-package ku.cs.login.controllers;
+package ku.cs.controllers.login;
 
 import javafx.fxml.FXML;
 import ku.cs.App;

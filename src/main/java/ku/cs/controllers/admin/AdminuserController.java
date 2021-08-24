@@ -1,4 +1,4 @@
-package ku.cs.admin.controllers;
+package ku.cs.controllers.admin;
 
 public class AdminuserController {
 }

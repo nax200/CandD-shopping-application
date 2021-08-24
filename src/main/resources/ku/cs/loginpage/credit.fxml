@@ -8,46 +8,46 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.login.controllers.CreditPageControllers">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.login.CreditPageControllers">
    <children>
       <ImageView fitHeight="320.0" fitWidth="260.0" layoutX="115.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../creditpage/bamboo.jpg" />
+            <Image url="@../../../images/creditpage/bamboo.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="320.0" fitWidth="260.0" layoutX="477.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../creditpage/moss.jpg" />
+            <Image url="@../../../images/creditpage/moss.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="320.0" fitWidth="260.0" layoutX="1232.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../creditpage/ploy.jpg" />
+            <Image url="@../../../images/creditpage/ploy.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="320.0" fitWidth="260.0" layoutX="855.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../creditpage/nax.jpg" />
+            <Image url="@../../../images/creditpage/nax.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="213.0" fitWidth="265.0" layoutX="477.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../creditpage/des-moss.png" />
+            <Image url="@../../../images/creditpage/des-moss.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="213.0" fitWidth="265.0" layoutX="855.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../creditpage/des-nax.png" />
+            <Image url="@../../../images/creditpage/des-nax.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="213.0" fitWidth="265.0" layoutX="1232.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../creditpage/des-ploy.png" />
+            <Image url="@../../../images/creditpage/des-ploy.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="213.0" fitWidth="265.0" layoutX="115.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../creditpage/des-bamboo.png" />
+            <Image url="@../../../images/creditpage/des-bamboo.png" />
          </image>
       </ImageView>
       <Text fill="#868686" layoutX="594.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายชื่อผู้พัฒนาโปรเจกต์">

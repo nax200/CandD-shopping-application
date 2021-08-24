@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #DCDADA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.seller.controllers.SellerStock">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #DCDADA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.seller.SellerStock">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd12f" height="113.0" layoutX="-16.0" layoutY="-24.0" stroke="BLACK" strokeType="INSIDE" width="1616.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="813.0" layoutX="-5.0" layoutY="88.0" stroke="#eee7e7" strokeType="INSIDE" width="312.0" />

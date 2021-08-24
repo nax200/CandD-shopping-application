@@ -9,16 +9,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.login.controllers.LoginControllers">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.login.LoginControllers">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../loginpage/images/login-page-banner1.png" />
+            <Image url="@../../../images/loginpage/login-page-banner1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="127.0" fitWidth="296.0" layoutX="1171.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../loginpage/images/BrandLogo.png" />
+            <Image url="@../../../images/loginpage/BrandLogo.png" />
          </image>
       </ImageView>
       <PasswordField layoutX="1098.0" layoutY="425.0" prefHeight="50.0" prefWidth="440.0" promptText="กรอกรหัสผ่าน" style="-fx-border-radius: 10; -fx-background-color: #ffffff; -fx-border-radius: 10; -fx-border-color: #e2e2e2; -fx-border-width: 3;">

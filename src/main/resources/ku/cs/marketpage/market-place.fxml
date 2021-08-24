@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.MargetPlaceController">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.MarketPlaceController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd12f" height="108.0" stroke="#ffd12f" strokeType="INSIDE" width="1600.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="792.0" layoutY="108.0" stroke="WHITE" strokeType="INSIDE" width="302.0" />
@@ -186,182 +186,182 @@
         </Label>
         <ImageView fitHeight="97.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_14.png" />
+                <Image url="@../../../images/marketpage/img_14.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="1066.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img.png" />
+                <Image url="@../../../images/marketpage/img.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="1205.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_4.png" />
+                <Image url="@../../../images/marketpage/img_4.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="379.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_1.png" />
+                <Image url="@../../../images/marketpage/img_1.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="150.0" fitWidth="185.0" layoutX="637.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_6.png" />
+                <Image url="@../../../images/marketpage/img_6.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="203.0" fitWidth="224.0" layoutX="890.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_7.png" />
+                <Image url="@../../../images/marketpage/img_7.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="165.0" fitWidth="200.0" layoutX="1158.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_8.png" />
+                <Image url="@../../../images/marketpage/img_8.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="180.0" fitWidth="180.0" layoutX="384.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_9.png" />
+                <Image url="@../../../images/marketpage/img_9.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="630.0" layoutY="560.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_10.png" />
+                <Image url="@../../../images/marketpage/img_10.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="885.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_11.png" />
+                <Image url="@../../../images/marketpage/img_11.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1138.0" layoutY="560.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_12.png" />
+                <Image url="@../../../images/marketpage/img_12.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="392.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_5.png" />
+                <Image url="@../../../images/marketpage/img_5.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="392.0" layoutY="802.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_5.png" />
+                <Image url="@../../../images/marketpage/img_5.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="650.0" layoutY="802.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_5.png" />
+                <Image url="@../../../images/marketpage/img_5.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="650.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_5.png" />
+                <Image url="@../../../images/marketpage/img_5.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="895.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_5.png" />
+                <Image url="@../../../images/marketpage/img_5.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="895.0" layoutY="802.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_5.png" />
+                <Image url="@../../../images/marketpage/img_5.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="1150.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_5.png" />
+                <Image url="@../../../images/marketpage/img_5.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="20.0" fitWidth="120.0" layoutX="1150.0" layoutY="802.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_5.png" />
+                <Image url="@../../../images/marketpage/img_5.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="549.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_3.png" />
+                <Image url="@../../../images/marketpage/img_3.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="548.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_2.png" />
+                <Image url="@../../../images/marketpage/img_2.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="802.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_3.png" />
+                <Image url="@../../../images/marketpage/img_3.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="802.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_2.png" />
+                <Image url="@../../../images/marketpage/img_2.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="548.0" layoutY="795.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_3.png" />
+                <Image url="@../../../images/marketpage/img_3.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="548.0" layoutY="795.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_2.png" />
+                <Image url="@../../../images/marketpage/img_2.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="803.0" layoutY="795.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_3.png" />
+                <Image url="@../../../images/marketpage/img_3.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="802.0" layoutY="795.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_2.png" />
+                <Image url="@../../../images/marketpage/img_2.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1056.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_3.png" />
+                <Image url="@../../../images/marketpage/img_3.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="1056.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_2.png" />
+                <Image url="@../../../images/marketpage/img_2.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1300.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_3.png" />
+                <Image url="@../../../images/marketpage/img_3.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="1300.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_2.png" />
+                <Image url="@../../../images/marketpage/img_2.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1056.0" layoutY="795.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_3.png" />
+                <Image url="@../../../images/marketpage/img_3.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="1056.0" layoutY="795.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_2.png" />
+                <Image url="@../../../images/marketpage/img_2.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="1300.0" layoutY="795.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_3.png" />
+                <Image url="@../../../images/marketpage/img_3.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="1300.0" layoutY="795.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../marketpage/Pictures/img_2.png" />
+                <Image url="@../../../images/marketpage/img_2.png" />
             </image>
         </ImageView>
       <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="1138.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../marketpage/Pictures/img_13.png" />
+            <Image url="@../../../images/marketpage/img_13.png" />
          </image>
       </ImageView>
     </children>
