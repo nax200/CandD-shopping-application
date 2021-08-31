@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
 
@@ -17,13 +18,20 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("login"), 1600, 900);
-        stage.setTitle("C&D Online Shopping");
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.bind(this, stage, "C&D Online Shopping", 1600,900);
+        configRoute();
+        FXRouter.goTo("login");
     }
 
-    public static void setRoot(String fxml) throws IOException {
+    private static void configRoute() {
+        String packageStr = "ku/cs/";
+        FXRouter.when("login", packageStr+ "loginpage/login.fxml");
+        FXRouter.when("create-acc", packageStr+ "loginpage/create-acc.fxml");
+        FXRouter.when("credit", packageStr+ "loginpage/credit.fxml");
+
+    }
+
+    static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
@@ -31,6 +39,7 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
 
     public static void main(String[] args) {
         launch();

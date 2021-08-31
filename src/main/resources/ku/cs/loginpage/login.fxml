@@ -21,16 +21,16 @@
             <Image url="@../../../images/loginpage/BrandLogo.png" />
          </image>
       </ImageView>
-      <PasswordField layoutX="1098.0" layoutY="425.0" prefHeight="50.0" prefWidth="440.0" promptText="กรอกรหัสผ่าน" style="-fx-border-radius: 10; -fx-background-color: #ffffff; -fx-border-radius: 10; -fx-border-color: #e2e2e2; -fx-border-width: 3;">
-         <font>
-            <Font name="Kanit Light" size="20.0" />
-         </font>
-      </PasswordField>
       <TextField layoutX="1098.0" layoutY="325.0" prefHeight="50.0" prefWidth="440.0" promptText="กรอกชื่อบัญชี" style="-fx-border-radius: 10; -fx-background-color: #ffffff; -fx-border-width: 3; -fx-border-color: #e2e2e2; -fx-background-radius: 10;">
          <font>
             <Font name="Kanit Light" size="20.0" />
          </font>
       </TextField>
+      <PasswordField layoutX="1098.0" layoutY="425.0" prefHeight="50.0" prefWidth="440.0" promptText="กรอกรหัสผ่าน" style="-fx-border-radius: 10; -fx-background-color: #ffffff; -fx-border-radius: 10; -fx-border-color: #e2e2e2; -fx-border-width: 3;">
+         <font>
+            <Font name="Kanit Light" size="20.0" />
+         </font>
+      </PasswordField>
       <Text fill="#9c9c9c" layoutX="1098.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อบัญชี">
          <font>
             <Font name="Kanit Regular" size="24.0" />
