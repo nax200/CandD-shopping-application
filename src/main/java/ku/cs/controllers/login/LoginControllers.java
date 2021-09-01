@@ -16,8 +16,7 @@ public class LoginControllers {
     @FXML private PasswordField passwordField;
     @FXML private Label wrongUsernameOrPasswordLabel;
 
-    @FXML
-    public void initialize() {
+    @FXML public void initialize() {
 
     }
 
@@ -30,18 +29,18 @@ public class LoginControllers {
                 FXRouter.goTo("marketPlace");
             }
         } catch (Exception e) {
-            System.err.println("ผิดพลาด");
+            System.err.println("เข้าหน้า market ไม่ได้");
         }
 
     }
 
     @FXML
-    private void switchToCreateAccPage() throws IOException {
-        FXRouter.goTo("create-acc");
+    private void goToRegisterPage() throws IOException {
+        FXRouter.goTo("register");
     }
 
     @FXML
-    private void switchToCreditPage() throws IOException {
+    private void goToCreditPage() throws IOException {
         FXRouter.goTo("credit");
     }
 }

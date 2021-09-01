@@ -18,16 +18,16 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXRouter.bind(this, stage, "C&D Online Shopping", 1600,900);
+        FXRouter.bind(this, stage, "C&D Online Shopping", 1024,768);
         configRoute();
         FXRouter.goTo("login");
     }
 
     private static void configRoute() {
         String packageStr = "ku/cs/";
-        FXRouter.when("login", packageStr+ "loginpage/login.fxml");
-        FXRouter.when("create-acc", packageStr+ "loginpage/create-acc.fxml");
-        FXRouter.when("credit", packageStr+ "loginpage/credit.fxml");
+        FXRouter.when("login", packageStr+ "loginpage/loginpage.fxml");
+        FXRouter.when("register", packageStr+ "loginpage/registerpage.fxml");
+        FXRouter.when("credit", packageStr+ "loginpage/creditpage.fxml");
         FXRouter.when("marketPlace", packageStr+ "marketpage/market-place.fxml");
 
     }

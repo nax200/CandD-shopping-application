@@ -33,7 +33,7 @@ public class User {
             return false;
 
         } catch (Exception e) {
-            System.err.println("เกิดข้อผิดพลาด");
+            System.err.println("เกิดข้อผิดพลาดในช่วงตรวจสอบรหัส");
             return false;
         }
     }

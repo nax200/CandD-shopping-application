@@ -13,6 +13,9 @@ public class Register {
                 System.out.println("รหัสผ่านต่างกัน");
                 return false;
             }
+            if (password.equals("") || username.equals("") || name.equals("")){
+                return false;
+            }
             FileWriter fw = new FileWriter("src/main/resources/user/account.csv", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);

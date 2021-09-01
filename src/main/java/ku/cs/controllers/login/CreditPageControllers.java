@@ -9,7 +9,7 @@ import java.io.IOException;
 public class CreditPageControllers {
 
     @FXML
-    private void switchToLoginPage() throws IOException {
+    private void goToLoginPage() throws IOException {
         FXRouter.goTo("login");
     }
 }
