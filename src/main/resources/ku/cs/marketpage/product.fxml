@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.ProductController">
+   <children>
+      <BorderPane layoutX="-19.0" layoutY="294.0" prefHeight="768.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER_LEFT">
+               <top>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="53.0" prefWidth="1040.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#backToMarketPlaceButton" style="-fx-background-color: f5f5f5;" text="หน้าหลัก" textFill="#717171">
+                           <font>
+                              <Font name="Kanit Regular" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Label text="&gt;" textFill="#717171">
+                           <font>
+                              <Font name="Kanit Regular" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="เสื้อผ้าแฟชั่นลายฮิต" textFill="#717171">
+                           <font>
+                              <Font name="Kanit Regular" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </top>
+               <center>
+                  <HBox alignment="CENTER" prefHeight="576.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox prefHeight="566.0" prefWidth="576.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="452.0" prefWidth="556.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="221.0">
+                                       <children>
+                                          <ImageView fx:id="img" fitHeight="189.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../images/marketpage/img_1.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="20.0" right="10.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox prefHeight="438.0" prefWidth="315.0">
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="220.0">
+                                             <VBox.margin>
+                                                <Insets top="30.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label fx:id="nameLabel" text="เสื้อผ้าแฟชั่นลายฮิต" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="20.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="220.0">
+                                             <children>
+                                                <Label text="ราคา" textFill="#ff542f">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </HBox.margin>
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="priceLabel" text="250" textFill="#ff542f">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="บาท" textFill="#ff542f">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="315.0">
+                                             <children>
+                                                <Label text="สี" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <ChoiceBox fx:id="color" prefHeight="30.0" prefWidth="141.0" style="-fx-background-color: #E2E2E2; -fx-background-radius: 8;">
+                                                   <HBox.margin>
+                                                      <Insets left="50.0" />
+                                                   </HBox.margin>
+                                                </ChoiceBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="315.0">
+                                             <children>
+                                                <Label text="ขนาด" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <ChoiceBox fx:id="size" prefHeight="30.0" prefWidth="141.0" style="-fx-background-color: #E2E2E2; -fx-background-radius: 8;">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </ChoiceBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="315.0">
+                                             <children>
+                                                <Label text="หมวดหมู่" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label text="เสื้อผ้าแฟชั่น" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="จำนวน" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 10; -fx-background-color: #E2E2E2;" text="-" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Bold" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                <TextField alignment="CENTER" prefHeight="40.0" prefWidth="40.0" text="1">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 10; -fx-background-color: #E2E2E2;" text="+" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Bold" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="จำนวนสินค้าในคลัง" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label text="57" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="174.0" prefWidth="556.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="668.0">
+                                       <children>
+                                          <Label text="รายละเอียดสินค้า" textFill="#717171">
+                                             <font>
+                                                <Font name="Kanit Regular" size="18.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="20.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="120.0" prefWidth="631.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="100.0" prefWidth="559.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10;">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="711.0" prefWidth="390.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="573.0" prefWidth="390.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="110.0">
+                                             <children>
+                                                <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../images/marketpage/img_15.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <VBox prefHeight="100.0" prefWidth="177.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <VBox prefHeight="100.0" prefWidth="228.0">
+                                                   <children>
+                                                      <Label text="ร้านมั่งมี ร่ำรวยเงินทอง" textFill="#717171">
+                                                         <font>
+                                                            <Font name="Kanit Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="15.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Button mnemonicParsing="false" onAction="#goToShopButton" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 10;" text="ดูร้านค้า" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Kanit Regular" size="18.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <Label text="คะแนนร้านค้า" textFill="#717171">
+                                                               <font>
+                                                                  <Font name="Kanit Regular" size="18.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Label text="4.0" textFill="#717171">
+                                                               <font>
+                                                                  <Font name="Kanit Regular" size="18.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="375.0" prefWidth="358.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10;">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <HBox prefHeight="45.0" prefWidth="326.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="48.0" prefWidth="158.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Label text="รีวิวสินค้า" textFill="#717171">
+                                                               <font>
+                                                                  <Font name="Kanit Regular" size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label text="(3)" textFill="#717171">
+                                                               <font>
+                                                                  <Font name="Kanit Regular" size="16.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="5.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="10.0" />
+                                                         </padding>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <HBox prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Label text="4.0 / 5" textFill="#ff542f">
+                                                               <font>
+                                                                  <Font name="Kanit Regular" size="14.0" />
+                                                               </font>
+                                                               <padding>
+                                                                  <Insets left="10.0" />
+                                                               </padding>
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label prefHeight="25.0" prefWidth="89.0" text="ดูทั้งหมด &gt;" textFill="#717171">
+                                                         <font>
+                                                            <Font name="Kanit Regular" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                          <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="288.0" prefWidth="326.0" style="-fx-background-color: #f5f5f5;">
+                                             <content>
+                                                <VBox prefHeight="287.0" prefWidth="309.0">
+                                                   <children>
+                                                      <HBox prefHeight="100.0" prefWidth="281.0">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="46.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../../images/marketpage/img_4.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox prefHeight="96.0" prefWidth="150.0">
+                                                               <children>
+                                                                  <Label text="Somsak" textFill="#717171">
+                                                                     <font>
+                                                                        <Font name="Kanit Regular" size="14.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" top="15.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                                  <Label text="ผ้าดี ใส่แล้วสวย" textFill="#717171">
+                                                                     <font>
+                                                                        <Font name="Kanit Regular" size="14.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" top="15.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox prefHeight="200.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <HBox alignment="CENTER" prefHeight="84.0" prefWidth="129.0">
+                                                                     <children>
+                                                                        <Label text="01/07/2021" textFill="#717171">
+                                                                           <font>
+                                                                              <Font name="Kanit Regular" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../../../images/marketpage/img_16.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="5.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox prefHeight="100.0" prefWidth="280.0">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="46.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../../images/marketpage/img_4.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox prefHeight="96.0" prefWidth="150.0">
+                                                               <children>
+                                                                  <Label text="Suchart" textFill="#717171">
+                                                                     <font>
+                                                                        <Font name="Kanit Regular" size="14.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" top="15.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                                  <Label text="จัดส่งเร็วมาก ๆ" textFill="#717171">
+                                                                     <font>
+                                                                        <Font name="Kanit Regular" size="14.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" top="15.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox prefHeight="200.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <HBox alignment="CENTER" prefHeight="84.0" prefWidth="129.0">
+                                                                     <children>
+                                                                        <Label text="01/07/2021" textFill="#717171">
+                                                                           <font>
+                                                                              <Font name="Kanit Regular" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../../../images/marketpage/img_16.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="5.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox prefHeight="100.0" prefWidth="280.0">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="46.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../../images/marketpage/img_4.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox prefHeight="96.0" prefWidth="149.0">
+                                                               <children>
+                                                                  <Label text="Somsri422R" textFill="#717171">
+                                                                     <font>
+                                                                        <Font name="Kanit Regular" size="14.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" top="15.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                                  <Label prefHeight="25.0" prefWidth="108.0" text="คุ้มจริง ๆ คุ้มจริง ๆ ยิ่งกว่าคุ้มคุ้มทุกสิ่ง" textFill="#717171">
+                                                                     <font>
+                                                                        <Font name="Kanit Regular" size="14.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" top="15.0" />
+                                                                     </VBox.margin>
+                                                                  </Label>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox prefHeight="200.0" prefWidth="100.0">
+                                                               <children>
+                                                                  <HBox alignment="CENTER" prefHeight="84.0" prefWidth="129.0">
+                                                                     <children>
+                                                                        <Label text="01/07/2021" textFill="#717171">
+                                                                           <font>
+                                                                              <Font name="Kanit Regular" size="14.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fitHeight="28.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../../../images/marketpage/img_16.png" />
+                                                                           </image>
+                                                                           <HBox.margin>
+                                                                              <Insets left="5.0" />
+                                                                           </HBox.margin>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <HBox alignment="TOP_CENTER" prefHeight="191.0" prefWidth="390.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 10;" text="สร้างคำสั่งซื้อ" textFill="WHITE">
+                                       <font>
+                                          <Font name="Kanit Regular" size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets top="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+            </BorderPane>
+         </center>
+         <top>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="779.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="57.0" prefWidth="184.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fitHeight="76.8" fitWidth="152.96" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                 <image>
+                                    <Image url="@../../../images/marketpage/img_14.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <TextField prefHeight="36.0" prefWidth="565.0" promptText="ค้นหาสินค้า" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+                                 <font>
+                                    <Font name="Kanit Regular" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="32.0" style="-fx-background-color: #ffd12f;">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/marketpage/img.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="229.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="0.0" style="-fx-background-color: #ffd12f;">
+                           <graphic>
+                              <ImageView fitHeight="35.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/marketpage/img_13.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="50.0" prefWidth="174.0">
+                           <children>
+                              <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="44.0">
+                                       <children>
+                                          <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../images/marketpage/img_4.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <Label text="USER.NAME">
+                                       <font>
+                                          <Font name="Kanit Regular" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
