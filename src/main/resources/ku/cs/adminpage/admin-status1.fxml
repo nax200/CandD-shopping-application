@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ku.cs.controllers.admin.AdminstatusController"
+            prefHeight="768.0" prefWidth="1024.0">
+    <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="1024.0" style="-fx-background-color: #ffd12f;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="184.0">
+                <children>
+                    <ImageView fitHeight="76.8" fitWidth="152.96" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../images/marketpage/img_14.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="54.0" prefWidth="501.0">
+                <children>
+                    <TextField prefHeight="36.0" prefWidth="521.0" promptText="ค้นหาสินค้า" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+                        <font>
+                            <Font name="Kanit Regular" size="16.0" />
+                        </font>
+                    </TextField>
+                </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" prefWidth="50.0">
+                <children>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../images/marketpage/img.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" prefWidth="72.0">
+                <children>
+                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../images/marketpage/img_13.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color: #ffffff;">
+                <children>
+                    <HBox alignment="CENTER" prefHeight="60.0" prefWidth="57.0">
+                        <children>
+                            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../../images/marketpage/img_4.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </HBox>
+                    <Label text="USER.NAME">
+                        <font>
+                            <Font name="Kanit Regular" size="20.0" />
+                        </font>
+                    </Label>
+                </children>
+            </HBox>
+        </children>
+    </HBox>
+</AnchorPane>
