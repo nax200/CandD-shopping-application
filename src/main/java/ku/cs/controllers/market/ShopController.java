@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.input.MouseEvent;
+import com.github.saacsos.FXRouter;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import ku.cs.models.market.Product;
@@ -64,11 +66,32 @@ public class ShopController implements Initializable {
         }
     }
 
+    @FXML
     public void backToMarketPlaceButton(ActionEvent event){
         try {
-            com.github.saacsos.FXRouter.goTo("marketPlace");
+            FXRouter.goTo("marketPlace");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า marketPlace ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void goToEditProfile(ActionEvent event) {
+        try {
+            FXRouter.goTo("user-profile-edit");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า user-profile-edit ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void clickLogoBackToMarketPlace(MouseEvent event){
+        try {
+            FXRouter.goTo("marketPlace");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า market-place ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

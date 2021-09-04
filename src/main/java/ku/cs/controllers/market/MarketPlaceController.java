@@ -1,5 +1,6 @@
 package ku.cs.controllers.market;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -8,12 +9,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import ku.cs.models.market.Product;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.github.saacsos.FXRouter;
 
 public class MarketPlaceController implements Initializable{
 
@@ -66,6 +69,26 @@ public class MarketPlaceController implements Initializable{
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void goToEditProfile(ActionEvent event) {
+        try {
+            FXRouter.goTo("user-profile-edit");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า user-profile-edit ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void clickLogoBackToMarketPlace(MouseEvent event){
+        try {
+            FXRouter.goTo("marketPlace");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า market-place ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 }
