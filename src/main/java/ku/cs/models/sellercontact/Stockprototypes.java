@@ -1,6 +1,6 @@
 package ku.cs.models.sellercontact;
 
-public class Contactprototypes {
+public class Stockprototypes {
 
     private String name;
     private String quantity;

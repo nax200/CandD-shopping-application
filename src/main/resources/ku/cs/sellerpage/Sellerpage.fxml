@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -70,7 +73,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="331.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <HBox prefHeight="55.0" prefWidth="1020.0" />
+                        <HBox alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="978.0" />
                         <ScrollPane layoutX="74.0" layoutY="43.0" prefHeight="557.0" prefWidth="904.0">
                            <content>
                               <VBox fx:id="contactsLayout" prefHeight="539.0" prefWidth="912.0">
@@ -109,53 +112,6 @@
                                           </Label>
                                        </children>
                                     </HBox>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="902.0" spacing="5.0">
-                                       <children>
-                                          <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../images/sellerpage/profile.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label alignment="CENTER" contentDisplay="TOP" prefHeight="53.0" prefWidth="154.0" text="ชื่อสินค้าa">
-                                             <font>
-                                                <Font name="Kanit Regular" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" contentDisplay="TOP" prefHeight="53.0" prefWidth="81.0" text="n">
-                                             <font>
-                                                <Font name="Kanit Regular" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" contentDisplay="TOP" lineSpacing="5.0" prefHeight="53.0" prefWidth="101.0" text="n">
-                                             <font>
-                                                <Font name="Kanit Regular" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" contentDisplay="TOP" prefHeight="53.0" prefWidth="145.0" text="n">
-                                             <font>
-                                                <Font name="Kanit Regular" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" contentDisplay="TOP" prefHeight="53.0" prefWidth="122.0" text="n">
-                                             <font>
-                                                <Font name="Kanit Regular" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" contentDisplay="TOP" lineSpacing="5.0" prefHeight="53.0" prefWidth="133.0" text="n">
-                                             <font>
-                                                <Font name="Kanit Regular" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="68.0" spacing="10.0">
-                                             <children>
-                                                <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="60.0" style="-fx-background-radius: 10;" text="แก้ไข" />
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets left="10.0" />
-                                       </VBox.margin>
-                                    </HBox>
                                  </children>
                               </VBox>
                            </content>
@@ -168,9 +124,141 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                     </content>
                 </Tab>
-                <Tab text="     หมด     ">
+                <Tab text="     เพิ่มสินค้า     ">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="331.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="331.0">
+                     <children>
+                        <HBox prefHeight="579.0" prefWidth="1011.0" style="-fx-background-color: #ffffff;">
+                           <children>
+                              <VBox prefHeight="655.0" prefWidth="515.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="75.0" prefWidth="515.0">
+                                       <children>
+                                          <Label prefHeight="40.0" prefWidth="265.0" text="เพิ่มสินค้าเพื่อวางขาย">
+                                             <font>
+                                                <Font name="Kanit Regular" size="25.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="655.0" prefWidth="452.0">
+                                 <children>
+                                    <HBox prefHeight="46.0" prefWidth="452.0" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="452.0">
+                                       <children>
+                                          <Label prefHeight="31.0" prefWidth="159.0" text="                  ชื่อสินค้า" textAlignment="RIGHT">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefHeight="46.0" prefWidth="204.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="452.0">
+                                       <children>
+                                          <Label prefHeight="31.0" prefWidth="161.0" text="   รายละเอียดสินค้า">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea prefHeight="200.0" prefWidth="200.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="452.0">
+                                       <children>
+                                          <Label prefHeight="31.0" prefWidth="161.0" text="                        ราคา">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefHeight="46.0" prefWidth="201.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="452.0">
+                                       <children>
+                                          <Label prefHeight="31.0" prefWidth="161.0" text="                 หมวดหมู่">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <MenuButton mnemonicParsing="false">
+                                             <items>
+                                                <MenuItem mnemonicParsing="false" text="x" />
+                                                <MenuItem mnemonicParsing="false" text="y" />
+                                                <MenuItem mnemonicParsing="false" text="z" />
+                                             </items>
+                                          </MenuButton>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="452.0">
+                                       <children>
+                                          <Label prefHeight="31.0" prefWidth="161.0" text="จำนวนสินค้าในคลัง">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefHeight="46.0" prefWidth="90.0" />
+                                          <Label prefHeight="31.0" prefWidth="32.0" text="ชิ้น">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="452.0">
+                                       <children>
+                                          <Label prefHeight="31.0" prefWidth="230.0" text="แจ้งเตือนเมื่อสินค้าน้อยกว่า">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField prefHeight="47.0" prefWidth="90.0" />
+                                          <Label prefHeight="31.0" prefWidth="32.0" text="ชิ้น">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="69.0" prefWidth="452.0">
+                                       <children>
+                                          <Label prefHeight="31.0" prefWidth="161.0" text="               หมายเหตุ">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea prefHeight="200.0" prefWidth="200.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="93.0" prefWidth="452.0">
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT" prefHeight="93.0" prefWidth="216.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="196.0" style="-fx-background-radius: 10;" text="ยกเลิก">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="20.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER_LEFT" prefHeight="93.0" prefWidth="216.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="196.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 10;" text="บันทึกข้อมูล">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="20.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
                     </content>
                 </Tab>
             <Tab text="       สินค้าที่ถูกรายงาน       ">
