@@ -11,8 +11,8 @@ public class Login {
     public static boolean login(String username, String password){
         User user = new User();
         if(user.verifyLogin(username,password)){
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }

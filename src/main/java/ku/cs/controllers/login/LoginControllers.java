@@ -23,13 +23,21 @@ public class LoginControllers {
     @FXML
     private void handleLoginButton() {
         try {
-            if( Login.login( usernameTextField.getText(),passwordField.getText()) ) {
+            if(usernameTextField.getText().equals("") || passwordField.getText().equals("")){
+                wrongUsernameOrPasswordLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วน");
+            }
+            else if( !Login.login( usernameTextField.getText(),passwordField.getText()) ) {
                 wrongUsernameOrPasswordLabel.setText("ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง");
             }else {
-                FXRouter.goTo("marketPlace");
+                if(usernameTextField.getText().equals("admin")){
+                    FXRouter.goTo("admin");
+                }
+                else{
+                    FXRouter.goTo("marketPlace");
+                }
             }
         } catch (Exception e) {
-            System.err.println("เข้าหน้า market ไม่ได้");
+            System.err.println("เข้าหน้าหลังจากล็อกอินไม่ได้");
         }
 
     }

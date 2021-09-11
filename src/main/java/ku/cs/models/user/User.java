@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class User {
     private String name;
     private String username;
-    private boolean loginStatus;
 
 
     public boolean verifyLogin(String username, String password){
@@ -24,7 +23,6 @@ public class User {
                 if (username.equals(usernameFind) && password.equals(passwordFind)){
                     this.name = nameFind;
                     this.username = usernameFind;
-                    this.loginStatus = true;
                     System.out.println("เข้าสู่ระบบสำเร็จ");
                     return true;
                 }

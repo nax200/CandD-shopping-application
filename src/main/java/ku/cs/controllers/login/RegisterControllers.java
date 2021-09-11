@@ -1,11 +1,7 @@
 package ku.cs.controllers.login;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Popup;
-import javafx.stage.PopupWindow;
+import javafx.scene.control.*;
 import ku.cs.models.login.Register;
 import com.github.saacsos.FXRouter;
 
@@ -24,7 +20,7 @@ public class RegisterControllers {
         if(nameTextField.getText().equals("") || usernameTextField.getText().equals("") || passwordField.getText().equals("") || confirmPasswordField.getText().equals("")){
             errorLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วน");
         }
-        else if(!Register.checkUsername(usernameTextField.getText())){
+        else if(Register.checkSameUsername(usernameTextField.getText())){
             errorLabel.setText("ชื่อบัญชีนี้ถูกใช้แล้ว");
         }else {
             if(Register.Register(nameTextField.getText(), usernameTextField.getText(), passwordField.getText(), confirmPasswordField.getText())) {
