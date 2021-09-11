@@ -141,6 +141,7 @@
                                           </Label>
                                        </children>
                                     </HBox>
+                                    <HBox prefHeight="315.0" prefWidth="515.0" />
                                  </children>
                               </VBox>
                               <VBox prefHeight="655.0" prefWidth="452.0">
