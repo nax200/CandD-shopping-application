@@ -18,9 +18,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXRouter.bind(this, stage, "C&D Online Shopping", 1600,900);
+        FXRouter.bind(this, stage, "C&D Online Shopping", 1024,768);
         configRoute();
-        FXRouter.goTo("login");
+        FXRouter.goTo("admin");
     }
 
     private static void configRoute() {
@@ -29,6 +29,7 @@ public class App extends Application {
         FXRouter.when("create-acc", packageStr+ "loginpage/create-acc.fxml");
         FXRouter.when("credit", packageStr+ "loginpage/credit.fxml");
         FXRouter.when("marketPlace", packageStr+ "marketpage/market-place.fxml");
+        FXRouter.when("admin", packageStr+ "adminpage/admin-user1.fxml");
 
     }
 
