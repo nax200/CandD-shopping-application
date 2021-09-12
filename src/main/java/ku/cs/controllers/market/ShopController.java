@@ -2,28 +2,25 @@ package ku.cs.controllers.market;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ChoiceBox;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
+import com.github.saacsos.FXRouter;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import ku.cs.models.market.Product;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import com.github.saacsos.FXRouter;
+import java.util.ResourceBundle;
 
-public class MarketPlaceController implements Initializable{
+public class ShopController implements Initializable {
 
-    @FXML private ChoiceBox<String> category;
     @FXML private ChoiceBox<String> sort;
-    @FXML private Label categoryLabel;
-    @FXML private GridPane grid;
+    @FXML private GridPane listProduct;
 
     private List<Product> products = new ArrayList<>();
 
@@ -31,7 +28,7 @@ public class MarketPlaceController implements Initializable{
         List<Product> products = new ArrayList<>();
         Product product;
 
-        for (int i = 0; i < 20; i++){
+        for (int i = 0; i < 10; i++){
             product = new Product();
             product.setName("เสื้อแฟชั่นลายฮิต");
             product.setPrice(250);
@@ -42,10 +39,8 @@ public class MarketPlaceController implements Initializable{
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL location, ResourceBundle resourceBundle) {
         sort.getItems().addAll("ราคาน้อยไปมาก", "ราคามากไปน้อย", "ความนิยม");
-        category.getItems().addAll("เครื่องแต่งกาย", "เสื้อผ้าแฟชั่น");
-        category.setOnAction(actionEvent -> categoryLabel.setText(category.getValue()));
 
         products.addAll(getData());
         int column  = 0;
@@ -59,16 +54,25 @@ public class MarketPlaceController implements Initializable{
                 CardController cardController = fxmlLoader.getController();
                 cardController.setData(products.get(i));
 
-                if(column == 4){
+                if(column == 5){
                     column = 0;
                     row++;
                 }
-
-                grid.add(anchorPane, column++, row);
+                listProduct.add(anchorPane, column++, row);
                 GridPane.setMargin(anchorPane, new Insets(9));
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void backToMarketPlaceButton(ActionEvent event){
+        try {
+            FXRouter.goTo("marketPlace");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า marketPlace ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
