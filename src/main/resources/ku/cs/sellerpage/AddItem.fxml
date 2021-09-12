@@ -62,16 +62,16 @@
             <HBox prefHeight="58.0" prefWidth="28.0" />
          </children>
       </HBox>
-      <VBox layoutX="6.0" layoutY="58.0" prefHeight="712.0" prefWidth="1025.0">
+      <VBox layoutX="6.0" layoutY="58.0" prefHeight="660.0" prefWidth="1025.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="1025.0">
+            <HBox alignment="BOTTOM_LEFT" prefHeight="60.0" prefWidth="1025.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleStockButton" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10;" text="      สินค้าทั้งหมด      ">
+                  <Button mnemonicParsing="false" onAction="#handleStockButton" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10; -fx-background-color: #FFD12F;" text="      สินค้าทั้งหมด      ">
                      <font>
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleProductOnTheShelfButton" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10;" text="     วางขายอยู่      ">
+                  <Button mnemonicParsing="false" onAction="#handleProductOnTheShelfButton" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10; -fx-background-color: #FFD12F;" text="     วางขายอยู่      ">
                      <font>
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
@@ -81,11 +81,20 @@
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleProductReportButton" prefHeight="45.0" prefWidth="233.0" style="-fx-background-radius: 10;" text="สินค้าที่ถูกรายงาน">
+                  <Button mnemonicParsing="false" onAction="#handleProductReportButton" prefHeight="45.0" prefWidth="233.0" style="-fx-background-radius: 10; -fx-background-color: #FFD12F;" text="สินค้าที่ถูกรายงาน">
                      <font>
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
                   </Button>
+                  <VBox alignment="TOP_RIGHT" prefHeight="70.0" prefWidth="224.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleMarketButton" style="-fx-background-color: #FFD12F; -fx-background-radius: 9;" text="กลับ">
+                           <font>
+                              <Font name="Kanit Regular" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <HBox prefHeight="595.0" prefWidth="1025.0" style="-fx-background-color: #ffffff;">

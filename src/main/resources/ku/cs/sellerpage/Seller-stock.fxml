@@ -69,21 +69,30 @@
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleProductOnTheShelfButton" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10;" text="     วางขายอยู่      ">
+                  <Button mnemonicParsing="false" onAction="#handleProductOnTheShelfButton" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10; -fx-background-color: #FFD12F;" text="     วางขายอยู่      ">
                      <font>
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleAddItemButton" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10;" text="     เพิ่มสินค้า     ">
+                  <Button mnemonicParsing="false" onAction="#handleAddItemButton" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10; -fx-background-color: #FFD12F;" text="     เพิ่มสินค้า     ">
                      <font>
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleProductReportButton" prefHeight="45.0" prefWidth="233.0" style="-fx-background-radius: 10;" text="สินค้าที่ถูกรายงาน">
+                  <Button mnemonicParsing="false" onAction="#handleProductReportButton" prefHeight="45.0" prefWidth="233.0" style="-fx-background-radius: 10; -fx-background-color: #FFD12F;" text="สินค้าที่ถูกรายงาน">
                      <font>
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
                   </Button>
+                  <VBox alignment="TOP_RIGHT" prefHeight="64.0" prefWidth="222.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleMarketButton" style="-fx-background-color: #FFD12F; -fx-background-radius: 9;" text="กลับ">
+                           <font>
+                              <Font name="Kanit Regular" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <HBox prefHeight="659.0" prefWidth="1025.0">
@@ -92,7 +101,7 @@
                      <content>
                         <VBox fx:id="contactsLayout" prefHeight="638.0" prefWidth="1014.0">
                            <children>
-                              <HBox prefHeight="55.0" prefWidth="926.0" spacing="5.0">
+                              <HBox prefHeight="55.0" prefWidth="926.0" spacing="5.0" style="-fx-background-color: #dcdada;">
                                  <children>
                                     <Label alignment="CENTER" contentDisplay="TOP" prefHeight="53.0" prefWidth="230.0" text="     ชื่อสินค้า">
                                        <font>

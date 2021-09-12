@@ -70,6 +70,17 @@ public class SellerPage implements Initializable {
 
     }
 
+    @FXML
+    public void handleMarketButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("marketPlace");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า marketPlace ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
+    }
+
 
 
 

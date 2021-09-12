@@ -18,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXRouter.bind(this, stage, "C&D Online Shopping", 1600,900);
+        FXRouter.bind(this, stage, "C&D Online Shopping", 1024,768);
         configRoute();
         FXRouter.goTo("login");
     }
@@ -30,6 +30,13 @@ public class App extends Application {
         FXRouter.when("credit", packageStr+ "loginpage/credit.fxml");
         FXRouter.when("marketPlace", packageStr+ "marketpage/market-place.fxml");
 
+
+        FXRouter.when("AddItem", packageStr+ "sellerpage/AddItem.fxml");
+        FXRouter.when("EditItem", packageStr+ "sellerpage/EditItem.fxml");
+        FXRouter.when("SellPage-stock", packageStr+ "sellerpage/Seller-stock.fxml");
+        FXRouter.when("AddItem", packageStr+ "sellerpage/AddItem.fxml");
+        FXRouter.when("ProductOnTheShelf", packageStr+ "sellerpage/ProductOnTheShelf.fxml");
+        FXRouter.when("ProductReport", packageStr+ "sellerpage/ProductReport.fxml");
     }
 
     static void setRoot(String fxml) throws IOException {
