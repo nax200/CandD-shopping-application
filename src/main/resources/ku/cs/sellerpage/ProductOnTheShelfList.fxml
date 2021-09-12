@@ -36,7 +36,7 @@
       </Label>
       <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="78.0">
          <children>
-            <Button fx:id="modify" mnemonicParsing="false" prefHeight="35.0" prefWidth="68.0" text="แก้ไข...">
+            <Button fx:id="modify" mnemonicParsing="false" onAction="#handleEditItemButton" prefHeight="35.0" prefWidth="68.0" text="แก้ไข...">
                <font>
                   <Font name="Kanit Regular" size="16.0" />
                </font>

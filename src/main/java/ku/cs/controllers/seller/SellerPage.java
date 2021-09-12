@@ -1,4 +1,5 @@
 package ku.cs.controllers.seller;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -35,6 +36,41 @@ public class SellerPage implements Initializable {
 
         }
     }
+
+    @FXML
+    public void handleProductOnTheShelfButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("ProductOnTheShelf");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า Stock ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
+    }
+
+    @FXML
+    public void handleAddItemButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("AddItem");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า AddItem ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
+    }
+
+    @FXML
+    public void handleProductReportButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("ProductReport");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า ProductReport ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
+    }
+
+
 
 
     private List<Stockprototypes> prototype(){
@@ -221,6 +257,16 @@ public class SellerPage implements Initializable {
 
         return ls;
     }
+    /*
+    * FXRouter.when("SellerStockList", packageStr+ "sellerpage/SellerStockList.fxml");
+        FXRouter.when("AddItem", packageStr+ "sellerpage/AddItem.fxml");
+        FXRouter.when("EditItem", packageStr+ "sellerpage/EditItem.fxml");
+        FXRouter.when("SellPage-stock", packageStr+ "sellerpage/Seller-stock.fxml");
+        FXRouter.when("AddItem", packageStr+ "sellerpage/AddItem.fxml");
+        FXRouter.when("ProductOnTheShelfList", packageStr+ "sellerpage/ProductOnTheShelfList.fxml");
+        FXRouter.when("ProductOnTheShelf", packageStr+ "sellerpage/ProductOnTheShelf.fxml");
+        FXRouter.when("ProductReport", packageStr+ "sellerpage/ProductReport.fxml");
+        * ไว้ใส่ในหน้าapp*/
 
 
 }

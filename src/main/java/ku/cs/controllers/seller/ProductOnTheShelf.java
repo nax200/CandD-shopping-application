@@ -1,5 +1,6 @@
 package ku.cs.controllers.seller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,6 +38,39 @@ public class ProductOnTheShelf implements Initializable {
             }
 
         }
+    }
+
+    @FXML
+    public void handleStockButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("SellPage-stock");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า Stock ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
+    }
+
+    @FXML
+    public void handleAddItemButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("AddItem");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า AddItem ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
+    }
+
+    @FXML
+    public void handleProductReportButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("ProductReport");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า ProductReport ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
     }
 
     private List<ProductOnTheShelfprototypes> prototype(){

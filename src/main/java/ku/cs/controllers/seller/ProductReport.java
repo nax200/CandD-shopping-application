@@ -5,8 +5,7 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class AddItem {
-
+public class ProductReport {
 
     @FXML
     public void handleStockButton(ActionEvent actionEvent) {
@@ -24,22 +23,21 @@ public class AddItem {
         try {
             com.github.saacsos.FXRouter.goTo("ProductOnTheShelf");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า Stock ไม่ได้");
+            System.err.println("ไปที่หน้า ProductOnTheShelf ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
     }
 
     @FXML
-    public void handleProductReportButton(ActionEvent actionEvent) {
+    public void handleAddItemButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("ProductReport");
+            com.github.saacsos.FXRouter.goTo("AddItem");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า ProductReport ไม่ได้");
+            System.err.println("ไปที่หน้า AddItem ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
     }
-
 
 }//end

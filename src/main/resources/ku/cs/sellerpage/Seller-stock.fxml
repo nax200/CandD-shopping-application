@@ -11,7 +11,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="768" prefWidth="1024" style="-fx-background-color: #DCDADA;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.seller.SellerPage">
    <children>
       <HBox maxHeight="58.0" prefHeight="58.0" prefWidth="599.0" style="-fx-background-color: #FFD12F; -fx-max-height: 57.6;">
@@ -69,17 +68,17 @@
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10;" text="     วางขายอยู่      ">
+                  <Button mnemonicParsing="false" onAction="#handleProductOnTheShelfButton" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10;" text="     วางขายอยู่      ">
                      <font>
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10;" text="     เพิ่มสินค้า     ">
+                  <Button mnemonicParsing="false" onAction="#handleAddItemButton" prefHeight="45.0" prefWidth="187.0" style="-fx-background-radius: 10;" text="     เพิ่มสินค้า     ">
                      <font>
                         <Font name="Kanit Regular" size="20.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="233.0" style="-fx-background-radius: 10;" text="สินค้าที่ถูกรายงาน">
+                  <Button mnemonicParsing="false" onAction="#handleProductReportButton" prefHeight="45.0" prefWidth="233.0" style="-fx-background-radius: 10;" text="สินค้าที่ถูกรายงาน">
                      <font>
                         <Font name="Kanit Regular" size="20.0" />
                      </font>

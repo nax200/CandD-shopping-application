@@ -82,7 +82,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="452.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="73.0" style="-fx-background-radius: 9;" text="&lt;--กลับ">
+                        <Button mnemonicParsing="false" onAction="#handleProductOnTheShelfButton" prefHeight="29.0" prefWidth="73.0" style="-fx-background-radius: 9;" text="&lt;--กลับ">
                            <font>
                               <Font name="Kanit Regular" size="13.0" />
                            </font>

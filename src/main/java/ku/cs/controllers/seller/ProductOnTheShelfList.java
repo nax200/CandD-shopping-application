@@ -1,5 +1,6 @@
 package ku.cs.controllers.seller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -8,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.models.sellercontact.ProductOnTheShelfprototypes;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -45,6 +47,17 @@ public class ProductOnTheShelfList implements Initializable {
         price.setText(prototype.getPrice());
         note.setText(prototype.getNote());
 
+
+    }
+
+    @FXML
+    public void handleEditItemButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("EditItem");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า EditItem ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
 
     }
 
