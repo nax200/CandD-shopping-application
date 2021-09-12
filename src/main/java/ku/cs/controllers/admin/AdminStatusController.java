@@ -37,6 +37,25 @@ public class AdminStatusController implements Initializable {
             System.err.println("ให้ตรวจสอบ route");
         }
     }
+
+    @FXML
+    void goToEditProfile(ActionEvent event){
+        try {
+            com.github.saacsos.FXRouter.goTo("user-profile-edit");
+        }catch (IOException e){
+            System.err.println("ไปที่หน้า user-profile ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+    @FXML
+    void logOut(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<AdminUserReport> users = new ArrayList<>(adminUserStatus());
