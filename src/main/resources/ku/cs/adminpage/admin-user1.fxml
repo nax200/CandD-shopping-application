@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminuserController">
+   <children>
+      <HBox maxHeight="58.0" prefHeight="58.0" prefWidth="599.0" style="-fx-background-color: #FFD12F; -fx-max-height: 57.6;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="57.6" fitWidth="152.96">
+               <image>
+                  <Image url="@../../../images/adminpage/imagelogo.png" />
+               </image>
+            </ImageView>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="หน้าจัดการส่วนของผู้ดูแลระบบ">
+                     <font>
+                        <Font name="Kanit Regular" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="190.0" prefHeight="58.0" prefWidth="426.0" style="-fx-background-color: #FFD12F;" AnchorPane.leftAnchor="598.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-max-height: 50;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="59.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/marketpage/img_4.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="144.0">
+                     <children>
+                        <Label text="user.name">
+                           <font>
+                              <Font name="Kanit Regular" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="58.0" prefWidth="28.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="437.0" layoutY="254.0" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #FFFFFFF;" />
+      <HBox alignment="CENTER" layoutX="522.0" layoutY="192.0" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #FFFFFFF;" />
+      <TabPane layoutX="23.0" layoutY="58.0" prefHeight="710.0" prefWidth="1024.0" style="-fx-tab-max-height: 50; -fx-tab-min-height: 50; -fx-tab-min-width: 200;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="58.0">
+        <tabs>
+          <Tab style="-fx-font-family: Kanit; -fx-font-size: 18;" text="รายชื่อของผู้ใช้ทั้งหมด">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="619.0" prefWidth="946.0">
+                     <children>
+                        <HBox prefHeight="652.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ScrollPane prefHeight="652.0" prefWidth="1024.0">
+                                 <content>
+                                    <VBox fx:id="userList" prefHeight="650.0" prefWidth="1022.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="226.0" style="-fx-background-color: #DCDADA;">
+                                             <children>
+                                                <Label alignment="CENTER" prefWidth="170.0" text="ภาพผู้ใช้">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefWidth="240.0" text="Username">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefWidth="210.0" text="ชื่อร้านค้า">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefWidth="210.0" text="วันเวลาเข้าใช้ล่าสุด">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" prefWidth="180.0" text="สถานะ">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../images/marketpage/img_4.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets left="60.0" />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                                <Label prefWidth="240.0" text="Username">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="75.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label prefWidth="210.0" text="ชื่อร้านค้า">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefWidth="210.0" text="วันเวลาเข้าใช้ล่าสุด">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox prefWidth="150.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab style="-fx-font-family: Kanit; -fx-font-size: 18;" text="สถานะของผู้ใช้">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="331.0" />
+               </content>
+            </Tab>
+          <Tab style="-fx-font-family: Kanit; -fx-font-size: 18;" text="รายงานความไม่เหมาะสม">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab style="-fx-font-family: Kanit; -fx-font-size: 18;" text="จัดการหน้าร้านค้า">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

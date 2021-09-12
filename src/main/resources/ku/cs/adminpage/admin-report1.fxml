@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminreportController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="57.6" prefWidth="1024.0" style="-fx-background-color: #FFD12F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="76.8" fitWidth="152.96">
+                     <image>
+                        <Image url="@../../../images/adminpage/imagelogo.png" />
+                     </image>
+                  </ImageView>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="หน้าจัดการส่วนของผู้ดูแลระบบ" textAlignment="CENTER" wrappingWidth="280.0">
+                           <font>
+                              <Font name="Kanit Regular" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt; รายงานความไม่เหมาะสม" textAlignment="CENTER">
+                           <font>
+                              <Font name="Kanit Regular" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="58.0" prefWidth="164.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-max-height: 50;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="54.0" prefWidth="70.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/marketpage/img_4.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="123.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="user.name">
+                           <font>
+                              <Font name="Kanit Regular" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
