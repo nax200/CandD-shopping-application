@@ -20,7 +20,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "C&D Online Shopping", 1024,768);
         configRoute();
-        FXRouter.goTo("admin");
+        FXRouter.goTo("login");
     }
 
     private static void configRoute() {
@@ -29,7 +29,9 @@ public class App extends Application {
         FXRouter.when("create-acc", packageStr+ "loginpage/create-acc.fxml");
         FXRouter.when("credit", packageStr+ "loginpage/credit.fxml");
         FXRouter.when("marketPlace", packageStr+ "marketpage/market-place.fxml");
-        FXRouter.when("admin", packageStr+ "adminpage/admin-user1.fxml");
+        FXRouter.when("admin-user", packageStr+ "adminpage/admin-user1.fxml");
+        FXRouter.when("admin-report", packageStr+ "adminpage/admin-report1.fxml");
+        FXRouter.when("admin-status", packageStr+ "adminpage/admin-status1.fxml");
 
     }
 

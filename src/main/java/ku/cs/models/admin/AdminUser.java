@@ -6,6 +6,7 @@ public class AdminUser {
     private String shopname;
     private String lastlogin;
     private boolean userstatus;
+    private int trytoLoginCount;
 
     public String getUsername() {
         return username;
@@ -47,4 +48,11 @@ public class AdminUser {
         this.userstatus = userstatus;
     }
 
+    public int getTrytoLoginCount() {
+        return trytoLoginCount;
+    }
+
+    public void setTrytoLoginCount(int trytoLoginCount) {
+        this.trytoLoginCount = trytoLoginCount;
+    }
 }

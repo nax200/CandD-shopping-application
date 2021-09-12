@@ -1,5 +1,6 @@
 package ku.cs.controllers.admin;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,10 +14,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AdminuserController implements Initializable{
+public class AdminUserController implements Initializable{
     @FXML
     private VBox userList;
 
+    @FXML
+    void userReportButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("admin-report");
+        }catch (IOException e){
+            System.err.println("ไปหน้า userReport ไม่ได้");
+            System.err.println("ให้ตรวจสอบ route");
+        }
+    }
+
+    @FXML
+    void userStatusButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("admin-status");
+        }catch (IOException e){
+            System.err.println("ไปหน้า userStatus ไม่ได้");
+            System.err.println("ให้ตรวจสอบ route");
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<AdminUser> users = new ArrayList<>(adminUsers());
@@ -25,8 +45,8 @@ public class AdminuserController implements Initializable{
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/adminpage/admin-user-list.fxml"));
             try{
                 HBox hBox = fxmlLoader.load();
-                AdminuserListController adul = fxmlLoader.getController();
-                adul.setData(users.get(i));
+                AdminUserListController adminuserListController = fxmlLoader.getController();
+                adminuserListController.setData(users.get(i));
                 userList.getChildren().add(hBox);
             } catch (IOException e){
                 e.printStackTrace();
@@ -34,6 +54,8 @@ public class AdminuserController implements Initializable{
         }
 
     }
+
+
     private List<AdminUser> adminUsers(){
         List<AdminUser> ls = new ArrayList<>();
         AdminUser user = new AdminUser();
