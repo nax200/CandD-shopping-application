@@ -236,6 +236,7 @@
                         <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="18.0" style="-fx-background-color: #ffd12f;">
                            <items>
                               <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ตั้งค่าบัญชี" />
+                              <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
                            </items>
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">

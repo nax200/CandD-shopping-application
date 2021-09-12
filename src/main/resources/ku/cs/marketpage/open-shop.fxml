@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="ku.cs.controllers.market.OpenShopController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.OpenShopController">
     <children>
         <BorderPane layoutX="-9.0" layoutY="304.0" prefHeight="768.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -60,6 +60,7 @@
                                 <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="18.0" style="-fx-background-color: #ffd12f;">
                                     <items>
                                         <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ตั้งค่าบัญชี" />
+                              <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
                                     </items>
                                     <graphic>
                                         <ImageView fitHeight="35.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
