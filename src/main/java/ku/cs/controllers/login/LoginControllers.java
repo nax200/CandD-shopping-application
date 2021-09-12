@@ -30,7 +30,7 @@ public class LoginControllers {
                 wrongUsernameOrPasswordLabel.setText("ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง");
             }else {
                 if(usernameTextField.getText().equals("admin")){
-                    FXRouter.goTo("admin");
+                    FXRouter.goTo("admin-user");
                 }
                 else{
                     FXRouter.goTo("marketPlace");

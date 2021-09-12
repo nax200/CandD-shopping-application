@@ -6,15 +6,12 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import ku.cs.models.admin.AdminUser;
+import ku.cs.models.admin.AdminUserReport;
 
 import java.net.URL;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-public class AdminuserListController implements Initializable {
+public class AdminReportListController implements Initializable {
     @FXML
     private ImageView img;
 
@@ -22,27 +19,30 @@ public class AdminuserListController implements Initializable {
     private Label username;
 
     @FXML
-    private Label shopname;
+    private Label reportType;
 
     @FXML
-    private Label lastlogin;
+    private Label moreDetailReport;
 
     @FXML
-    private ChoiceBox<?> statususer;
+    private Label messageReport;
 
-    public void setData(AdminUser user){
+    @FXML
+    private ChoiceBox<String> statusUserReport;
+
+    public void setData(AdminUserReport user){
         Image imgProfile = new Image(getClass().getResourceAsStream(user.getImgSrc()));
         img.setImage(imgProfile);
         username.setText(user.getUsername());
-        shopname.setText(user.getShopname());
-        lastlogin.setText(user.getLastlogin());
-        
+        reportType.setText(user.getReportType());
+        moreDetailReport.setText(user.getMoreDetailReport());
+        messageReport.setText(user.getMessagetoReport());
+        statusUserReport.setValue("UnCheck");
+        statusUserReport.getItems().addAll("UnCheck","Checked");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
 }
-

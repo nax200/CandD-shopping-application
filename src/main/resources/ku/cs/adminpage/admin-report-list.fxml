@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminReportListController">
+    <children>
+        <ImageView fx:id="img" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../images/marketpage/img_4.png" />
+            </image>
+            <HBox.margin>
+                <Insets left="20.0" />
+            </HBox.margin>
+        </ImageView>
+        <Label fx:id="username" prefWidth="155.0" text="Username">
+            <font>
+                <Font name="Kanit Regular" size="18.0" />
+            </font>
+            <HBox.margin>
+                <Insets left="17.0" />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="reportType" prefWidth="210.0" text="ประเภทการรายงาน">
+            <font>
+                <Font name="Kanit Regular" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="moreDetailReport" prefWidth="230.0" text="รายละเอียดเพิ่มเติม">
+            <font>
+                <Font name="Kanit Regular" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="messageReport" prefWidth="230.0" text="ข้อความที่ถูกรายงาน">
+            <font>
+                <Font name="Kanit Regular" size="18.0" />
+            </font>
+        </Label>
+        <ChoiceBox fx:id="statusUserReport" prefHeight="25.0" prefWidth="105.0" />
+    </children>
+</HBox>

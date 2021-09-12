@@ -29,10 +29,16 @@ public class App extends Application {
         FXRouter.when("register", packageStr+ "loginpage/registerpage.fxml");
         FXRouter.when("credit", packageStr+ "loginpage/creditpage.fxml");
         FXRouter.when("marketPlace", packageStr+ "marketpage/market-place.fxml");
+
         FXRouter.when("user-profile-edit", packageStr+ "marketpage/user-profile-edit.fxml");
         FXRouter.when("open-shop", packageStr+ "marketpage/open-shop.fxml");
         FXRouter.when("product", packageStr+ "marketpage/product.fxml");
         FXRouter.when("shop", packageStr+ "marketpage/shop.fxml");
+
+        FXRouter.when("admin-user", packageStr+ "adminpage/admin-user1.fxml");
+        FXRouter.when("admin-report", packageStr+ "adminpage/admin-report1.fxml");
+        FXRouter.when("admin-status", packageStr+ "adminpage/admin-status1.fxml");
+
     }
 
     static void setRoot(String fxml) throws IOException {
