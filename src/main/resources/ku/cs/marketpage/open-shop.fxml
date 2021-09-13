@@ -179,7 +179,7 @@
                                                                         </HBox>
                                                                         <HBox alignment="CENTER" prefHeight="107.0" prefWidth="315.0">
                                                                             <children>
-                                                                                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 10;" text="เปิดร้านค้า" textFill="#717171">
+                                                                                <Button mnemonicParsing="false" onAction="#handleStockButton" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 10;" text="เปิดร้านค้า" textFill="#717171">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="20.0" />
                                                                                     </font>

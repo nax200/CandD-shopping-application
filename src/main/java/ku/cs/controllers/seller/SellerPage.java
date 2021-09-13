@@ -98,8 +98,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("moss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("nax");
+        prototype.setImgSrc("/images/creditpage/nax.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -108,8 +108,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mossss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("bamboo");
+        prototype.setImgSrc("/images/creditpage/moss.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -117,18 +117,8 @@ public class SellerPage implements Initializable {
         prototype.setQuantity("1");
         ls.add(prototype);
 
-        prototype.setName("mosssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
-        prototype.setNameProduct("เสื้อผ้า");
-        prototype.setPrice("399");
-        prototype.setProductStatus("รอจัดส่ง");
-        prototype.setParcelNumber("1234567890123");
-        prototype.setQuantity("1");
-        ls.add(prototype);
-
-        prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("bamboo");
+        prototype.setImgSrc("/images/creditpage/bamboo.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -137,8 +127,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("ploy");
+        prototype.setImgSrc("/images/creditpage/ploy.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -147,8 +137,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("nax");
+        prototype.setImgSrc("/images/creditpage/nax.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -157,8 +147,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("mos");
+        prototype.setImgSrc("/images/creditpage/moss.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -167,8 +157,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("ploy");
+        prototype.setImgSrc("/images/creditpage/ploy.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -177,8 +167,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("bamboo");
+        prototype.setImgSrc("/images/creditpage/bamboo.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -187,8 +177,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("nax");
+        prototype.setImgSrc("/images/creditpage/nax.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -197,8 +187,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("ploy");
+        prototype.setImgSrc("/images/creditpage/ploy.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -207,8 +197,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("bamboo");
+        prototype.setImgSrc("/images/creditpage/bamboo.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -217,8 +207,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("nax");
+        prototype.setImgSrc("/images/creditpage/nax.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -227,8 +217,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("mos");
+        prototype.setImgSrc("/images/creditpage/moss.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -237,8 +227,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("nax");
+        prototype.setImgSrc("/images/creditpage/nax.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -247,8 +237,8 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("ploy");
+        prototype.setImgSrc("/images/creditpage/ploy.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");
@@ -257,8 +247,18 @@ public class SellerPage implements Initializable {
         ls.add(prototype);
 
         prototype = new Stockprototypes();
-        prototype.setName("mosssssss");
-        prototype.setImgSrc("/images/sellerpage/profile.png");
+        prototype.setName("bamboo");
+        prototype.setImgSrc("/images/creditpage/bamboo.jpg");
+        prototype.setNameProduct("เสื้อผ้า");
+        prototype.setPrice("399");
+        prototype.setProductStatus("รอจัดส่ง");
+        prototype.setParcelNumber("1234567890123");
+        prototype.setQuantity("1");
+        ls.add(prototype);
+
+        prototype = new Stockprototypes();
+        prototype.setName("bamboo");
+        prototype.setImgSrc("/images/creditpage/bamboo.jpg");
         prototype.setNameProduct("เสื้อผ้า");
         prototype.setPrice("399");
         prototype.setProductStatus("รอจัดส่ง");

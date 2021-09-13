@@ -96,11 +96,11 @@ public class ProductOnTheShelf implements Initializable {
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
-        prototype.setNameProduct("เสื้อผ้าคุณภาพ");
+        prototype.setNameProduct("กางเกงคุณภาพ");
         prototype.setTreasury("100");
-        prototype.setPrice("250");
+        prototype.setPrice("199");
         prototype.setNote("-");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
+        prototype.setImgSrc("/images/marketpage/img_8.png");
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
@@ -112,11 +112,11 @@ public class ProductOnTheShelf implements Initializable {
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
-        prototype.setNameProduct("เสื้อผ้าคุณภาพ");
+        prototype.setNameProduct("กางเกงคุณภาพ");
         prototype.setTreasury("100");
-        prototype.setPrice("250");
+        prototype.setPrice("199");
         prototype.setNote("-");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
+        prototype.setImgSrc("/images/marketpage/img_8.png");
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
@@ -128,11 +128,11 @@ public class ProductOnTheShelf implements Initializable {
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
-        prototype.setNameProduct("เสื้อผ้าคุณภาพ");
+        prototype.setNameProduct("กางเกงคุณภาพ");
         prototype.setTreasury("100");
-        prototype.setPrice("250");
+        prototype.setPrice("199");
         prototype.setNote("-");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
+        prototype.setImgSrc("/images/marketpage/img_8.png");
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
@@ -144,11 +144,11 @@ public class ProductOnTheShelf implements Initializable {
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
-        prototype.setNameProduct("เสื้อผ้าคุณภาพ");
+        prototype.setNameProduct("กางเกงคุณภาพ");
         prototype.setTreasury("100");
-        prototype.setPrice("250");
+        prototype.setPrice("199");
         prototype.setNote("-");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
+        prototype.setImgSrc("/images/marketpage/img_8.png");
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
@@ -160,11 +160,11 @@ public class ProductOnTheShelf implements Initializable {
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
-        prototype.setNameProduct("เสื้อผ้าคุณภาพ");
+        prototype.setNameProduct("กางเกงคุณภาพ");
         prototype.setTreasury("100");
-        prototype.setPrice("250");
+        prototype.setPrice("199");
         prototype.setNote("-");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
+        prototype.setImgSrc("/images/marketpage/img_8.png");
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
@@ -176,11 +176,11 @@ public class ProductOnTheShelf implements Initializable {
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
-        prototype.setNameProduct("เสื้อผ้าคุณภาพ");
+        prototype.setNameProduct("กางเกงคุณภาพ");
         prototype.setTreasury("100");
-        prototype.setPrice("250");
+        prototype.setPrice("199");
         prototype.setNote("-");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
+        prototype.setImgSrc("/images/marketpage/img_8.png");
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
@@ -192,11 +192,11 @@ public class ProductOnTheShelf implements Initializable {
         ls.add(prototype);
 
         prototype = new ProductOnTheShelfprototypes();
-        prototype.setNameProduct("เสื้อผ้าคุณภาพ");
+        prototype.setNameProduct("กางเกงคุณภาพ");
         prototype.setTreasury("100");
-        prototype.setPrice("250");
+        prototype.setPrice("199");
         prototype.setNote("-");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
+        prototype.setImgSrc("/images/marketpage/img_8.png");
         ls.add(prototype);
 
 

@@ -58,4 +58,15 @@ public class OpenShopController {
         }
     }
 
+    @FXML
+    public void handleStockButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("SellPage-stock");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า Stock ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
+    }
+
 }
