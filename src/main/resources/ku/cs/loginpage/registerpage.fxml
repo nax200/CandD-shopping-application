@@ -146,7 +146,7 @@
                   <VBox prefHeight="26.0" prefWidth="379.0" />
                         <VBox alignment="CENTER" prefHeight="48.0" prefWidth="377.0">
                             <children>
-                                <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="36.0" prefWidth="266.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 8;" text="สร้างบัญชีผู้ใช้ใหม่" textFill="WHITE">
+                                <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="36.0" prefWidth="266.0" stylesheets="@style.css" text="สร้างบัญชีผู้ใช้ใหม่" textFill="WHITE">
                                     <font>
                                         <Font name="Kanit Regular" size="15.0" />
                                     </font>

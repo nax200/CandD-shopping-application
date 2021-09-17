@@ -16,7 +16,7 @@
       <HBox alignment="TOP_RIGHT" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox prefHeight="768.0" prefWidth="2.0" />
-            <VBox alignment="TOP_CENTER" prefHeight="768.0" prefWidth="379.0" style="-fx-background-color: #FFFFFF;">
+            <VBox alignment="TOP_CENTER" prefHeight="768.0" prefWidth="379.0" styleClass="tab-color" stylesheets="@style.css">
                <children>
                   <VBox prefHeight="54.0" prefWidth="377.0" />
                   <VBox alignment="CENTER" prefHeight="153.0" prefWidth="377.0">
@@ -100,7 +100,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="48.0" prefWidth="377.0">
                      <children>
-                        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="36.0" prefWidth="266.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 8;" text="เข้าสู่ระบบ" textFill="WHITE">
+                        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="36.0" prefWidth="266.0" stylesheets="@style.css" text="เข้าสู่ระบบ" textFill="WHITE">
                            <font>
                               <Font name="Kanit Regular" size="15.0" />
                            </font>
@@ -110,7 +110,7 @@
                   <VBox prefHeight="235.0" prefWidth="377.0" />
                   <VBox alignment="CENTER" layoutX="10.0" layoutY="382.0" prefHeight="48.0" prefWidth="377.0">
                      <children>
-                        <Button fx:id="goToRegisterPageButton" mnemonicParsing="false" onAction="#goToRegisterPage" prefHeight="36.0" prefWidth="266.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e2e2e2; -fx-border-width: 2;" text="สร้างบัญชีผู้ใช้ใหม่" textFill="#9d9d9d">
+                        <Button fx:id="goToRegisterPageButton" mnemonicParsing="false" onAction="#goToRegisterPage" prefHeight="36.0" prefWidth="266.0" styleClass="button-2" stylesheets="@style.css" text="สร้างบัญชีผู้ใช้ใหม่" textFill="#9d9d9d">
                            <font>
                               <Font name="Kanit Regular" size="15.0" />
                            </font>

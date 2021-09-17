@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.login.CreditPageControllers">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
@@ -138,7 +137,7 @@
             </HBox>
             <VBox alignment="TOP_CENTER" prefHeight="305.0" prefWidth="1024.0">
                <children>
-                  <Button fx:id="goToLoginPageButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToLoginPage" style="-fx-background-color: #FFD12F; -fx-background-radius: 8;" text="ย้อนกลับสู่หน้าเข้าระบบ" textFill="WHITE">
+                  <Button fx:id="goToLoginPageButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToLoginPage" stylesheets="@style.css" text="ย้อนกลับสู่หน้าเข้าระบบ" textFill="WHITE">
                      <font>
                         <Font name="Kanit Regular" size="21.0" />
                      </font>
