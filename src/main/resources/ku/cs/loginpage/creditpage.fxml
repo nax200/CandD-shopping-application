@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -137,10 +138,13 @@
             </HBox>
             <VBox alignment="TOP_CENTER" prefHeight="305.0" prefWidth="1024.0">
                <children>
-                  <Button fx:id="goToLoginPageButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToLoginPage" stylesheets="@style.css" text="ย้อนกลับสู่หน้าเข้าระบบ" textFill="WHITE">
+                  <Button fx:id="goToLoginPageButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToLoginPage" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="ย้อนกลับสู่หน้าเข้าระบบ" textFill="WHITE">
                      <font>
                         <Font name="Kanit Regular" size="21.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </VBox>

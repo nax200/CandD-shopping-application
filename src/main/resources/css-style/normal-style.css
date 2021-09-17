@@ -1,0 +1,63 @@
+/*@import 'https://fonts.googleapis.com/css?family=Kanit|Prompt';
+body{
+    font-family: 'Kanit', sans-serif;
+}
+*/
+
+/*ใช้สำหรับพื้นหลังสีเหลือง*/
+.tab-bg-yellow{
+    -fx-background-color: #FFD12F;
+}
+
+/*ใช้สำหรับพื้นหลังสีขาว*/
+.tab-bg2{
+    -fx-background-color: #FFFFFF;
+}
+
+/*แถบด้านบนสุด*/
+.title-tab-yellow{
+    -fx-background-color: #FFD12F;
+}
+
+/*ปุ่มสีเหลืองที่มีเอฟเฟต์กด*/
+.button-yellow{
+    -fx-background-color: #FFD12F;
+    -fx-background-radius: 8;
+    -fx-border-width: 10;
+}
+.button-yellow:hover{
+    -fx-background-color: #FFC700;
+}
+.button-yellow:pressed{
+    -fx-background-color: #F0BF11;
+}
+
+/*ปุ่มที่มีเฉพาะขอบเทาตรงกลางเป็นสีขาว*/
+.button-grey-border{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-border-width: 2;
+    -fx-border-color: #E2E2E2;
+    -fx-border-radius: 8;
+}
+.button-grey-border:hover{
+    -fx-background-color: #F9F9F9;
+}
+.button-grey-border:pressed{
+    -fx-background-color: #EEEEEE;
+}
+
+/*กรอบสีเทา ใช้ใน textField*/
+.box-grey-border{
+    -fx-text-fill: #9C9C9C;
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-border-width: 2;
+    -fx-border-color: #E2E2E2;
+    -fx-border-radius: 8;
+}
+
+/*สีตัวอักษรแบบที่ 1*/
+.text-type1{
+    -fx-text-fill: #9C9C9C;
+}
