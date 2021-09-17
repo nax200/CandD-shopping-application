@@ -17,6 +17,4 @@ module ku.cs {
     exports ku.cs.controllers.seller;
     opens ku.cs.controllers.seller to javafx.fxml;
 
-    exports ku.cs.controllers;
-    opens ku.cs.controllers to javafx.fxml;
 }
