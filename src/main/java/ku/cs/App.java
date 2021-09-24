@@ -20,7 +20,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "C&D Online Shopping", 1024,768);
         configRoute();
-        FXRouter.goTo("login");
+        FXRouter.goTo("stock-total");
     }
 
     private static void configRoute() {
@@ -39,18 +39,12 @@ public class App extends Application {
         FXRouter.when("admin-report", packageStr+ "adminpage/admin-report1.fxml");
         FXRouter.when("admin-status", packageStr+ "adminpage/admin-status1.fxml");
 
-        FXRouter.when("AddItem", packageStr+ "sellerpage/AddItem.fxml");
-        FXRouter.when("EditItem", packageStr+ "sellerpage/EditItem.fxml");
-        FXRouter.when("SellPage-stock", packageStr+ "sellerpage/Seller-stock.fxml");
-        FXRouter.when("AddItem", packageStr+ "sellerpage/AddItem.fxml");
-        FXRouter.when("ProductOnTheShelf", packageStr+ "sellerpage/ProductOnTheShelf.fxml");
-        FXRouter.when("ProductReport", packageStr+ "sellerpage/ProductReport.fxml");
-        FXRouter.when("NewSellerStochTotal", packageStr+ "sellerpage/newSellerStockTotal.fxml");
-        FXRouter.when("NewSellerStochFew", packageStr+ "sellerpage/newSellerStockFew.fxml");
-        FXRouter.when("NewOrderlistProduct", packageStr+ "sellerpage/newOrderlistProduct.fxml");
-        FXRouter.when("NewShipped", packageStr+ "sellerpage/newShipped.fxml");
-        FXRouter.when("NewAddItem", packageStr+ "sellerpage/newAddItem.fxml");
-        FXRouter.when("NewEditShop", packageStr+ "sellerpage/newEditShop.fxml");
+        FXRouter.when("stock-total", packageStr+ "sellerpage/stock-total.fxml");
+        FXRouter.when("low-stock", packageStr+ "sellerpage/low-stock.fxml");
+        FXRouter.when("new-order", packageStr+ "sellerpage/new-order.fxml");
+        FXRouter.when("shipped-order", packageStr+ "sellerpage/shipped-order.fxml");
+        FXRouter.when("add-item", packageStr+ "sellerpage/add-item.fxml");
+        FXRouter.when("edit-shop", packageStr+ "sellerpage/edit-shop.fxml");
     }
 
     static void setRoot(String fxml) throws IOException {

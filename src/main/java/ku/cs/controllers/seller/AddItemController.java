@@ -5,55 +5,57 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class NewEditShop {
+public class AddItemController {
     @FXML
-    public void handleStockFewButton(ActionEvent actionEvent) {
+    public void handleLowStockButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("NewSellerStochFew");
+            com.github.saacsos.FXRouter.goTo("low-stock");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewSellerStochFew ไม่ได้");
+            System.err.println("ไปที่หน้า low-stock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
     }
 
     @FXML
-    public void handleOrderlistButton(ActionEvent actionEvent) {
+    public void handleNewOrderButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("NewOrderlistProduct");
+            com.github.saacsos.FXRouter.goTo("new-order");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewOrderlistProduct ไม่ได้");
+            System.err.println("ไปที่หน้า new-order ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
     }
 
     @FXML
-    public void handleShippedButton(ActionEvent actionEvent) {
+    public void handleShippedOrderButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("NewShipped");
+            com.github.saacsos.FXRouter.goTo("shipped-order");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewShipped ไม่ได้");
+            System.err.println("ไปที่หน้า shipped-order ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
     }
+
     @FXML
     public void handleStockTotalButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("NewSellerStochTotal");
+            com.github.saacsos.FXRouter.goTo("stock-total");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewSellerStochTotal ไม่ได้");
+            System.err.println("ไปที่หน้า stock-total ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
     }
+
     @FXML
     public void handleAddItemButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("NewAddItem");
+            com.github.saacsos.FXRouter.goTo("add-item");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewAddItem ไม่ได้");
+            System.err.println("ไปที่หน้า add-item ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
@@ -61,12 +63,11 @@ public class NewEditShop {
     @FXML
     public void handleEditShopButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("NewEditShop");
+            com.github.saacsos.FXRouter.goTo("edit-shop");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewEditShop ไม่ได้");
+            System.err.println("ไปที่หน้า edit-shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
     }
-
 }

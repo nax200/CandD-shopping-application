@@ -1,16 +1,16 @@
 package ku.cs.controllers.seller;
 
-import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
-import ku.cs.models.sellercontact.NewStokTotal;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import ku.cs.models.sellercontact.NewOrder;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NewSellerStockTotalList implements Initializable {
-
+public class NewOrderListController implements Initializable {
     @FXML
     private ImageView img;
 
@@ -21,25 +21,29 @@ public class NewSellerStockTotalList implements Initializable {
     private Label nameProduct;
 
     @FXML
-    private Label price;
+    private Label priceSum;
 
     @FXML
     private Label quantity;
 
+    @FXML
+    private Label trackingNumber;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-    public void setData(NewStokTotal prototype){
+    public void setData(NewOrder prototype){
         Image imgProfile;
         imgProfile = new Image(getClass().getResourceAsStream(prototype.getImgSrc()));
         img.setImage(imgProfile);
 
         id_Product.setText(prototype.getId_Product());
         nameProduct.setText(prototype.getNameProduct());
-        price.setText(prototype.getPrice());
+        priceSum.setText(prototype.getPriceSum());
         quantity.setText(prototype.getQuantity());
+        trackingNumber.setText(prototype.getTrackingNumber());
     }
+
 }//end

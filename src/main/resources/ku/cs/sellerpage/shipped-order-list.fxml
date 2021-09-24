@@ -6,17 +6,17 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="116.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.seller.NewSellerStockFewList">
+<HBox prefHeight="116.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.seller.ShippedOrderListController">
     <children>
         <HBox prefHeight="100.0" prefWidth="124.0">
             <children>
                 <ImageView fx:id="img" fitHeight="99.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../../images/marketpage/img_1.png" />
-                    </image></ImageView>
+                    </image>
+                </ImageView>
             </children>
         </HBox>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="124.0">
@@ -37,46 +37,43 @@
                 </Label>
             </children>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="146.0">
+        <HBox alignment="CENTER" prefHeight="116.0" prefWidth="107.0">
             <children>
-                <Label fx:id="price" alignment="CENTER" prefHeight="28.0" prefWidth="123.0" text="199" textFill="#6f6f6f">
+                <Label fx:id="priceSum" alignment="CENTER" prefHeight="28.0" prefWidth="80.0" text="199" textFill="#6f6f6f">
                     <font>
                         <Font name="Kanit Regular" size="13.0" />
                     </font>
                 </Label>
             </children>
         </HBox>
-        <HBox prefHeight="100.0" prefWidth="146.0">
+        <HBox alignment="CENTER" prefHeight="116.0" prefWidth="69.0">
             <children>
-                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="52.0">
-                    <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: E2E2E2;" text="-" textFill="#6f6f6f">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                    </children>
-                </VBox>
-                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="46.0">
-                    <children>
-                        <Label fx:id="quantity" text="n" textFill="#6f6f6f" />
-                    </children>
-                </VBox>
-                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="31.0">
-                    <children>
-                        <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="20.0" style="-fx-background-color: E2E2E2;" text="+" textFill="#6f6f6f">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                    </children>
-                </VBox>
+                <Label fx:id="quantity" alignment="CENTER" prefHeight="28.0" prefWidth="80.0" text="n" textFill="#6f6f6f">
+                    <font>
+                        <Font name="Kanit Regular" size="13.0" />
+                    </font>
+                </Label>
             </children>
         </HBox>
-        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="88.0">
+        <HBox alignment="CENTER" prefHeight="116.0" prefWidth="143.0">
             <children>
-                <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="62.0" style="-fx-background-radius: 9; -fx-background-color: E2E2E2;" text="แก้ไข..." textFill="#6f6f6f">
+                <Label fx:id="trackingNumber" alignment="CENTER" prefHeight="28.0" prefWidth="154.0" text="ED 1234 5678 9 TH" textFill="#6f6f6f">
+                    <font>
+                        <Font name="Kanit Regular" size="13.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="116.0" prefWidth="55.0">
+            <children>
+                <Button mnemonicParsing="false" style="-fx-background-radius: 9; -fx-background-color: E2E2E2;" text="เพื่ม" textFill="#6f6f6f">
+                    <font>
+                        <Font name="Kanit Regular" size="13.0" />
+                    </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+                </Button>
             </children>
         </HBox>
     </children>

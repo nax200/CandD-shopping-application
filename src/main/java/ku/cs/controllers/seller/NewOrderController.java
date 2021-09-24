@@ -6,8 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import ku.cs.models.sellercontact.NewOrderlist;
-import ku.cs.models.sellercontact.NewStokTotal;
+import ku.cs.models.sellercontact.NewOrder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,60 +14,61 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class NewOrderlistProduct implements Initializable {
+public class NewOrderController implements Initializable {
 
     @FXML
     private VBox contactsLayout;
 
+    @FXML
+    public void handleLowStockButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("low-stock");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า low-stock ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
+    }
+
+    @FXML
+    public void handleShippedOrderButton(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("shipped-order");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า shipped-order ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+
+    }
 
     @FXML
     public void handleStockTotalButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("NewSellerStochTotal");
+            com.github.saacsos.FXRouter.goTo("stock-total");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewSellerStochTotal ไม่ได้");
+            System.err.println("ไปที่หน้า stock-total ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
     }
 
-    @FXML
-    public void handleStockFewButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("NewSellerStochFew");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewSellerStochFew ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-
-    }
-
-    @FXML
-    public void handleShippedButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("NewShipped");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewShipped ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-
-    }
     @FXML
     public void handleAddItemButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("NewAddItem");
+            com.github.saacsos.FXRouter.goTo("add-item");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewAddItem ไม่ได้");
+            System.err.println("ไปที่หน้า add-item ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
     }
+
     @FXML
     public void handleEditShopButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("NewEditShop");
+            com.github.saacsos.FXRouter.goTo("edit-shop");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า NewEditShop ไม่ได้");
+            System.err.println("ไปที่หน้า edit-shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
@@ -76,16 +76,16 @@ public class NewOrderlistProduct implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<NewOrderlist> prototype = new ArrayList<>(prototype());
+        List<NewOrder> prototype = new ArrayList<>(prototype());
         for (int i = 0; i < prototype.size(); i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/newOrderlistProductList.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/new-order-list.fxml"));
 
             try {
 
                 HBox hBox = fxmlLoader.load();
-                NewOrderlistProductList nopl = fxmlLoader.getController();
-                nopl.setData(prototype.get(i));
+                NewOrderListController newOrderlistProductList = fxmlLoader.getController();
+                newOrderlistProductList.setData(prototype.get(i));
                 contactsLayout.getChildren().add(hBox);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -95,9 +95,9 @@ public class NewOrderlistProduct implements Initializable {
 
     }
 
-    private List<NewOrderlist> prototype() {
-        List<NewOrderlist> ls = new ArrayList<>();
-        NewOrderlist prototype = new NewOrderlist();
+    private List<NewOrder> prototype() {
+        List<NewOrder> ls = new ArrayList<>();
+        NewOrder prototype = new NewOrder();
 
         prototype.setId_Product("P2109180001");
         prototype.setImgSrc("/images/marketpage/img_1.png");
@@ -107,7 +107,7 @@ public class NewOrderlistProduct implements Initializable {
         prototype.setTrackingNumber("ED 1234 5678 9 TH");
         ls.add(prototype);
 
-        prototype = new NewOrderlist();
+        prototype = new NewOrder();
         prototype.setId_Product("P2109180002");
         prototype.setImgSrc("/images/marketpage/img_6.png");
         prototype.setPriceSum("259");

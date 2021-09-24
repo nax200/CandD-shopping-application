@@ -1,6 +1,6 @@
 package ku.cs.models.sellercontact;
 
-public class NewOrderlist {
+public class NewOrder {
     private String imgSrc;
     private String id_Product;
     private String nameProduct;

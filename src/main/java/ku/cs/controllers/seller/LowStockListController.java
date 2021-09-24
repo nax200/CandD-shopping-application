@@ -5,12 +5,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import ku.cs.models.sellercontact.NewOrderlist;
+import ku.cs.models.sellercontact.StockTotal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NewShippedList implements Initializable {
+public class LowStockListController implements Initializable {
     @FXML
     private ImageView img;
 
@@ -21,29 +21,24 @@ public class NewShippedList implements Initializable {
     private Label nameProduct;
 
     @FXML
-    private Label priceSum;
+    private Label price;
 
     @FXML
     private Label quantity;
-
-    @FXML
-    private Label trackingNumber;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-    public void setData(NewOrderlist prototype){
+    public void setData(StockTotal prototype){
         Image imgProfile;
         imgProfile = new Image(getClass().getResourceAsStream(prototype.getImgSrc()));
         img.setImage(imgProfile);
 
         id_Product.setText(prototype.getId_Product());
         nameProduct.setText(prototype.getNameProduct());
-        priceSum.setText(prototype.getPriceSum());
+        price.setText(prototype.getPrice());
         quantity.setText(prototype.getQuantity());
-        trackingNumber.setText(prototype.getTrackingNumber());
     }
-
 }//end
