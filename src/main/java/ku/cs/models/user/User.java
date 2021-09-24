@@ -1,39 +1,34 @@
 package ku.cs.models.user;
 
-import java.io.File;
-import java.util.Scanner;
-
 public class User {
-    private String name;
     private String username;
+    private String password;
+    private String lastTimeLoggedIn;
 
+    public User(String username, String password,String lastTimeLoggedIn) {
+        this.username = username;
+        this.password = password;
+        this.lastTimeLoggedIn = lastTimeLoggedIn;
 
-    public boolean verifyLogin(String username, String password){
-        String nameFind = "";
-        String usernameFind = "";
-        String passwordFind = "";
-        try {
-            Scanner x = new Scanner(new File("src/main/resources/user/account.csv"));
-            x.useDelimiter("[,\n]");
-
-            while(x.hasNext()){
-                nameFind = x.next();
-                usernameFind = x.next();
-                passwordFind = x.next();
-                if (username.equals(usernameFind) && password.equals(passwordFind)){
-                    this.name = nameFind;
-                    this.username = usernameFind;
-                    System.out.println("เข้าสู่ระบบสำเร็จ");
-                    return true;
-                }
-            }
-            System.out.println("ชื่อหรือรหัสผ่านไม่ถูกต้อง");
-            return false;
-
-        } catch (Exception e) {
-            System.err.println("เกิดข้อผิดพลาดในช่วงตรวจสอบรหัส");
-            return false;
-        }
     }
+
+    public String toCsv() {
+        return "User," + username + "," +password + "," + lastTimeLoggedIn;
+   }
+
+    public boolean isUsername(String Username) {
+        return this.username.equals(Username);
+    }
+
+    public String getUsername(){
+        return username;
+   }
+    public String getPassword(){
+        return password;
+   }
+    public String getLastTimeLoggedIn() { return lastTimeLoggedIn; }
+
+
+    public void setLastTimeLoggedIn(String time){ lastTimeLoggedIn = time; }
 
 }

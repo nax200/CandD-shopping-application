@@ -10,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 import com.github.saacsos.FXRouter;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import ku.cs.models.market.Product;
+import ku.cs.models.shop.Product;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class ShopController implements Initializable {
             product = new Product();
             product.setName("เสื้อแฟชั่นลายฮิต");
             product.setPrice(250);
-            product.setImages("/images/marketpage/img_1.png");
+            product.setImageFilePath("/images/marketpage/img_1.png");
             products.add(product);
         }
         return products;
@@ -69,7 +69,7 @@ public class ShopController implements Initializable {
     @FXML
     public void backToMarketPlaceButton(ActionEvent event){
         try {
-            FXRouter.goTo("marketPlace");
+            FXRouter.goTo("market-place");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า marketPlace ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -89,7 +89,7 @@ public class ShopController implements Initializable {
     @FXML
     void clickLogoBackToMarketPlace(MouseEvent event){
         try {
-            FXRouter.goTo("marketPlace");
+            FXRouter.goTo("market-place");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า market-place ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

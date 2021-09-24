@@ -31,7 +31,7 @@ public class OpenShopController {
     @FXML
     void clickLogoBackToMarketPlace(MouseEvent event){
         try {
-            FXRouter.goTo("marketPlace");
+            FXRouter.goTo("market-place");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า market-place ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #FFD12F;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.login.LoginControllers">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #FFD12F;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.login.LoginPageControllers">
    <children>
       <HBox alignment="TOP_RIGHT" prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -96,7 +96,7 @@
                         <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="377.0">
                            <children>
                               <HBox prefHeight="59.0" prefWidth="61.0" />
-                              <Label fx:id="wrongUsernameOrPasswordLabel" textFill="#df0000">
+                              <Label fx:id="messageLabel" textFill="#df0000">
                                  <font>
                                     <Font name="Kanit Light" size="13.0" />
                                  </font>

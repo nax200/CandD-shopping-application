@@ -28,16 +28,16 @@ public class App extends Application {
         FXRouter.when("login", packageStr+ "loginpage/loginpage.fxml");
         FXRouter.when("register", packageStr+ "loginpage/registerpage.fxml");
         FXRouter.when("credit", packageStr+ "loginpage/creditpage.fxml");
-        FXRouter.when("marketPlace", packageStr+ "marketpage/market-place.fxml");
 
+        FXRouter.when("market-place", packageStr+ "marketpage/market-place.fxml");
         FXRouter.when("user-profile-edit", packageStr+ "marketpage/user-profile-edit.fxml");
         FXRouter.when("open-shop", packageStr+ "marketpage/open-shop.fxml");
         FXRouter.when("product", packageStr+ "marketpage/product.fxml");
         FXRouter.when("shop", packageStr+ "marketpage/shop.fxml");
 
-        FXRouter.when("admin-user", packageStr+ "adminpage/admin-user1.fxml");
-        FXRouter.when("admin-report", packageStr+ "adminpage/admin-report1.fxml");
-        FXRouter.when("admin-status", packageStr+ "adminpage/admin-status1.fxml");
+        FXRouter.when("admin-user", packageStr+ "adminpage/admin-user1.fxml"); // admin-user-view
+        FXRouter.when("admin-report", packageStr+ "adminpage/admin-report1.fxml"); // admin-reported-list
+        FXRouter.when("admin-status", packageStr+ "adminpage/admin-status1.fxml"); // admin-blocked-list
 
         FXRouter.when("AddItem", packageStr+ "sellerpage/AddItem.fxml");
         FXRouter.when("EditItem", packageStr+ "sellerpage/EditItem.fxml");

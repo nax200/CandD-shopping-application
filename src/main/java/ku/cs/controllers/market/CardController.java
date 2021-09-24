@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import ku.cs.models.market.Product;
+import ku.cs.models.shop.Product;
 import java.io.IOException;
 
 public class CardController {
@@ -20,7 +20,7 @@ public class CardController {
         this.product = product;
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPrice()+"");
-        Image image = new Image(getClass().getResourceAsStream(product.getImages()));
+        Image image = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
         img.setImage(image);
     }
 
