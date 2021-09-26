@@ -16,6 +16,10 @@ public class Customer extends User{
         this.imageFilePath = imageFilePath;
     }
 
+    public Customer(String username,String password,String lastTimeLoggedIn){
+        super(username, password, lastTimeLoggedIn);
+    }
+
     public String getUserID() {
         return userID;
     }
@@ -24,12 +28,22 @@ public class Customer extends User{
         return name;
     }
 
+    @Override
     public boolean isBlocked() {
         return isBlocked;
     }
 
+    @Override
     public String getShopName() {
         return shopName;
+    }
+
+    @Override
+    public String getIsUserBlockedToString(){
+        if(isBlocked){
+            return "ถูกจำกัด";
+        }
+        return "ปกติ";
     }
 
     public String getImageFilePath() {

@@ -23,10 +23,18 @@ public class User {
     public String getUsername(){
         return username;
    }
+
     public String getPassword(){
         return password;
    }
+
     public String getLastTimeLoggedIn() { return lastTimeLoggedIn; }
+
+    public String getShopName(){return "-";}
+
+    public boolean isBlocked(){return false;}
+
+    public String getIsUserBlockedToString(){return "ปกติ";}
 
 
     public void setLastTimeLoggedIn(String time){ lastTimeLoggedIn = time; }

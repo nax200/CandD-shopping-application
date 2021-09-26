@@ -29,6 +29,10 @@ public class UserList {
         return false;
     }
 
+    public User getUser(int i){
+        return users.get(i);
+    }
+
 
     public String toCsv() {
         String result = "";

@@ -1,3 +1,4 @@
 Admin,admin,1234,240921
-Customer,2109240001,test,1234,,test,true,No-shop,No-pic
-Customer,2109240001,test02,1234,,test2,false,No-shop,No-pic
+Customer,2109240001,test,1234,54321,test,true,No-shop,No-pic
+Customer,2109240001,test02,1234,54321,test2,false,No-shop,No-pic
+Customer,2109240001,moss,12345,,moss,false,No-shop,No-pic
