@@ -61,3 +61,30 @@ body{
 .text-type1{
     -fx-text-fill: #9C9C9C;
 }
+
+/*choiceBox สีเทา*/
+.choiceBox-grey-border{
+    -fx-background-color: #E2E2E2;
+    -fx-background-radius: 8;
+}
+.choiceBox-grey-border:hover{
+    -fx-background-color: #E0DEDE;
+}
+.choiceBox-grey-border:pressed{
+    -fx-background-color: #EEEEEE;
+}
+
+/*button ขอบสีเทาตรงกลางสีเทาอ่อน*/
+.button-grey2-border{
+    -fx-background-color: #f1f1f1;
+    -fx-background-radius: 8;
+    -fx-border-width: 2;
+    -fx-border-color: #C4C4C4;
+    -fx-border-radius: 8;
+}
+.button-grey2-border:hover{
+    -fx-background-color: #F9F9F9;
+}
+.button-grey2-border:pressed{
+    -fx-background-color: #EEEEEE;
+}

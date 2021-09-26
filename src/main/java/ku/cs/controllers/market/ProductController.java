@@ -31,7 +31,7 @@ public class ProductController implements Initializable {
         try {
             FXRouter.goTo("market-place");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า marketPlace ไม่ได้");
+            System.err.println("ไปที่หน้า market-place ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
@@ -72,6 +72,27 @@ public class ProductController implements Initializable {
             FXRouter.goTo("login");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void goToPurchase(ActionEvent event) {
+
+        try {
+            FXRouter.goTo("purchase");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า purchase ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void goToOpenShop(ActionEvent event){
+        try {
+            FXRouter.goTo("open-shop");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า open-shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

@@ -34,6 +34,8 @@ public class App extends Application {
         FXRouter.when("open-shop", packageStr+ "marketpage/open-shop.fxml");
         FXRouter.when("product", packageStr+ "marketpage/product.fxml");
         FXRouter.when("shop", packageStr+ "marketpage/shop.fxml");
+        FXRouter.when("purchase", packageStr+ "marketpage/purchase.fxml");
+        FXRouter.when("order", packageStr+ "marketpage/order.fxml");
 
         FXRouter.when("admin-user", packageStr+ "adminpage/admin-user1.fxml"); // admin-user-view
         FXRouter.when("admin-report", packageStr+ "adminpage/admin-report1.fxml"); // admin-reported-list

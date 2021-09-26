@@ -40,7 +40,7 @@ public class ShopController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resourceBundle) {
-        sort.getItems().addAll("ราคาน้อยไปมาก", "ราคามากไปน้อย", "ความนิยม");
+        sort.getItems().addAll("ราคาน้อยไปมาก", "ราคามากไปน้อย");
 
         products.addAll(getData());
         int column  = 0;
@@ -63,16 +63,6 @@ public class ShopController implements Initializable {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void backToMarketPlaceButton(ActionEvent event){
-        try {
-            FXRouter.goTo("market-place");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า marketPlace ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
@@ -102,6 +92,26 @@ public class ShopController implements Initializable {
             FXRouter.goTo("login");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void goToOpenShop(ActionEvent event){
+        try {
+            FXRouter.goTo("open-shop");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า open-shop ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void backToProductButton(ActionEvent event){
+        try {
+            FXRouter.goTo("product");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า product ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="280.0" prefWidth="170.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.CardController">
+<AnchorPane onMouseClicked="#goToProductPage" prefHeight="280.0" prefWidth="170.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="ku.cs.controllers.market.CardController">
     <children>
         <VBox alignment="CENTER" prefHeight="280.0" prefWidth="170.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
             <children>
@@ -83,4 +84,7 @@
             </children>
         </VBox>
     </children>
+    <cursor>
+        <Cursor fx:constant="HAND" />
+    </cursor>
 </AnchorPane>
