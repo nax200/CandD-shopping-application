@@ -39,12 +39,12 @@ public class App extends Application {
         FXRouter.when("admin-report", packageStr+ "adminpage/admin-report1.fxml"); // admin-reported-list
         FXRouter.when("admin-status", packageStr+ "adminpage/admin-status1.fxml"); // admin-blocked-list
 
-        FXRouter.when("AddItem", packageStr+ "sellerpage/AddItem.fxml");
-        FXRouter.when("EditItem", packageStr+ "sellerpage/EditItem.fxml");
-        FXRouter.when("SellPage-stock", packageStr+ "sellerpage/Seller-stock.fxml");
-        FXRouter.when("AddItem", packageStr+ "sellerpage/AddItem.fxml");
-        FXRouter.when("ProductOnTheShelf", packageStr+ "sellerpage/ProductOnTheShelf.fxml");
-        FXRouter.when("ProductReport", packageStr+ "sellerpage/ProductReport.fxml");
+        FXRouter.when("stock-total", packageStr+ "sellerpage/stock-total.fxml");
+        FXRouter.when("low-stock", packageStr+ "sellerpage/low-stock.fxml");
+        FXRouter.when("new-order", packageStr+ "sellerpage/new-order.fxml");
+        FXRouter.when("shipped-order", packageStr+ "sellerpage/shipped-order.fxml");
+        FXRouter.when("add-item", packageStr+ "sellerpage/add-item.fxml");
+        FXRouter.when("edit-shop", packageStr+ "sellerpage/edit-shop.fxml");
     }
 
     static void setRoot(String fxml) throws IOException {
