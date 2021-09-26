@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
@@ -17,92 +18,6 @@
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.OpenShopController">
     <children>
         <BorderPane layoutX="-9.0" layoutY="304.0" prefHeight="768.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <top>
-                <HBox alignment="CENTER" prefHeight="57.0" prefWidth="200.0" BorderPane.alignment="TOP_CENTER">
-                    <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="779.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
-                            <children>
-                                <HBox alignment="CENTER" prefHeight="57.0" prefWidth="184.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <ImageView fitHeight="76.8" fitWidth="152.96" onMouseClicked="#clickLogoBackToMarketPlace" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                                            <image>
-                                                <Image url="@../../../images/marketpage/img_14.png" />
-                                            </image>
-                                        </ImageView>
-                                    </children>
-                                </HBox>
-                                <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <TextField prefHeight="36.0" prefWidth="565.0" promptText="ค้นหาสินค้า" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
-                                            <font>
-                                                <Font name="Kanit Regular" size="16.0" />
-                                            </font>
-                                        </TextField>
-                                    </children>
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="32.0" style="-fx-background-color: #ffd12f;">
-                                            <graphic>
-                                                <ImageView fitHeight="25.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                                                    <image>
-                                                        <Image url="@../../../images/marketpage/img.png" />
-                                                    </image>
-                                                </ImageView>
-                                            </graphic>
-                                        </Button>
-                                    </children>
-                                </HBox>
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="229.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
-                            <children>
-                                <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="18.0" style="-fx-background-color: #ffd12f;">
-                                    <items>
-                                        <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ตั้งค่าบัญชี" />
-                              <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
-                                    </items>
-                                    <graphic>
-                                        <ImageView fitHeight="35.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../../images/marketpage/img_13.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                    <font>
-                                        <Font name="Kanit Regular" size="13.0" />
-                                    </font>
-                                </MenuButton>
-                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="50.0" prefWidth="174.0">
-                                    <children>
-                                        <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
-                                            <children>
-                                                <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="44.0">
-                                                    <children>
-                                                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@../../../images/marketpage/img_4.png" />
-                                                            </image>
-                                                        </ImageView>
-                                                    </children>
-                                                </HBox>
-                                                <Label text="USER.NAME">
-                                                    <font>
-                                                        <Font name="Kanit Regular" size="20.0" />
-                                                    </font>
-                                                </Label>
-                                            </children>
-                                        </HBox>
-                                    </children>
-                                    <HBox.margin>
-                                        <Insets />
-                                    </HBox.margin>
-                                </HBox>
-                            </children>
-                        </HBox>
-                    </children>
-                </HBox>
-            </top>
             <center>
                 <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <center>
@@ -130,24 +45,27 @@
                                                                                 </Label>
                                                                             </children>
                                                                         </HBox>
-                                                                        <VBox alignment="CENTER" prefHeight="222.0" prefWidth="377.0">
+                                                                        <VBox alignment="CENTER" prefHeight="274.0" prefWidth="377.0">
                                                                             <children>
                                                                                 <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                                                                     <image>
                                                                                         <Image url="@../../../images/marketpage/img_15.png" />
                                                                                     </image>
                                                                                 </ImageView>
-                                                                                <Button mnemonicParsing="false" style="-fx-border-color: #404040; -fx-background-color: #ffffff; -fx-border-radius: 20;" text="แก้ไขรูปภาพ" textFill="#717171">
+                                                                                <Button mnemonicParsing="false" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="แก้ไขรูปภาพ" textFill="#717171">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="14.0" />
                                                                                     </font>
                                                                                     <VBox.margin>
                                                                                         <Insets top="20.0" />
                                                                                     </VBox.margin>
+                                                                                    <cursor>
+                                                                                        <Cursor fx:constant="HAND" />
+                                                                                    </cursor>
                                                                                 </Button>
                                                                             </children>
                                                                         </VBox>
-                                                                        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="377.0">
+                                                                        <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="377.0">
                                                                             <children>
                                                                                 <Label text="ชื่อร้านค้า" textFill="#717171">
                                                                                     <font>
@@ -164,25 +82,15 @@
                                                                                 </TextField>
                                                                             </children>
                                                                         </HBox>
-                                                                        <HBox prefHeight="122.0" prefWidth="377.0">
+                                                                        <HBox alignment="CENTER" prefHeight="99.0" prefWidth="377.0">
                                                                             <children>
-                                                                                <Label prefHeight="25.0" prefWidth="88.0" text="รายละเอียด" textFill="#717171">
-                                                                                    <font>
-                                                                                        <Font name="Kanit Regular" size="16.0" />
-                                                                                    </font>
-                                                                                    <HBox.margin>
-                                                                                        <Insets />
-                                                                                    </HBox.margin>
-                                                                                </Label>
-                                                                                <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="122.0" prefWidth="276.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10;" />
-                                                                            </children>
-                                                                        </HBox>
-                                                                        <HBox alignment="CENTER" prefHeight="107.0" prefWidth="315.0">
-                                                                            <children>
-                                                                                <Button mnemonicParsing="false" onAction="#handleStockButton" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 10;" text="เปิดร้านค้า" textFill="#717171">
+                                                                                <Button mnemonicParsing="false" onAction="#handleStockButton" prefHeight="50.0" prefWidth="200.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="เปิดร้านค้า" textFill="WHITE">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="20.0" />
                                                                                     </font>
+                                                                                    <cursor>
+                                                                                        <Cursor fx:constant="HAND" />
+                                                                                    </cursor>
                                                                                 </Button>
                                                                             </children>
                                                                         </HBox>
@@ -205,71 +113,111 @@
                                     <top>
                                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="809.0" BorderPane.alignment="CENTER" />
                                     </top>
-                                    <left>
-                                        <VBox prefHeight="200.0" prefWidth="215.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
-                                            <children>
-                                                <VBox prefHeight="77.0" prefWidth="215.0">
-                                                    <children>
-                                                        <HBox alignment="CENTER" prefHeight="77.0" prefWidth="215.0">
-                                                            <children>
-                                                                <Button mnemonicParsing="false" onAction="#goToOpenShop" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 10;" text="ขายสินค้ากับซีแอนด์ดี" textFill="#404040">
-                                                                    <font>
-                                                                        <Font name="Kanit Regular" size="14.0" />
-                                                                    </font>
-                                                                    <graphic>
-                                                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                                                            <image>
-                                                                                <Image url="@../../../images/marketpage/img_17.png" />
-                                                                            </image>
-                                                                        </ImageView>
-                                                                    </graphic>
-                                                                </Button>
-                                                            </children>
-                                                        </HBox>
-                                                    </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" prefHeight="86.0" prefWidth="215.0">
-                                                    <children>
-                                                        <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="215.0">
-                                                            <children>
-                                                                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                                                    <image>
-                                                                        <Image url="@../../../images/marketpage/img_18.png" />
-                                                                    </image>
-                                                                </ImageView>
-                                                                <Label prefHeight="31.0" prefWidth="315.0" text="ตั้งค่าบัญชี" textFill="#404040">
-                                                                    <font>
-                                                                        <Font name="Kanit Regular" size="20.0" />
-                                                                    </font>
-                                                                    <HBox.margin>
-                                                                        <Insets left="15.0" />
-                                                                    </HBox.margin>
-                                                                </Label>
-                                                            </children>
-                                                            <VBox.margin>
-                                                                <Insets left="20.0" />
-                                                            </VBox.margin>
-                                                        </HBox>
-                                                        <Label onMouseClicked="#clickEditProfile" prefHeight="31.0" prefWidth="150.0" text="แก้ไขข้อมูลส่วนตัว" textFill="#404040">
-                                                            <font>
-                                                                <Font name="Kanit Regular" size="18.0" />
-                                                            </font>
-                                                            <VBox.margin>
-                                                                <Insets left="60.0" />
-                                                            </VBox.margin>
-                                                        </Label>
-                                                    </children>
-                                                </VBox>
-                                                <VBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="215.0" />
-                                            </children>
-                                        </VBox>
-                                    </left>
                                 </BorderPane>
                             </children>
                         </HBox>
                     </center>
                 </BorderPane>
             </center>
+            <top>
+                <HBox alignment="CENTER" prefHeight="57.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="779.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <HBox alignment="CENTER" prefHeight="57.0" prefWidth="184.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <ImageView fitHeight="76.8" fitWidth="152.96" onMouseClicked="#clickLogoBackToMarketPlace" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                            <image>
+                                                <Image url="@../../../images/marketpage/img_14.png" />
+                                            </image>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <TextField prefHeight="36.0" prefWidth="565.0" promptText="ค้นหาสินค้า" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+                                            <font>
+                                                <Font name="Kanit Regular" size="16.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                            <graphic>
+                                                <ImageView fitHeight="28.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../images/assets/title-bar/search.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="242.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ข้อมูลส่วนตัว" />
+                                        <MenuItem mnemonicParsing="false" onAction="#goToOpenShop" text="ร้านค้าของฉัน" />
+                                        <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
+                                    </items>
+                                    <graphic>
+                                        <ImageView fitHeight="56.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../images/assets/title-bar/menu.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font name="Kanit Regular" size="13.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </MenuButton>
+                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="50.0" prefWidth="309.0">
+                                    <children>
+                                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+                                            <children>
+                                                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                    <children>
+                                                        <ImageView fitHeight="35.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../../../images/marketpage/img_4.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                </HBox>
+                                                <Label prefHeight="31.0" prefWidth="118.0" text="USER.NAME" textFill="#404040">
+                                                    <font>
+                                                        <Font name="Kanit Regular" size="20.0" />
+                                                    </font>
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" />
+                                                    </HBox.margin>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </HBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </top>
         </BorderPane>
     </children>
 </AnchorPane>

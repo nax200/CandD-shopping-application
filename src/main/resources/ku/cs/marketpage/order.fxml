@@ -3,146 +3,88 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.ShopController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.OrderController">
     <children>
         <BorderPane layoutX="-9.0" layoutY="304.0" prefHeight="768.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
-                <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1088.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                <BorderPane prefHeight="711.0" prefWidth="855.0">
                     <top>
-                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="634.0" BorderPane.alignment="CENTER">
+                            <BorderPane.margin>
+                                <Insets bottom="20.0" />
+                            </BorderPane.margin>
+                        </HBox>
                     </top>
                     <center>
-                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="143.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="634.0" BorderPane.alignment="CENTER">
                             <children>
-                                <HBox alignment="CENTER" prefHeight="112.0" prefWidth="390.0">
+                                <HBox alignment="CENTER" prefHeight="671.0" prefWidth="976.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                                    <HBox.margin>
+                                        <Insets bottom="20.0" />
+                                    </HBox.margin>
                                     <children>
-                                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="360.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                                        <VBox alignment="CENTER" prefHeight="901.0" prefWidth="365.0">
                                             <children>
-                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="110.0">
+                                                <VBox alignment="CENTER" prefHeight="300.0" prefWidth="365.0">
                                                     <children>
-                                                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                                             <image>
-                                                                <Image url="@../../../images/marketpage/img_15.png" />
+                                                                <Image url="@../../../images/marketpage/img_19.png" />
                                                             </image>
+                                                            <VBox.margin>
+                                                                <Insets bottom="20.0" />
+                                                            </VBox.margin>
                                                         </ImageView>
                                                     </children>
-                                                </HBox>
-                                                <VBox alignment="CENTER" prefHeight="151.0" prefWidth="249.0" HBox.hgrow="ALWAYS">
+                                                </VBox>
+                                                <HBox alignment="CENTER" prefHeight="137.0" prefWidth="365.0">
                                                     <children>
-                                                        <VBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="205.0">
-                                                            <children>
-                                                                <Label text="ร้านมั่งมี ร่ำรวยเงินทอง" textFill="#717171">
-                                                                    <font>
-                                                                        <Font name="Kanit Regular" size="20.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets left="10.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                            </children>
-                                                            <VBox.margin>
-                                                                <Insets top="5.0" />
-                                                            </VBox.margin>
-                                                        </VBox>
+                                                        <ImageView fitHeight="49.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../../../images/marketpage/img_20.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                        <Label prefHeight="46.0" prefWidth="165.0" text="สั่งซื้อสำเร็จ" textFill="#717171">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="30.0" />
+                                                            </font>
+                                                            <padding>
+                                                                <Insets left="10.0" />
+                                                            </padding>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <VBox alignment="CENTER" prefHeight="135.0" prefWidth="365.0">
+                                                    <children>
+                                                        <Button mnemonicParsing="false" onAction="#goToMarketPlace" prefHeight="40.0" prefWidth="115.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="ไปหน้าหลัก" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="18.0" />
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND" />
+                                                            </cursor>
+                                                        </Button>
                                                     </children>
                                                 </VBox>
                                             </children>
-                                            <HBox.margin>
-                                                <Insets left="30.0" />
-                                            </HBox.margin>
-                                        </HBox>
+                                        </VBox>
                                     </children>
                                 </HBox>
-                                <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
-                                    <children>
-                                        <Label text="รายการสินค้า" textFill="#717171">
-                                            <font>
-                                                <Font name="Kanit Regular" size="20.0" />
-                                            </font>
-                                        </Label>
-                                        <Label text="10" textFill="#717171">
-                                            <font>
-                                                <Font name="Kanit Regular" size="20.0" />
-                                            </font>
-                                            <HBox.margin>
-                                                <Insets left="20.0" />
-                                            </HBox.margin>
-                                        </Label>
-                                    </children>
-                                    <HBox.margin>
-                                        <Insets left="20.0" />
-                                    </HBox.margin>
-                                </HBox>
-                                <HBox prefHeight="79.0" prefWidth="80.0" />
-                                <VBox alignment="TOP_RIGHT" prefHeight="97.0" prefWidth="305.0">
-                                    <children>
-                                        <Button mnemonicParsing="false" onAction="#backToProductButton" prefHeight="42.0" prefWidth="97.0" styleClass="button-grey2-border" stylesheets="@../../../css-style/normal-style.css" text="ย้อนกลับ" textFill="#717171">
-                                            <font>
-                                                <Font name="Kanit Regular" size="18.0" />
-                                            </font>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
-                                        </Button>
-                                        <HBox alignment="BOTTOM_RIGHT" prefHeight="74.0" prefWidth="305.0">
-                                            <children>
-                                                <Label text="เรียงโดย  " textFill="#717171">
-                                                    <font>
-                                                        <Font name="Kanit Regular" size="20.0" />
-                                                    </font>
-                                                </Label>
-                                                <ChoiceBox fx:id="sort" prefHeight="36.0" prefWidth="158.0" styleClass="choiceBox-grey-border" stylesheets="@../../../css-style/normal-style.css">
-                                                    <HBox.margin>
-                                                        <Insets left="10.0" />
-                                                    </HBox.margin>
-                                                    <cursor>
-                                                        <Cursor fx:constant="HAND" />
-                                                    </cursor>
-                                                </ChoiceBox>
-                                            </children>
-                                        </HBox>
-                                    </children>
-                                </VBox>
                             </children>
                         </HBox>
                     </center>
-                    <bottom>
-                        <HBox alignment="CENTER" prefHeight="559.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
-                            <children>
-                                <ScrollPane prefHeight="527.0" prefWidth="964.0" HBox.hgrow="ALWAYS">
-                                    <content>
-                                        <GridPane fx:id="listProduct" prefHeight="0.0" prefWidth="0.0">
-                                            <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                                            </rowConstraints>
-                                        </GridPane>
-                                    </content>
-                                    <HBox.margin>
-                                        <Insets bottom="15.0" left="30.0" right="30.0" />
-                                    </HBox.margin>
-                                </ScrollPane>
-                            </children>
-                            <BorderPane.margin>
-                                <Insets top="20.0" />
-                            </BorderPane.margin>
-                        </HBox>
-                    </bottom>
                 </BorderPane>
             </center>
             <top>

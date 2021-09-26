@@ -43,7 +43,7 @@ public class MarketPlaceController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        sort.getItems().addAll("ราคาน้อยไปมาก", "ราคามากไปน้อย", "ความนิยม");
+        sort.getItems().addAll("ราคาน้อยไปมาก", "ราคามากไปน้อย");
         category.getItems().addAll("เครื่องแต่งกาย", "เสื้อผ้าแฟชั่น");
         category.setOnAction(actionEvent -> categoryLabel.setText(category.getValue()));
 
@@ -102,4 +102,13 @@ public class MarketPlaceController implements Initializable{
         }
     }
 
+    @FXML
+    void goToOpenShop(ActionEvent event){
+        try {
+            FXRouter.goTo("open-shop");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า open-shop ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 }
