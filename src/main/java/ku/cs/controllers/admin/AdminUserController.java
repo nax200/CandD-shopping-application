@@ -7,6 +7,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import ku.cs.models.admin.AdminUser;
+import ku.cs.models.user.Admin;
+import ku.cs.models.user.Customer;
+import ku.cs.models.user.User;
+import ku.cs.models.user.UserList;
+import ku.cs.services.DataSource;
+import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,7 +27,7 @@ public class AdminUserController implements Initializable{
     @FXML
     void userReportButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-report");
+            com.github.saacsos.FXRouter.goTo("admin-reported-list");
         }catch (IOException e){
             System.err.println("ไปหน้า userReport ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
@@ -31,7 +37,7 @@ public class AdminUserController implements Initializable{
     @FXML
     void userStatusButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-status");
+            com.github.saacsos.FXRouter.goTo("admin-blocked-list");
         }catch (IOException e){
             System.err.println("ไปหน้า userStatus ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
@@ -58,15 +64,20 @@ public class AdminUserController implements Initializable{
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<AdminUser> users = new ArrayList<>(adminUsers());
-        for(int i=0 ;i<users.size();i++){
+        DataSource<UserList> dataSource;
+        dataSource = new UserFileDataSource();
+        UserList userAll = dataSource.readData();
+
+        for(int i=0 ;i<userAll.count();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/adminpage/admin-user-list.fxml"));
             try{
-                HBox hBox = fxmlLoader.load();
-                AdminUserListController adminuserListController = fxmlLoader.getController();
-                adminuserListController.setData(users.get(i));
-                userList.getChildren().add(hBox);
+                if(userAll.getUser(i) instanceof Customer) {
+                    HBox hBox = fxmlLoader.load();
+                    AdminUserListController adminuserListController = fxmlLoader.getController();
+                    adminuserListController.setData(userAll.getUser(i));
+                    userList.getChildren().add(hBox);
+                }
             } catch (IOException e){
                 e.printStackTrace();
             }
@@ -83,7 +94,7 @@ public class AdminUserController implements Initializable{
         user.setImgSrc("/images/creditpage/moss.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(false);
         ls.add(user);
 
         user = new AdminUser();
@@ -91,7 +102,7 @@ public class AdminUserController implements Initializable{
         user.setImgSrc("/images/creditpage/nax.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(false);
         ls.add(user);
 
         user = new AdminUser();
@@ -99,7 +110,7 @@ public class AdminUserController implements Initializable{
         user.setImgSrc("/images/creditpage/bamboo.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(false);
         ls.add(user);
 
         user = new AdminUser();
@@ -107,7 +118,7 @@ public class AdminUserController implements Initializable{
         user.setImgSrc("/images/creditpage/ploy.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(true);
         ls.add(user);
 
         return ls;

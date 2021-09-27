@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.models.admin.AdminUser;
+import ku.cs.models.user.Customer;
+import ku.cs.models.user.User;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,16 +27,15 @@ public class AdminUserListController implements Initializable {
     private Label lastlogin;
 
     @FXML
-    private ChoiceBox<String> statususer;
+    private Label userBlocked;
 
-    public void setData(AdminUser user){
-        Image imgProfile = new Image(getClass().getResourceAsStream(user.getImgSrc()));
-        img.setImage(imgProfile);
+    public void setData(User user){
+//        Image imgProfile = new Image(getClass().getResourceAsStream(user.getImageFilePath()));
+//        img.setImage(imgProfile);
         username.setText(user.getUsername());
-        shopname.setText(user.getShopname());
-        lastlogin.setText(user.getLastlogin());
-        statususer.setValue("Normal");
-        statususer.getItems().addAll("Normal","Banned");
+        shopname.setText(user.getShopName());
+        lastlogin.setText(user.getLastTimeLoggedInToString());
+        userBlocked.setText(user.getIsUserBlockedToString());
 
     }
 

@@ -5,7 +5,7 @@ public class AdminUser {
     private String imgSrc;
     private String shopname;
     private String lastlogin;
-    private boolean userstatus;
+    private boolean userBlocked;
     private int trytoLoginCount;
 
     public String getUsername() {
@@ -40,12 +40,19 @@ public class AdminUser {
         this.lastlogin = lastlogin;
     }
 
-    public boolean isUserstatus() {
-        return userstatus;
+    public boolean isUserBlocked() {
+        return userBlocked;
     }
 
-    public void setUserstatus(boolean userstatus) {
-        this.userstatus = userstatus;
+    public void setUserBlocked(boolean userBlocked) {
+        this.userBlocked = userBlocked;
+    }
+
+    public String getIsUserBlockedString(){
+        if(userBlocked == true){
+            return "ถูกจำกัด";
+        }
+        return "ปกติ";
     }
 
     public int getTrytoLoginCount() {

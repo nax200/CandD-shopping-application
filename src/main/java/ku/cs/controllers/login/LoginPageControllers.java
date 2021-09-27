@@ -36,7 +36,7 @@ public class LoginPageControllers {
                 dataSource.writeData(userList);
 
                 if ( username.equals("admin") ) {
-                    FXRouter.goTo("admin-user");
+                    FXRouter.goTo("admin-user-view");
                 } else {
                     if( ( (Customer) userList.searchUsername(username) ).isBlocked() ){
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -23,7 +22,7 @@
             <Font name="Kanit Regular" size="18.0" />
          </font>
          <HBox.margin>
-            <Insets left="75.0" />
+            <Insets left="78.0" />
          </HBox.margin>
       </Label>
       <Label fx:id="shopname" prefWidth="210.0" text="ชื่อร้านค้า">
@@ -36,6 +35,10 @@
             <Font name="Kanit Regular" size="18.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="statususer" prefWidth="150.0" />
+      <Label fx:id="userBlocked" alignment="CENTER" prefHeight="28.0" prefWidth="170.0" text="ปกติ">
+         <font>
+            <Font name="Kanit Regular" size="18.0" />
+         </font>
+      </Label>
    </children>
 </HBox>

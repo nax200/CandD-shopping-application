@@ -31,8 +31,12 @@ public class UserList {
         return false;
     }
 
-    public void setLastLogInTime(User user){
+    public void setLastLogInTime(User user) {
         user.setLastTimeLoggedIn(LocalDateTime.now());
+    }
+
+    public User getUser(int i){
+        return users.get(i);
     }
 
 

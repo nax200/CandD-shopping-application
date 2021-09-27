@@ -24,6 +24,7 @@ public class AdminUserReport extends AdminUser {
     public void setMoreDetailReport(String moreDetailReport){
         this.moreDetailReport = moreDetailReport;
     }
+
     public String getMoreDetailReport(){
         return  this.moreDetailReport;
     }

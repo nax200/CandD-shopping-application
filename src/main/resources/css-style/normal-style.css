@@ -24,6 +24,7 @@ body{
     -fx-background-color: #FFD12F;
     -fx-background-radius: 8;
     -fx-border-width: 10;
+    -fx-text-fill: #FFFFFF;
 }
 .button-yellow:hover{
     -fx-background-color: #FFC700;
@@ -85,6 +86,33 @@ body{
 .button-grey2-border:hover{
     -fx-background-color: #F9F9F9;
 }
-.button-grey2-border:pressed{
+.button-grey2-border:pressed {
     -fx-background-color: #EEEEEE;
+}
+
+/*ปุ่มสีเหลืองแบบพื้นฐาน*/
+.tab-button-yellow {
+    -fx-background-color: #FFD12F;
+    -fx-background-radius: 8;
+    -fx-font-size: 18;
+    -fx-text-fill: #FFFFFF;
+    -fx-pref-height: 35;
+    -fx-pref-width: 200;
+}
+
+/*ปุ่มสีเทาแบบกดได้*/
+.button-grey{
+    -fx-background-color: #CCCCCC;
+    -fx-background-radius: 8;
+    -fx-border-width: 10;
+    -fx-font-size: 18;
+    -fx-text-fill: #FFFFFF;
+    -fx-pref-height: 35;
+    -fx-pref-width: 200;
+}
+.button-grey:hover{
+    -fx-background-color: #C1C1C1;
+}
+.button-grey:pressed{
+    -fx-background-color: #BBBBBB;
 }

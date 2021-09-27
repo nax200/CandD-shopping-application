@@ -30,7 +30,6 @@ public class User {
     public String getPassword(){
         return password;
    }
-
     public LocalDateTime getLastTimeLoggedIn() {
         return lastTimeLoggedIn;
     }
@@ -39,6 +38,12 @@ public class User {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         return dtf.format(lastTimeLoggedIn);
     }
+
+    public String getShopName(){return "-";}
+
+    public boolean isBlocked(){return false;}
+
+    public String getIsUserBlockedToString(){return "ปกติ";}
 
 
     public void setLastTimeLoggedIn(LocalDateTime time){ lastTimeLoggedIn = time; }

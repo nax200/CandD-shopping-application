@@ -21,7 +21,7 @@ public class AdminStatusController implements Initializable {
     @FXML
     void userListButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-user");
+            com.github.saacsos.FXRouter.goTo("admin-user-view");
         }catch (IOException e){
             System.err.println("ไปหน้า userList ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
@@ -31,7 +31,7 @@ public class AdminStatusController implements Initializable {
     @FXML
     void userReportButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-report");
+            com.github.saacsos.FXRouter.goTo("admin-reported-list");
         }catch (IOException e){
             System.err.println("ไปหน้า userReport ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
@@ -80,7 +80,7 @@ public class AdminStatusController implements Initializable {
         user.setImgSrc("/images/creditpage/moss.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(true);
         user.setTrytoLoginCount(0);
         user.setReportType("-");
         ls.add(user);
@@ -90,7 +90,7 @@ public class AdminStatusController implements Initializable {
         user.setImgSrc("/images/creditpage/nax.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(true);
         user.setTrytoLoginCount(0);
         user.setReportType("-");
         ls.add(user);
@@ -100,7 +100,7 @@ public class AdminStatusController implements Initializable {
         user.setImgSrc("/images/creditpage/bamboo.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(true);
         user.setTrytoLoginCount(0);
         user.setReportType("-");
         ls.add(user);
@@ -110,7 +110,7 @@ public class AdminStatusController implements Initializable {
         user.setImgSrc("/images/creditpage/ploy.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(true);
         user.setTrytoLoginCount(0);
         user.setReportType("-");
         ls.add(user);

@@ -21,7 +21,7 @@ public class AdminReportController implements Initializable {
     @FXML
     void userListButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-user");
+            com.github.saacsos.FXRouter.goTo("admin-user-view");
         }catch (IOException e){
             System.err.println("ไปหน้า userList ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
@@ -31,7 +31,7 @@ public class AdminReportController implements Initializable {
     @FXML
     void userStatusButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-status");
+            com.github.saacsos.FXRouter.goTo("admin-blocked-list");
         }catch (IOException e){
             System.err.println("ไปหน้า userStatus ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
@@ -81,7 +81,7 @@ public class AdminReportController implements Initializable {
         user.setImgSrc("/images/creditpage/moss.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(true);
         user.setMoreDetailReport("-");
         user.setMessagetoReport("-");
         user.setReportType("-");
@@ -92,7 +92,7 @@ public class AdminReportController implements Initializable {
         user.setImgSrc("/images/creditpage/nax.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(true);
         user.setMoreDetailReport("-");
         user.setMessagetoReport("-");
         user.setReportType("-");
@@ -103,7 +103,7 @@ public class AdminReportController implements Initializable {
         user.setImgSrc("/images/creditpage/bamboo.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(true);
         user.setMoreDetailReport("-");
         user.setMessagetoReport("-");
         user.setReportType("-");
@@ -114,7 +114,7 @@ public class AdminReportController implements Initializable {
         user.setImgSrc("/images/creditpage/ploy.jpg");
         user.setShopname("happyshop");
         user.setLastlogin("NaN");
-        user.setUserstatus(true);
+        user.setUserBlocked(true);
         user.setMoreDetailReport("-");
         user.setMessagetoReport("-");
         user.setReportType("-");
