@@ -135,7 +135,7 @@
             </ScrollPane>
          </children>
       </HBox>
-      <Button layoutX="720.0" layoutY="710.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 10;" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="บันทึกข้อมูล">
+      <Button layoutX="720.0" layoutY="710.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="บันทึกข้อมูล">
          <font>
             <Font name="Kanit Regular" size="18.0" />
          </font>
