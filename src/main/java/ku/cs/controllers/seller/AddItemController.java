@@ -2,10 +2,33 @@ package ku.cs.controllers.seller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
 public class AddItemController {
+    @FXML
+    private Button saveaddimg;
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private TextArea detail;
+
+    @FXML
+    private TextField price;
+
+    @FXML
+    private TextField remaining;
+
+    @FXML
+    private TextField numRemainWarning;
+
+    @FXML
+    private Button saveadddata;
     @FXML
     public void handleLowStockButton(ActionEvent actionEvent) {
         try {

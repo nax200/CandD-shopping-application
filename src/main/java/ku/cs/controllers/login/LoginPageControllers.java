@@ -31,6 +31,10 @@ public class LoginPageControllers {
                 messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วน");
             }
             else if ( userList.verifyLogin(username,password) ) {
+
+                userList.setLastLogInTime(userList.searchUsername(username));
+                dataSource.writeData(userList);
+
                 if ( username.equals("admin") ) {
                     FXRouter.goTo("admin-user");
                 } else {
@@ -39,8 +43,7 @@ public class LoginPageControllers {
 
                         // รอเพิ่มโค้ดจำนวนครั้งในความพยายามเข้าสู่ระบบ
 
-
-                        messageLabel.setText("ขออภัย! ท่านถูกระงับการใช้งาน");
+                        messageLabel.setText("ขออภัย! บัญชีของท่านถูกระงับการใช้งาน");
                     } else {
                         FXRouter.goTo("market-place");
                     }

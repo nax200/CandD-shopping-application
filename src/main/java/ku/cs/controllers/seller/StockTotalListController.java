@@ -2,7 +2,7 @@ package ku.cs.controllers.seller;
 
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
-import ku.cs.models.sellercontact.StockTotal;
+import ku.cs.models.shop.StockTotal;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;

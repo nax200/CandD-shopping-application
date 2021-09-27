@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -83,9 +84,9 @@
                             <font>
                                 <Font name="Kanit Regular" size="15.0" />
                             </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </Button>
                     </children>
                 </HBox>
@@ -95,9 +96,9 @@
                             <font>
                                 <Font size="15.0" />
                             </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </Button>
                     </children>
                 </HBox>
@@ -107,9 +108,9 @@
                             <font>
                                 <Font size="15.0" />
                             </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </Button>
                     </children>
                 </HBox>
@@ -133,9 +134,9 @@
                             <font>
                                 <Font size="15.0" />
                             </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </Button>
                     </children>
                 </HBox>
@@ -145,9 +146,9 @@
                             <font>
                                 <Font size="15.0" />
                             </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </Button>
                     </children>
                 </HBox>
@@ -171,9 +172,9 @@
                             <font>
                                 <Font size="15.0" />
                             </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </Button>
                     </children>
                 </HBox>
@@ -183,9 +184,9 @@
                             <font>
                                 <Font name="Kanit Regular" size="11.0" />
                             </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
                         </Button>
                     </children>
                 </HBox>
@@ -206,9 +207,9 @@
                                     <font>
                                         <Font size="14.0" />
                                     </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
                                 </Button>
                             </children>
                         </HBox>
@@ -237,229 +238,221 @@
                         <HBox alignment="CENTER" prefHeight="645.0" prefWidth="785.0">
                             <children>
                                 <HBox prefHeight="637.0" prefWidth="764.0">
-                           <children>
-                              <VBox prefHeight="631.0" prefWidth="342.0">
-                                 <children>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Label prefHeight="35.0" prefWidth="176.0" text="เพิ่มสินค้าเพื่อวางขาย" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="20.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="435.0" prefWidth="339.0" style="-fx-background-color: F5F5F5;">
-                                       <children>
-                                          <VBox prefHeight="435.0" prefWidth="358.0">
-                                             <children>
-                                                <HBox prefHeight="25.0" prefWidth="339.0" />
-                                                <HBox alignment="CENTER" prefHeight="322.0" prefWidth="339.0">
-                                                   <children>
-                                                      <ImageView fitHeight="304.0" fitWidth="316.0" pickOnBounds="true" preserveRatio="true" />
-                                                   </children>
+                                    <children>
+                                        <VBox prefHeight="631.0" prefWidth="342.0">
+                                            <children>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                    <children>
+                                                        <Label prefHeight="35.0" prefWidth="176.0" text="เพิ่มสินค้าเพื่อวางขาย" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="20.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
                                                 </HBox>
-                                                <HBox prefHeight="100.0" prefWidth="200.0">
-                                                   <children>
-                                                      <HBox alignment="CENTER" prefHeight="96.0" prefWidth="212.0">
-                                                         <children>
-                                                            <Label text="              เพิ่มรูปภาพสินค้า" textFill="#6f6f6f">
-                                                               <font>
-                                                                  <Font name="Kanit Regular" size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER_LEFT" prefHeight="96.0" prefWidth="137.0">
-                                                         <children>
-                                                            <Button mnemonicParsing="false" style="-fx-background-radius: 9; -fx-background-color: DCDADA;" text="เลือกไฟล์..." textFill="#6f6f6f">
-                                                               <font>
-                                                                  <Font name="Kanit Regular" size="14.0" />
-                                                               </font>
-                                                               <cursor>
-                                                                  <Cursor fx:constant="HAND" />
-                                                               </cursor>
-                                                            </Button>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
+                                                <HBox alignment="CENTER" prefHeight="435.0" prefWidth="339.0" style="-fx-background-color: F5F5F5;">
+                                                    <children>
+                                                        <VBox prefHeight="435.0" prefWidth="358.0">
+                                                            <children>
+                                                                <HBox prefHeight="25.0" prefWidth="339.0" />
+                                                                <HBox alignment="CENTER" prefHeight="322.0" prefWidth="339.0">
+                                                                    <children>
+                                                                        <ImageView fitHeight="304.0" fitWidth="316.0" pickOnBounds="true" preserveRatio="true" />
+                                                                    </children>
+                                                                </HBox>
+                                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                    <children>
+                                                                        <HBox alignment="CENTER" prefHeight="96.0" prefWidth="212.0">
+                                                                            <children>
+                                                                                <Label text="              เพิ่มรูปภาพสินค้า" textFill="#6f6f6f">
+                                                                                    <font>
+                                                                                        <Font name="Kanit Regular" size="14.0" />
+                                                                                    </font>
+                                                                                </Label>
+                                                                            </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER_LEFT" prefHeight="96.0" prefWidth="137.0">
+                                                                            <children>
+                                                                                <Button fx:id="saveaddimg" mnemonicParsing="false" style="-fx-background-radius: 9; -fx-background-color: DCDADA;" text="เลือกไฟล์..." textFill="#6f6f6f">
+                                                                                    <font>
+                                                                                        <Font name="Kanit Regular" size="14.0" />
+                                                                                    </font>
+                                                                                    <cursor>
+                                                                                        <Cursor fx:constant="HAND" />
+                                                                                    </cursor>
+                                                                                </Button>
+                                                                            </children>
+                                                                        </HBox>
+                                                                    </children>
+                                                                </HBox>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
                                                 </HBox>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="631.0" prefWidth="160.0">
-                                 <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" />
-                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="155.0">
-                                       <children>
-                                          <Label text="             ชื่อสินค้า" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="155.0">
-                                       <children>
-                                          <Label text="รายละเอียดสินค้า" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="55.0" prefWidth="155.0" />
-                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="155.0">
-                                       <children>
-                                          <Label text="                   ราคา" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="155.0">
-                                       <children>
-                                          <Label text="             หมวดหมู่" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="53.0" prefWidth="155.0">
-                                       <children>
-                                          <Label prefHeight="23.0" prefWidth="120.0" text="จำนวนสินค้าในคลัง" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="56.0" prefWidth="156.0">
-                                       <children>
-                                          <Label prefHeight="23.0" prefWidth="122.0" text="แจ้งเตือนเมื่อสินค้า" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="156.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="107.0" style="-fx-background-radius: 9; -fx-background-color: F1F1F1;" text="ยกเลิก" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="15.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="631.0" prefWidth="273.0">
-                                 <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0" />
-                                    <HBox alignment="CENTER" prefHeight="52.0" prefWidth="270.0">
-                                       <children>
-                                          <TextField prefHeight="29.0" prefWidth="274.0">
-                                             <cursor>
-                                                <Cursor fx:constant="TEXT" />
-                                             </cursor>
-                                          </TextField>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="12.0" prefWidth="270.0" />
-                                    <HBox prefHeight="98.0" prefWidth="270.0">
-                                       <children>
-                                          <TextArea prefHeight="96.0" prefWidth="270.0">
-                                             <cursor>
-                                                <Cursor fx:constant="TEXT" />
-                                             </cursor>
-                                          </TextArea>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="12.0" prefWidth="270.0" />
-                                    <HBox prefHeight="39.0" prefWidth="270.0">
-                                       <children>
-                                          <TextField prefHeight="31.0" prefWidth="163.0">
-                                             <cursor>
-                                                <Cursor fx:constant="TEXT" />
-                                             </cursor>
-                                          </TextField>
-                                          <Label prefHeight="30.0" prefWidth="80.0" text="    บาท" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="9.0" prefWidth="270.0" />
-                                    <HBox prefHeight="37.0" prefWidth="270.0">
-                                       <children>
-                                          <MenuButton mnemonicParsing="false" prefHeight="29.0" prefWidth="163.0">
-                                            <items>
-                                              <MenuItem mnemonicParsing="false" text="ก 1" />
-                                              <MenuItem mnemonicParsing="false" text="ข" />
-                                            </items>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </MenuButton>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="21.0" prefWidth="270.0" />
-                                    <HBox prefHeight="39.0" prefWidth="270.0">
-                                       <children>
-                                          <TextField prefHeight="29.0" prefWidth="85.0">
-                                             <cursor>
-                                                <Cursor fx:constant="TEXT" />
-                                             </cursor>
-                                          </TextField>
-                                          <Label prefHeight="28.0" prefWidth="61.0" text="   ชิ้น" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="11.0" prefWidth="270.0" />
-                                    <HBox prefHeight="37.0" prefWidth="270.0">
-                                       <children>
-                                          <Label prefHeight="41.0" prefWidth="59.0" text="น้อยกว่า" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField prefHeight="29.0" prefWidth="57.0">
-                                             <cursor>
-                                                <Cursor fx:constant="TEXT" />
-                                             </cursor>
-                                          </TextField>
-                                          <Label prefHeight="30.0" prefWidth="59.0" text="   ชิ้น" textFill="#6f6f6f" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="270.0">
-                                       <children>
-                                          <HBox prefHeight="80.0" prefWidth="18.0" />
-                                          <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="124.0" style="-fx-background-radius: 9; -fx-background-color: FFD12F;" text="Button" textFill="#6f6f6f">
-                                             <font>
-                                                <Font name="Kanit Regular" size="15.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
+                                            </children>
+                                        </VBox>
+                                        <VBox prefHeight="631.0" prefWidth="160.0">
+                                            <children>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" />
+                                                <HBox alignment="CENTER" prefHeight="53.0" prefWidth="155.0">
+                                                    <children>
+                                                        <Label text="             ชื่อสินค้า" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="53.0" prefWidth="155.0">
+                                                    <children>
+                                                        <Label text="รายละเอียดสินค้า" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="55.0" prefWidth="155.0" />
+                                                <HBox alignment="CENTER" prefHeight="53.0" prefWidth="155.0">
+                                                    <children>
+                                                        <Label text="                   ราคา" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="53.0" prefWidth="155.0">
+                                                    <children>
+                                                        <Label text="             หมวดหมู่" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="53.0" prefWidth="155.0">
+                                                    <children>
+                                                        <Label prefHeight="23.0" prefWidth="120.0" text="จำนวนสินค้าในคลัง" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="56.0" prefWidth="156.0">
+                                                    <children>
+                                                        <Label prefHeight="23.0" prefWidth="122.0" text="แจ้งเตือนเมื่อสินค้า" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="156.0">
+                                                    <children>
+                                                        <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="107.0" style="-fx-background-radius: 9; -fx-background-color: F1F1F1;" text="ยกเลิก" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="15.0" />
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND" />
+                                                            </cursor>
+                                                        </Button>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <VBox prefHeight="631.0" prefWidth="273.0">
+                                            <children>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" />
+                                                <HBox alignment="CENTER" prefHeight="52.0" prefWidth="270.0">
+                                                    <children>
+                                                        <TextField fx:id="name" prefHeight="29.0" prefWidth="274.0">
+                                                            <cursor>
+                                                                <Cursor fx:constant="TEXT" />
+                                                            </cursor>
+                                                        </TextField>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="12.0" prefWidth="270.0" />
+                                                <HBox prefHeight="98.0" prefWidth="270.0">
+                                                    <children>
+                                                        <TextArea fx:id="detail" prefHeight="96.0" prefWidth="270.0">
+                                                            <cursor>
+                                                                <Cursor fx:constant="TEXT" />
+                                                            </cursor>
+                                                        </TextArea>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="12.0" prefWidth="270.0" />
+                                                <HBox prefHeight="39.0" prefWidth="270.0">
+                                                    <children>
+                                                        <TextField fx:id="price" prefHeight="31.0" prefWidth="163.0">
+                                                            <cursor>
+                                                                <Cursor fx:constant="TEXT" />
+                                                            </cursor>
+                                                        </TextField>
+                                                        <Label prefHeight="30.0" prefWidth="80.0" text="    บาท" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="9.0" prefWidth="270.0" />
+                                                <HBox prefHeight="37.0" prefWidth="270.0">
+                                                    <children>
+                                                        <ChoiceBox prefHeight="25.0" prefWidth="105.0" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="21.0" prefWidth="270.0" />
+                                                <HBox prefHeight="39.0" prefWidth="270.0">
+                                                    <children>
+                                                        <TextField fx:id="remaining" prefHeight="29.0" prefWidth="85.0">
+                                                            <cursor>
+                                                                <Cursor fx:constant="TEXT" />
+                                                            </cursor>
+                                                        </TextField>
+                                                        <Label prefHeight="28.0" prefWidth="61.0" text="   ชิ้น" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox prefHeight="11.0" prefWidth="270.0" />
+                                                <HBox prefHeight="37.0" prefWidth="270.0">
+                                                    <children>
+                                                        <Label prefHeight="41.0" prefWidth="59.0" text="น้อยกว่า" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="numRemainWarning" prefHeight="29.0" prefWidth="57.0">
+                                                            <cursor>
+                                                                <Cursor fx:constant="TEXT" />
+                                                            </cursor>
+                                                        </TextField>
+                                                        <Label prefHeight="30.0" prefWidth="59.0" text="   ชิ้น" textFill="#6f6f6f" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="270.0">
+                                                    <children>
+                                                        <HBox prefHeight="80.0" prefWidth="18.0" />
+                                                        <Button fx:id="saveadddata" mnemonicParsing="false" prefHeight="33.0" prefWidth="124.0" style="-fx-background-radius: 9; -fx-background-color: FFD12F;" text="บันทึกข้อมูล" textFill="#6f6f6f">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="15.0" />
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND" />
+                                                            </cursor>
+                                                        </Button>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
                                 </HBox>
                             </children>
                         </HBox>

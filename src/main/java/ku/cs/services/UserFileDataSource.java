@@ -6,6 +6,8 @@ import ku.cs.models.user.User;
 import ku.cs.models.user.UserList;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class UserFileDataSource implements DataSource<UserList>{
     private String directoryName;
@@ -50,6 +52,8 @@ public class UserFileDataSource implements DataSource<UserList>{
         FileReader reader = null;
         BufferedReader buffer = null;
 
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
         try {
             reader = new FileReader(file);
             buffer = new BufferedReader(reader);
@@ -63,8 +67,7 @@ public class UserFileDataSource implements DataSource<UserList>{
                             new User(
                                     data[1], // username
                                     data[2], // password
-                                    data[3]  // lastTimeLoggedIn
-                                    )
+                                    LocalDateTime.parse(data[3],dtf))  // lastTimeLoggedIn
                             );
 
                 } else if (type.equals("Customer")) {
@@ -73,7 +76,7 @@ public class UserFileDataSource implements DataSource<UserList>{
                                     data[1], // userID
                                     data[2], // username
                                     data[3], // password
-                                    data[4], // lastTimeLoggedIn
+                                    LocalDateTime.parse(data[4],dtf), // lastTimeLoggedIn
                                     data[5], // name
                                     Boolean.parseBoolean(data[6]), // isBlocked
                                     data[7], // shopName
@@ -86,7 +89,7 @@ public class UserFileDataSource implements DataSource<UserList>{
                             new Admin(
                                     data[1], // username
                                     data[2], // password
-                                    data[3]  // lastTimeLoggedIn
+                                    LocalDateTime.parse(data[3],dtf)  // lastTimeLoggedIn
                             )
                     );
                 }

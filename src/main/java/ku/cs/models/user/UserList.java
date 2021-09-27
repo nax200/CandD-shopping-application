@@ -1,5 +1,7 @@
 package ku.cs.models.user;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class UserList {
@@ -27,6 +29,10 @@ public class UserList {
             }
         }
         return false;
+    }
+
+    public void setLastLogInTime(User user){
+        user.setLastTimeLoggedIn(LocalDateTime.now());
     }
 
 

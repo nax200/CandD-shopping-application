@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import ku.cs.models.sellercontact.StockTotal;
+import ku.cs.models.shop.StockTotal;
 
 import java.io.IOException;
 import java.net.URL;

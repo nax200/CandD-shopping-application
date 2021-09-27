@@ -3,6 +3,8 @@ package ku.cs.models.user;
 import ku.cs.services.DataSource;
 import ku.cs.services.UserFileDataSource;
 
+import java.time.LocalDateTime;
+
 public class Register {
     public static boolean Register(String name, String username, String password, String cfPassword) {
         DataSource<UserList> dataSource;
@@ -16,7 +18,7 @@ public class Register {
         }
 
         // เพิ่มบัญชีใหม่
-        userList.addUser(new Customer("2109240001", username,password, "",name,false, "No-shop", "No-pic"));
+        userList.addUser(new Customer("2109240001", username,password, LocalDateTime.now(),name,false, "No-shop", "No-pic"));
         System.out.println("เพิ่มบัญชีใหม่แล้ว");
         dataSource.writeData(userList);
         return true;

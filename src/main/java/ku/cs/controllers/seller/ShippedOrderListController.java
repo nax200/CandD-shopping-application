@@ -5,7 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import ku.cs.models.sellercontact.NewOrder;
+import ku.cs.models.shop.NewOrder;
 
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -1,12 +1,11 @@
-package ku.cs.models.sellercontact;
+package ku.cs.models.shop;
 
-public class NewOrder {
+public class StockTotal {
     private String imgSrc;
     private String id_Product;
     private String nameProduct;
-    private String priceSum;
+    private String price;
     private String quantity;
-    private String trackingNumber;
 
     public String getImgSrc() {
         return imgSrc;
@@ -32,12 +31,12 @@ public class NewOrder {
         this.nameProduct = nameProduct;
     }
 
-    public String getPriceSum() {
-        return priceSum;
+    public String getPrice() {
+        return price;
     }
 
-    public void setPriceSum(String priceSum) {
-        this.priceSum = priceSum;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getQuantity() {
@@ -47,14 +46,4 @@ public class NewOrder {
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
-
-    public String getTrackingNumber() {
-        return trackingNumber;
-    }
-
-    public void setTrackingNumber(String trackingNumber) {
-        this.trackingNumber = trackingNumber;
-    }
-
-
 }

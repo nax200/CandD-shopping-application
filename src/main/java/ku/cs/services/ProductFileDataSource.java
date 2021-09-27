@@ -10,7 +10,7 @@ public class ProductFileDataSource implements DataSource<ProductList> {
     private String filename;
 
     public ProductFileDataSource() {
-        this("csv-data/product","productList.csv");
+        this("csv-data/product","product-list.csv");
     }
 
     public ProductFileDataSource(String directoryName, String filename) {
@@ -56,12 +56,19 @@ public class ProductFileDataSource implements DataSource<ProductList> {
             while( (line = buffer.readLine()) != null ) {
                 String[] data = line.split(",");
                 String type = data[0];
-                if (type.equals("Product")) {
+                if (true) {
                     productList.addProduct(
                             new Product(
-                                    data[1], // name
-                                    Integer.parseInt(data[2]),  // price
-                                    data[3] // images
+                                    data[0], // addedTime
+                                    data[1], // ID
+                                    data[2], // shopName
+                                    data[3], // name
+                                    Double.parseDouble(data[4]), // price
+                                    Integer.parseInt(data[5]), // remaining
+                                    Double.parseDouble(data[6]), // rating
+                                    data[7], // imageFilePath
+                                    data[8],  // detail
+                                    Integer.parseInt(data[9]) // numRemainWarning
                             )
                     );
                 }

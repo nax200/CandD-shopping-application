@@ -17,6 +17,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.github.saacsos.FXRouter;
+import ku.cs.models.shop.ProductList;
+import ku.cs.services.DataSource;
+import ku.cs.services.ProductFileDataSource;
+
 
 public class MarketPlaceController implements Initializable{
 
@@ -47,17 +51,20 @@ public class MarketPlaceController implements Initializable{
         category.getItems().addAll("เครื่องแต่งกาย", "เสื้อผ้าแฟชั่น");
         category.setOnAction(actionEvent -> categoryLabel.setText(category.getValue()));
 
-        products.addAll(getData());
+        DataSource<ProductList> dataSource;
+        dataSource = new ProductFileDataSource();
+        ProductList productList = dataSource.readData();
+
         int column  = 0;
         int row = 1;
         try {
-            for (int i = 0; i < products.size(); i++){
+            for (int i = 0; i < productList.count(); i++){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 CardController cardController = fxmlLoader.getController();
-                cardController.setData(products.get(i));
+                cardController.setData(productList.getProduct(i));
 
                 if(column == 4){
                     column = 0;
