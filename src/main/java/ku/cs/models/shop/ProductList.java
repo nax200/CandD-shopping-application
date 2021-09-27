@@ -1,12 +1,10 @@
 package ku.cs.models.shop;
 
-import ku.cs.models.user.User;
-import ku.cs.services.DataSource;
-import ku.cs.services.ProductFileDataSource;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ProductList {
     private ArrayList<Product> products;
@@ -21,6 +19,11 @@ public class ProductList {
 
     public ArrayList<Product> getProducts() {
         return products;
+    }
+
+    public void sort(Comparator<Product> productComparator)
+    {
+        Collections.sort(this.products, productComparator);
     }
 
     public Product searchByName(String name) {
@@ -51,9 +54,17 @@ public class ProductList {
 
     public void addNewProduct(String shopName, String name, double price, int remaining, String imageFilePath, String detail, int numRemainWarning) {
         LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter addedTime = DateTimeFormatter.ofPattern("dd-MM-yyyy,HH:mm:ss");
+        DateTimeFormatter addedTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         DateTimeFormatter productID = DateTimeFormatter.ofPattern("yyMMdd");
-        Product item = new Product(addedTime.format(localDateTime),"2109260001",shopName,name,price,remaining,0.0,imageFilePath,detail,numRemainWarning);
+        Product item = new Product(localDateTime,"2109260001",shopName,name,price,remaining,0.0,imageFilePath,detail,numRemainWarning);
+        products.add(item);
+    }
+
+    public void addNewProduct(String shopName, String name, String price, String remaining, String imageFilePath, String detail, String numRemainWarning) {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter addedTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        DateTimeFormatter productID = DateTimeFormatter.ofPattern("yyMMdd");
+        Product item = new Product(addedTime.format(localDateTime),"2109260001",shopName,name,price,remaining,"0.0",imageFilePath,detail,numRemainWarning);
         products.add(item);
     }
 

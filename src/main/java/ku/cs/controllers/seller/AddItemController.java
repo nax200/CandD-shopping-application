@@ -5,30 +5,58 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import ku.cs.models.shop.ProductList;
+import ku.cs.services.DataSource;
+import ku.cs.services.ProductFileDataSource;
 
 import java.io.IOException;
 
 public class AddItemController {
     @FXML
-    private Button saveaddimg;
+    private Button SaveAddimgButton;
 
     @FXML
-    private TextField name;
+    private Button cancelButton;
 
     @FXML
-    private TextArea detail;
+    private TextField nameTextField;
 
     @FXML
-    private TextField price;
+    private TextArea detailTextArea;
 
     @FXML
-    private TextField remaining;
+    private TextField priceTextField;
 
     @FXML
-    private TextField numRemainWarning;
+    private TextField remainingTextField;
 
     @FXML
-    private Button saveadddata;
+    private TextField numRemainWarningTextField;
+
+    @FXML
+    private Button SaveAddDataButton;
+
+    @FXML
+    private void handleSaveAddDataButton(){
+    String name = nameTextField.getText();
+    String detail = detailTextArea.getText();
+    String price = priceTextField.getText();
+    String remaining = remainingTextField.getText();
+    String numRemainWarning = numRemainWarningTextField.getText();
+
+    DataSource<ProductList> dataSource;
+    dataSource = new ProductFileDataSource();
+    ProductList productList = dataSource.readData();
+
+    productList.addNewProduct("shopzaza",name,price,remaining,"/images/marketpage/img_1.png",detail,numRemainWarning);
+    dataSource.writeData(productList);
+    nameTextField.clear();
+    detailTextArea.clear();
+    priceTextField.clear();
+    remainingTextField.clear();
+    numRemainWarningTextField.clear();
+    }
+
     @FXML
     public void handleLowStockButton(ActionEvent actionEvent) {
         try {

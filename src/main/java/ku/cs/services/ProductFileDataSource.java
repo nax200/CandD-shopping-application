@@ -4,6 +4,8 @@ import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ProductFileDataSource implements DataSource<ProductList> {
     private String directoryName;
@@ -47,19 +49,20 @@ public class ProductFileDataSource implements DataSource<ProductList> {
 
         FileReader reader = null;
         BufferedReader buffer = null;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
         try {
             reader = new FileReader(file);
             buffer = new BufferedReader(reader);
 
+
             String line = "";
             while( (line = buffer.readLine()) != null ) {
                 String[] data = line.split(",");
                 String type = data[0];
-                if (true) {
                     productList.addProduct(
                             new Product(
-                                    data[0], // addedTime
+                                    LocalDateTime.parse(data[0],dtf), // addedTime
                                     data[1], // ID
                                     data[2], // shopName
                                     data[3], // name
@@ -71,8 +74,6 @@ public class ProductFileDataSource implements DataSource<ProductList> {
                                     Integer.parseInt(data[9]) // numRemainWarning
                             )
                     );
-                }
-
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -20,6 +20,7 @@ import com.github.saacsos.FXRouter;
 import ku.cs.models.shop.ProductList;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
+import java.util.Comparator;
 
 
 public class MarketPlaceController implements Initializable{
@@ -54,6 +55,14 @@ public class MarketPlaceController implements Initializable{
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
+        Comparator<Product> productComparator = new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
+                if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
+                return 0;
+            }
+        };
 
         int column  = 0;
         int row = 1;
@@ -62,6 +71,8 @@ public class MarketPlaceController implements Initializable{
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
+
+                productList.sort(productComparator);
 
                 CardController cardController = fxmlLoader.getController();
                 cardController.setData(productList.getProduct(i));

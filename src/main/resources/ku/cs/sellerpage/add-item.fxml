@@ -273,7 +273,7 @@
                                                                         </HBox>
                                                                         <HBox alignment="CENTER_LEFT" prefHeight="96.0" prefWidth="137.0">
                                                                             <children>
-                                                                                <Button fx:id="saveaddimg" mnemonicParsing="false" style="-fx-background-radius: 9; -fx-background-color: DCDADA;" text="เลือกไฟล์..." textFill="#6f6f6f">
+                                                                                <Button fx:id="SaveAddimgButton" mnemonicParsing="false" style="-fx-background-radius: 9; -fx-background-color: DCDADA;" text="เลือกไฟล์..." textFill="#6f6f6f">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="14.0" />
                                                                                     </font>
@@ -351,7 +351,7 @@
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="156.0">
                                                     <children>
-                                                        <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="107.0" style="-fx-background-radius: 9; -fx-background-color: F1F1F1;" text="ยกเลิก" textFill="#6f6f6f">
+                                                        <Button fx:id="cancelButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="107.0" style="-fx-background-radius: 9; -fx-background-color: F1F1F1;" text="ยกเลิก" textFill="#6f6f6f">
                                                             <font>
                                                                 <Font name="Kanit Regular" size="15.0" />
                                                             </font>
@@ -368,7 +368,7 @@
                                                 <HBox prefHeight="100.0" prefWidth="200.0" />
                                                 <HBox alignment="CENTER" prefHeight="52.0" prefWidth="270.0">
                                                     <children>
-                                                        <TextField fx:id="name" prefHeight="29.0" prefWidth="274.0">
+                                                        <TextField fx:id="nameTextField" prefHeight="29.0" prefWidth="274.0">
                                                             <cursor>
                                                                 <Cursor fx:constant="TEXT" />
                                                             </cursor>
@@ -378,7 +378,7 @@
                                                 <HBox prefHeight="12.0" prefWidth="270.0" />
                                                 <HBox prefHeight="98.0" prefWidth="270.0">
                                                     <children>
-                                                        <TextArea fx:id="detail" prefHeight="96.0" prefWidth="270.0">
+                                                        <TextArea fx:id="detailTextArea" prefHeight="96.0" prefWidth="270.0">
                                                             <cursor>
                                                                 <Cursor fx:constant="TEXT" />
                                                             </cursor>
@@ -388,7 +388,7 @@
                                                 <HBox prefHeight="12.0" prefWidth="270.0" />
                                                 <HBox prefHeight="39.0" prefWidth="270.0">
                                                     <children>
-                                                        <TextField fx:id="price" prefHeight="31.0" prefWidth="163.0">
+                                                        <TextField fx:id="priceTextField" prefHeight="31.0" prefWidth="163.0">
                                                             <cursor>
                                                                 <Cursor fx:constant="TEXT" />
                                                             </cursor>
@@ -409,7 +409,7 @@
                                                 <HBox prefHeight="21.0" prefWidth="270.0" />
                                                 <HBox prefHeight="39.0" prefWidth="270.0">
                                                     <children>
-                                                        <TextField fx:id="remaining" prefHeight="29.0" prefWidth="85.0">
+                                                        <TextField fx:id="remainingTextField" prefHeight="29.0" prefWidth="85.0">
                                                             <cursor>
                                                                 <Cursor fx:constant="TEXT" />
                                                             </cursor>
@@ -429,7 +429,7 @@
                                                                 <Font name="Kanit Regular" size="14.0" />
                                                             </font>
                                                         </Label>
-                                                        <TextField fx:id="numRemainWarning" prefHeight="29.0" prefWidth="57.0">
+                                                        <TextField fx:id="numRemainWarningTextField" prefHeight="29.0" prefWidth="57.0">
                                                             <cursor>
                                                                 <Cursor fx:constant="TEXT" />
                                                             </cursor>
@@ -440,7 +440,7 @@
                                                 <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="270.0">
                                                     <children>
                                                         <HBox prefHeight="80.0" prefWidth="18.0" />
-                                                        <Button fx:id="saveadddata" mnemonicParsing="false" prefHeight="33.0" prefWidth="124.0" style="-fx-background-radius: 9; -fx-background-color: FFD12F;" text="บันทึกข้อมูล" textFill="#6f6f6f">
+                                                        <Button fx:id="SaveAddDataButton" mnemonicParsing="false" onAction="#handleSaveAddDataButton" prefHeight="33.0" prefWidth="124.0" style="-fx-background-radius: 9; -fx-background-color: FFD12F;" text="บันทึกข้อมูล" textFill="#6f6f6f">
                                                             <font>
                                                                 <Font name="Kanit Regular" size="15.0" />
                                                             </font>

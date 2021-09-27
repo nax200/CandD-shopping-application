@@ -18,7 +18,7 @@ class ProductListTest {
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
 
-        productList.addNewProduct("shopzaza","เสื้อแฟชั่น",199,10,"/images/marketpage/img_1.png","เส้ือลายฮิตสุดคุ้ม",3);
+        productList.addNewProduct("shopzaza","เสื้อแฟชั่น","199","10","/images/marketpage/img_1.png","เส้ือลายฮิตสุดคุ้ม","3");
         dataSource.writeData(productList);
         assertEquals("shopzaza",productList.searchByName("เสื้อแฟชั่น").getShopName());
         assertEquals("เสื้อแฟชั่น",productList.searchByName("เสื้อแฟชั่น").getName());
