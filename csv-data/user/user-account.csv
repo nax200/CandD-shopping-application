@@ -1,4 +1,6 @@
-Admin,admin,1234,27-09-2021 15:19:40
-Customer,2109240001,test01,1234,27-09-2021 14:54:18,test01,false,No-shop,No-pic
-Customer,2109240001,test02,1234,27-09-2021 14:51:10,test02,false,No-shop,No-pic
+Admin,admin,1234,27-09-2021 17:40:24
+Customer,2109240001,test01,1234,27-09-2021 16:57:55,test01,true,No-shop,No-pic
+Customer,2109240001,test02,1234,27-09-2021 16:57:02,test02,false,No-shop,No-pic
 Customer,2109240001,inwza007,123456789,27-09-2021 15:15:57,สุชาติ,false,No-shop,No-pic
+Customer,2109240001,moss,1234,27-09-2021 16:47:37,moss,false,No-shop,No-pic
+Customer,2109240001,bam,123,27-09-2021 16:56:21,bam,false,No-shop,No-pic

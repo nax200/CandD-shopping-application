@@ -51,13 +51,13 @@
                             <HBox.margin>
                                 <Insets left="20.0" />
                             </HBox.margin>
-                            <graphic>
-                                <ImageView fitHeight="35.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../images/marketpage/img_13.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@../../../images/assets/title-bar/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                         </MenuButton>
                         <HBox prefHeight="58.0" prefWidth="27.0" />
                     </children>
@@ -81,13 +81,13 @@
                     </HBox.margin></Button>
             </children>
         </HBox>
-        <HBox layoutX="-1.0" layoutY="179.0" prefHeight="514.0" prefWidth="1024.0">
+        <HBox layoutX="-1.0" layoutY="186.0" prefHeight="506.0" prefWidth="1024.0">
             <children>
                 <ScrollPane prefHeight="576.0" prefWidth="1024.0">
                     <content>
-                        <VBox fx:id="userStatusList" prefHeight="515.0" prefWidth="1024.0">
+                        <VBox fx:id="userStatusList" prefHeight="506.0" prefWidth="1024.0">
                             <children>
-                                <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0">
+                                <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1024.0">
                                     <children>
                                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -124,12 +124,12 @@
                 </ScrollPane>
             </children>
         </HBox>
-        <Button layoutX="720.0" layoutY="710.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="บันทึกข้อมูล">
+        <Button layoutX="790.0" layoutY="710.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="บันทึกข้อมูล">
             <font>
                 <Font name="Kanit Regular" size="18.0" />
             </font>
         </Button>
-              <HBox alignment="CENTER_LEFT" layoutX="-1.0" layoutY="120.0" prefHeight="60.0" prefWidth="1024.0" style="-fx-background-color: #DCDADA;">
+              <HBox alignment="CENTER_LEFT" layoutY="126.0" prefHeight="60.0" prefWidth="1024.0" style="-fx-background-color: #DCDADA;">
                   <children>
                       <Label alignment="CENTER" prefWidth="170.0" text="ภาพผู้ใช้">
                           <font>

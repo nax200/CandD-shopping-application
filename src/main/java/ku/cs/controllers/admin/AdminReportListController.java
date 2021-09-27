@@ -3,6 +3,7 @@ package ku.cs.controllers.admin;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,7 +29,7 @@ public class AdminReportListController implements Initializable {
     private Label messageReport;
 
     @FXML
-    private ChoiceBox<String> statusUserReport;
+    private ComboBox<String> statusUserReport;
 
     public void setData(AdminUserReport user){
         Image imgProfile = new Image(getClass().getResourceAsStream(user.getImgSrc()));

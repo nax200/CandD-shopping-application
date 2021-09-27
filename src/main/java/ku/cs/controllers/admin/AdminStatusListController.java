@@ -3,6 +3,7 @@ package ku.cs.controllers.admin;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -26,7 +27,7 @@ public class AdminStatusListController implements Initializable {
     private Label countTrytoLogin;
 
     @FXML
-    private ChoiceBox<String> userStatus;
+    private ComboBox<String> userStatus;
 
     public void setData(AdminUserReport user){
         Image imageProfile = new Image(getClass().getResourceAsStream(user.getImgSrc()));

@@ -3,6 +3,9 @@ package ku.cs.models.user;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class UserList {
     private ArrayList<User> users;
@@ -37,6 +40,10 @@ public class UserList {
 
     public User getUser(int i){
         return users.get(i);
+    }
+
+    public void sortTime(Comparator<User> userComparator){
+        Collections.sort(this.users,userComparator);
     }
 
 
