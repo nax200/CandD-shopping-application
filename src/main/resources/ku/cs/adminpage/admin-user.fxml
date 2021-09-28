@@ -42,19 +42,19 @@
                   <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ตั้งค่าบัญชี" />
                   <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
                </items>
-               <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/marketpage/img_13.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <font>
                   <Font name="Kanit Regular" size="13.0" />
                </font>
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../../../images/assets/title-bar/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </MenuButton>
             <HBox prefHeight="58.0" prefWidth="27.0" />
          </children>

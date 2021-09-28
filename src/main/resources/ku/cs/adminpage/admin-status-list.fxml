@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -36,6 +36,6 @@
                 <Font name="Kanit Regular" size="18.0" />
             </font>
         </Label>
-        <ChoiceBox fx:id="userStatus" prefHeight="25.0" prefWidth="130.0" />
+      <ComboBox fx:id="userStatus" prefHeight="25.0" prefWidth="130.0" />
     </children>
 </HBox>

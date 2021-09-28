@@ -16,7 +16,9 @@ import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -67,13 +69,21 @@ public class AdminUserController implements Initializable{
         DataSource<UserList> dataSource;
         dataSource = new UserFileDataSource();
         UserList userAll = dataSource.readData();
-
+        Comparator<User> userComparator = new Comparator<User>() {
+            @Override
+            public int compare(User o1, User o2) {
+                if(o1.getLastTimeLoggedIn().isBefore(o2.getLastTimeLoggedIn()) ) return 1;
+                if(o2.getLastTimeLoggedIn().isBefore(o1.getLastTimeLoggedIn())) return -1;
+                return 0;
+            }
+        };
         for(int i=0 ;i<userAll.count();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/adminpage/admin-user-list.fxml"));
             try{
                 if(userAll.getUser(i) instanceof Customer) {
                     HBox hBox = fxmlLoader.load();
+                    userAll.sortTime(userComparator);
                     AdminUserListController adminuserListController = fxmlLoader.getController();
                     adminuserListController.setData(userAll.getUser(i));
                     userList.getChildren().add(hBox);
