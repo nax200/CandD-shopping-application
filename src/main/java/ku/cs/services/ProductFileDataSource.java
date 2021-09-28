@@ -2,8 +2,9 @@ package ku.cs.services;
 
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
-
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ProductFileDataSource implements DataSource<ProductList> {
     private String directoryName;
@@ -47,32 +48,31 @@ public class ProductFileDataSource implements DataSource<ProductList> {
 
         FileReader reader = null;
         BufferedReader buffer = null;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
         try {
             reader = new FileReader(file);
             buffer = new BufferedReader(reader);
 
+
             String line = "";
             while( (line = buffer.readLine()) != null ) {
                 String[] data = line.split(",");
                 String type = data[0];
-                if (true) {
-                    productList.addProduct(
-                            new Product(
-                                    data[0], // addedTime
-                                    data[1], // ID
-                                    data[2], // shopName
-                                    data[3], // name
-                                    Double.parseDouble(data[4]), // price
-                                    Integer.parseInt(data[5]), // remaining
-                                    Double.parseDouble(data[6]), // rating
-                                    data[7], // imageFilePath
-                                    data[8],  // detail
-                                    Integer.parseInt(data[9]) // numRemainWarning
-                            )
-                    );
-                }
-
+                productList.addProduct(
+                        new Product(
+                                LocalDateTime.parse(data[0],dtf), // addedTime
+                                data[1], // ID
+                                data[2], // shopName
+                                data[3], // name
+                                Double.parseDouble(data[4]), // price
+                                Integer.parseInt(data[5]), // remaining
+                                Double.parseDouble(data[6]), // rating
+                                data[7], // imageFilePath
+                                data[8],  // detail
+                                Integer.parseInt(data[9]) // numRemainWarning
+                        )
+                );
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

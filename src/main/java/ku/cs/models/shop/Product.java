@@ -1,7 +1,10 @@
 package ku.cs.models.shop;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Product {
-    private String addedTime;
+    private LocalDateTime addedTime;
     private String ID;
     private String shopName;
     private String name;
@@ -15,7 +18,7 @@ public class Product {
 
     public Product(){}
 
-    public Product(String addedTime, String ID, String shopName, String name, double price, int remaining,
+    public Product(LocalDateTime addedTime, String ID,String shopName, String name, double price, int remaining,
                    double rating, String imageFilePath, String detail, int numRemainWarning)
     {
         this.addedTime = addedTime;
@@ -30,6 +33,21 @@ public class Product {
         this.numRemainWarning = numRemainWarning;
     }
 
+    public Product(String addedTime,String ID,String shopName,String name,String price,String remaining ,String rating,String imageFilePath,String detail,String numRemainWarning) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        this.addedTime = LocalDateTime.parse(addedTime,dtf);
+        this.ID = ID;
+        this.shopName = shopName;
+        this.name = name;
+        this.price = Double.parseDouble(price);
+        this.remaining = Integer.parseInt(remaining);
+        this.rating = Double.parseDouble(rating);
+        this.imageFilePath = imageFilePath;
+        this.detail = detail;
+        this.numRemainWarning  = Integer.parseInt(numRemainWarning);
+        //addedTime.format(localDateTime),"2109260001",shopName,name,price,remaining,0.0,imageFilePath,detail,numRemainWarning
+    }
+
     public boolean isProductName(String name) {
         return this.name.equals(name);
     }
@@ -41,8 +59,13 @@ public class Product {
 //----------- GETTER ----------------
 
 
-    public String getAddedTime() {
+    public LocalDateTime getAddedTime() {
         return addedTime;
+    }
+
+    public String getAddedTimeToString() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return dtf.format(addedTime);
     }
 
     public String getID() {
@@ -58,6 +81,19 @@ public class Product {
     }
 
     public double getPrice() {
+        return price;
+    }
+
+    public String getPriceString() {
+        int priceInt = (int) getPrice();
+        double priceDouble = getPrice();
+        String price;
+        if(priceDouble-priceInt != 0.0)
+        {
+            price = ""+ String.format("%.2f",priceDouble);
+        }else{
+            price = ""+ priceInt;
+        }
         return price;
     }
 
@@ -116,6 +152,6 @@ public class Product {
 
 
     public String toCsv() {
-        return addedTime +","+ ID +","+ shopName +","+ name +","+ price +","+ remaining +","+ rating +","+ imageFilePath +","+ detail +","+ numRemainWarning;
+        return getAddedTimeToString() +","+ ID +","+ shopName +","+ name +","+ price +","+ remaining +","+ rating +","+ imageFilePath +","+ detail +","+ numRemainWarning;
     }
 }

@@ -1,11 +1,13 @@
 package ku.cs.controllers.market;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ChoiceBox;
 import java.net.URL;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -14,8 +16,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import ku.cs.models.shop.Product;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import com.github.saacsos.FXRouter;
 import ku.cs.models.shop.ProductList;
 import ku.cs.services.DataSource;
@@ -24,37 +24,23 @@ import ku.cs.services.ProductFileDataSource;
 
 public class MarketPlaceController implements Initializable{
 
-    @FXML private ChoiceBox<String> category;
-    @FXML private ChoiceBox<String> sort;
+    @FXML private ComboBox<String> categoryComboBox;
+    @FXML private ComboBox<String> sortComboBox;
     @FXML private Label categoryLabel;
-    @FXML private GridPane grid;
+    @FXML private GridPane listProduct;
 
-    private List<Product> products = new ArrayList<>();
-
-    private List<Product> getData(){
-        List<Product> products = new ArrayList<>();
-        Product product;
-
-        for (int i = 0; i < 20; i++){
-            product = new Product();
-            product.setName("เสื้อแฟชั่นลายฮิต");
-            product.setPrice(250);
-            product.setImageFilePath("/images/marketpage/img_1.png");
-            products.add(product);
-        }
-        return products;
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        sort.getItems().addAll("ราคาน้อยไปมาก", "ราคามากไปน้อย");
-        category.getItems().addAll("เครื่องแต่งกาย", "เสื้อผ้าแฟชั่น");
-        category.setOnAction(actionEvent -> categoryLabel.setText(category.getValue()));
-
+    public void sortByLatest() {
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
-
+        Comparator<Product> productComparator = new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
+                if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
+                return 0;
+            }
+        };
         int column  = 0;
         int row = 1;
         try {
@@ -62,6 +48,9 @@ public class MarketPlaceController implements Initializable{
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
+
+                productList.sort(productComparator);
+
 
                 CardController cardController = fxmlLoader.getController();
                 cardController.setData(productList.getProduct(i));
@@ -71,12 +60,112 @@ public class MarketPlaceController implements Initializable{
                     row++;
                 }
 
-                grid.add(anchorPane, column++, row);
+                listProduct.add(anchorPane, column++, row);
                 GridPane.setMargin(anchorPane, new Insets(9));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void sortByPriceMaxToMin() {
+        DataSource<ProductList> dataSource;
+        dataSource = new ProductFileDataSource();
+        ProductList productList = dataSource.readData();
+        Comparator<Product> productComparator = new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                if (o1.getPrice() < o2.getPrice()) return 1;
+                if (o1.getPrice() > o2.getPrice()) return -1;
+                return 0;
+            }
+        };
+        int column  = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < productList.count(); i++){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                productList.sort(productComparator);
+
+                CardController cardController = fxmlLoader.getController();
+                cardController.setData(productList.getProduct(i));
+
+                if(column == 4){
+                    column = 0;
+                    row++;
+                }
+
+                listProduct.add(anchorPane, column++, row);
+                GridPane.setMargin(anchorPane, new Insets(9));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sortByPriceMinToMax() {
+        DataSource<ProductList> dataSource;
+        dataSource = new ProductFileDataSource();
+        ProductList productList = dataSource.readData();
+        Comparator<Product> productComparator = new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                if (o1.getPrice() > o2.getPrice()) return 1;
+                if (o1.getPrice() < o2.getPrice()) return -1;
+                return 0;
+            }
+        };
+        int column  = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < productList.count(); i++){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                productList.sort(productComparator);
+
+                CardController cardController = fxmlLoader.getController();
+                cardController.setData(productList.getProduct(i));
+
+                if(column == 4){
+                    column = 0;
+                    row++;
+                }
+
+                listProduct.add(anchorPane, column++, row);
+                GridPane.setMargin(anchorPane, new Insets(9));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        sortByLatest();
+        sortComboBox.getItems().addAll("ล่าสุด","ราคาน้อยไปมาก", "ราคามากไปน้อย");
+        categoryComboBox.getItems().addAll("เครื่องแต่งกาย", "เสื้อผ้าแฟชั่น");
+        categoryComboBox.setOnAction(actionEvent -> categoryLabel.setText(categoryComboBox.getValue()));
+        sortComboBox.setValue("ล่าสุด");
+        sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (sortComboBox.getValue().equals("ล่าสุด")) {
+                    sortByLatest();
+                }
+                else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
+                    sortByPriceMinToMax();
+                }
+                else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
+                    sortByPriceMaxToMin();
+                }
+            }
+        });
+
     }
 
     @FXML
