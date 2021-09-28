@@ -1,8 +1,11 @@
 package ku.cs.models.shop;
 
+import ku.cs.models.user.Customer;
 import ku.cs.models.user.User;
+import ku.cs.models.user.UserList;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
+import ku.cs.services.UserFileDataSource;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -38,6 +41,16 @@ class ProductListTest {
         System.out.println(user.getLastTimeLoggedIn());
         System.out.println(user.getLastTimeLoggedInToString());
 
+    }
+
+    @Test
+    void testReadCustomerImageFilePath(){
+        DataSource<UserList> dataSource;
+        dataSource = new UserFileDataSource();
+        UserList userList = dataSource.readData();
+
+        Customer u1 = (Customer)userList.searchUsername("bamnat");
+        System.out.println(u1.getImageFile());
     }
 
 

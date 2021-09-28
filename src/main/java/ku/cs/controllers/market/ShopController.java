@@ -1,5 +1,6 @@
 package ku.cs.controllers.market;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -7,14 +8,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import com.github.saacsos.FXRouter;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import ku.cs.models.shop.Product;
+
 import ku.cs.models.shop.ProductList;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
+import ku.cs.models.user.LoginCustomer;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Comparator;
@@ -24,6 +35,8 @@ public class ShopController implements Initializable {
 
     @FXML private ComboBox<String> sortComboBox;
     @FXML private GridPane listProduct;
+    @FXML private Circle imageProfileTitle;
+    @FXML private Label usernameLabel;
 
     public void sortByLatest() {
         DataSource<ProductList> dataSource;
@@ -193,6 +206,16 @@ public class ShopController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        imageProfileTitle.setFill(new ImagePattern(image));
+        usernameLabel.setText(LoginCustomer.customer.getUsername());
     }
 
     @FXML
