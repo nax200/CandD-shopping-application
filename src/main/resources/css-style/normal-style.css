@@ -63,6 +63,10 @@ body{
     -fx-text-fill: #9C9C9C;
 }
 
+.text-type2{
+    -fx-text-fill: #717171;
+}
+
 /*choiceBox สีเทา*/
 .choiceBox-grey-border{
     -fx-background-color: #E2E2E2;
@@ -115,4 +119,9 @@ body{
 }
 .button-grey:pressed{
     -fx-background-color: #BBBBBB;
+}
+
+/*ทำรูปให้เป็นวงกลม*/
+img {
+    border-radius: 50%;
 }

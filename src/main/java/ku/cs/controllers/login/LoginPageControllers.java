@@ -6,6 +6,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import com.github.saacsos.FXRouter;
 import ku.cs.models.user.Customer;
+import ku.cs.models.user.LoginCustomer;
+import ku.cs.models.user.User;
 import ku.cs.models.user.UserList;
 import ku.cs.services.DataSource;
 import ku.cs.services.UserFileDataSource;
@@ -31,20 +33,19 @@ public class LoginPageControllers {
                 messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วน");
             }
             else if ( userList.verifyLogin(username,password) ) {
-
-                userList.setLastLogInTime(userList.searchUsername(username));
-                dataSource.writeData(userList);
+                User user = userList.searchUsername(username);
+                userList.setLastLogInTime(user);
 
                 if ( username.equals("admin") ) {
                     FXRouter.goTo("admin-user-view");
                 } else {
-                    if( ( (Customer) userList.searchUsername(username) ).isBlocked() ){
-
+                    if( ((Customer) user).isBlocked() ){
 
                         // รอเพิ่มโค้ดจำนวนครั้งในความพยายามเข้าสู่ระบบ
 
                         messageLabel.setText("ขออภัย! บัญชีของท่านถูกระงับการใช้งาน");
                     } else {
+                        LoginCustomer customer = new LoginCustomer(((Customer) user));
                         FXRouter.goTo("market-place");
                     }
                 }
@@ -54,6 +55,9 @@ public class LoginPageControllers {
 
         } catch (Exception e) {
             System.err.println("เข้าหน้าหลังจากล็อกอินไม่ได้");
+        }
+        finally {
+            dataSource.writeData(userList);
         }
 
     }

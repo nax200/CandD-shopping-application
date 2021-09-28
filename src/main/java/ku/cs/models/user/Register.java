@@ -16,9 +16,10 @@ public class Register {
             System.err.println("ชื่อซ้ำในระบบ");
             return false;
         }
+        String userID = String.format("%05d",userList.count());
 
         // เพิ่มบัญชีใหม่
-        userList.addUser(new Customer("2109240001", username,password, LocalDateTime.now(),name,false, "No-shop", "No-pic"));
+        userList.addUser(new Customer(userID, username,password, LocalDateTime.now(),name,false, "No-shop", "src/main/resources/images/userProfileImage/default_profile.png"));
         System.out.println("เพิ่มบัญชีใหม่แล้ว");
         dataSource.writeData(userList);
         return true;

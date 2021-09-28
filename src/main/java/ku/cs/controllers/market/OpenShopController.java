@@ -1,12 +1,39 @@
 package ku.cs.controllers.market;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import com.github.saacsos.FXRouter;
-import java.io.IOException;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import ku.cs.models.user.LoginCustomer;
 
-public class OpenShopController {
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class OpenShopController implements Initializable {
+    @FXML private Circle imageProfileTitle;
+    @FXML private Label usernameLabel;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        imageProfileTitle.setFill(new ImagePattern(image));
+        usernameLabel.setText(LoginCustomer.customer.getUsername());
+    }
 
     @FXML
     void goToEditProfile(ActionEvent event) {

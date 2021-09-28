@@ -1,25 +1,34 @@
 package ku.cs.controllers.market;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ChoiceBox;
+
+import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import ku.cs.models.shop.Product;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import com.github.saacsos.FXRouter;
 import ku.cs.models.shop.ProductList;
+import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
+
+import javax.imageio.ImageIO;
 
 
 public class MarketPlaceController implements Initializable{
@@ -28,6 +37,8 @@ public class MarketPlaceController implements Initializable{
     @FXML private ChoiceBox<String> sort;
     @FXML private Label categoryLabel;
     @FXML private GridPane grid;
+    @FXML private Circle imageProfileTitle;
+    @FXML private Label usernameLabel;
 
     private List<Product> products = new ArrayList<>();
 
@@ -77,6 +88,16 @@ public class MarketPlaceController implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        imageProfileTitle.setFill(new ImagePattern(image));
+        usernameLabel.setText(LoginCustomer.customer.getUsername());
     }
 
     @FXML

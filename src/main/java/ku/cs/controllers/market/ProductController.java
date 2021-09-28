@@ -1,13 +1,21 @@
 package ku.cs.controllers.market;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import com.github.saacsos.FXRouter;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import ku.cs.models.user.LoginCustomer;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,11 +27,24 @@ public class ProductController implements Initializable {
     @FXML private Label price;
     @FXML private ChoiceBox<String> color;
     @FXML private ChoiceBox<String> size;
+    @FXML private Circle imageProfileTitle;
+    @FXML private Label usernameLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         color.getItems().addAll("สีแดง", "สีชมพู", "สีเหลือง", "สีฟ้า");
         size.getItems().addAll("S", "M", "L", "XL");
+
+
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        imageProfileTitle.setFill(new ImagePattern(image));
+        usernameLabel.setText(LoginCustomer.customer.getUsername());
     }
 
     @FXML
