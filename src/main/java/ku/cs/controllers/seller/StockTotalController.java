@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import ku.cs.models.shop.StockTotal;
@@ -91,6 +92,45 @@ public class StockTotalController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
+    }
+    @FXML
+    void goToEditProfile(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("user-profile-edit");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า user-profile-edit ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void clickLogoBackToMarketPlace(MouseEvent event){
+        try {
+            com.github.saacsos.FXRouter.goTo("market-place");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า market-place ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void logOut(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void goToOpenShop(ActionEvent event){
+        try {
+            com.github.saacsos.FXRouter.goTo("open-shop");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า open-shop ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 
     private List<StockTotal> prototype() {
