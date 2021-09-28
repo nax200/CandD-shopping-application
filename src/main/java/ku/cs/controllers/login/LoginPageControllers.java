@@ -35,7 +35,7 @@ public class LoginPageControllers {
             else if ( userList.verifyLogin(username,password) ) {
                 User user = userList.searchUsername(username);
                 userList.setLastLogInTime(user);
-
+                dataSource.writeData(userList);
                 if ( username.equals("admin") ) {
                     FXRouter.goTo("admin-user-view");
                 } else {
@@ -46,6 +46,7 @@ public class LoginPageControllers {
                         messageLabel.setText("ขออภัย! บัญชีของท่านถูกระงับการใช้งาน");
                     } else {
                         LoginCustomer customer = new LoginCustomer(((Customer) user));
+                        dataSource.writeData(userList);
                         FXRouter.goTo("market-place");
                     }
                 }
@@ -55,9 +56,6 @@ public class LoginPageControllers {
 
         } catch (Exception e) {
             System.err.println("เข้าหน้าหลังจากล็อกอินไม่ได้");
-        }
-        finally {
-            dataSource.writeData(userList);
         }
 
     }

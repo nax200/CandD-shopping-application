@@ -19,7 +19,7 @@ public class Register {
         String userID = String.format("%05d",userList.count());
 
         // เพิ่มบัญชีใหม่
-        userList.addUser(new Customer(userID, username,password, LocalDateTime.now(),name,false, "No-shop", "src/main/resources/images/userProfileImage/default_profile.png"));
+        userList.addUser(new Customer(userID, username,password, LocalDateTime.now(),name,false, "      -", "src/main/resources/images/userProfileImage/default_profile.png"));
         System.out.println("เพิ่มบัญชีใหม่แล้ว");
         dataSource.writeData(userList);
         return true;
