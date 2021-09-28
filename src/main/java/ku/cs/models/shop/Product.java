@@ -86,6 +86,19 @@ public class Product {
         return price;
     }
 
+    public String getPriceString() {
+        int priceInt = (int) getPrice();
+        double priceDouble = getPrice();
+        String price;
+        if(priceDouble-priceInt != 0.0)
+        {
+            price = ""+ String.format("%.2f",priceDouble);
+        }else{
+            price = ""+ priceInt;
+        }
+        return price;
+    }
+
     public int getRemaining() {
         return remaining;
     }

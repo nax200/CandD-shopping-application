@@ -14,12 +14,9 @@ public class CardController {
     @FXML private Label nameLabel;
     @FXML private Label priceLabel;
 
-//    private Product product;
-
     public void setData(Product product){
-//        this.product = product;
         nameLabel.setText(product.getName());
-        priceLabel.setText(product.getPrice()+"");
+        priceLabel.setText(product.getPriceString());
         Image image = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
         img.setImage(image);
     }

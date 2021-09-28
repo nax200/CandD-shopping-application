@@ -116,3 +116,15 @@ body{
 .button-grey:pressed{
     -fx-background-color: #BBBBBB;
 }
+
+/*choiceBox สีเทา*/
+.comboBox-grey-border{
+    -fx-background-color: #E2E2E2;
+    -fx-background-radius: 8;
+}
+.comboBox-grey-border:hover{
+    -fx-background-color: #E0DEDE;
+}
+.comboBox-grey-border:pressed{
+    -fx-background-color: #EEEEEE;
+}

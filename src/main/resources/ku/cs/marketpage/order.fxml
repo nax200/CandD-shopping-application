@@ -68,7 +68,7 @@
                                                 </HBox>
                                                 <VBox alignment="CENTER" prefHeight="135.0" prefWidth="365.0">
                                                     <children>
-                                                        <Button mnemonicParsing="false" onAction="#goToMarketPlace" prefHeight="40.0" prefWidth="115.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="ไปหน้าหลัก" textFill="WHITE">
+                                                        <Button mnemonicParsing="false" onAction="#goToMarketPlace" prefHeight="45.0" prefWidth="140.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="กลับไปหน้าหลัก" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Kanit Regular" size="18.0" />
                                                             </font>
