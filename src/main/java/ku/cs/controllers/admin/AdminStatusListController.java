@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import ku.cs.models.admin.AdminUser;
 import ku.cs.models.admin.AdminUserReport;
 
@@ -15,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class AdminStatusListController implements Initializable {
     @FXML
-    private ImageView img;
+    private Circle profileImage;
 
     @FXML
     private Label username;
@@ -30,13 +31,13 @@ public class AdminStatusListController implements Initializable {
     private ComboBox<String> userStatus;
 
     public void setData(AdminUserReport user){
-        Image imageProfile = new Image(getClass().getResourceAsStream(user.getImgSrc()));
-        img.setImage(imageProfile);
+//        Image imageProfile = new Image(getClass().getResourceAsStream(user.getImgSrc()));
+//        img.setImage(imageProfile);
         username.setText(user.getUsername());
         moreCause.setText(user.getReportType());
         countTrytoLogin.setText(""+user.getTrytoLoginCount());
-        userStatus.setValue("Normal");
-        userStatus.getItems().addAll("Normal","Banned");
+        userStatus.setValue("ปกติ");
+        userStatus.getItems().addAll("ปกติ","ถูกจำกัด");
     }
 
     @Override

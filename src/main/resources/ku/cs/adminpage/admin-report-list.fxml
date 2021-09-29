@@ -3,22 +3,18 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminReportListController">
     <children>
-        <ImageView fx:id="img" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../../images/marketpage/img_4.png" />
-            </image>
-            <HBox.margin>
-                <Insets left="20.0" />
-            </HBox.margin>
-        </ImageView>
-        <Label fx:id="username" prefWidth="155.0" text="Username">
+      <Circle fx:id="profileImage" fill="WHITE" radius="22.0" stroke="#e2e2e2" strokeType="INSIDE" strokeWidth="1.5">
+         <HBox.margin>
+            <Insets left="15.0" />
+         </HBox.margin>
+      </Circle>
+        <Label fx:id="username" prefWidth="155.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="Username">
             <font>
                 <Font name="Kanit Regular" size="18.0" />
             </font>
@@ -26,21 +22,21 @@
                 <Insets left="17.0" />
             </HBox.margin>
         </Label>
-        <Label fx:id="reportType" prefWidth="210.0" text="ประเภทการรายงาน">
+        <Label fx:id="reportType" prefWidth="210.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ประเภทการรายงาน">
             <font>
                 <Font name="Kanit Regular" size="18.0" />
             </font>
         </Label>
-        <Label fx:id="moreDetailReport" prefWidth="230.0" text="รายละเอียดเพิ่มเติม">
+        <Label fx:id="moreDetailReport" prefWidth="230.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="รายละเอียดเพิ่มเติม">
             <font>
                 <Font name="Kanit Regular" size="18.0" />
             </font>
         </Label>
-        <Label fx:id="messageReport" prefWidth="230.0" text="ข้อความที่ถูกรายงาน">
+        <Label fx:id="messageReport" prefWidth="230.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ข้อความที่ถูกรายงาน">
             <font>
                 <Font name="Kanit Regular" size="18.0" />
             </font>
         </Label>
-      <ComboBox fx:id="statusUserReport" prefHeight="25.0" prefWidth="105.0" />
+      <ComboBox fx:id="statusUserReport" prefHeight="25.0" prefWidth="105.0" styleClass="comboBox-grey-border" stylesheets="@../../../css-style/normal-style.css" />
     </children>
 </HBox>

@@ -161,8 +161,8 @@ public class UserProfileEditController {
                 BufferedImage bufferedImage = ImageIO.read(imageFile);
                 Image img = SwingFXUtils.toFXImage(bufferedImage, null);
                 profileImage.setFill(new ImagePattern(img));
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                System.err.println("ผู้ใช้ไม่ได้เลือกไฟล์");
             }
         }
     }
