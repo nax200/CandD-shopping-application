@@ -1,6 +1,6 @@
-Admin,admin,1234,28-09-2021 23:20:55
-Customer,00001,bamnat,1234,28-09-2021 23:20:15,ณัฐพงศ์ ภูอุทา,false,bam-shop,.\src\main\resources\images\userProfileImage\00001_profileImage.jpg
-Customer,00002,ploy,1234,28-09-2021 23:13:04,ploy,false,      -,.\src\main\resources\images\userProfileImage\00002_profileImage.jpg
-Customer,00003,moss,1234,28-09-2021 23:13:34,moss,false,      -,.\src\main\resources\images\userProfileImage\00003_profileImage.jpg
-Customer,00004,nax,1234,28-09-2021 23:14:11,nax,false,      -,.\src\main\resources\images\userProfileImage\00004_profileImage.jpg
-Customer,00005,test01,1234,28-09-2021 23:15:19,test01,false,      -,src\main\resources\images\userProfileImage\default_profile.png
+Admin,admin,1234,29-09-2021 12:03:39
+Customer,00001,bamnat,1234,29-09-2021 12:04:19,ณัฐพงศ์ ภูอุทา,false,bam-shop,./src/main/resources/images/userProfileImage/00001_profileImage.jpg
+Customer,00002,ploy,1234,28-09-2021 23:13:04,ploy,false,      -,./src/main/resources/images/userProfileImage/00002_profileImage.jpg
+Customer,00003,moss,1234,28-09-2021 23:13:34,moss,false,      -,./src/main/resources/images/userProfileImage/00003_profileImage.jpg
+Customer,00004,nax,1234,28-09-2021 23:14:11,nax,false,      -,./src/main/resources/images/userProfileImage/00004_profileImage.jpg
+Customer,00005,test01,1234,28-09-2021 23:15:19,test01,false,      -,./src/main/resources/images/userProfileImage/default_profile.png
