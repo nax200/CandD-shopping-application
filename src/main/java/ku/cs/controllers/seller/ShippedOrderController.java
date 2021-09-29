@@ -104,9 +104,9 @@ public class ShippedOrderController implements Initializable {
     @FXML
     void goToOpenShop(ActionEvent event){
         try {
-            com.github.saacsos.FXRouter.goTo("open-shop");
+            com.github.saacsos.FXRouter.goTo("market-place");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า open-shop ไม่ได้");
+            System.err.println("ไปที่หน้า market-place ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

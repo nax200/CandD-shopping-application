@@ -31,7 +31,7 @@
                 </HBox>
                 <HBox prefHeight="54.0" prefWidth="254.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleStockTotalButton" prefHeight="56.0" prefWidth="260.0" style="-fx-background-color: #ffffff;" text="สินค้าทั้งหมด" textFill="#6f6f6f">
+                        <Button mnemonicParsing="false" onAction="#handleStockTotalButton" prefHeight="56.0" prefWidth="260.0" style="-fx-background-color: #ffffff;" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="สินค้าทั้งหมด" textFill="#6f6f6f">
                             <font>
                                 <Font name="Kanit Regular" size="15.0" />
                             </font>
@@ -43,9 +43,9 @@
                 </HBox>
                 <HBox prefHeight="54.0" prefWidth="254.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleLowStockButton" prefHeight="56.0" prefWidth="260.0" style="-fx-background-color: #ffffff;" text="      สินค้าที่เหลือน้อย" textFill="#6f6f6f">
+                        <Button mnemonicParsing="false" onAction="#handleLowStockButton" prefHeight="56.0" prefWidth="260.0" style="-fx-background-color: #ffffff;" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="      สินค้าที่เหลือน้อย" textFill="#6f6f6f">
                             <font>
-                                <Font size="15.0" />
+                                <Font name="Kanit Regular" size="15.0" />
                             </font>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
@@ -55,9 +55,9 @@
                 </HBox>
                 <HBox prefHeight="54.0" prefWidth="254.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleAddItemButton" prefHeight="56.0" prefWidth="260.0" style="-fx-background-color: #ffffff;" text="  เพิ่มสินค้าใหม่" textFill="#6f6f6f">
+                        <Button mnemonicParsing="false" onAction="#handleAddItemButton" prefHeight="56.0" prefWidth="260.0" style="-fx-background-color: #ffffff;" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="  เพิ่มสินค้าใหม่" textFill="#6f6f6f">
                             <font>
-                                <Font size="15.0" />
+                                <Font name="Kanit Regular" size="15.0" />
                             </font>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
@@ -81,9 +81,9 @@
                 </HBox>
                 <HBox prefHeight="54.0" prefWidth="201.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleNewOrderButton" prefHeight="56.0" prefWidth="201.0" style="-fx-background-color: #ffffff;" text="       รายการสั่งซื้อใหม่" textFill="#6f6f6f">
+                        <Button mnemonicParsing="false" onAction="#handleNewOrderButton" prefHeight="56.0" prefWidth="201.0" style="-fx-background-color: #ffffff;" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="       รายการสั่งซื้อใหม่" textFill="#6f6f6f">
                             <font>
-                                <Font size="15.0" />
+                                <Font name="Kanit Regular" size="15.0" />
                             </font>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
@@ -93,9 +93,9 @@
                 </HBox>
                 <HBox prefHeight="54.0" prefWidth="201.0">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="201.0" style="-fx-background-color: DCDADA;" text="จัดส่งแล้ว   " textFill="#6f6f6f">
+                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="201.0" style="-fx-background-color: DCDADA;" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="จัดส่งแล้ว   " textFill="#6f6f6f">
                             <font>
-                                <Font size="15.0" />
+                                <Font name="Kanit Regular" size="15.0" />
                             </font>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
@@ -119,9 +119,9 @@
                 </HBox>
                 <HBox prefHeight="54.0" prefWidth="201.0">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="201.0" style="-fx-background-color: #ffffff;" text="       โปรโมชันทั้งหมด" textFill="#6f6f6f">
+                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="201.0" style="-fx-background-color: #ffffff;" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="       โปรโมชันทั้งหมด" textFill="#6f6f6f">
                             <font>
-                                <Font size="15.0" />
+                                <Font name="Kanit Regular" size="15.0" />
                             </font>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
@@ -145,18 +145,14 @@
                     <children>
                         <VBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="56.0">
                             <children>
-                                <ImageView fitHeight="33.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../images/marketpage/img_1.png" />
-                                    </image>
-                                </ImageView>
+                                <ImageView fitHeight="33.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" />
                             </children>
                         </VBox>
                         <HBox alignment="BOTTOM_LEFT" prefHeight="66.0" prefWidth="130.0">
                             <children>
-                                <Button mnemonicParsing="false" onAction="#handleEditShopButton" prefHeight="32.0" prefWidth="95.0" style="-fx-background-color: #ffffff;" text="ตั้งค่าร้านค้า">
+                                <Button mnemonicParsing="false" onAction="#handleEditShopButton" prefHeight="32.0" prefWidth="95.0" style="-fx-background-color: #ffffff;" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ตั้งค่าร้านค้า" underline="true">
                                     <font>
-                                        <Font size="14.0" />
+                                        <Font name="Kanit Regular" size="15.0" />
                                     </font>
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
@@ -177,7 +173,7 @@
                             <children>
                                 <HBox alignment="CENTER" prefHeight="39.0" prefWidth="765.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 9;">
                                     <children>
-                                        <Label prefHeight="31.0" prefWidth="142.0" text="สินค้าที่เหลือน้อย" textFill="WHITE">
+                                        <Label prefHeight="31.0" prefWidth="142.0" text="จัดส่งแล้ว" textFill="WHITE">
                                             <font>
                                                 <Font name="Kanit Regular" size="20.0" />
                                             </font>
@@ -268,7 +264,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0" HBox.hgrow="ALWAYS">
                             <children>
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="หน้าจัดการส่วนของผู้ดูแลระบบ">
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="หน้าจัดการส่วนของร้านค้า">
                                     <font>
                                         <Font name="Kanit Regular" size="20.0" />
                                     </font>
@@ -281,8 +277,8 @@
                     <children>
                         <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
                             <items>
+                                <MenuItem mnemonicParsing="false" onAction="#goToOpenShop" text="หน้าหลัก" />
                                 <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ข้อมูลส่วนตัว" />
-                                <MenuItem mnemonicParsing="false" onAction="#goToOpenShop" text="ร้านค้าของฉัน" />
                                 <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
                             </items>
                             <graphic>
