@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import ku.cs.models.shop.ProductList;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
@@ -121,4 +122,44 @@ public class AddItemController {
         }
 
     }
+    @FXML
+    void goToEditProfile(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("user-profile-edit");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า user-profile-edit ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void clickLogoBackToMarketPlace(MouseEvent event){
+        try {
+            com.github.saacsos.FXRouter.goTo("market-place");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า market-place ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void logOut(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void goToOpenShop(ActionEvent event){
+        try {
+            com.github.saacsos.FXRouter.goTo("market-place");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า market-place ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
 }

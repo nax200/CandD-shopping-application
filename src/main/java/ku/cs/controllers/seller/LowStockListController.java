@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import ku.cs.models.shop.Product;
 import ku.cs.models.shop.StockTotal;
 
 import java.net.URL;
@@ -31,14 +32,13 @@ public class LowStockListController implements Initializable {
 
     }
 
-    public void setData(StockTotal prototype){
+    public void setData(Product product){
         Image imgProfile;
-        imgProfile = new Image(getClass().getResourceAsStream(prototype.getImgSrc()));
+        imgProfile = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
         img.setImage(imgProfile);
-
-        id_Product.setText(prototype.getId_Product());
-        nameProduct.setText(prototype.getNameProduct());
-        price.setText(prototype.getPrice());
-        quantity.setText(prototype.getQuantity());
+        id_Product.setText(product.getID());
+        nameProduct.setText(product.getName());
+        price.setText(product.getPriceString());
+        quantity.setText(product.getRemaining()+"");
     }
 }//end

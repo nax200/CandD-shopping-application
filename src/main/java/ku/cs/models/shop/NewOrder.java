@@ -1,6 +1,10 @@
 package ku.cs.models.shop;
 
+import ku.cs.models.user.Customer;
+
 public class NewOrder {
+//    private Product product;
+//    private Customer customer;
     private String imgSrc;
     private String id_Product;
     private String nameProduct;
