@@ -66,6 +66,7 @@ public class StockTotalController implements Initializable {
 
     }
 
+
     @FXML
     public void handleNewOrderButton(ActionEvent actionEvent) {
         try {

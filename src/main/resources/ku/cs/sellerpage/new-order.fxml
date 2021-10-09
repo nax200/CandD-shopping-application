@@ -231,9 +231,9 @@
                                     <children>
                                         <HBox prefHeight="549.0" prefWidth="761.0">
                                             <children>
-                                                <ScrollPane prefHeight="549.0" prefWidth="761.0">
+                                                <ScrollPane prefHeight="493.0" prefWidth="817.0">
                                                     <content>
-                                                        <VBox fx:id="contactsLayout" prefHeight="599.0" prefWidth="761.0" />
+                                                        <VBox fx:id="contactsLayout" prefHeight="533.0" prefWidth="761.0" />
                                                     </content>
                                                 </ScrollPane>
                                             </children>

@@ -10,9 +10,9 @@
 
 <HBox prefHeight="116.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.seller.ShippedOrderListController">
     <children>
-        <HBox prefHeight="100.0" prefWidth="124.0">
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="124.0">
             <children>
-                <ImageView fx:id="img" fitHeight="99.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="img" fitHeight="83.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../../images/marketpage/img_1.png" />
                     </image>
