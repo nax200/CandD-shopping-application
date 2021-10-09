@@ -64,21 +64,21 @@ public class ProductList {
         return this.products.size();
     }
 
-    public void addNewProduct(String shopName, String name, double price, int remaining, String imageFilePath, String detail, int numRemainWarning) {
-        LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter addedTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        DateTimeFormatter productID = DateTimeFormatter.ofPattern("yyMMdd");
-        Product item = new Product(localDateTime,"2109260001",shopName,name,price,remaining,0.0,imageFilePath,detail,numRemainWarning);
-        products.add(item);
-    }
+//    public void addNewProduct(String shopName, String name, double price, int remaining, String imageFilePath, String detail, int numRemainWarning) {
+//        LocalDateTime localDateTime = LocalDateTime.now();
+//        DateTimeFormatter addedTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+//        DateTimeFormatter productID = DateTimeFormatter.ofPattern("yyMMdd");
+//        Product item = new Product(localDateTime,"2109260001",shopName,name,price,remaining,0.0,imageFilePath,detail,numRemainWarning);
+//        products.add(item);
+//    }
 
-    public void addNewProduct(String shopName, String name, String price, String remaining, String imageFilePath, String detail, String numRemainWarning) {
-        LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter addedTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        DateTimeFormatter productID = DateTimeFormatter.ofPattern("yyMMdd");
-        Product item = new Product(addedTime.format(localDateTime),"2109260001",shopName,name,price,remaining,"0.0",imageFilePath,detail,numRemainWarning);
-        products.add(item);
-    }
+//    public void addNewProduct(String shopName, String name, String price, String remaining, String imageFilePath, String detail, String numRemainWarning) {
+//        LocalDateTime localDateTime = LocalDateTime.now();
+//        DateTimeFormatter addedTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+//        DateTimeFormatter productID = DateTimeFormatter.ofPattern("yyMMdd");
+//        Product item = new Product(addedTime.format(localDateTime),"2109260001",shopName,name,price,remaining,"0.0",imageFilePath,detail,numRemainWarning);
+//        products.add(item);
+//    }
 
     public void editProduct(String id, String name, double price, int remaining, String imageFilePath, String detail){
         Product item = searchByID(id);

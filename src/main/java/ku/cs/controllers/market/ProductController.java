@@ -40,7 +40,7 @@ public class ProductController implements Initializable {
     public void setChosenProduct() {
         productName.setText(product.getName());
         productPrice.setText(product.getPriceString());
-        Image image = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
+        Image image = new Image("file:"+product.getImageFilePath(),true);
         img.setImage(image);
         remainInStock.setText(product.getRemaining()+"");
     }

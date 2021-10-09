@@ -59,7 +59,7 @@ public class EditAddItemController implements Initializable {
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
 
-        productList.addNewProduct("shopzaza",name,price,remaining,"/images/marketpage/img_1.png",detail,numRemainWarning);
+        //productList.addNewProduct("shopzaza",name,price,remaining,"/images/marketpage/img_1.png",detail,numRemainWarning);
         dataSource.writeData(productList);
         nameTextField.clear();
         detailTextArea.clear();

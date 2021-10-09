@@ -26,8 +26,7 @@ public class LowStockListController implements Initializable {
     }
 
     public void setData(Product product){
-        Image imgProfile;
-        imgProfile = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
+        Image imgProfile = new Image("file:"+product.getImageFilePath(),true);
         img.setImage(imgProfile);
         id_Product.setText(product.getID());
         nameProduct.setText(product.getName());

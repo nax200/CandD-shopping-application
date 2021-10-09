@@ -53,7 +53,7 @@ public class PurchaseController implements Initializable {
         productName.setText(product.getName());
         productPrice.setText(product.getPriceString());
         price.setText(product.getPriceString());
-        Image image = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
+        Image image = new Image("file:"+product.getImageFilePath(),true);
         img.setImage(image);
         allProductPrice.setText(product.getPriceString());
     }
