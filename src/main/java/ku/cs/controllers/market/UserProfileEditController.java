@@ -24,6 +24,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import ku.cs.models.user.Customer;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.models.user.User;
 import ku.cs.models.user.UserList;
 import ku.cs.services.DataSource;
 import ku.cs.services.UserFileDataSource;
@@ -38,6 +39,7 @@ public class UserProfileEditController {
     @FXML private Circle profileImage;
     @FXML private Circle profileImageTab;
     @FXML private Label usernameLabel;
+    @FXML private Label messageLabel;
 
     private File imageFile = null;
     private UserList userList;
@@ -109,12 +111,34 @@ public class UserProfileEditController {
 
     @FXML
     void saveButton() throws IOException {
-        if (imageFile != null) {
-            loginCustomer.setImageFile(imageFile);
-            loginCustomer.copyImageFile();
+        boolean isChangePassword = true;
+        if (!oldPasswordField.getText().equals("") && !newPasswordField.getText().equals("") && !confirmPasswordField.getText().equals("")) {
+            if (oldPasswordField.getText().equals(loginCustomer.getPassword())){
+                if ( newPasswordField.getText().equals(confirmPasswordField.getText()) ) {
+                    loginCustomer.setPassword(newPasswordField.getText());
+                }
+                else{
+                    isChangePassword = false;
+                    System.out.println("รหัสผ่านไม่ตรงกัน");
+                    messageLabel.setText("รหัสผ่านไม่ตรงกัน");
+                }
+            }
+            else{
+                isChangePassword = false;
+                System.out.println("รหัสผ่านเดิมไม่ถูกต้อง");
+                messageLabel.setText("รหัสผ่านเดิมไม่ถูกต้อง");
+            }
         }
-        dataSource.writeData(userList);
-        FXRouter.goTo("market-place");
+        if(isChangePassword) {
+            loginCustomer.setName(nameTextField.getText());
+            if (imageFile != null) {
+                loginCustomer.setImageFile(imageFile);
+                loginCustomer.copyImageFile();
+            }
+
+            dataSource.writeData(userList);
+            FXRouter.goTo("market-place");
+        }
     }
 
     @FXML
@@ -122,6 +146,15 @@ public class UserProfileEditController {
         oldPasswordField.clear();
         newPasswordField.clear();
         confirmPasswordField.clear();
+
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(loginCustomer.getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image img = SwingFXUtils.toFXImage(bufferedImage, null);
+        profileImage.setFill(new ImagePattern(img));
     }
 
     @FXML
@@ -144,9 +177,7 @@ public class UserProfileEditController {
         fileChooser.setTitle("เลือกรูปภาพ...");
 
         // ใช้ filter เพื่อกรองเอาแต่ไฟล์ jpg และ png
-//        FileChooser.ExtensionFilter jpgFilter = new FileChooser.ExtensionFilter("Image file (*.jpg)", "*.jpg");
-//        FileChooser.ExtensionFilter pngFilter = new FileChooser.ExtensionFilter("Image file (*.png)", "*.png");
-//        fileChooser.getExtensionFilters().addAll(jpgFilter,pngFilter);
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
 
         String userDirectoryString = System.getProperty("user.home");
         File userDirectory = new File(userDirectoryString);
@@ -155,14 +186,14 @@ public class UserProfileEditController {
 
         imageFile = fileChooser.showOpenDialog(null);
 
-        if (imageFile.isFile())
+        if (imageFile != null)
         {
             try {
                 BufferedImage bufferedImage = ImageIO.read(imageFile);
                 Image img = SwingFXUtils.toFXImage(bufferedImage, null);
                 profileImage.setFill(new ImagePattern(img));
             } catch (Exception e) {
-                System.err.println("ผู้ใช้ไม่ได้เลือกไฟล์");
+                System.err.println("เกิดปัญหาในการเลือกไฟล์");
             }
         }
     }

@@ -47,6 +47,10 @@ public class User {
     public String getIsUserBlockedToString(){return "ปกติ";}
 
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void setLastTimeLoggedIn(LocalDateTime time){ lastTimeLoggedIn = time; }
 
 }
