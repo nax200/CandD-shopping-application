@@ -40,9 +40,9 @@
                                     </children>
                                 </HBox>
                                 <HBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="215.0">
-                           <children>
-                              <ComboBox fx:id="categoryComboBox" prefHeight="36.0" prefWidth="158.0" styleClass="comboBox-grey-border" stylesheets="@../../../css-style/normal-style.css" />
-                           </children>
+                                    <children>
+                                        <ComboBox fx:id="categoryComboBox" prefHeight="36.0" prefWidth="158.0" styleClass="comboBox-grey-border" stylesheets="@../../../css-style/normal-style.css" />
+                                    </children>
                                 </HBox>
                             </children>
                         </VBox>
@@ -59,7 +59,7 @@
                                 </VBox>
                                 <HBox alignment="CENTER" prefHeight="64.0" prefWidth="215.0">
                                     <children>
-                                        <TextField fx:id="priceMin" alignment="CENTER" prefHeight="36.0" prefWidth="65.0" promptText="น้อยสุด" style="-fx-background-color: #DCDADA; -fx-background-radius: 4;">
+                                        <TextField fx:id="priceMinTextField" alignment="CENTER" prefHeight="36.0" prefWidth="65.0" promptText="น้อยสุด" style="-fx-background-color: #DCDADA; -fx-background-radius: 4;">
                                             <font>
                                                 <Font name="Kanit Regular" size="16.0" />
                                             </font>
@@ -69,7 +69,7 @@
                                                 <Line endX="-92.5346450805664" startX="-100.0" stroke="#404040" strokeWidth="3.0" />
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="priceMax" alignment="CENTER" prefHeight="36.0" prefWidth="65.0" promptText="มากสุด" style="-fx-background-color: #DCDADA; -fx-background-radius: 4;">
+                                        <TextField fx:id="priceMaxTextField" alignment="CENTER" prefHeight="36.0" prefWidth="65.0" promptText="มากสุด" style="-fx-background-color: #DCDADA; -fx-background-radius: 4;">
                                             <font>
                                                 <Font name="Kanit Regular" size="16.0" />
                                             </font>
@@ -80,7 +80,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="215.0">
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="161.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="ค้นหา" textFill="WHITE">
+                                <Button fx:id="search" mnemonicParsing="false" prefHeight="0.0" prefWidth="161.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="ค้นหา" textFill="WHITE">
                                     <font>
                                         <Font name="Kanit Regular" size="18.0" />
                                     </font>
@@ -89,6 +89,21 @@
                                     </cursor>
                                 </Button>
                             </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="215.0">
+                            <children>
+                                <Button fx:id="clearSearch" mnemonicParsing="false" onAction="#clearSearch" prefHeight="40.0" prefWidth="159.0" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="ล้างสิ่งที่เลือก" textFill="#717171">
+                                    <font>
+                                        <Font name="Kanit Regular" size="16.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
                         </VBox>
                     </children>
                 </VBox>
@@ -100,7 +115,7 @@
                             <children>
                                 <HBox alignment="CENTER" prefHeight="73.0" prefWidth="844.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <HBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="97.0">
+                                        <HBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="82.0">
                                             <children>
                                                 <Text fill="#404040" strokeType="OUTSIDE" strokeWidth="0.0" text="หมวดหมู่:" wrappingWidth="75.05895233154297">
                                                     <font>
@@ -109,12 +124,12 @@
                                                 </Text>
                                             </children>
                                             <HBox.margin>
-                                                <Insets left="20.0" />
+                                                <Insets />
                                             </HBox.margin>
                                         </HBox>
                                         <HBox alignment="CENTER_RIGHT" prefHeight="73.0" prefWidth="322.0">
                                             <children>
-                                                <Label fx:id="categoryLabel" prefHeight="31.0" prefWidth="315.0" textFill="#404040" HBox.hgrow="ALWAYS">
+                                                <Label fx:id="categoryLabel" prefHeight="31.0" prefWidth="315.0" text="ทั้งหมด" textFill="#404040" HBox.hgrow="ALWAYS">
                                                     <font>
                                                         <Font name="Kanit Regular" size="20.0" />
                                                     </font>
@@ -128,11 +143,11 @@
                                                         <Font name="Kanit Regular" size="20.0" />
                                                     </font>
                                                 </Text>
-                                    <ComboBox fx:id="sortComboBox" prefHeight="36.0" prefWidth="158.0" styleClass="comboBox-grey-border" stylesheets="@../../../css-style/normal-style.css">
-                                       <HBox.margin>
-                                          <Insets left="10.0" right="10.0" />
-                                       </HBox.margin>
-                                    </ComboBox>
+                                                <ComboBox fx:id="sortComboBox" prefHeight="36.0" prefWidth="158.0" styleClass="comboBox-grey-border" stylesheets="@../../../css-style/normal-style.css">
+                                                    <HBox.margin>
+                                                        <Insets left="10.0" right="10.0" />
+                                                    </HBox.margin>
+                                                </ComboBox>
                                             </children>
                                         </HBox>
                                     </children>
@@ -232,7 +247,7 @@
                                             <children>
                                                 <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                     <children>
-                                          <Circle fx:id="imageProfileTitle" fill="WHITE" radius="17.5" stroke="#e2e2e2" strokeType="INSIDE" />
+                                                        <Circle fx:id="imageProfileTitle" fill="WHITE" radius="17.5" stroke="#e2e2e2" strokeType="INSIDE" />
                                                     </children>
                                                 </HBox>
                                                 <Label fx:id="usernameLabel" prefHeight="31.0" prefWidth="118.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" textFill="#404040">

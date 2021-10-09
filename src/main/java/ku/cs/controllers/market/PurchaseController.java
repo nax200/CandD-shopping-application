@@ -7,11 +7,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.models.shop.Product;
 import ku.cs.models.user.LoginCustomer;
-
+import com.github.saacsos.FXRouter;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -19,14 +21,23 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PurchaseController implements Initializable {
+    @FXML private Label productName;
+    @FXML private Label productPrice;
+    @FXML private Label price;
+    @FXML private Label allProductPrice;
+    @FXML private ImageView img;
     @FXML private RadioButton ems;
     @FXML private RadioButton registered;
     @FXML private Label shippingCost;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
+    private Product product;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        product = (Product) FXRouter.getData();
+        setChosenProduct();
+
         BufferedImage bufferedImage = null;
         try {
             bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
@@ -36,6 +47,31 @@ public class PurchaseController implements Initializable {
         Image image = SwingFXUtils.toFXImage(bufferedImage,null);
         imageProfileTitle.setFill(new ImagePattern(image));
         usernameLabel.setText(LoginCustomer.customer.getUsername());
+    }
+
+    public void setChosenProduct() {
+        productName.setText(product.getName());
+        productPrice.setText(product.getPriceString());
+        price.setText(product.getPriceString());
+        Image image = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
+        img.setImage(image);
+        allProductPrice.setText(product.getPriceString());
+    }
+
+    @FXML void shipping() {
+        int price = 0;
+        if (ems.isSelected()) {
+            int emsPrice = 35;
+            price += product.getPrice() + emsPrice;
+            shippingCost.setText(emsPrice + "");
+            allProductPrice.setText(price + "");
+        }
+        else if (registered.isSelected()) {
+            int registeredPrice = 15;
+            price += product.getPrice() + registeredPrice;
+            shippingCost.setText(registeredPrice + "");
+            allProductPrice.setText(price + "");
+        }
     }
 
     @FXML
@@ -98,13 +134,4 @@ public class PurchaseController implements Initializable {
         }
     }
 
-    @FXML
-    void shipping(ActionEvent event) {
-        if (ems.isSelected()) {
-            shippingCost.setText("35");
-        }
-        else if (registered.isSelected()) {
-            shippingCost.setText("15");
-        }
-    }
 }

@@ -1,5 +1,7 @@
 package ku.cs.models.shop;
 
+import ku.cs.services.ConditionFilterer;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -24,6 +26,16 @@ public class ProductList {
     public void sort(Comparator<Product> productComparator)
     {
         Collections.sort(this.products, productComparator);
+    }
+
+    public ArrayList<Product> filter(ConditionFilterer<Product> filterer) {
+        ArrayList<Product> filtered = new ArrayList<>();
+        for (Product product: this.products) {
+            if (filterer.match(product)) {
+                filtered.add(product);
+            }
+        }
+        return filtered;
     }
 
     public Product searchByName(String name) {
