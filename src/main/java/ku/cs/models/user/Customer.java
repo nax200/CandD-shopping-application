@@ -57,6 +57,10 @@ public class Customer extends User{
 
     public String getImageFilePath() { return "images/" + imageFile.getName(); }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setImageFile(File imageFile) {
         this.imageFile = imageFile;
     }
