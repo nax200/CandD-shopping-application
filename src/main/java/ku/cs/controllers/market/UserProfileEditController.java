@@ -144,9 +144,7 @@ public class UserProfileEditController {
         fileChooser.setTitle("เลือกรูปภาพ...");
 
         // ใช้ filter เพื่อกรองเอาแต่ไฟล์ jpg และ png
-//        FileChooser.ExtensionFilter jpgFilter = new FileChooser.ExtensionFilter("Image file (*.jpg)", "*.jpg");
-//        FileChooser.ExtensionFilter pngFilter = new FileChooser.ExtensionFilter("Image file (*.png)", "*.png");
-//        fileChooser.getExtensionFilters().addAll(jpgFilter,pngFilter);
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
 
         String userDirectoryString = System.getProperty("user.home");
         File userDirectory = new File(userDirectoryString);
@@ -155,14 +153,14 @@ public class UserProfileEditController {
 
         imageFile = fileChooser.showOpenDialog(null);
 
-        if (imageFile.isFile())
+        if (imageFile != null)
         {
             try {
                 BufferedImage bufferedImage = ImageIO.read(imageFile);
                 Image img = SwingFXUtils.toFXImage(bufferedImage, null);
                 profileImage.setFill(new ImagePattern(img));
             } catch (Exception e) {
-                System.err.println("ผู้ใช้ไม่ได้เลือกไฟล์");
+                System.err.println("เกิดปัญหาในการเลือกไฟล์");
             }
         }
     }

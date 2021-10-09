@@ -2,10 +2,7 @@ package ku.cs.models.user;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.*;
 import java.time.LocalDateTime;
 
 public class Customer extends User{
@@ -58,14 +55,22 @@ public class Customer extends User{
         return imageFile;
     }
 
+    public String getImageFilePath() { return "images/" + imageFile.getName(); }
+
     public void setImageFile(File imageFile) {
         this.imageFile = imageFile;
     }
 
     public void copyImageFile(){
+        File destDir = new File("images");
+
+        if (!destDir.exists()) destDir.mkdirs();
+
         Path sourcePath = imageFile.toPath();
         String filename = this.userID + "_profileImage.jpg";
-        Path targetPath = Paths.get("./src/main/resources/images/userProfileImage/"+filename);
+        Path targetPath = FileSystems.getDefault().getPath(
+                destDir.getAbsolutePath()+System.getProperty("file.separator")+filename
+        );
 
         try {
             Files.copy(sourcePath,targetPath, StandardCopyOption.REPLACE_EXISTING);
@@ -73,13 +78,13 @@ public class Customer extends User{
             System.err.println("copy ไฟล์ไม่ได้");
         }
 
-        imageFile = new File(targetPath.toString());
+        imageFile = new File(destDir+"/"+filename);
         LoginCustomer.customer.setImageFile(imageFile);
     }
 
     @Override
     public String toCsv() {
         return "Customer," + userID + ","+ getUsername() + "," + getPassword() + "," + getLastTimeLoggedInToString() + ","
-                + name + "," + isBlocked + "," + shopName + "," + imageFile;
+                + name + "," + isBlocked + "," + shopName + "," + getImageFilePath();
     }
 }
