@@ -6,7 +6,7 @@ import ku.cs.App;
 
 import java.io.IOException;
 
-public class CreditPageControllers {
+public class CreditPageController {
 
     @FXML
     private void goToLoginPage() throws IOException {

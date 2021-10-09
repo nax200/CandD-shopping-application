@@ -14,7 +14,7 @@ import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
 
-public class LoginPageControllers {
+public class LoginPageController {
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordField;
     @FXML private Label messageLabel;

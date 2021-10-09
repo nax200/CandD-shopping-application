@@ -7,7 +7,7 @@ import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
 
-public class RegisterPageControllers {
+public class RegisterPageController {
 
     @FXML private TextField nameTextField;
     @FXML private TextField usernameTextField;
