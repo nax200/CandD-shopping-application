@@ -37,7 +37,7 @@ public class LoginPageControllers {
                 userList.setLastLogInTime(user);
                 dataSource.writeData(userList);
                 if ( username.equals("admin") ) {
-                    FXRouter.goTo("admin-user-view");
+                    FXRouter.goTo("admin-user-view",user);
                 } else {
                     if( ((Customer) user).isBlocked() ){
 

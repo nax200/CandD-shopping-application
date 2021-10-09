@@ -37,9 +37,10 @@ public class App extends Application {
         FXRouter.when("purchase", packageStr+ "marketpage/purchase.fxml");
         FXRouter.when("order", packageStr+ "marketpage/order.fxml");
 
-        FXRouter.when("admin-user-view", packageStr+ "adminpage/admin-user.fxml"); // admin-user-view
-        FXRouter.when("admin-reported-list", packageStr+ "adminpage/admin-report.fxml"); // admin-reported-list
-        FXRouter.when("admin-blocked-list", packageStr+ "adminpage/admin-status.fxml"); // admin-blocked-list
+        FXRouter.when("admin-user-view", packageStr+ "adminpage/admin-user.fxml");
+        FXRouter.when("admin-reported-list", packageStr+ "adminpage/admin-report.fxml");
+        FXRouter.when("admin-blocked-list", packageStr+ "adminpage/admin-status.fxml");
+        FXRouter.when("admin-change-password", packageStr+ "adminpage/admin-change-password.fxml");
 
         FXRouter.when("stock-total", packageStr+ "sellerpage/stock-total.fxml");
         FXRouter.when("low-stock", packageStr+ "sellerpage/low-stock.fxml");

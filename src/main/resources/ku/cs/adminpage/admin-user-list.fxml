@@ -13,7 +13,7 @@
             <Insets left="60.0" />
          </HBox.margin>
       </Circle>
-      <Label fx:id="username" prefWidth="240.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="Username">
+      <Label fx:id="username" prefWidth="160.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="Username">
          <font>
             <Font name="Kanit Regular" size="18.0" />
          </font>
@@ -21,12 +21,17 @@
             <Insets left="65.0" />
          </HBox.margin>
       </Label>
-      <Label fx:id="shopname" prefWidth="210.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ชื่อร้านค้า">
+      <Label fx:id="name" prefWidth="160.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ชื่อผู้ใช้">
          <font>
             <Font name="Kanit Regular" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lastlogin" prefWidth="210.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="วันเวลาเข้าใช้ล่าสุด">
+      <Label fx:id="shopname" prefWidth="170.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ชื่อร้านค้า">
+         <font>
+            <Font name="Kanit Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastlogin" prefWidth="190.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="วันเวลาเข้าใช้ล่าสุด">
          <font>
             <Font name="Kanit Regular" size="18.0" />
          </font>

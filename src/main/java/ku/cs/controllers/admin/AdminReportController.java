@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import ku.cs.models.admin.AdminUserReport;
+import ku.cs.models.user.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,10 +19,11 @@ public class AdminReportController implements Initializable {
 
     @FXML
     private VBox userReportList;
+    private User admin;
     @FXML
     void userListButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-user-view");
+            com.github.saacsos.FXRouter.goTo("admin-user-view",admin);
         }catch (IOException e){
             System.err.println("ไปหน้า userList ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
@@ -31,7 +33,7 @@ public class AdminReportController implements Initializable {
     @FXML
     void userStatusButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-blocked-list");
+            com.github.saacsos.FXRouter.goTo("admin-blocked-list",admin);
         }catch (IOException e){
             System.err.println("ไปหน้า userStatus ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
@@ -41,9 +43,9 @@ public class AdminReportController implements Initializable {
     @FXML
     void goToEditProfile(ActionEvent event){
         try {
-            com.github.saacsos.FXRouter.goTo("user-profile-edit");
+            com.github.saacsos.FXRouter.goTo("admin-change-password",admin);
         }catch (IOException e){
-            System.err.println("ไปที่หน้า user-profile ไม่ได้");
+            System.err.println("ไปที่หน้า admin-change-password ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
@@ -60,6 +62,7 @@ public class AdminReportController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<AdminUserReport> users = new ArrayList<>(adminUserReports());
+        admin = (User) com.github.saacsos.FXRouter.getData();
         for(int i = 0;i<users.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/adminpage/admin-report-list.fxml"));

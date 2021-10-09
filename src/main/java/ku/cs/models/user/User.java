@@ -28,6 +28,9 @@ public class User {
         return username;
    }
 
+    public String getName(){ return "ไม่มีชื่อผู้ใช้";
+    }
+
     public String getPassword(){
         return password;
    }
@@ -46,6 +49,9 @@ public class User {
 
     public String getIsUserBlockedToString(){return "ปกติ";}
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public void setLastTimeLoggedIn(LocalDateTime time){ lastTimeLoggedIn = time; }
 

@@ -1,5 +1,5 @@
 package ku.cs.controllers.admin;
-
+import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,11 +25,11 @@ import java.util.ResourceBundle;
 public class AdminUserController implements Initializable{
     @FXML
     private VBox userList;
-
+    private User admin;
     @FXML
     void userReportButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-reported-list");
+            com.github.saacsos.FXRouter.goTo("admin-reported-list",admin);
         }catch (IOException e){
             System.err.println("ไปหน้า userReport ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
@@ -39,7 +39,7 @@ public class AdminUserController implements Initializable{
     @FXML
     void userStatusButton(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-blocked-list");
+            com.github.saacsos.FXRouter.goTo("admin-blocked-list",admin);
         }catch (IOException e){
             System.err.println("ไปหน้า userStatus ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
@@ -49,9 +49,9 @@ public class AdminUserController implements Initializable{
     @FXML
     void goToEditProfile(ActionEvent event){
         try {
-            com.github.saacsos.FXRouter.goTo("user-profile-edit");
+            com.github.saacsos.FXRouter.goTo("admin-change-password",admin);
         }catch (IOException e){
-            System.err.println("ไปที่หน้า user-profile ไม่ได้");
+            System.err.println("ไปที่หน้า admin-change-password ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
@@ -69,6 +69,7 @@ public class AdminUserController implements Initializable{
         DataSource<UserList> dataSource;
         dataSource = new UserFileDataSource();
         UserList userAll = dataSource.readData();
+        admin = (User) FXRouter.getData();
         Comparator<User> userComparator = new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
