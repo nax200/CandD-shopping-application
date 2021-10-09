@@ -75,6 +75,7 @@ public class LowStockController implements Initializable {
         }
 
     }
+
     @FXML
     public void handleEditShopButton(ActionEvent actionEvent) {
         try {

@@ -47,6 +47,8 @@ public class App extends Application {
         FXRouter.when("shipped-order", packageStr+ "sellerpage/shipped-order.fxml");
         FXRouter.when("add-item", packageStr+ "sellerpage/add-item.fxml");
         FXRouter.when("edit-shop", packageStr+ "sellerpage/edit-shop.fxml");
+        FXRouter.when("edit-add-shop", packageStr+ "sellerpage/edit-add-item.fxml");
+
     }
 
     static void setRoot(String fxml) throws IOException {

@@ -1,8 +1,6 @@
 package ku.cs.controllers.seller;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -12,10 +10,8 @@ import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class AddItemController  {
+public class EditAddItemController {
     @FXML
     private Button SaveAddimgButton;
 
@@ -40,32 +36,25 @@ public class AddItemController  {
     @FXML
     private Button SaveAddDataButton;
 
-
-
     @FXML
     private void handleSaveAddDataButton(){
-    String name = nameTextField.getText();
-    String detail = detailTextArea.getText();
-    String price = priceTextField.getText();
-    String remaining = remainingTextField.getText();
-    String numRemainWarning = numRemainWarningTextField.getText();
+        String name = nameTextField.getText();
+        String detail = detailTextArea.getText();
+        String price = priceTextField.getText();
+        String remaining = remainingTextField.getText();
+        String numRemainWarning = numRemainWarningTextField.getText();
 
-    DataSource<ProductList> dataSource;
-    dataSource = new ProductFileDataSource();
-    ProductList productList = dataSource.readData();
+        DataSource<ProductList> dataSource;
+        dataSource = new ProductFileDataSource();
+        ProductList productList = dataSource.readData();
 
-    productList.addNewProduct("shopzaza",name,price,remaining,"/images/marketpage/img_1.png",detail,numRemainWarning);
-    dataSource.writeData(productList);
-    nameTextField.clear();
-    detailTextArea.clear();
-    priceTextField.clear();
-    remainingTextField.clear();
-    numRemainWarningTextField.clear();
-    }
-
-    @FXML
-    public void hanlelCancelButton(){
-
+        productList.addNewProduct("shopzaza",name,price,remaining,"/images/marketpage/img_1.png",detail,numRemainWarning);
+        dataSource.writeData(productList);
+        nameTextField.clear();
+        detailTextArea.clear();
+        priceTextField.clear();
+        remainingTextField.clear();
+        numRemainWarningTextField.clear();
     }
 
     @FXML
@@ -171,7 +160,5 @@ public class AddItemController  {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
-
 
 }

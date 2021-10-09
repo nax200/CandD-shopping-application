@@ -170,7 +170,7 @@
                 <VBox prefHeight="673.0" prefWidth="785.0">
                     <children>
                   <HBox prefHeight="33.0" prefWidth="785.0" />
-                        <HBox alignment="CENTER" prefHeight="69.0" prefWidth="785.0">
+                        <HBox alignment="CENTER" prefHeight="64.0" prefWidth="785.0">
                             <children>
                                 <HBox alignment="CENTER" prefHeight="39.0" prefWidth="765.0" style="-fx-background-color: #FFD12F; -fx-background-radius: 9;">
                                     <children>
