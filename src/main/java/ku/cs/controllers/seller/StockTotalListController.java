@@ -15,20 +15,11 @@ import java.util.ResourceBundle;
 
 public class StockTotalListController implements Initializable {
 
-    @FXML
-    private ImageView img;
-
-    @FXML
-    private Label id_Product;
-
-    @FXML
-    private Label nameProduct;
-
-    @FXML
-    private Label price;
-
-    @FXML
-    private Label quantity;
+    @FXML private ImageView img;
+    @FXML private Label id_Product;
+    @FXML private Label nameProduct;
+    @FXML private Label price;
+    @FXML private Label quantity;
 
 
     @Override

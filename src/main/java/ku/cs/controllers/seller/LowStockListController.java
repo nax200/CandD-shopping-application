@@ -14,20 +14,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LowStockListController implements Initializable {
-    @FXML
-    private ImageView img;
-
-    @FXML
-    private Label id_Product;
-
-    @FXML
-    private Label nameProduct;
-
-    @FXML
-    private Label price;
-
-    @FXML
-    private Label quantity;
+    @FXML private ImageView img;
+    @FXML private Label id_Product;
+    @FXML private Label nameProduct;
+    @FXML private Label price;
+    @FXML private Label quantity;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

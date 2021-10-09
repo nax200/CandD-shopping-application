@@ -1,18 +1,26 @@
 package ku.cs.controllers.seller;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.shop.StockTotal;
+import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,6 +32,8 @@ public class LowStockController implements Initializable {
 
     @FXML
     private VBox contactsLayout;
+    @FXML private Circle imageProfileTitle;
+    @FXML private Label usernameLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -53,6 +63,16 @@ public class LowStockController implements Initializable {
                 e.printStackTrace();
             }
         }
+
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        imageProfileTitle.setFill(new ImagePattern(image));
+        usernameLabel.setText(LoginCustomer.customer.getUsername());
     }
 
     @FXML

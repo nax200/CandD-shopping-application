@@ -1,18 +1,26 @@
 package ku.cs.controllers.seller;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import ku.cs.models.shop.NewOrder;
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
+import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,6 +32,50 @@ public class NewOrderController implements Initializable {
 
     @FXML
     private VBox contactsLayout;
+    @FXML private Circle imageProfileTitle;
+    @FXML private Label usernameLabel;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        DataSource<ProductList> dataSource;
+        dataSource = new ProductFileDataSource();
+        ProductList productList = dataSource.readData();
+        Comparator<Product> productComparator = new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
+                if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
+                return 0;
+            }
+        };
+//        List<StockTotal> prototype = new ArrayList<>(prototype());
+        for (int i = 0; i < productList.count(); i++){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/new-order-list.fxml"));
+            productList.sort(productComparator);
+
+            try {
+                HBox hBox = fxmlLoader.load();
+                NewOrderListController stockTotalList = fxmlLoader.getController();
+                //stockTotalList.setData(productList.getProduct(i));
+                contactsLayout.getChildren().add(hBox);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        imageProfileTitle.setFill(new ImagePattern(image));
+        usernameLabel.setText(LoginCustomer.customer.getUsername());
+
+    }
 
     @FXML
     public void handleLowStockButton(ActionEvent actionEvent) {
@@ -80,38 +132,6 @@ public class NewOrderController implements Initializable {
 
     }
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        DataSource<ProductList> dataSource;
-        dataSource = new ProductFileDataSource();
-        ProductList productList = dataSource.readData();
-        Comparator<Product> productComparator = new Comparator<Product>() {
-            @Override
-            public int compare(Product o1, Product o2) {
-                if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
-                if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
-                return 0;
-            }
-        };
-//        List<StockTotal> prototype = new ArrayList<>(prototype());
-        for (int i = 0; i < productList.count(); i++){
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/new-order-list.fxml"));
-            productList.sort(productComparator);
-
-            try {
-                HBox hBox = fxmlLoader.load();
-                NewOrderListController stockTotalList = fxmlLoader.getController();
-                //stockTotalList.setData(productList.getProduct(i));
-                contactsLayout.getChildren().add(hBox);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-    }
     @FXML
     void goToEditProfile(ActionEvent event) {
         try {

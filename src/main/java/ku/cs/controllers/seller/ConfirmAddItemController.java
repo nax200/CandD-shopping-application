@@ -1,35 +1,48 @@
 package ku.cs.controllers.seller;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import ku.cs.models.user.LoginCustomer;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ConfirmAddItemController {
+public class ConfirmAddItemController implements Initializable {
 
-    @FXML
-    private Button confirmCancelButton;
+    @FXML private Button confirmCancelButton;
+    @FXML private TextField confirmNameTextField;
+    @FXML private TextArea confirmDetailTextArea;
+    @FXML private TextField confirmPriceTextField;
+    @FXML private TextField confirmRemainingTextField;
+    @FXML private TextField confirmNumRemainWarningTextField;
+    @FXML private Button confirmSaveAddDataButton;
+    @FXML private Circle imageProfileTitle;
+    @FXML private Label usernameLabel;
 
-    @FXML
-    private TextField confirmNameTextField;
-
-    @FXML
-    private TextArea confirmDetailTextArea;
-
-    @FXML
-    private TextField confirmPriceTextField;
-
-    @FXML
-    private TextField confirmRemainingTextField;
-
-    @FXML
-    private TextField confirmNumRemainWarningTextField;
-
-    @FXML
-    private Button confirmSaveAddDataButton;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        imageProfileTitle.setFill(new ImagePattern(image));
+        usernameLabel.setText(LoginCustomer.customer.getUsername());
+    }
 
     @FXML
     void goToEditProfile(ActionEvent event) {
