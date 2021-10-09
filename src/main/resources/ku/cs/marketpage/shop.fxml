@@ -24,9 +24,9 @@
     <children>
         <BorderPane layoutX="-9.0" layoutY="304.0" prefHeight="768.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
-                <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1088.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
-                    <center>
-                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="968.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" BorderPane.alignment="TOP_CENTER">
+                <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1088.0" prefWidth="1024.0">
+                    <top>
+                        <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="968.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
                             <children>
                                 <HBox alignment="CENTER" prefHeight="60.0" prefWidth="484.0">
                                     <children>
@@ -118,14 +118,17 @@
                                 </VBox>
                             </children>
                             <BorderPane.margin>
-                                <Insets top="5.0" />
+                                <Insets top="8.0" />
                             </BorderPane.margin>
                         </HBox>
-                    </center>
-                    <bottom>
-                        <HBox alignment="CENTER" prefHeight="622.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                    </top>
+                    <center>
+                        <HBox alignment="TOP_CENTER" prefHeight="622.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                            <BorderPane.margin>
+                                <Insets top="10.0" />
+                            </BorderPane.margin>
                             <children>
-                                <ScrollPane prefHeight="615.0" prefWidth="964.0" HBox.hgrow="ALWAYS">
+                                <ScrollPane prefHeight="615.0" prefWidth="964.0">
                                     <content>
                                         <GridPane fx:id="listProduct" prefHeight="0.0" prefWidth="0.0">
                                             <rowConstraints>
@@ -134,15 +137,12 @@
                                         </GridPane>
                                     </content>
                                     <HBox.margin>
-                                        <Insets bottom="10.0" left="30.0" right="30.0" />
+                                        <Insets bottom="8.0" />
                                     </HBox.margin>
                                 </ScrollPane>
                             </children>
-                            <BorderPane.margin>
-                                <Insets top="10.0" />
-                            </BorderPane.margin>
                         </HBox>
-                    </bottom>
+                    </center>
                 </BorderPane>
             </center>
             <top>
