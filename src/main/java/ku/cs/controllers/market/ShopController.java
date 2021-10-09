@@ -19,6 +19,7 @@ import javafx.scene.shape.Circle;
 import ku.cs.models.shop.Product;
 
 import ku.cs.models.shop.ProductList;
+import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
 import ku.cs.models.user.LoginCustomer;
@@ -27,6 +28,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
 
@@ -36,9 +38,13 @@ public class ShopController implements Initializable {
     @FXML private GridPane listProduct;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
+    @FXML private Label shopName;
+    private Product product;
 
     @Override
     public void initialize(URL location, ResourceBundle resourceBundle) {
+        product = (Product) FXRouter.getData();
+        showShopData();
         sortComboBox.getItems().addAll("ล่าสุด","ราคาน้อยไปมาก", "ราคามากไปน้อย");
         sortComboBox.setValue("ล่าสุด");
         sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
@@ -55,42 +61,7 @@ public class ShopController implements Initializable {
                 }
             }
         });
-        DataSource<ProductList> dataSource;
-        dataSource = new ProductFileDataSource();
-        ProductList productList = dataSource.readData();
-        Comparator<Product> productComparator = new Comparator<Product>() {
-            @Override
-            public int compare(Product o1, Product o2) {
-                if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
-                if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
-                return 0;
-            }
-        };
-
-        int column  = 0;
-        int row = 1;
-        try {
-            for (int i = 0; i < productList.count(); i++){
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-
-                productList.sort(productComparator);
-
-                CardController cardController = fxmlLoader.getController();
-                cardController.setData(productList.getProduct(i));
-
-                if(column == 5){
-                    column = 0;
-                    row++;
-                }
-
-                listProduct.add(anchorPane, column++, row);
-                GridPane.setMargin(anchorPane, new Insets(9));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        sortByLatest();
 
         BufferedImage bufferedImage = null;
         try {
@@ -118,16 +89,23 @@ public class ShopController implements Initializable {
         int column  = 0;
         int row = 1;
         try {
-            for (int i = 0; i < productList.count(); i++){
+            ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+                @Override
+                public boolean match(Product product) {
+                    return product.getShopName().equals(shopName.getText());
+                }
+            };
+            ArrayList<Product> products = productList.filter(filterer);
+
+            for (int i = 0; i < products.size(); i++){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
-                productList.sort(productComparator);
-
+                products.sort(productComparator);
 
                 CardController cardController = fxmlLoader.getController();
-                cardController.setData(productList.getProduct(i));
+                cardController.setData(products.get(i));
 
                 if(column == 5){
                     column = 0;
@@ -157,15 +135,23 @@ public class ShopController implements Initializable {
         int column  = 0;
         int row = 1;
         try {
-            for (int i = 0; i < productList.count(); i++){
+            ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+                @Override
+                public boolean match(Product product) {
+                    return product.getShopName().equals(shopName.getText());
+                }
+            };
+            ArrayList<Product> products = productList.filter(filterer);
+
+            for (int i = 0; i < products.size(); i++){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
-                productList.sort(productComparator);
+                products.sort(productComparator);
 
                 CardController cardController = fxmlLoader.getController();
-                cardController.setData(productList.getProduct(i));
+                cardController.setData(products.get(i));
 
                 if(column == 5){
                     column = 0;
@@ -195,15 +181,23 @@ public class ShopController implements Initializable {
         int column  = 0;
         int row = 1;
         try {
-            for (int i = 0; i < productList.count(); i++){
+            ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+                @Override
+                public boolean match(Product product) {
+                    return product.getShopName().equals(shopName.getText());
+                }
+            };
+            ArrayList<Product> products = productList.filter(filterer);
+
+            for (int i = 0; i < products.size(); i++){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
-                productList.sort(productComparator);
+                products.sort(productComparator);
 
                 CardController cardController = fxmlLoader.getController();
-                cardController.setData(productList.getProduct(i));
+                cardController.setData(products.get(i));
 
                 if(column == 5){
                     column = 0;
@@ -216,6 +210,10 @@ public class ShopController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void showShopData(){
+        shopName.setText(product.getShopName());
     }
 
     @FXML

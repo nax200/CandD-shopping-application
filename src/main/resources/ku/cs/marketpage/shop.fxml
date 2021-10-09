@@ -56,7 +56,7 @@
                                                     <children>
                                                         <VBox alignment="CENTER_LEFT" prefHeight="276.0" prefWidth="223.0">
                                                             <children>
-                                                                <Label text="ร้านมั่งมี ร่ำรวยเงินทอง" textFill="#717171">
+                                                                <Label fx:id="shopName" text="ร้านมั่งมี ร่ำรวยเงินทอง" textFill="#717171">
                                                                     <font>
                                                                         <Font name="Kanit Regular" size="20.0" />
                                                                     </font>

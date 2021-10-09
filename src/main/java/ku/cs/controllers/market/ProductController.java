@@ -34,16 +34,9 @@ public class ProductController implements Initializable {
     @FXML private Label usernameLabel;
     @FXML private Label remainInStock;
     @FXML private Circle imageProfileComment;
-
+    @FXML private Label shopName;
+    @FXML private Label productDes;
     private Product product;
-
-    public void setChosenProduct() {
-        productName.setText(product.getName());
-        productPrice.setText(product.getPriceString());
-        Image image = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
-        img.setImage(image);
-        remainInStock.setText(product.getRemaining()+"");
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,6 +57,16 @@ public class ProductController implements Initializable {
         usernameLabel.setText(LoginCustomer.customer.getUsername());
     }
 
+    public void setChosenProduct() {
+        productName.setText(product.getName());
+        productPrice.setText(product.getPriceString());
+        Image image = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
+        img.setImage(image);
+        remainInStock.setText(product.getRemaining()+"");
+        shopName.setText(product.getShopName());
+        productDes.setText(product.getDetail());
+    }
+
     @FXML
     public void backToMarketPlaceButton(ActionEvent event){
         try {
@@ -77,7 +80,7 @@ public class ProductController implements Initializable {
     @FXML
     public void goToShopButton(ActionEvent event){
         try {
-            FXRouter.goTo("shop");
+            FXRouter.goTo("shop", product);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

@@ -237,9 +237,9 @@
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </VBox.margin>
                                              <children>
-                                                <Label fx:id="productDes" prefHeight="127.0" prefWidth="497.0" textFill="#717171" wrapText="true">
+                                                <Label fx:id="productDes" alignment="TOP_LEFT" prefHeight="127.0" prefWidth="497.0" textFill="#717171" wrapText="true">
                                                    <font>
-                                                      <Font name="Kanit Regular" size="14.0" />
+                                                      <Font name="Kanit Regular" size="16.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="10.0" top="5.0" />
