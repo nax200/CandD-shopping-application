@@ -13,8 +13,10 @@ public class CardController {
     @FXML private ImageView img;
     @FXML private Label nameLabel;
     @FXML private Label priceLabel;
+    private Product product;
 
     public void setData(Product product){
+        this.product = product;
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPriceString());
         Image image = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
@@ -24,7 +26,7 @@ public class CardController {
     @FXML
     void goToProductPage(MouseEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("product");
+            com.github.saacsos.FXRouter.goTo("product", product);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า product ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

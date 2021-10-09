@@ -29,9 +29,9 @@
                <center>
                   <HBox alignment="CENTER" prefHeight="576.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
                      <children>
-                        <VBox prefHeight="566.0" prefWidth="576.0">
+                        <VBox alignment="CENTER" prefHeight="566.0" prefWidth="576.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="452.0" prefWidth="556.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                              <HBox alignment="CENTER" prefHeight="478.0" prefWidth="556.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
                                  <children>
                                     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="221.0">
                                        <children>
@@ -75,7 +75,7 @@
                                                       <Font name="Kanit Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="price" text="250" textFill="#ff542f">
+                                                <Label fx:id="productPrice" text="250" textFill="#ff542f">
                                                    <HBox.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </HBox.margin>
@@ -171,7 +171,7 @@
                                                       <Insets left="20.0" />
                                                    </HBox.margin>
                                                 </Button>
-                                                <TextField alignment="CENTER" prefHeight="40.0" prefWidth="40.0" text="1">
+                                                <TextField fx:id="quantityTextField" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" text="1">
                                                    <HBox.margin>
                                                       <Insets left="20.0" />
                                                    </HBox.margin>
@@ -213,7 +213,7 @@
                                     <Insets right="20.0" />
                                  </VBox.margin>
                               </HBox>
-                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="199.0" prefWidth="556.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="199.0" prefWidth="594.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
                                  <children>
                                     <VBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="668.0">
                                        <children>
@@ -237,7 +237,7 @@
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </VBox.margin>
                                              <children>
-                                                <Label fx:id="productDes" textFill="#717171">
+                                                <Label fx:id="productDes" prefHeight="127.0" prefWidth="497.0" textFill="#717171" wrapText="true">
                                                    <font>
                                                       <Font name="Kanit Regular" size="14.0" />
                                                    </font>
@@ -251,14 +251,14 @@
                                     </VBox>
                                  </children>
                                  <VBox.margin>
-                                    <Insets top="15.0" />
+                                    <Insets bottom="20.0" right="20.0" top="15.0" />
                                  </VBox.margin>
                               </VBox>
                            </children>
                         </VBox>
                         <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="711.0" prefWidth="390.0">
                            <children>
-                              <VBox alignment="CENTER" prefHeight="573.0" prefWidth="390.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                              <VBox alignment="CENTER" prefHeight="703.0" prefWidth="390.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -301,7 +301,7 @@
                                           </VBox>
                                        </children>
                                     </HBox>
-                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="375.0" prefWidth="358.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10;">
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="433.0" prefWidth="358.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10;">
                                        <VBox.margin>
                                           <Insets bottom="10.0" top="10.0" />
                                        </VBox.margin>
@@ -353,7 +353,7 @@
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" />
                                              </children>
                                           </HBox>
-                                          <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="288.0" prefWidth="326.0" style="-fx-background-color: #f5f5f5;">
+                                          <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="277.0" prefWidth="326.0" style="-fx-background-color: #f5f5f5;">
                                              <content>
                                                 <VBox prefHeight="287.0" prefWidth="309.0">
                                                    <children>
@@ -411,7 +411,7 @@
                                                             </VBox>
                                                          </children>
                                                          <VBox.margin>
-                                                            <Insets bottom="10.0" top="10.0" />
+                                                            <Insets bottom="15.0" top="10.0" />
                                                          </VBox.margin>
                                                       </HBox>
                                                       <HBox prefHeight="72.0" prefWidth="309.0">
@@ -468,7 +468,7 @@
                                                             </VBox>
                                                          </children>
                                                          <VBox.margin>
-                                                            <Insets bottom="10.0" />
+                                                            <Insets bottom="15.0" />
                                                          </VBox.margin>
                                                       </HBox>
                                                       <HBox prefHeight="72.0" prefWidth="309.0">
@@ -524,44 +524,87 @@
                                                                </children>
                                                             </VBox>
                                                          </children>
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin>
                                                       </HBox>
                                                    </children>
                                                 </VBox>
                                              </content>
                                           </ScrollPane>
+                                          <HBox prefHeight="69.0" prefWidth="358.0">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="97.0" prefWidth="354.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="46.0">
+                                                         <children>
+                                                            <Circle fx:id="imageProfileComment" fill="WHITE" radius="22.0" stroke="#e2e2e2" strokeType="INSIDE" />
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="18.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <TextField prefHeight="36.0" prefWidth="218.0" promptText="เขียนรีวิวสินค้า" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+                                                         <font>
+                                                            <Font name="Kanit Regular" size="16.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="12.0" right="5.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <VBox alignment="CENTER" prefHeight="97.0" prefWidth="52.0">
+                                                         <children>
+                                                            <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="38.0" style="-fx-background-color: #f5f5f5;">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                               <graphic>
+                                                                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                                                                     <image>
+                                                                        <Image url="@../../../images/marketpage/img_21.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
                                        </children>
                                     </VBox>
+                                    <HBox alignment="CENTER" prefHeight="46.0" prefWidth="390.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#backToMarketPlaceButton" prefHeight="50.0" prefWidth="115.0" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="ย้อนกลับ" textFill="#717171">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="15.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#goToPurchase" prefHeight="50.0" prefWidth="200.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="สร้างคำสั่งซื้อ" textFill="WHITE">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="15.0" top="15.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                    </HBox>
                                  </children>
                                  <VBox.margin>
                                     <Insets bottom="20.0" />
                                  </VBox.margin>
                               </VBox>
-                              <HBox alignment="TOP_CENTER" prefHeight="191.0" prefWidth="390.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#backToMarketPlaceButton" prefHeight="50.0" prefWidth="115.0" styleClass="button-grey2-border" stylesheets="@../../../css-style/normal-style.css" text="ย้อนกลับ" textFill="#717171">
-                                       <font>
-                                          <Font name="Kanit Regular" size="20.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets top="15.0" />
-                                       </HBox.margin>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#goToPurchase" prefHeight="50.0" prefWidth="200.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="สร้างคำสั่งซื้อ" textFill="WHITE">
-                                       <font>
-                                          <Font name="Kanit Regular" size="20.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets left="15.0" top="15.0" />
-                                       </HBox.margin>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </HBox>
                            </children>
                         </VBox>
                      </children>
