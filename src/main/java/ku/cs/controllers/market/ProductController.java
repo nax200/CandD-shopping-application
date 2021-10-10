@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -36,12 +37,15 @@ public class ProductController implements Initializable {
     @FXML private Circle imageProfileComment;
     @FXML private Label shopName;
     @FXML private Label productDes;
+    @FXML private ComboBox scoreProduct;
+    @FXML private Label messageLabel;
     private Product product;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         color.getItems().addAll("สีแดง", "สีชมพู", "สีเหลือง", "สีฟ้า");
         size.getItems().addAll("S", "M", "L", "XL");
+        scoreProduct.getItems().addAll("1", "2", "3", "4", "5");
         product = (Product) FXRouter.getData();
         setChosenProduct();
 
@@ -119,9 +123,19 @@ public class ProductController implements Initializable {
 
     @FXML
     void goToPurchase(ActionEvent event) {
-
+        String quantityString = quantityTextField.getText();
+        int quantity = Integer.parseInt(quantityString);
+        product.setQuantity(Integer.parseInt(quantityString));
         try {
-            FXRouter.goTo("purchase", product);
+            if (quantity <= 0) {
+                messageLabel.setText("จำนวนสินค้าไม่ถูกต้อง");
+            }
+            else if (quantity <= product.getRemaining()){
+                FXRouter.goTo("purchase", product);
+            }
+            else {
+                messageLabel.setText("จำนวนสินค้ามีไม่เพียงพอ");
+            }
         } catch (IOException e) {
             System.err.println("ไปที่หน้า purchase ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

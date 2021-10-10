@@ -14,6 +14,7 @@ public class Product {
     private String imageFilePath;
     private String detail;
     private int numRemainWarning;
+    private int quantity;
     //public String type; กรณีถ้าจะทำเพิ่ม
 
     public Product(){
@@ -119,7 +120,11 @@ public class Product {
         return numRemainWarning;
     }
 
-    //------------- SETTER --------------------
+    public int getQuantity() {
+        return quantity;
+    }
+
+//------------- SETTER --------------------
 
 
     public void setName(String name) {
@@ -148,6 +153,10 @@ public class Product {
 
     public void setNumRemainWarning(int numRemainWarning) {
         this.numRemainWarning = numRemainWarning;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     //--------- METHOD --------------

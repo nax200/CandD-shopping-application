@@ -31,6 +31,8 @@ public class PurchaseController implements Initializable {
     @FXML private Label shippingCost;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
+    @FXML private Label messageLabel;
+    @FXML private Label quantityLabel;
     private Product product;
 
     @Override
@@ -52,25 +54,26 @@ public class PurchaseController implements Initializable {
     public void setChosenProduct() {
         productName.setText(product.getName());
         productPrice.setText(product.getPriceString());
-        price.setText(product.getPriceString());
+        price.setText(String.format("%.2f",product.getPrice()*product.getQuantity()));
         Image image = new Image("file:"+product.getImageFilePath(),true);
         img.setImage(image);
-        allProductPrice.setText(product.getPriceString());
+        allProductPrice.setText(String.format("%.2f", product.getPrice()*product.getQuantity()));
+        quantityLabel.setText(product.getQuantity()+"");
     }
 
     @FXML void shipping() {
-        int price = 0;
+        double price = 0;
         if (ems.isSelected()) {
             int emsPrice = 35;
-            price += product.getPrice() + emsPrice;
+            price += product.getPrice()*product.getQuantity() + emsPrice;
             shippingCost.setText(emsPrice + "");
-            allProductPrice.setText(price + "");
+            allProductPrice.setText(String.format("%.2f", price));
         }
         else if (registered.isSelected()) {
             int registeredPrice = 15;
-            price += product.getPrice() + registeredPrice;
+            price += product.getPrice()*product.getQuantity() + registeredPrice;
             shippingCost.setText(registeredPrice + "");
-            allProductPrice.setText(price + "");
+            allProductPrice.setText(String.format("%.2f", price));
         }
     }
 
@@ -132,7 +135,12 @@ public class PurchaseController implements Initializable {
     @FXML
     void confirmOrder(ActionEvent event){
         try {
-            com.github.saacsos.FXRouter.goTo("order");
+            if (ems.isSelected() || registered.isSelected()) {
+                com.github.saacsos.FXRouter.goTo("order");
+            }
+            else {
+                messageLabel.setText("เลือกรูปแบบการจัดส่ง");
+            }
         } catch (IOException e) {
             System.err.println("ไปที่หน้า order ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
