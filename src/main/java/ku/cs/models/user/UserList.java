@@ -25,6 +25,19 @@ public class UserList {
         return null;
     }
 
+    public User searchShopName(String shopName) {
+        for (User user: users) {
+            if (user.getUsername().equals("admin")){
+                continue;
+            }
+            if ( user.getShopName().equals(shopName) ){
+                return user;
+            }
+        }
+        return null;
+    }
+
+
     public boolean verifyLogin(String username, String password){
         for (User user: users){
             if (  username.equals(user.getUsername()) && password.equals(user.getPassword())  ){

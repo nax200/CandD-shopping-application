@@ -16,6 +16,7 @@ public class User {
 
     }
 
+
     public String toCsv() {
         return "User," + username + "," +password + "," + lastTimeLoggedIn;
    }

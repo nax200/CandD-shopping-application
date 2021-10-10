@@ -82,7 +82,12 @@ public class UserProfileEditController {
     @FXML
     void goToOpenShop(ActionEvent event){
         try {
-            FXRouter.goTo("open-shop");
+            if(LoginCustomer.customer.getShopName().equals("-")) {
+                FXRouter.goTo("open-shop");
+            }
+            else {
+                FXRouter.goTo("stock-total");
+            }
         } catch (IOException e) {
             System.err.println("ไปที่หน้า open-shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
