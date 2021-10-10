@@ -29,6 +29,9 @@ public class AdminUserListController implements Initializable {
     private Label username;
 
     @FXML
+    private Label name;
+
+    @FXML
     private Label shopname;
 
     @FXML
@@ -41,6 +44,7 @@ public class AdminUserListController implements Initializable {
         BufferedImage bufferedImage = ImageIO.read(((Customer)user).getImageFile());
         Image image = SwingFXUtils.toFXImage(bufferedImage,null);
         profileImage.setFill(new ImagePattern(image));
+        name.setText(user.getName());
         username.setText(user.getUsername());
         shopname.setText(user.getShopName());
         lastlogin.setText(user.getLastTimeLoggedInToString());

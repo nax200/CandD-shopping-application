@@ -29,6 +29,7 @@ public class Customer extends User{
         return userID;
     }
 
+    @Override
     public String getName() {
         return name;
     }
