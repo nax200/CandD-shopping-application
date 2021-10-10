@@ -56,7 +56,12 @@ public class OrderController implements Initializable {
     @FXML
     void goToOpenShop(ActionEvent event){
         try {
-            com.github.saacsos.FXRouter.goTo("open-shop");
+            if(LoginCustomer.customer.getShopName().equals("-")) {
+                com.github.saacsos.FXRouter.goTo("open-shop");
+            }
+            else {
+                com.github.saacsos.FXRouter.goTo("stock-total");
+            }
         } catch (IOException e) {
             System.err.println("ไปที่หน้า open-shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

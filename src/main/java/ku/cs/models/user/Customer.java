@@ -25,6 +25,10 @@ public class Customer extends User{
         super(username, password, lastTimeLoggedIn);
     }
 
+    public boolean isShopName(String shopName){
+        return this.shopName.equals(shopName);
+    }
+
     public String getUserID() {
         return userID;
     }
@@ -39,7 +43,6 @@ public class Customer extends User{
         return isBlocked;
     }
 
-    @Override
     public String getShopName() {
         return shopName;
     }
@@ -61,6 +64,8 @@ public class Customer extends User{
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setShopName(String shopName) { this.shopName = shopName; }
 
     public void setImageFile(File imageFile) {
         this.imageFile = imageFile;
