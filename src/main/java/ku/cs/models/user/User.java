@@ -53,10 +53,6 @@ public class User {
         this.password = password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public void setLastTimeLoggedIn(LocalDateTime time){ lastTimeLoggedIn = time; }
 
 }
