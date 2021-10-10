@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -290,34 +291,27 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </MenuButton>
-                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="50.0" prefWidth="309.0">
-                            <children>
-                                <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
-                                    <children>
-                                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
-                                            <children>
-                                                <ImageView fitHeight="35.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
-                                                    <image>
-                                                        <Image url="@../../../images/marketpage/img_4.png" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </HBox>
-                                        <Label prefHeight="31.0" prefWidth="118.0" text="USER.NAME" textFill="#404040">
-                                            <font>
-                                                <Font name="Kanit Regular" size="20.0" />
-                                            </font>
-                                            <HBox.margin>
-                                                <Insets left="5.0" />
-                                            </HBox.margin>
-                                        </Label>
-                                    </children>
-                                </HBox>
-                            </children>
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="50.0" prefWidth="309.0">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                 <children>
+                                    <Circle fx:id="imageProfileTitle" fill="WHITE" radius="17.5" stroke="#e2e2e2" strokeType="INSIDE" />
+                                 </children>
+                              </HBox>
+                              <Label fx:id="usernameLabel" prefHeight="31.0" prefWidth="118.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" textFill="#404040">
+                                 <font>
+                                    <Font name="Kanit Regular" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
                         </HBox>
+                     </children>
+                  </HBox>
                     </children>
                 </HBox>
             </children>

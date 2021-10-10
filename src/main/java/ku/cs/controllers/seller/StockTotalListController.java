@@ -15,20 +15,11 @@ import java.util.ResourceBundle;
 
 public class StockTotalListController implements Initializable {
 
-    @FXML
-    private ImageView img;
-
-    @FXML
-    private Label id_Product;
-
-    @FXML
-    private Label nameProduct;
-
-    @FXML
-    private Label price;
-
-    @FXML
-    private Label quantity;
+    @FXML private ImageView img;
+    @FXML private Label id_Product;
+    @FXML private Label nameProduct;
+    @FXML private Label price;
+    @FXML private Label quantity;
 
 
     @Override
@@ -38,7 +29,7 @@ public class StockTotalListController implements Initializable {
 
     public void setData(Product product){
         Image imgProfile;
-        imgProfile = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
+        imgProfile = new Image("file:"+product.getImageFilePath(),true);
         img.setImage(imgProfile);
         id_Product.setText(product.getID());
         nameProduct.setText(product.getName());

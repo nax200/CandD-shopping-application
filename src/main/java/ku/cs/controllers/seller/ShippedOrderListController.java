@@ -11,23 +11,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ShippedOrderListController implements Initializable {
-    @FXML
-    private ImageView img;
-
-    @FXML
-    private Label id_Product;
-
-    @FXML
-    private Label nameProduct;
-
-    @FXML
-    private Label priceSum;
-
-    @FXML
-    private Label quantity;
-
-    @FXML
-    private Label trackingNumber;
+    @FXML private ImageView img;
+    @FXML private Label id_Product;
+    @FXML private Label nameProduct;
+    @FXML private Label priceSum;
+    @FXML private Label quantity;
+    @FXML private Label trackingNumber;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

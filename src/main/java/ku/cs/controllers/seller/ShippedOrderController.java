@@ -1,14 +1,22 @@
 package ku.cs.controllers.seller;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import ku.cs.models.shop.NewOrder;
+import ku.cs.models.user.LoginCustomer;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -18,6 +26,39 @@ import java.util.ResourceBundle;
 public class ShippedOrderController implements Initializable {
     @FXML
     private VBox contactsLayout;
+    @FXML private Circle imageProfileTitle;
+    @FXML private Label usernameLabel;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        List<NewOrder> prototype = new ArrayList<>(prototype());
+        for (int i = 0; i < prototype.size(); i++){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/shipped-order-list.fxml"));
+
+            try {
+
+                HBox hBox = fxmlLoader.load();
+                ShippedOrderListController hippedList = fxmlLoader.getController();
+                hippedList.setData(prototype.get(i));
+                contactsLayout.getChildren().add(hBox);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        imageProfileTitle.setFill(new ImagePattern(image));
+        usernameLabel.setText(LoginCustomer.customer.getUsername());
+    }
 
     @FXML
     public void handleStockTotalButton(ActionEvent actionEvent) {
@@ -108,27 +149,6 @@ public class ShippedOrderController implements Initializable {
         } catch (IOException e) {
             System.err.println("ไปที่หน้า market-place ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        List<NewOrder> prototype = new ArrayList<>(prototype());
-        for (int i = 0; i < prototype.size(); i++){
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/shipped-order-list.fxml"));
-
-            try {
-
-                HBox hBox = fxmlLoader.load();
-                ShippedOrderListController hippedList = fxmlLoader.getController();
-                hippedList.setData(prototype.get(i));
-                contactsLayout.getChildren().add(hBox);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
         }
     }
 

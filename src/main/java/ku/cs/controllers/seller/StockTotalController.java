@@ -1,17 +1,26 @@
 package ku.cs.controllers.seller;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import ku.cs.models.shop.StockTotal;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.shop.Product;
+import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.util.Comparator;
 import java.io.IOException;
 import java.net.URL;
@@ -20,8 +29,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class StockTotalController implements Initializable {
-    @FXML
-    private VBox contactsLayout;
+    @FXML private VBox contactsLayout;
+    @FXML private Circle imageProfileTitle;
+    @FXML private Label usernameLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -37,7 +47,7 @@ public class StockTotalController implements Initializable {
             }
         };
 //        List<StockTotal> prototype = new ArrayList<>(prototype());
-        for (int i = 0; i < productList.count(); i++){
+        for (int i = 0; i < productList.count(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/stock-total-list.fxml"));
             productList.sort(productComparator);
@@ -52,6 +62,16 @@ public class StockTotalController implements Initializable {
             }
 
         }
+
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+        imageProfileTitle.setFill(new ImagePattern(image));
+        usernameLabel.setText(LoginCustomer.customer.getUsername());
 
     }
 
@@ -77,6 +97,7 @@ public class StockTotalController implements Initializable {
         }
 
     }
+
     @FXML
     public void handleEditShopButton(ActionEvent actionEvent) {
         try {
@@ -98,6 +119,7 @@ public class StockTotalController implements Initializable {
         }
 
     }
+
     @FXML
     public void handleAddItemButton(ActionEvent actionEvent) {
         try {
@@ -108,6 +130,7 @@ public class StockTotalController implements Initializable {
         }
 
     }
+
     @FXML
     void goToEditProfile(ActionEvent event) {
         try {
@@ -119,7 +142,7 @@ public class StockTotalController implements Initializable {
     }
 
     @FXML
-    void clickLogoBackToMarketPlace(MouseEvent event){
+    void clickLogoBackToMarketPlace(MouseEvent event) {
         try {
             com.github.saacsos.FXRouter.goTo("market-place");
         } catch (IOException e) {
@@ -139,7 +162,7 @@ public class StockTotalController implements Initializable {
     }
 
     @FXML
-    void goToOpenShop(ActionEvent event){
+    void goToOpenShop(ActionEvent event) {
         try {
             com.github.saacsos.FXRouter.goTo("market-place");
         } catch (IOException e) {
@@ -147,41 +170,4 @@ public class StockTotalController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
-    private List<StockTotal> prototype() {
-        List<StockTotal> ls = new ArrayList<>();
-        StockTotal prototype = new StockTotal();
-
-        prototype.setId_Product("P2109180001");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
-        prototype.setPrice("199");
-        prototype.setQuantity("3");
-        prototype.setNameProduct("เสื้อแฟชั่น");
-        ls.add(prototype);
-
-        prototype = new StockTotal();
-        prototype.setId_Product("P2109180002");
-        prototype.setImgSrc("/images/marketpage/img_6.png");
-        prototype.setPrice("259");
-        prototype.setQuantity("5");
-        prototype.setNameProduct("รองเท้าแฟชั่น");
-        ls.add(prototype);
-
-        prototype = new StockTotal();
-        prototype.setId_Product("P2109180003");
-        prototype.setImgSrc("/images/marketpage/img_7.png");
-        prototype.setPrice("229");
-        prototype.setQuantity("30");
-        prototype.setNameProduct("กระโปรงแฟชั่น");
-        ls.add(prototype);
-
-        prototype = new StockTotal();
-        prototype.setId_Product("P2109180004");
-        prototype.setImgSrc("/images/marketpage/img_8.png");
-        prototype.setPrice("899");
-        prototype.setQuantity("15");
-        prototype.setNameProduct("กางเกงแฟชั่น");
-        ls.add(prototype);
-        return ls;
-    }
-}//end
+}

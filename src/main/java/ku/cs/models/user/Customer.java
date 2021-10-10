@@ -55,7 +55,7 @@ public class Customer extends User{
         return imageFile;
     }
 
-    public String getImageFilePath() { return "images/" + imageFile.getName(); }
+    public String getImageFilePath() { return "images/profileImage/" + imageFile.getName(); }
 
     public void setName(String name) {
         this.name = name;
@@ -66,7 +66,7 @@ public class Customer extends User{
     }
 
     public void copyImageFile(){
-        File destDir = new File("images");
+        File destDir = new File("images/profileImage");
 
         if (!destDir.exists()) destDir.mkdirs();
 

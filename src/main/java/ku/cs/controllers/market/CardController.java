@@ -19,7 +19,7 @@ public class CardController {
         this.product = product;
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPriceString());
-        Image image = new Image(getClass().getResourceAsStream(product.getImageFilePath()));
+        Image image = new Image("file:"+product.getImageFilePath(),true);
         img.setImage(image);
     }
 
