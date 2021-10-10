@@ -1,5 +1,8 @@
 package ku.cs.models.shop;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Order {
     private String orderCode;
     private String shopName;
@@ -10,9 +13,11 @@ public class Order {
     private int remaining;
     private String status;
     private String trackingNumber;
+    private LocalDateTime createdTime;
+    private int quantity;
 
     public Order(String orderCode, String shopName, String name,double price, String username,
-                 String nameProduct, int remaining, String status, String trackingNumber) {
+                 String nameProduct, int remaining, String status, String trackingNumber, LocalDateTime createdTime,int quantity) {
         this.orderCode = orderCode;
         this.shopName = shopName;
         this.name = name;
@@ -22,19 +27,10 @@ public class Order {
         this.remaining = remaining;
         this.status = status;
         this.trackingNumber = trackingNumber;
+        this.createdTime = createdTime;
+        this.quantity = quantity;
+        
     }
-
-//    public Order(String orderCode, String shopName, String name, String username,
-//                 String nameProduct, String remaining, String status, String trackingNumber) {
-//        this.orderCode = orderCode;
-//        this.shopName = shopName;
-//        this.name = name;
-//        this.username = username;
-//        this.nameProduct = nameProduct;
-//        this.remaining = Integer.parseInt(remaining);
-//        this.status = status;
-//        this.trackingNumber = trackingNumber;
-//    }
 
     public boolean isShopName(String shopName){
         return this.shopName.equals(shopName);
@@ -46,7 +42,7 @@ public class Order {
         return this.orderCode.equals(orderCode);
     }
     public double priceSum(double price, int remaining){
-        return price*remaining;
+        return price*quantity;
     }
 
 
@@ -100,6 +96,15 @@ public class Order {
         return trackingNumber;
     }
 
+    public String getAddedTimeToString() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return dtf.format(createdTime);
+    }
+    
+    public int getQuantity() {
+        return quantity;
+    }
+
     //------------- SETTER --------------------
 
 
@@ -138,6 +143,11 @@ public class Order {
     public void setTrackingNumber(String trackingNumber) {
         this.trackingNumber = trackingNumber;
     }
+    
+    public void setQuantity() {
+        this.quantity = quantity;
+    }
+    
     public String toCsv(){
         return orderCode +","+ shopName +","+ name +","+ price +","+ username +","+ nameProduct +","+ remaining +","+ status +","+ trackingNumber;
     }

@@ -16,6 +16,7 @@ import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.shop.StockTotal;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
 
@@ -48,21 +49,37 @@ public class LowStockController implements Initializable {
                 return 0;
             }
         };
-//        List<StockTotal> prototype = new ArrayList<>(prototype());
-        for (int i = 0; i < productList.count(); i++) {
+
+        int column = 0;
+        int row = 1;
+        ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+            @Override
+            public boolean match(Product product) {
+                return product.getShopName().equals(LoginCustomer.customer.getShopName());
+            }
+        };
+
+        ArrayList<Product> products = productList.filter(filterer);
+
+        for (int i = 0; i < products.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/low-stock-list.fxml"));
-            productList.sort(productComparator);
+            products.sort(productComparator);
 
             try {
-                HBox hBox = fxmlLoader.load();
-                LowStockListController lowStock = fxmlLoader.getController();
-                lowStock.setData(productList.getProduct(i));
-                contactsLayout.getChildren().add(hBox);
+                if(products.get(i).getRemaining() < products.get(i).getNumRemainWarning()) {
+                    HBox hBox = fxmlLoader.load();
+                    LowStockListController lowStockListController = fxmlLoader.getController();
+                    lowStockListController.setData(products.get(i));
+                    contactsLayout.getChildren().add(hBox);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
+
+
 
         BufferedImage bufferedImage = null;
         try {
@@ -70,9 +87,10 @@ public class LowStockController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        Image image = SwingFXUtils.toFXImage(bufferedImage, null);
         imageProfileTitle.setFill(new ImagePattern(image));
         usernameLabel.setText(LoginCustomer.customer.getUsername());
+
     }
 
     @FXML

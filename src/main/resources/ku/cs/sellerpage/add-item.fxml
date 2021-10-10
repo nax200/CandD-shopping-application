@@ -449,7 +449,7 @@
                   <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#goToOpenShop" text="หน้าหลัก" />
-                        <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ข้อมูลส่วนตัว" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="แก้ไขข้อมูลส่วนตัว" />
                         <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
                      </items>
                      <graphic>

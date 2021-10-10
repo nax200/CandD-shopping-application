@@ -8,9 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
+import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.DataSource;
@@ -18,8 +21,15 @@ import ku.cs.services.ProductFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class EditAddItemController implements Initializable {
@@ -33,9 +43,14 @@ public class EditAddItemController implements Initializable {
     @FXML private Button SaveAddDataButton;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
+    @FXML private ImageView productImage;
+
+    private File imageFile;
+    private Product product;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Title-bar
         BufferedImage bufferedImage = null;
         try {
             bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
@@ -45,27 +60,80 @@ public class EditAddItemController implements Initializable {
         Image image = SwingFXUtils.toFXImage(bufferedImage,null);
         imageProfileTitle.setFill(new ImagePattern(image));
         usernameLabel.setText(LoginCustomer.customer.getUsername());
+
+        // ------------------------------
+        product = (Product) com.github.saacsos.FXRouter.getData();
+        nameTextField.setText( product.getName() );
+        detailTextArea.setText( product.getDetail() );
+        priceTextField.setText( product.getPriceString() );
+        remainingTextField.setText( ""+product.getRemaining() );
+        numRemainWarningTextField.setText( ""+product.getNumRemainWarning() );
+        Image productImg = new Image("file:"+product.getImageFilePath(),true);
+        productImage.setImage(productImg);
     }
 
     @FXML
     private void handleSaveAddDataButton(){
-        String name = nameTextField.getText();
-        String detail = detailTextArea.getText();
-        String price = priceTextField.getText();
-        String remaining = remainingTextField.getText();
-        String numRemainWarning = numRemainWarningTextField.getText();
-
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
 
-        //productList.addNewProduct("shopzaza",name,price,remaining,"/images/marketpage/img_1.png",detail,numRemainWarning);
+        Product editedProduct = productList.searchByID(product.getID());
+        editedProduct.setName(nameTextField.getText().trim());
+        editedProduct.setDetail(detailTextArea.getText().trim());
+        editedProduct.setPrice( Double.parseDouble(priceTextField.getText().trim()) );
+        editedProduct.setRemaining( Integer.parseInt(remainingTextField.getText().trim() ) );
+        editedProduct.setNumRemainWarning( Integer.parseInt( numRemainWarningTextField.getText().trim() ) );
+
+        if (imageFile != null) {
+            try {
+                // CREATE FOLDER IF NOT EXIST
+                File destDir = new File("images/productImage");
+                if (!destDir.exists()) destDir.mkdirs();
+
+                String filename = product.getID() + ".jpg";
+                Path target = FileSystems.getDefault().getPath(
+                        destDir.getAbsolutePath() + System.getProperty("file.separator") + filename
+                );
+                Files.copy(imageFile.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
+                dataSource.writeData(productList);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         dataSource.writeData(productList);
-        nameTextField.clear();
-        detailTextArea.clear();
-        priceTextField.clear();
-        remainingTextField.clear();
-        numRemainWarningTextField.clear();
+        try {
+            com.github.saacsos.FXRouter.goTo("stock-total");
+        } catch (IOException e) {
+            System.err.println("กลับไปหน้าหลักไม่ได้");
+        }
+    }
+
+    @FXML
+    public void browseImage(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("เลือกรูปภาพ...");
+
+        // ใช้ filter เพื่อกรองเอาแต่ไฟล์ jpg และ png
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
+
+        String userDirectoryString = System.getProperty("user.home");
+        File userDirectory = new File(userDirectoryString);
+
+        fileChooser.setInitialDirectory(userDirectory);
+
+        imageFile = fileChooser.showOpenDialog(null);
+
+        if (imageFile != null)
+        {
+            try {
+                BufferedImage bufferedImage = ImageIO.read(imageFile);
+                Image img = SwingFXUtils.toFXImage(bufferedImage, null);
+                productImage.setImage(img);
+            } catch (Exception e) {
+                System.err.println("เกิดปัญหาในการเลือกไฟล์");
+            }
+        }
     }
 
     @FXML

@@ -20,12 +20,15 @@ public class LowStockListController implements Initializable {
     @FXML private Label price;
     @FXML private Label quantity;
 
+    private Product product;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
     public void setData(Product product){
+        this.product = product;
         Image imgProfile = new Image("file:"+product.getImageFilePath(),true);
         img.setImage(imgProfile);
         id_Product.setText(product.getID());
@@ -37,7 +40,7 @@ public class LowStockListController implements Initializable {
     @FXML
     public void handleEditAddItemButton(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("edit-add-shop");
+            com.github.saacsos.FXRouter.goTo("edit-add-shop",product);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า edit-add-shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

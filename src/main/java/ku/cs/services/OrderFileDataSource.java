@@ -3,6 +3,8 @@ package ku.cs.services;
 import ku.cs.models.shop.Order;
 import ku.cs.models.shop.OrderList;
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class OrderFileDataSource implements DataSource<OrderList> {
     private String directoryName;
@@ -48,6 +50,7 @@ public class OrderFileDataSource implements DataSource<OrderList> {
         try {
             reader = new FileReader(file);
             buffer = new BufferedReader(reader);
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
 
             String line = "";
@@ -64,8 +67,9 @@ public class OrderFileDataSource implements DataSource<OrderList> {
                                 data[5],//nameProduct
                                 Integer.parseInt(data[6]),//remaining
                                 data[7],//status
-                                data[8]//trackingNumber
-
+                                data[8],//trackingNumber
+                                LocalDateTime.parse(data[9],dtf),//createdTime
+                                Integer.parseInt(data[10])//quantity
                         )
                 );
             }
@@ -111,7 +115,6 @@ public class OrderFileDataSource implements DataSource<OrderList> {
             }
 
         }
-
 
         }
 }
