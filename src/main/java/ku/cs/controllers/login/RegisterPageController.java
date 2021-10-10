@@ -17,10 +17,10 @@ public class RegisterPageController {
 
 
     public void handleRegisterButton() {
-        String name = nameTextField.getText();
-        String username = usernameTextField.getText();
-        String password = passwordField.getText();
-        String cfPassword = confirmPasswordField.getText();
+        String name = nameTextField.getText().trim();
+        String username = usernameTextField.getText().trim();
+        String password = passwordField.getText().trim();
+        String cfPassword = confirmPasswordField.getText().trim();
 
         if ( name.equals("") || username.equals("") || password.equals("") || cfPassword.equals("") ) {
             errorLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วน");

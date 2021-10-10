@@ -18,8 +18,9 @@ public class OpenShop {
             return false;
         }
 
-
-        ((Customer) userList.searchUsername(LoginCustomer.customer.getUsername())).setShopName(shopName);
+        Customer editedCustomer = (Customer) userList.searchUsername( LoginCustomer.customer.getUsername() );
+        editedCustomer.setShopName(shopName);
+        LoginCustomer.setCustomer(editedCustomer);
         dataSource.writeData(userList);
         return true;
     }

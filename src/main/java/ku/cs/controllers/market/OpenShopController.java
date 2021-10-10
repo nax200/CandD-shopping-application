@@ -81,14 +81,18 @@ public class OpenShopController implements Initializable {
 
     @FXML
     public void openShopButton(ActionEvent actionEvent) {
-        try {
-            if ( OpenShop.openShop(shopNameTextField.getText().trim()) ){
-                com.github.saacsos.FXRouter.goTo("stock-total");
-            }
+        if(!shopNameTextField.getText().trim().equals("")) {
+            try {
+                if (OpenShop.openShop(shopNameTextField.getText().trim())) {
+                    com.github.saacsos.FXRouter.goTo("stock-total");
+                }
                 messageLabel.setText("ชื่อร้านค้านี้ถูกใช้งานแล้ว");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า Stock-total ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้าต่อไปไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        } else {
+            messageLabel.setText("โปรดใส่ข้อมูลก่อนดำเนินการ");
         }
 
     }

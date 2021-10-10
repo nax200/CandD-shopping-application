@@ -67,11 +67,11 @@ public class AddItemController implements Initializable {
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
 
-        String name = nameTextField.getText();
-        String detail = detailTextArea.getText();
-        double price = Double.parseDouble( priceTextField.getText() );
-        int remaining = Integer.parseInt(remainingTextField.getText());
-        int numRemainWarning = Integer.parseInt( numRemainWarningTextField.getText() );
+        String name = nameTextField.getText().trim();
+        String detail = detailTextArea.getText().trim();
+        double price = Double.parseDouble( priceTextField.getText().trim() );
+        int remaining = Integer.parseInt(remainingTextField.getText().trim() );
+        int numRemainWarning = Integer.parseInt( numRemainWarningTextField.getText().trim() );
 
         try {
             // CREATE FOLDER IF NOT EXIST

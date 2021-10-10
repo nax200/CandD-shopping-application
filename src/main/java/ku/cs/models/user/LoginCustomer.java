@@ -11,6 +11,10 @@ public class LoginCustomer {
         return customer;
     }
 
+    public static void setCustomer(Customer customer) {
+        LoginCustomer.customer = customer;
+    }
+
     public void setCustomerToNull(Customer customer) {
         this.customer = null;
     }

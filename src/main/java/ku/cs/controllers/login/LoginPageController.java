@@ -21,7 +21,7 @@ public class LoginPageController {
 
     @FXML
     private void handleLoginButton() {
-        String username = usernameTextField.getText();
+        String username = usernameTextField.getText().trim();
         String password = passwordField.getText();
 
         DataSource<UserList> dataSource;
