@@ -3,6 +3,7 @@ package ku.cs.controllers.market;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -12,15 +13,25 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import com.github.saacsos.FXRouter;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.models.shop.Comment;
+import ku.cs.models.shop.CommentList;
 import ku.cs.models.shop.Product;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.services.CommentFileDataSource;
+import ku.cs.services.ConditionFilterer;
+import ku.cs.services.DataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 
 public class ProductController implements Initializable {
@@ -37,15 +48,20 @@ public class ProductController implements Initializable {
     @FXML private Circle imageProfileComment;
     @FXML private Label shopName;
     @FXML private Label productDes;
-    @FXML private ComboBox scoreProduct;
+    @FXML private ComboBox rating;
     @FXML private Label messageLabel;
+    @FXML private TextField messageComment;
+    @FXML private VBox commentProduct;
+    @FXML private Label reviewCount;
+    @FXML private Label ratingAverage;
     private Product product;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         color.getItems().addAll("สีแดง", "สีชมพู", "สีเหลือง", "สีฟ้า");
         size.getItems().addAll("S", "M", "L", "XL");
-        scoreProduct.getItems().addAll("1", "2", "3", "4", "5");
+        rating.setValue("");
+        rating.getItems().addAll("1", "2", "3", "4", "5");
         product = (Product) FXRouter.getData();
         setChosenProduct();
 
@@ -59,6 +75,7 @@ public class ProductController implements Initializable {
         imageProfileTitle.setFill(new ImagePattern(image));
         imageProfileComment.setFill(new ImagePattern(image));
         usernameLabel.setText(LoginCustomer.customer.getUsername());
+        loadComment();
     }
 
     public void setChosenProduct() {
@@ -154,6 +171,64 @@ public class ProductController implements Initializable {
         } catch (IOException e) {
             System.err.println("ไปที่หน้า open-shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+    @FXML
+    void sendComment(ActionEvent event) {
+        if(!rating.getValue().equals("")) {
+            DataSource <CommentList> dataSource;
+            dataSource = new CommentFileDataSource();
+            CommentList commentList = dataSource.readData();
+            LocalDateTime localDateTime = LocalDateTime.now();
+            String score = ""+rating.getValue();
+            Comment comment = new Comment("M"+String.format("%05d",commentList.count()+1),product.getID(),LoginCustomer.customer.getUsername(),messageComment.getText(),localDateTime,Integer.parseInt(score));
+            commentList.addComment(comment);
+            dataSource.writeData(commentList);
+            messageComment.clear();
+            rating.setValue("");
+            loadComment();
+        }
+        else {
+
+            return;
+        }
+    }
+    private  void loadComment(){
+        commentProduct.getChildren().removeAll();
+        commentProduct.getChildren().setAll();
+        DataSource<CommentList> dataSource;
+        dataSource = new CommentFileDataSource();
+        CommentList commentAtProduct = dataSource.readData();
+        reviewCount.setText("("+commentAtProduct.countCommentInProduct(product.getID())+")");
+        ratingAverage.setText(""+String.format("%.1f",commentAtProduct.ratingAverage(product.getID()))+"/5");
+        Comparator<Comment> commentComparator = new Comparator<Comment>() {
+            @Override
+            public int compare(Comment o1, Comment o2) {
+                if(o1.getTimeToComment().isBefore(o2.getTimeToComment())) return 1;
+                if(o2.getTimeToComment().isBefore(o1.getTimeToComment())) return -1;
+                return 0;
+            }
+        };
+        ConditionFilterer<Comment> filterer = new ConditionFilterer<Comment>() {
+            @Override
+            public boolean match(Comment comment) {
+                return product.getID().equals(comment.getIdProduct());
+            }
+        };
+        commentAtProduct.sortTime(commentComparator);
+        ArrayList<Comment> comments = commentAtProduct.filter(filterer);
+        for (int i=0; i < comments.size(); i++){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/product-comment-list.fxml"));
+            try {
+                    HBox hBox = fxmlLoader.load();
+                    CommentListController commentListController = fxmlLoader.getController();
+                    commentListController.setData(comments.get(i));
+                    commentProduct.getChildren().add(hBox);
+
+            }catch (IOException e){
+                e.printStackTrace();
+            }
         }
     }
 }

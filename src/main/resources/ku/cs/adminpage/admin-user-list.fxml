@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminUserListController">
+<HBox alignment="CENTER_LEFT" minHeight="60.0" prefHeight="60.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminUserListController">
    <children>
       <Circle fx:id="profileImage" fill="WHITE" radius="22.0" stroke="#e2e2e2" strokeType="INSIDE" strokeWidth="1.5">
          <HBox.margin>
