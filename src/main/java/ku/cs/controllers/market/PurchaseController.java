@@ -33,6 +33,7 @@ public class PurchaseController implements Initializable {
     @FXML private Label usernameLabel;
     @FXML private Label messageLabel;
     @FXML private Label quantityLabel;
+    @FXML private Label quantity;
     private Product product;
 
     @Override
@@ -59,6 +60,8 @@ public class PurchaseController implements Initializable {
         img.setImage(image);
         allProductPrice.setText(String.format("%.2f", product.getPrice()*product.getQuantity()));
         quantityLabel.setText(product.getQuantity()+"");
+        quantity.setText(product.getQuantity()+"");
+
     }
 
     @FXML void shipping() {

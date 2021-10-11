@@ -388,7 +388,7 @@
                                                                         <Insets />
                                                                     </HBox.margin>
                                                                 </Label>
-                                                                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="143.0" text="1" textFill="#717171">
+                                                                <Label fx:id="quantity" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="143.0" text="1" textFill="#717171">
                                                                     <font>
                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                     </font>
