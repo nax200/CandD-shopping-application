@@ -70,6 +70,7 @@ public class EditAddItemController implements Initializable {
         remainingTextField.setText( ""+product.getRemaining() );
         numRemainWarningTextField.setText( ""+product.getNumRemainWarning() );
         Image productImg = new Image("file:"+product.getImageFilePath(),true);
+        imageFile = new File( product.getImageFilePath() );
         productImage.setImage(productImg);
     }
 
