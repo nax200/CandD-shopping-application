@@ -16,6 +16,7 @@ import ku.cs.models.shop.StockTotal;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.shop.Product;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
 
@@ -46,22 +47,35 @@ public class StockTotalController implements Initializable {
                 return 0;
             }
         };
-//        List<StockTotal> prototype = new ArrayList<>(prototype());
-        for (int i = 0; i < productList.count(); i++) {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/stock-total-list.fxml"));
-            productList.sort(productComparator);
 
-            try {
-                HBox hBox = fxmlLoader.load();
-                StockTotalListController stockTotalList = fxmlLoader.getController();
-                stockTotalList.setData(productList.getProduct(i));
-                contactsLayout.getChildren().add(hBox);
-            } catch (IOException e) {
-                e.printStackTrace();
+        int column = 0;
+        int row = 1;
+            ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+                @Override
+                public boolean match(Product product) {
+                    return product.getShopName().equals(LoginCustomer.customer.getShopName());
+                }
+            };
+
+            ArrayList<Product> products = productList.filter(filterer);
+
+            for (int i = 0; i < products.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/stock-total-list.fxml"));
+                products.sort(productComparator);
+
+                try {
+                    HBox hBox = fxmlLoader.load();
+                    StockTotalListController stockTotalList = fxmlLoader.getController();
+                    stockTotalList.setData(products.get(i));
+                    contactsLayout.getChildren().add(hBox);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
 
-        }
+
 
         BufferedImage bufferedImage = null;
         try {

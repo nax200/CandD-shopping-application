@@ -132,3 +132,14 @@ body{
 .comboBox-grey-border:pressed {
     -fx-background-color: #EEEEEE;
 }
+
+/* แถบเมนูด้านข้าง */
+.side-tab{
+    -fx-background-color: #FFFFFF;
+}
+.side-tab:hover{
+    -fx-background-color: #EEEEEE;
+}
+.side-tab:pressed{
+    -fx-background-color: #E2E2E2;
+}

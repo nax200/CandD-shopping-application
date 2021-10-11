@@ -2,6 +2,7 @@ package ku.cs.models.shop;
 
 import ku.cs.services.ConditionFilterer;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -61,12 +62,10 @@ public class OrderList {
         return this.orders.size();
     }
 
-    public void addNewOrder(String orderCode, String shopName, String name, double price,String username,
-                            String nameProduct, int remaining, String status, String trackingNumber){
-        Order orderProduct = new Order(orderCode, shopName, name, price,username,
-                            nameProduct, remaining, status, trackingNumber  );
-        orders.add(orderProduct);
+    public void addNewOrder(Order order){
+        orders.add(order);
     }
+    
 
 
     public void editOrderTrackingNumber(String orderCode,String trackingNumber){

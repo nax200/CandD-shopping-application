@@ -17,7 +17,8 @@
             <ImageView fx:id="img" fitHeight="83.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/marketpage/img_1.png" />
-               </image></ImageView>
+               </image>
+            </ImageView>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="116.0" prefWidth="138.0">
@@ -60,7 +61,8 @@
                      </cursor>
                      <font>
                         <Font name="Kanit Bold" size="13.0" />
-                     </font></Button>
+                     </font>
+                  </Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="46.0">
@@ -96,7 +98,8 @@
                </font>
                <HBox.margin>
                   <Insets right="20.0" />
-               </HBox.margin></Button>
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </children>

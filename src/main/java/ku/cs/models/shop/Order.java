@@ -1,6 +1,10 @@
 package ku.cs.models.shop;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Order {
+    private LocalDateTime createdTime;
     private String orderCode;
     private String shopName;
     private String name;
@@ -11,8 +15,11 @@ public class Order {
     private String status;
     private String trackingNumber;
 
-    public Order(String orderCode, String shopName, String name,double price, String username,
+
+
+    public Order( LocalDateTime createdTime, String orderCode, String shopName, String name,double price, String username,
                  String nameProduct, int remaining, String status, String trackingNumber) {
+        this.createdTime = createdTime;
         this.orderCode = orderCode;
         this.shopName = shopName;
         this.name = name;
@@ -22,19 +29,10 @@ public class Order {
         this.remaining = remaining;
         this.status = status;
         this.trackingNumber = trackingNumber;
-    }
 
-//    public Order(String orderCode, String shopName, String name, String username,
-//                 String nameProduct, String remaining, String status, String trackingNumber) {
-//        this.orderCode = orderCode;
-//        this.shopName = shopName;
-//        this.name = name;
-//        this.username = username;
-//        this.nameProduct = nameProduct;
-//        this.remaining = Integer.parseInt(remaining);
-//        this.status = status;
-//        this.trackingNumber = trackingNumber;
-//    }
+
+
+    }
 
     public boolean isShopName(String shopName){
         return this.shopName.equals(shopName);
@@ -45,9 +43,7 @@ public class Order {
     public boolean isOrderCode(String orderCode){
         return this.orderCode.equals(orderCode);
     }
-    public double priceSum(double price, int remaining){
-        return price*remaining;
-    }
+
 
 
     //----------- GETTER ----------------
@@ -100,6 +96,12 @@ public class Order {
         return trackingNumber;
     }
 
+    public String getAddedTimeToString() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return dtf.format(createdTime);
+    }
+
+
     //------------- SETTER --------------------
 
 
@@ -138,6 +140,8 @@ public class Order {
     public void setTrackingNumber(String trackingNumber) {
         this.trackingNumber = trackingNumber;
     }
+
+
     public String toCsv(){
         return orderCode +","+ shopName +","+ name +","+ price +","+ username +","+ nameProduct +","+ remaining +","+ status +","+ trackingNumber;
     }
