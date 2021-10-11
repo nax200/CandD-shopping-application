@@ -51,26 +51,19 @@ public class OrderFileDataSource implements DataSource<OrderList> {
             reader = new FileReader(file);
             buffer = new BufferedReader(reader);
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-
-
             String line = "";
             while( (line = buffer.readLine()) != null ) {
                 String[] data = line.split(",");
                 String type = data[0];
                 orderList.addOrder(
                         new Order(
-                                LocalDateTime.parse(data[0],dtf),//createdTime
-                                data[1],//orderCode
-                                data[2],//shopName
-                                data[3],//name
-                                Double.parseDouble(data[4]),//price
-                                data[5],//username
-                                data[6],//nameProduct
-                                Integer.parseInt(data[7]),//remaining
-                                data[8],//status
-                                data[9]//trackingNumber
-
-
+                                LocalDateTime.parse(data[0],dtf), // addedTime
+                                data[1], //orderNo
+                                data[2], //buyer
+                                data[3], //productID
+                                Integer.parseInt(data[4]), //quantity
+                                data[5],  //tracking number
+                                data[6]  //address
                         )
                 );
             }

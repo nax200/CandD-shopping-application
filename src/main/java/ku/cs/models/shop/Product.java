@@ -14,11 +14,13 @@ public class Product {
     private String imageFilePath;
     private String detail;
     private int numRemainWarning;
-    private int quantity;
+//    private int quantity;
     //public String type; กรณีถ้าจะทำเพิ่ม
 
-    public Product(){
-
+    public Product(String name, Double price, String ID){
+        this.name = name;
+        this.price = price;
+        this.ID = ID;
     }
 
     public Product(LocalDateTime addedTime, String ID,String shopName, String name, double price, int remaining,
@@ -35,21 +37,6 @@ public class Product {
         this.detail = detail;
         this.numRemainWarning = numRemainWarning;
     }
-
-//    public Product(String addedTime,String ID,String shopName,String name,String price,String remaining ,String rating,String imageFilePath,String detail,String numRemainWarning) {
-//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-//        this.addedTime = LocalDateTime.parse(addedTime,dtf);
-//        this.ID = ID;
-//        this.shopName = shopName;
-//        this.name = name;
-//        this.price = Double.parseDouble(price);
-//        this.remaining = Integer.parseInt(remaining);
-//        this.rating = Double.parseDouble(rating);
-//        this.imageFilePath = imageFilePath;
-//        this.detail = detail;
-//        this.numRemainWarning  = Integer.parseInt(numRemainWarning);
-//        //addedTime.format(localDateTime),"2109260001",shopName,name,price,remaining,0.0,imageFilePath,detail,numRemainWarning
-//    }
 
     public boolean isProductName(String name) {
         return this.name.equals(name);
@@ -120,9 +107,9 @@ public class Product {
         return numRemainWarning;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
+//    public int getQuantity() {
+//        return quantity;
+//    }
 
 //------------- SETTER --------------------
 
@@ -155,9 +142,9 @@ public class Product {
         this.numRemainWarning = numRemainWarning;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+//    public void setQuantity(int quantity) {
+//        this.quantity = quantity;
+//    }
 
     //--------- METHOD --------------
 

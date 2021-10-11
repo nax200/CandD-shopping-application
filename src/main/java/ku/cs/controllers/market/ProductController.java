@@ -14,8 +14,14 @@ import javafx.scene.input.MouseEvent;
 import com.github.saacsos.FXRouter;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.models.shop.Order;
+import ku.cs.models.shop.OrderList;
 import ku.cs.models.shop.Product;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.models.user.UserList;
+import ku.cs.services.DataSource;
+import ku.cs.services.OrderFileDataSource;
+import ku.cs.services.UserFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -123,19 +129,18 @@ public class ProductController implements Initializable {
 
     @FXML
     void goToPurchase(ActionEvent event) {
-        String quantityString = quantityTextField.getText();
-        int quantity = Integer.parseInt(quantityString);
-        product.setQuantity(Integer.parseInt(quantityString));
         try {
+            int quantity = Integer.parseInt(quantityTextField.getText());
+            Order order = new Order(LoginCustomer.customer, product, quantity);
             if (quantity <= 0) {
                 messageLabel.setText("จำนวนสินค้าไม่ถูกต้อง");
-            }
-            else if (quantity <= product.getRemaining()){
-                FXRouter.goTo("purchase", product);
-            }
-            else {
+            } else if (quantity > product.getRemaining()) {
                 messageLabel.setText("จำนวนสินค้ามีไม่เพียงพอ");
+            } else {
+                FXRouter.goTo("purchase", order);
             }
+        } catch (NumberFormatException e) {
+            messageLabel.setText("จำนวนสินค้าไม่ถูกต้อง");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า purchase ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

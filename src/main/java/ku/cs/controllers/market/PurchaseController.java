@@ -6,18 +6,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.models.shop.Order;
+import ku.cs.models.shop.OrderList;
 import ku.cs.models.shop.Product;
 import ku.cs.models.user.LoginCustomer;
 import com.github.saacsos.FXRouter;
+import ku.cs.services.DataSource;
+import ku.cs.services.OrderFileDataSource;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class PurchaseController implements Initializable {
@@ -32,13 +39,17 @@ public class PurchaseController implements Initializable {
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
     @FXML private Label messageLabel;
+    @FXML private Label messageLabel2;
     @FXML private Label quantityLabel;
     @FXML private Label quantity;
+    @FXML private TextArea addressTextArea;
+    private Order order;
     private Product product;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        product = (Product) FXRouter.getData();
+        order = (Order) FXRouter.getData();
+        product = order.getProduct();
         setChosenProduct();
 
         BufferedImage bufferedImage = null;
@@ -55,12 +66,12 @@ public class PurchaseController implements Initializable {
     public void setChosenProduct() {
         productName.setText(product.getName());
         productPrice.setText(product.getPriceString());
-        price.setText(String.format("%.2f",product.getPrice()*product.getQuantity()));
+        price.setText( ""+order.getTotalPrice() );
         Image image = new Image("file:"+product.getImageFilePath(),true);
         img.setImage(image);
-        allProductPrice.setText(String.format("%.2f", product.getPrice()*product.getQuantity()));
-        quantityLabel.setText(product.getQuantity()+"");
-        quantity.setText(product.getQuantity()+"");
+        allProductPrice.setText(String.format("%.2f", order.getTotalPrice() ));
+        quantityLabel.setText( ""+order.getQuantity() );
+        quantity.setText( ""+order.getQuantity() );
 
     }
 
@@ -68,13 +79,13 @@ public class PurchaseController implements Initializable {
         double price = 0;
         if (ems.isSelected()) {
             int emsPrice = 35;
-            price += product.getPrice()*product.getQuantity() + emsPrice;
+            price += order.getTotalPrice() + emsPrice;
             shippingCost.setText(emsPrice + "");
             allProductPrice.setText(String.format("%.2f", price));
         }
         else if (registered.isSelected()) {
             int registeredPrice = 15;
-            price += product.getPrice()*product.getQuantity() + registeredPrice;
+            price += order.getTotalPrice() + registeredPrice;
             shippingCost.setText(registeredPrice + "");
             allProductPrice.setText(String.format("%.2f", price));
         }
@@ -137,8 +148,22 @@ public class PurchaseController implements Initializable {
 
     @FXML
     void confirmOrder(ActionEvent event){
+        if (addressTextArea.getText().equals("")){
+            messageLabel2.setText("โปรดใส่ที่อยู่จัดส่ง");
+            return;
+        }
         try {
             if (ems.isSelected() || registered.isSelected()) {
+                DataSource<OrderList> dataSource;
+                dataSource = new OrderFileDataSource();
+                OrderList orderList = dataSource.readData();
+
+                order.setAddedTime(LocalDateTime.now());
+                order.setOrderNo( "R"+ String.format("%05d", orderList.count()+1));
+                order.setAddress( addressTextArea.getText() );
+                orderList.addOrder(order);
+                dataSource.writeData(orderList);
+
                 com.github.saacsos.FXRouter.goTo("order");
             }
             else {

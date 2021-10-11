@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
@@ -207,22 +208,46 @@
                                                     <children>
                                                         <VBox prefHeight="258.0" prefWidth="582.0">
                                                             <children>
-                                                                <Label prefHeight="25.0" prefWidth="88.0" text="ที่อยู่จัดส่ง:" textFill="#717171">
-                                                                    <font>
-                                                                        <Font name="Kanit Regular" size="18.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets left="15.0" top="10.0" />
-                                                                    </VBox.margin>
-                                                                </Label>
-                                                                <TextField alignment="TOP_LEFT" maxWidth="-Infinity" prefHeight="141.0" prefWidth="656.0" promptText="กรอกที่อยู่จัดส่ง" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10;">
-                                                                    <font>
-                                                                        <Font name="Kanit Regular" size="16.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets bottom="10.0" left="15.0" right="15.0" top="15.0" />
-                                                                    </VBox.margin>
-                                                                </TextField>
+                                                <VBox prefHeight="38.0" prefWidth="594.0">
+                                                   <children>
+                                                      <HBox prefHeight="28.0" prefWidth="508.0">
+                                                         <children>
+                                                            <HBox prefHeight="28.0" prefWidth="18.0" />
+                                                            <HBox prefHeight="28.0" prefWidth="95.0">
+                                                               <children>
+                                                                                  <Label prefHeight="28.0" prefWidth="96.0" text="ที่อยู่จัดส่ง:" textFill="#717171">
+                                                                                      <font>
+                                                                                          <Font name="Kanit Regular" size="18.0" />
+                                                                                      </font>
+                                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox prefHeight="100.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <Label fx:id="messageLabel2" prefHeight="50.0" prefWidth="144.0" textFill="#ff542f">
+                                                                     <font>
+                                                                        <Font name="Kanit Regular" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <TextArea fx:id="addressTextArea" prefHeight="154.0" prefWidth="564.0" promptText="กรอกที่อยู่จัดส่ง" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10;" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" wrapText="true">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="16.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="15.0" right="15.0" top="15.0" />
+                                                   </VBox.margin>
+                                                </TextArea>
+                                                <Label fx:id="messageLabel1" prefHeight="50.0" prefWidth="144.0" textFill="#ff542f">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="14.0" />
+                                                   </font>
+                                                </Label>
                                                             </children>
                                                             <VBox.margin>
                                                                 <Insets bottom="10.0" top="10.0" />

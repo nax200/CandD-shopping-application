@@ -221,10 +221,17 @@ public class MarketPlaceController implements Initializable{
             messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วน");
         }
         else {
-            String priceMinText = priceMinTextField.getText();
-            double priceMin = Double.parseDouble(priceMinText);
-            String priceMaxText = priceMaxTextField.getText();
-            double priceMax = Double.parseDouble(priceMaxText);
+            double priceMin;
+            double priceMax;
+            try {
+                String priceMinText = priceMinTextField.getText();
+                priceMin = Double.parseDouble(priceMinText);
+                String priceMaxText = priceMaxTextField.getText();
+                priceMax = Double.parseDouble(priceMaxText);
+            } catch (NumberFormatException e){
+                messageLabel.setText("ใส่ข้อมูลไม่ถูกต้อง");
+                return;
+            }
             sortComboBox.setValue("ล่าสุด");
 
             DataSource<ProductList> dataSource;
