@@ -405,7 +405,7 @@
                                                             <Insets left="10.0" right="5.0" />
                                                          </HBox.margin>
                                                       </TextField>
-                                                      <ComboBox fx:id="rating" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="65.0" style="-fx-background-radius: 20;" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css">
+                                                      <ComboBox fx:id="rating" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="70.0" style="-fx-background-radius: 20;" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css">
                                                          <HBox.margin>
                                                             <Insets left="5.0" />
                                                          </HBox.margin>
