@@ -76,9 +76,21 @@
                                         </TextField>
                                     </children>
                                 </HBox>
+                                <VBox prefHeight="19.0" prefWidth="215.0">
+                                    <children>
+                                        <Label fx:id="messageLabel" prefHeight="21.0" prefWidth="200.0" textFill="#ff542f">
+                                            <font>
+                                                <Font name="Kanit Regular" size="13.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="5.0" left="30.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                    </children>
+                                </VBox>
                             </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="215.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="60.0" prefWidth="215.0">
                             <children>
                                 <Button fx:id="search" mnemonicParsing="false" prefHeight="0.0" prefWidth="161.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="ค้นหา" textFill="WHITE">
                                     <font>
@@ -194,7 +206,7 @@
                                 </HBox>
                                 <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <TextField prefHeight="36.0" prefWidth="565.0" promptText="ค้นหาสินค้า" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+                                        <TextField fx:id="searchTextField" prefHeight="36.0" prefWidth="565.0" promptText="ค้นหาสินค้า" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
                                             <font>
                                                 <Font name="Kanit Regular" size="16.0" />
                                             </font>
@@ -203,7 +215,7 @@
                                 </HBox>
                                 <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
+                                        <Button fx:id="searchProduct" mnemonicParsing="false" onAction="#searchProduct" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>

@@ -85,7 +85,7 @@
                                                 <Font name="Kanit Regular" size="20.0" />
                                             </font>
                                         </Label>
-                                        <Label prefHeight="31.0" prefWidth="55.0" text="10" textFill="#717171">
+                                        <Label fx:id="countProduct" prefHeight="31.0" prefWidth="55.0" text="10" textFill="#717171">
                                             <font>
                                                 <Font name="Kanit Regular" size="20.0" />
                                             </font>
@@ -160,31 +160,31 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </ImageView>
-                                    </children>
-                                </HBox>
-                                <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <TextField prefHeight="36.0" prefWidth="565.0" promptText="ค้นหาสินค้า" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
-                                            <font>
-                                                <Font name="Kanit Regular" size="16.0" />
-                                            </font>
-                                        </TextField>
-                                    </children>
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
-                                            <graphic>
-                                                <ImageView fitHeight="28.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                                                    <image>
-                                                        <Image url="@../../../images/assets/title-bar/search.png" />
-                                                    </image>
-                                                </ImageView>
-                                            </graphic>
-                                        </Button>
+                                        <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0">
+                                            <children>
+                                                <TextField fx:id="searchTextField" prefHeight="36.0" prefWidth="565.0" promptText="ค้นหาสินค้าในร้านนี้" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+                                                    <font>
+                                                        <Font name="Kanit Regular" size="16.0" />
+                                                    </font>
+                                                </TextField>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0">
+                                            <children>
+                                                <Button fx:id="searchProduct" mnemonicParsing="false" onAction="#searchProduct" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND" />
+                                                    </cursor>
+                                                    <graphic>
+                                                        <ImageView fitHeight="28.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../../../images/assets/title-bar/search.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Button>
+                                            </children>
+                                        </HBox>
                                     </children>
                                 </HBox>
                             </children>
