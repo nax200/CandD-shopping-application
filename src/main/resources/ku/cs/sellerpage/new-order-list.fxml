@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -10,7 +11,7 @@
 
 <HBox prefHeight="116.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.seller.NewOrderListController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="124.0">
+      <HBox alignment="CENTER" prefHeight="116.0" prefWidth="100.0">
          <children>
             <ImageView fx:id="img" fitHeight="83.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,6 +27,11 @@
                   <Font name="Kanit Regular" size="13.0" />
                </font>
             </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="116.0" prefWidth="111.0">
+         <children>
+            <Label fx:id="userName" alignment="CENTER" prefHeight="21.0" prefWidth="103.0" text="ผู้สั่งซื้อ" textFill="#6f6f6f" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="124.0">
@@ -57,11 +63,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="116.0" prefWidth="143.0">
          <children>
-            <Label fx:id="trackingNumber" alignment="CENTER" prefHeight="28.0" prefWidth="154.0" text="ED 1234 5678 9 TH" textFill="#6f6f6f">
-               <font>
-                  <Font name="Kanit Regular" size="13.0" />
-               </font>
-            </Label>
+            <TextField fx:id="trackingNumber" styleClass="box-grey-border" stylesheets="@../../../css-style/normal-style.css" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="116.0" prefWidth="55.0">

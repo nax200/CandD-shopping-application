@@ -190,27 +190,32 @@
                            <children>
                               <HBox prefHeight="39.0" prefWidth="761.0" style="-fx-background-color: DCDADA;">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="122.0" text="ภาพสินค้า">
+                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="100.0" text="ภาพสินค้า">
                                        <font>
                                           <Font name="Kanit Regular" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="122.0" text="รหัสสินค้า">
+                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="90.0" text="รหัสคำสั่งซื้อ">
                                        <font>
                                           <Font name="Kanit Regular" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="131.0" text="ชื่อสินค้า">
+                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="136.0" text="ผู้สั่งซื้อ">
                                        <font>
                                           <Font name="Kanit Regular" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="107.0" text="ราคารวม">
+                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="80.0" text="ชื่อสินค้า">
                                        <font>
                                           <Font name="Kanit Regular" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="67.0" text="จำนวน">
+                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="128.0" text="ราคารวม">
+                                       <font>
+                                          <Font name="Kanit Regular" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="42.0" text="จำนวน">
                                        <font>
                                           <Font name="Kanit Regular" size="15.0" />
                                        </font>
