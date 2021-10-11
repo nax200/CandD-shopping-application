@@ -3,6 +3,7 @@ package ku.cs.controllers.seller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.models.shop.NewOrder;
@@ -29,7 +30,10 @@ public class NewOrderListController implements Initializable {
     private Label quantity;
 
     @FXML
-    private Label trackingNumber;
+    private TextField trackingNumber;
+
+    @FXML
+    private Label userName;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
