@@ -44,6 +44,7 @@ public class EditAddItemController implements Initializable {
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
     @FXML private ImageView productImage;
+    @FXML private Label messageLabel;
 
     private File imageFile;
     private Product product;
@@ -74,6 +75,16 @@ public class EditAddItemController implements Initializable {
 
     @FXML
     private void handleSaveAddDataButton(){
+        if (    imageFile==null ||
+                nameTextField.getText().trim().equals("") ||
+                detailTextArea.getText().trim().equals("") ||
+                priceTextField.getText().trim().equals("") ||
+                remainingTextField.getText().trim().equals("") ||
+                numRemainWarningTextField.getText().trim().equals("")
+        ){
+            messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วนก่อนดำเนินการ");
+            return;
+        }
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();

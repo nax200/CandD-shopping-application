@@ -45,6 +45,7 @@ public class AddItemController implements Initializable {
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
     @FXML private ImageView productImage;
+    @FXML private Label messageLabel;
 
     private File imageFile;
 
@@ -63,6 +64,16 @@ public class AddItemController implements Initializable {
 
     @FXML
     private void handleSaveAddDataButton(){
+        if (    imageFile==null ||
+                nameTextField.getText().trim().equals("") ||
+                detailTextArea.getText().trim().equals("") ||
+                priceTextField.getText().trim().equals("") ||
+                remainingTextField.getText().trim().equals("") ||
+                numRemainWarningTextField.getText().trim().equals("")
+        ){
+            messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วนก่อนดำเนินการ");
+            return;
+        }
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -70,7 +81,7 @@ public class AddItemController implements Initializable {
         String name = nameTextField.getText().trim();
         String detail = detailTextArea.getText().trim();
         double price = Double.parseDouble( priceTextField.getText().trim() );
-        int remaining = Integer.parseInt(remainingTextField.getText().trim() );
+        int remaining = Integer.parseInt( remainingTextField.getText().trim() );
         int numRemainWarning = Integer.parseInt( numRemainWarningTextField.getText().trim() );
 
         try {
