@@ -38,13 +38,14 @@ public class NewOrderListController implements Initializable {
 
     public void setData(Order order){
         Image imgProfile;
-        imgProfile = new Image("file:"+order.getImageFilePath(),true);
+        Product product = order.getProduct();
+        imgProfile = new Image("file:"+product.getImageFilePath(),true);
         img.setImage(imgProfile);
 
-        id_Product.setText(order.getOrderCode());
-        nameProduct.setText(order.getNameProduct());
-        priceSum.setText(order.getPriceTotal()+"");
-        quantity.setText(order.getQuantity()+"");
+        id_Product.setText(order.getOrderNo());
+        nameProduct.setText(product.getName());
+        priceSum.setText(""+order.getTotalPrice());
+        quantity.setText(""+order.getQuantity());
         trackingNumber.setText(order.getTrackingNumber());
     }
 

@@ -10,15 +10,15 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrderListTest {
-    @Test
-    void testAddOrder() {
-        DataSource<OrderList> dataSource;
-        dataSource = new OrderFileDataSource();
-        OrderList orderList = dataSource.readData();
-
-        Customer customer = new Customer("moss", "1234");
-        Product product = new Product("testProductName", 199.0, "P000001");
-
-        Order order = new Order("R00001", customer, product, 4);
-    }
+//    @Test
+//    void testAddOrder() {
+//        DataSource<OrderList> dataSource;
+//        dataSource = new OrderFileDataSource();
+//        OrderList orderList = dataSource.readData();
+//
+//        Customer customer = new Customer("moss", "1234");
+//        Product product = new Product("testProductName", 199.0, "P000001");
+//
+//        Order order = new Order("R00001", customer, product, 4);
+//    }
 }

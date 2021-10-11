@@ -47,7 +47,7 @@ public class NewOrderController implements Initializable {
                 return 0;
             }
         };
-//        List<StockTotal> prototype = new ArrayList<>(prototype());
+
         for (int i = 0; i < orderList.count(); i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/new-order-list.fxml"));
@@ -169,29 +169,5 @@ public class NewOrderController implements Initializable {
             System.err.println("ไปที่หน้า market-place ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-    }
-
-
-    private List<NewOrder> prototype() {
-        List<NewOrder> ls = new ArrayList<>();
-        NewOrder prototype = new NewOrder();
-
-        prototype.setId_Product("P2109180001");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
-        prototype.setPriceSum("199");
-        prototype.setQuantity("3");
-        prototype.setNameProduct("เสื้อแฟชั่น");
-        prototype.setTrackingNumber("ED 1234 5678 9 TH");
-        ls.add(prototype);
-
-        prototype = new NewOrder();
-        prototype.setId_Product("P2109180002");
-        prototype.setImgSrc("/images/marketpage/img_6.png");
-        prototype.setPriceSum("259");
-        prototype.setQuantity("4");
-        prototype.setNameProduct("รองเท้าแฟชั่น");
-        prototype.setTrackingNumber("ED 1234 5678 8 TH");
-        ls.add(prototype);
-        return ls;
     }
 }//end

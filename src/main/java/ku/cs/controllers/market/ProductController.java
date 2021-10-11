@@ -13,8 +13,14 @@ import javafx.scene.input.MouseEvent;
 import com.github.saacsos.FXRouter;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.models.shop.Order;
+import ku.cs.models.shop.OrderList;
 import ku.cs.models.shop.Product;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.models.user.UserList;
+import ku.cs.services.DataSource;
+import ku.cs.services.OrderFileDataSource;
+import ku.cs.services.UserFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -121,6 +127,15 @@ public class ProductController implements Initializable {
     void goToPurchase(ActionEvent event) {
 
         try {
+            DataSource<OrderList> dataSource;
+            dataSource = new OrderFileDataSource();
+            OrderList orderList = dataSource.readData();
+
+            int quantity = Integer.parseInt(quantityTextField.getText());
+            Order order = new Order("R00001",LoginCustomer.customer,product,quantity);
+            orderList.addOrder(order);
+            dataSource.writeData(orderList);
+
             FXRouter.goTo("purchase", product);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า purchase ไม่ได้");
