@@ -59,17 +59,18 @@ public class OrderFileDataSource implements DataSource<OrderList> {
                 String type = data[0];
                 orderList.addOrder(
                         new Order(
-                                data[0],//orderCode
-                                data[1],//shopName
-                                data[2],//name
-                                Double.parseDouble(data[3]),//price
-                                data[4],//username
-                                data[5],//nameProduct
-                                Integer.parseInt(data[6]),//remaining
-                                data[7],//status
-                                data[8],//trackingNumber
-                                LocalDateTime.parse(data[9],dtf),//createdTime
-                                Integer.parseInt(data[10])//quantity
+                                LocalDateTime.parse(data[0],dtf),//createdTime
+                                data[1],//orderCode
+                                data[2],//shopName
+                                data[3],//name
+                                Double.parseDouble(data[4]),//price
+                                data[5],//username
+                                data[6],//nameProduct
+                                Integer.parseInt(data[7]),//remaining
+                                data[8],//status
+                                data[9]//trackingNumber
+
+
                         )
                 );
             }

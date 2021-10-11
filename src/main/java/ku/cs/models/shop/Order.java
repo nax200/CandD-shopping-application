@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Order {
+    private LocalDateTime createdTime;
     private String orderCode;
     private String shopName;
     private String name;
@@ -13,11 +14,12 @@ public class Order {
     private int remaining;
     private String status;
     private String trackingNumber;
-    private LocalDateTime createdTime;
-    private int quantity;
 
-    public Order(String orderCode, String shopName, String name,double price, String username,
-                 String nameProduct, int remaining, String status, String trackingNumber, LocalDateTime createdTime,int quantity) {
+
+
+    public Order( LocalDateTime createdTime, String orderCode, String shopName, String name,double price, String username,
+                 String nameProduct, int remaining, String status, String trackingNumber) {
+        this.createdTime = createdTime;
         this.orderCode = orderCode;
         this.shopName = shopName;
         this.name = name;
@@ -27,9 +29,9 @@ public class Order {
         this.remaining = remaining;
         this.status = status;
         this.trackingNumber = trackingNumber;
-        this.createdTime = createdTime;
-        this.quantity = quantity;
-        
+
+
+
     }
 
     public boolean isShopName(String shopName){
@@ -41,9 +43,7 @@ public class Order {
     public boolean isOrderCode(String orderCode){
         return this.orderCode.equals(orderCode);
     }
-    public double priceSum(double price, int remaining){
-        return price*quantity;
-    }
+
 
 
     //----------- GETTER ----------------
@@ -100,10 +100,7 @@ public class Order {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         return dtf.format(createdTime);
     }
-    
-    public int getQuantity() {
-        return quantity;
-    }
+
 
     //------------- SETTER --------------------
 
@@ -143,11 +140,8 @@ public class Order {
     public void setTrackingNumber(String trackingNumber) {
         this.trackingNumber = trackingNumber;
     }
-    
-    public void setQuantity() {
-        this.quantity = quantity;
-    }
-    
+
+
     public String toCsv(){
         return orderCode +","+ shopName +","+ name +","+ price +","+ username +","+ nameProduct +","+ remaining +","+ status +","+ trackingNumber;
     }
