@@ -61,11 +61,15 @@ public class OrderList {
         return this.orders.size();
     }
 
-    public void addNewOrder(String orderCode, String shopName, String name, double price,String username,
-                            String nameProduct, int remaining, String status, String trackingNumber){
-        Order orderProduct = new Order(orderCode, shopName, name, price,username,
-                            nameProduct, remaining, status, trackingNumber  );
-        orders.add(orderProduct);
+//    public void addNewOrder(String orderCode, String shopName, String name, double price,String username,
+//                            String nameProduct, int remaining, String status, String trackingNumber){
+//        Order orderProduct = new Order(orderCode, shopName, name, price,username,
+//                            nameProduct, remaining, status, trackingNumber  );
+//        orders.add(orderProduct);
+//    }
+
+    public void addNewOrder(Order order){
+        orders.add(order);
     }
 
 

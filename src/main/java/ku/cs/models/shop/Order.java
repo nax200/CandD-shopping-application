@@ -1,144 +1,126 @@
 package ku.cs.models.shop;
 
+import ku.cs.models.user.Customer;
+import ku.cs.models.user.UserList;
+import ku.cs.services.DataSource;
+import ku.cs.services.ProductFileDataSource;
+import ku.cs.services.UserFileDataSource;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Order {
-    private String orderCode;
-    private String shopName;
-    private String name;
-    private double price;
-    private String username;
-    private String nameProduct;
-    private int remaining;
-    private String status;
+    private LocalDateTime addedTime;
+    private String orderNo;
+    private Customer buyer; // บันทึกเป็น username ของผู้ซื้อ
+    private Product product;
+    private int quantity;
     private String trackingNumber;
+    private String address;
 
-    public Order(String orderCode, String shopName, String name,double price, String username,
-                 String nameProduct, int remaining, String status, String trackingNumber) {
-        this.orderCode = orderCode;
-        this.shopName = shopName;
-        this.name = name;
-        this.price = price;
-        this.username = username;
-        this.nameProduct = nameProduct;
-        this.remaining = remaining;
-        this.status = status;
+
+    // ตอนสร้าง order ใหม่
+    public Order(String orderNo, Customer buyer, Product product, int quantity) {
+        this.addedTime = LocalDateTime.now();
+        this.orderNo = orderNo;
+        this.buyer = buyer;
+        this.product = product;
+        this.quantity = quantity;
+    }
+
+
+    // ตอนอ่านจาก csv
+    public Order(LocalDateTime addedTime, String orderNo, String buyer, String productID, int quantity,String trackingNumber, String address) {
+        DataSource<UserList> dataSource;
+        dataSource = new UserFileDataSource();
+        UserList userList = dataSource.readData();
+        DataSource<ProductList> dataSource2;
+        dataSource2 = new ProductFileDataSource();
+        ProductList productList = dataSource2.readData();
+
+        this.addedTime = addedTime;
+        this.orderNo = orderNo;
+        this.buyer = (Customer) userList.searchUsername(buyer);
+        this.product = productList.searchByID(productID);
+        this.quantity = quantity;
         this.trackingNumber = trackingNumber;
+        this.address = address;
+    }
+    
+    // ------------- GETTER ----------------------
+
+    public LocalDateTime getAddedTime() {
+        return addedTime;
     }
 
-//    public Order(String orderCode, String shopName, String name, String username,
-//                 String nameProduct, String remaining, String status, String trackingNumber) {
-//        this.orderCode = orderCode;
-//        this.shopName = shopName;
-//        this.name = name;
-//        this.username = username;
-//        this.nameProduct = nameProduct;
-//        this.remaining = Integer.parseInt(remaining);
-//        this.status = status;
-//        this.trackingNumber = trackingNumber;
-//    }
-
-    public boolean isShopName(String shopName){
-        return this.shopName.equals(shopName);
-    }
-    public boolean isTrackingNumber(String trackingNumber){
-        return this.trackingNumber.equals(trackingNumber);
-    }
-    public boolean isOrderCode(String orderCode){
-        return this.orderCode.equals(orderCode);
-    }
-    public double priceSum(double price, int remaining){
-        return price*remaining;
+    public String getAddedTimeToString() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return dtf.format(addedTime);
     }
 
-
-    //----------- GETTER ----------------
-    public String getOrderCode() {
-        return orderCode;
+    public String getOrderNo() {
+        return orderNo;
     }
 
-    public String getShopName() {
-        return shopName;
+    public Customer getBuyer() {
+        return buyer;
     }
 
-    public String getName() {
-        return name;
+    public Product getProduct() {
+        return product;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public String getPriceString() {
-        int priceInt = (int) getPrice();
-        double priceDouble = getPrice();
-        String price;
-        if(priceDouble-priceInt != 0.0)
-        {
-            price = ""+ String.format("%.2f",priceDouble);
-        }else{
-            price = ""+ priceInt;
-        }
-        return price;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getNameProduct() {
-        return nameProduct;
-    }
-
-    public int getRemaining() {
-        return remaining;
-    }
-
-    public String getStatus() {
-        return status;
+    public int getQuantity() {
+        return quantity;
     }
 
     public String getTrackingNumber() {
         return trackingNumber;
     }
 
-    //------------- SETTER --------------------
-
-
-    public void setOrderCode(String orderCode) {
-        this.orderCode = orderCode;
+    public Double getTotalPrice(){
+        return product.getPrice() * this.quantity;
     }
 
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
+    public String getAddress(){
+        return address;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    // ------------- SETTER ----------------------
+
+    public void setAddedTime(LocalDateTime addedTime) {
+        this.addedTime = addedTime;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setBuyer(Customer buyer) {
+        this.buyer = buyer;
     }
 
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public void setRemaining(int remaining) {
-        this.remaining = remaining;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public void setTrackingNumber(String trackingNumber) {
         this.trackingNumber = trackingNumber;
     }
-    public String toCsv(){
-        return orderCode +","+ shopName +","+ name +","+ price +","+ username +","+ nameProduct +","+ remaining +","+ status +","+ trackingNumber;
+
+    public void setAddress(String address) {
+        this.address = address;
     }
-}//end
+
+    //--------- METHOD --------------
+
+    public String toCsv(){
+        return getAddedTimeToString() +","+ orderNo +","+ buyer.getUsername() + "," + product.getID() + "," + quantity + "," + trackingNumber + "," + address;
+    }
+
+}
+

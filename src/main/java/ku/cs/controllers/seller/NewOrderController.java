@@ -12,11 +12,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import ku.cs.models.shop.NewOrder;
-import ku.cs.models.shop.Product;
-import ku.cs.models.shop.ProductList;
+import ku.cs.models.shop.*;
 import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.DataSource;
+import ku.cs.services.OrderFileDataSource;
 import ku.cs.services.ProductFileDataSource;
 
 import javax.imageio.ImageIO;
@@ -37,27 +36,27 @@ public class NewOrderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        DataSource<ProductList> dataSource;
-        dataSource = new ProductFileDataSource();
-        ProductList productList = dataSource.readData();
-        Comparator<Product> productComparator = new Comparator<Product>() {
+        DataSource<OrderList> dataSource;
+        dataSource = new OrderFileDataSource();
+        OrderList orderList = dataSource.readData();
+        Comparator<Order> productComparator = new Comparator<Order>() {
             @Override
-            public int compare(Product o1, Product o2) {
+            public int compare(Order o1, Order o2) {
                 if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
                 if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
                 return 0;
             }
         };
 //        List<StockTotal> prototype = new ArrayList<>(prototype());
-        for (int i = 0; i < productList.count(); i++){
+        for (int i = 0; i < orderList.count(); i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/new-order-list.fxml"));
-            productList.sort(productComparator);
+            orderList.sort(productComparator);
 
             try {
                 HBox hBox = fxmlLoader.load();
-                NewOrderListController stockTotalList = fxmlLoader.getController();
-                //stockTotalList.setData(productList.getProduct(i));
+                NewOrderListController newOrderListController = fxmlLoader.getController();
+                newOrderListController.setData(orderList.getOrder(i));
                 contactsLayout.getChildren().add(hBox);
             } catch (IOException e) {
                 e.printStackTrace();

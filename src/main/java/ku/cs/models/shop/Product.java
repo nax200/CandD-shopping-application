@@ -16,8 +16,10 @@ public class Product {
     private int numRemainWarning;
     //public String type; กรณีถ้าจะทำเพิ่ม
 
-    public Product(){
-
+    public Product(String name, Double price, String ID){
+        this.name = name;
+        this.price = price;
+        this.ID = ID;
     }
 
     public Product(LocalDateTime addedTime, String ID,String shopName, String name, double price, int remaining,
