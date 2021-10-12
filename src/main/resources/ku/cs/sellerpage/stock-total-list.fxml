@@ -55,7 +55,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="52.0">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: E2E2E2;" text="-" textFill="#6f6f6f">
+                  <Button mnemonicParsing="false" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="-" textFill="#6f6f6f">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -72,7 +72,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="52.0">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: E2E2E2;" text="+" textFill="#6f6f6f">
+                  <Button mnemonicParsing="false" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="+" textFill="#6f6f6f">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -89,7 +89,7 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="116.0" prefWidth="143.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleEditAddItemButton" prefHeight="29.0" prefWidth="62.0" style="-fx-background-radius: 9; -fx-background-color: E2E2E2;" text="แก้ไข..." textFill="#6f6f6f">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleEditAddItemButton" prefHeight="29.0" prefWidth="62.0" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="แก้ไข..." textFill="#6f6f6f">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

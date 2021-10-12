@@ -2,8 +2,13 @@ package ku.cs.controllers.seller;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -14,6 +19,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.user.LoginCustomer;
@@ -32,6 +40,7 @@ import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.EventListener;
 import java.util.ResourceBundle;
 
 public class AddItemController implements Initializable {
@@ -63,7 +72,7 @@ public class AddItemController implements Initializable {
     }
 
     @FXML
-    private void handleSaveAddDataButton(){
+    private void handleSaveAddDataButton() throws IOException{
         if (    imageFile==null ||
                 nameTextField.getText().trim().equals("") ||
                 detailTextArea.getText().trim().equals("") ||
@@ -74,10 +83,6 @@ public class AddItemController implements Initializable {
             messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วนก่อนดำเนินการ");
             return;
         }
-        DataSource<ProductList> dataSource;
-        dataSource = new ProductFileDataSource();
-        ProductList productList = dataSource.readData();
-
         String name = nameTextField.getText().trim();
         String detail = detailTextArea.getText().trim();
         double price = Double.parseDouble( priceTextField.getText().trim() );
@@ -85,37 +90,30 @@ public class AddItemController implements Initializable {
         int numRemainWarning = Integer.parseInt( numRemainWarningTextField.getText().trim() );
 
         try {
-            // CREATE FOLDER IF NOT EXIST
-            File destDir = new File("images/productImage");
-            if (!destDir.exists()) destDir.mkdirs();
-            // RENAME FILE
-            String filename = "P"+String.format("%05d",productList.count()+1)+".jpg";
-            Path target = FileSystems.getDefault().getPath(
-                    destDir.getAbsolutePath()+System.getProperty("file.separator")+filename
-            );
-            // COPY WITH FLAG REPLACE FILE IF FILE IS EXIST
-            Files.copy(imageFile.toPath(), target, StandardCopyOption.REPLACE_EXISTING );
-
-            LocalDateTime localDateTime = LocalDateTime.now();
-            DateTimeFormatter addedTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-
-            Product product = new Product(LocalDateTime.now(),"P"+String.format("%05d",productList.count()+1),LoginCustomer.customer.getShopName(),name,price,remaining,0.0,destDir + "/" + filename,detail,numRemainWarning);
-            productList.addProduct(product);
-            dataSource.writeData(productList);
-        } catch (IOException e) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/marketpage/confirm-popup.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.initStyle(StageStyle.UNDECORATED);
+            ConfirmPopupController confirmPopupController = fxmlLoader.getController();
+            Product previewProduct = new Product("",name,price,remaining,numRemainWarning,"",detail,imageFile.toPath()+"");
+            confirmPopupController.setData(previewProduct);
+            confirmPopupController.initData(stage);
+            stage.showAndWait();
+        } catch (Exception e) {
+            System.err.println("เปิดหน้าต่าง pop-up ไม่ได้");
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void handleCancelButton(){
         nameTextField.clear();
         detailTextArea.clear();
         priceTextField.clear();
         remainingTextField.clear();
         numRemainWarningTextField.clear();
         productImage.setImage(null);
-    }
-
-    @FXML
-    public void handleCancelButton(){
-
     }
 
     @FXML

@@ -14,13 +14,17 @@ public class Product {
     private String imageFilePath;
     private String detail;
     private int numRemainWarning;
-//    private int quantity;
     //public String type; กรณีถ้าจะทำเพิ่ม
 
-    public Product(String name, Double price, String ID){
+    // for preview in confirm box
+    public Product(String ID, String name, Double price, int remaining, int numRemainWarning, String type, String detail, String imageFilePath){
+        this.ID = ID;
         this.name = name;
         this.price = price;
-        this.ID = ID;
+        this.remaining = remaining;
+        this.numRemainWarning = numRemainWarning;
+        this.detail = detail;
+        this.imageFilePath = imageFilePath;
     }
 
     public Product(LocalDateTime addedTime, String ID,String shopName, String name, double price, int remaining,
