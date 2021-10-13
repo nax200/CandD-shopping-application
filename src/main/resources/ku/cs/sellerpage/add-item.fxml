@@ -324,7 +324,7 @@
                                                 </HBox>
                                                 <HBox alignment="BOTTOM_RIGHT" prefHeight="64.0" prefWidth="156.0">
                                                     <children>
-                                                        <Button fx:id="cancelButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="107.0" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="ยกเลิก" textFill="#6f6f6f">
+                                                        <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelButton" prefHeight="33.0" prefWidth="107.0" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="ยกเลิก" textFill="#6f6f6f">
                                                             <font>
                                                                 <Font name="Kanit Regular" size="15.0" />
                                                             </font>

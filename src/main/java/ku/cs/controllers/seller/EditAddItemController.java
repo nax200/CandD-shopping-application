@@ -2,7 +2,10 @@ package ku.cs.controllers.seller;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -13,6 +16,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.user.LoginCustomer;
@@ -33,7 +38,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class EditAddItemController implements Initializable {
-    @FXML private Button SaveAddimgButton;
     @FXML private Button cancelButton;
     @FXML private TextField nameTextField;
     @FXML private TextArea detailTextArea;
@@ -86,38 +90,26 @@ public class EditAddItemController implements Initializable {
             messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วนก่อนดำเนินการ");
             return;
         }
-        DataSource<ProductList> dataSource;
-        dataSource = new ProductFileDataSource();
-        ProductList productList = dataSource.readData();
+        String name = nameTextField.getText().trim();
+        String detail = detailTextArea.getText().trim();
+        double price = Double.parseDouble( priceTextField.getText().trim() );
+        int remaining = Integer.parseInt( remainingTextField.getText().trim() );
+        int numRemainWarning = Integer.parseInt( numRemainWarningTextField.getText().trim() );
 
-        Product editedProduct = productList.searchByID(product.getID());
-        editedProduct.setName(nameTextField.getText().trim());
-        editedProduct.setDetail(detailTextArea.getText().trim());
-        editedProduct.setPrice( Double.parseDouble(priceTextField.getText().trim()) );
-        editedProduct.setRemaining( Integer.parseInt(remainingTextField.getText().trim() ) );
-        editedProduct.setNumRemainWarning( Integer.parseInt( numRemainWarningTextField.getText().trim() ) );
-
-        if (imageFile != null) {
-            try {
-                // CREATE FOLDER IF NOT EXIST
-                File destDir = new File("images/productImage");
-                if (!destDir.exists()) destDir.mkdirs();
-
-                String filename = product.getID() + ".jpg";
-                Path target = FileSystems.getDefault().getPath(
-                        destDir.getAbsolutePath() + System.getProperty("file.separator") + filename
-                );
-                Files.copy(imageFile.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
-                dataSource.writeData(productList);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        dataSource.writeData(productList);
         try {
-            com.github.saacsos.FXRouter.goTo("stock-total");
-        } catch (IOException e) {
-            System.err.println("กลับไปหน้าหลักไม่ได้");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/marketpage/confirm-popup.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.initStyle(StageStyle.UNDECORATED);
+            ConfirmPopupController confirmPopupController = fxmlLoader.getController();
+            Product previewProduct = new Product(product.getID(),name,price,remaining,numRemainWarning,"",detail,imageFile.toPath()+"");
+            confirmPopupController.setData(previewProduct);
+            confirmPopupController.initData(stage);
+            stage.showAndWait();
+        } catch (Exception e) {
+            System.err.println("เปิดหน้าต่าง pop-up ไม่ได้");
+            e.printStackTrace();
         }
     }
 
