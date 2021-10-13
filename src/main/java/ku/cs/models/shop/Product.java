@@ -14,8 +14,7 @@ public class Product {
     private String imageFilePath;
     private String detail;
     private int numRemainWarning;
-//    private int quantity;
-    //public String type; กรณีถ้าจะทำเพิ่ม
+    public String type;
 
     public Product(String name, Double price, String ID){
         this.name = name;
@@ -36,6 +35,22 @@ public class Product {
         this.imageFilePath = imageFilePath;
         this.detail = detail;
         this.numRemainWarning = numRemainWarning;
+    }
+
+    public Product(LocalDateTime addedTime, String ID,String shopName, String name, double price, int remaining,
+                   double rating, String imageFilePath, String detail, int numRemainWarning, String type)
+    {
+        this.addedTime = addedTime;
+        this.ID = ID;
+        this.shopName = shopName;
+        this.name = name;
+        this.price = price;
+        this.remaining = remaining;
+        this.rating = rating;
+        this.imageFilePath = imageFilePath;
+        this.detail = detail;
+        this.numRemainWarning = numRemainWarning;
+        this.type = type;
     }
 
     public boolean isProductName(String name) {
@@ -107,9 +122,9 @@ public class Product {
         return numRemainWarning;
     }
 
-//    public int getQuantity() {
-//        return quantity;
-//    }
+    public String getType() {
+        return type;
+    }
 
 //------------- SETTER --------------------
 
@@ -142,14 +157,14 @@ public class Product {
         this.numRemainWarning = numRemainWarning;
     }
 
-//    public void setQuantity(int quantity) {
-//        this.quantity = quantity;
-//    }
+    public void setType(String type) {
+        this.type = type;
+    }
 
     //--------- METHOD --------------
 
 
     public String toCsv() {
-        return getAddedTimeToString() +","+ ID +","+ shopName +","+ name +","+ price +","+ remaining +","+ rating +","+ getImageFilePath() +","+ detail +","+ numRemainWarning;
+        return getAddedTimeToString() +","+ ID +","+ shopName +","+ name +","+ price +","+ remaining +","+ rating +","+ getImageFilePath() +","+ detail +","+ numRemainWarning+","+type;
     }
 }

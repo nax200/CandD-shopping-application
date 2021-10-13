@@ -101,9 +101,9 @@
                                                                                 <Font name="Kanit Regular" size="18.0" />
                                                                             </font>
                                                                         </Label>
-                                                                        <Label fx:id="productPrice" maxWidth="-Infinity" prefHeight="28.0" prefWidth="95.0" text="250" textFill="#717171">
+                                                                        <Label fx:id="productPrice" maxWidth="-Infinity" text="250" textFill="#717171">
                                                                             <HBox.margin>
-                                                                                <Insets left="10.0" />
+                                                                                <Insets left="10.0" right="20.0" />
                                                                             </HBox.margin>
                                                                             <font>
                                                                                 <Font name="Kanit Regular" size="18.0" />
@@ -111,7 +111,7 @@
                                                                         </Label>
                                                                         <Label text="บาท" textFill="#717171">
                                                                             <HBox.margin>
-                                                                                <Insets right="10.0" />
+                                                                                <Insets left="20.0" right="10.0" />
                                                                             </HBox.margin>
                                                                             <font>
                                                                                 <Font name="Kanit Regular" size="18.0" />

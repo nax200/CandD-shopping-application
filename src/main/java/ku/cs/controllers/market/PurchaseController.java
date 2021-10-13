@@ -15,15 +15,22 @@ import javafx.scene.shape.Circle;
 import ku.cs.models.shop.Order;
 import ku.cs.models.shop.OrderList;
 import ku.cs.models.shop.Product;
+import ku.cs.models.shop.ProductList;
 import ku.cs.models.user.LoginCustomer;
 import com.github.saacsos.FXRouter;
 import ku.cs.services.DataSource;
 import ku.cs.services.OrderFileDataSource;
+import ku.cs.services.ProductFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -163,6 +170,14 @@ public class PurchaseController implements Initializable {
                 order.setAddress( addressTextArea.getText() );
                 orderList.addOrder(order);
                 dataSource.writeData(orderList);
+
+                DataSource<ProductList> dataSource2;
+                dataSource2 = new ProductFileDataSource();
+                ProductList productList = dataSource2.readData();
+
+                Product remaining = productList.searchByID(product.getID());
+                remaining.setRemaining(product.getRemaining()-Integer.parseInt(quantity.getText().trim()));
+                dataSource2.writeData(productList);
 
                 com.github.saacsos.FXRouter.goTo("order");
             }

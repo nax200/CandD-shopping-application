@@ -255,6 +255,7 @@ public class ShopController implements Initializable {
                     return product.getName().equals(searchTextField.getText()) && product.getShopName().equals(shopName.getText());
                 }
             };
+            countProduct.setText(String.valueOf(productList.filter(filterer).size()));
 
             sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
                 @Override

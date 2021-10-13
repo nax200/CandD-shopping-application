@@ -53,7 +53,12 @@ public class MarketPlaceController implements Initializable{
         sortByLatest();
         sortComboBox.getItems().addAll("ล่าสุด","ราคาน้อยไปมาก", "ราคามากไปน้อย");
         categoryComboBox.getItems().addAll("เครื่องแต่งกาย", "เสื้อผ้าแฟชั่น");
-        categoryComboBox.setOnAction(actionEvent -> categoryLabel.setText(categoryComboBox.getValue()));
+        categoryComboBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                selectedType();
+            }
+        });
         sortComboBox.setValue("ล่าสุด");
         sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -264,9 +269,6 @@ public class MarketPlaceController implements Initializable{
                             if (sortComboBox.getValue().equals("ล่าสุด")) {
                                 listProduct.getChildren().removeAll();
                                 listProduct.getChildren().setAll();
-                                DataSource<ProductList> dataSource;
-                                dataSource = new ProductFileDataSource();
-                                ProductList productList = dataSource.readData();
 
                                 int column = 0;
                                 int row = 1;
@@ -294,9 +296,6 @@ public class MarketPlaceController implements Initializable{
                             } else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
                                 listProduct.getChildren().removeAll();
                                 listProduct.getChildren().setAll();
-                                DataSource<ProductList> dataSource;
-                                dataSource = new ProductFileDataSource();
-                                ProductList productList = dataSource.readData();
                                 Comparator<Product> productComparator = new Comparator<Product>() {
                                     @Override
                                     public int compare(Product o1, Product o2) {
@@ -334,9 +333,6 @@ public class MarketPlaceController implements Initializable{
                             } else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
                                 listProduct.getChildren().removeAll();
                                 listProduct.getChildren().setAll();
-                                DataSource<ProductList> dataSource;
-                                dataSource = new ProductFileDataSource();
-                                ProductList productList = dataSource.readData();
                                 Comparator<Product> productComparator = new Comparator<Product>() {
                                     @Override
                                     public int compare(Product o1, Product o2) {
@@ -405,12 +401,19 @@ public class MarketPlaceController implements Initializable{
     }
 
     public void clearSearch() {
-        sortByLatest();
         priceMinTextField.clear();
         priceMaxTextField.clear();
         searchTextField.clear();
         sortComboBox.setValue("ล่าสุด");
         messageLabel.setText("");
+        categoryComboBox.setValue("");
+        categoryLabel.setText("ทั้งหมด");
+        categoryComboBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                selectedType();
+            }
+        });
         sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -433,6 +436,7 @@ public class MarketPlaceController implements Initializable{
                 searchByPrice();
             }
         });
+        sortByLatest();
     }
 
     public void searchProduct(){
@@ -471,9 +475,6 @@ public class MarketPlaceController implements Initializable{
                     if (sortComboBox.getValue().equals("ล่าสุด")) {
                         listProduct.getChildren().removeAll();
                         listProduct.getChildren().setAll();
-                        DataSource<ProductList> dataSource;
-                        dataSource = new ProductFileDataSource();
-                        ProductList productList = dataSource.readData();
 
                         int column  = 0;
                         int row = 1;
@@ -502,9 +503,6 @@ public class MarketPlaceController implements Initializable{
                     else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
                         listProduct.getChildren().removeAll();
                         listProduct.getChildren().setAll();
-                        DataSource<ProductList> dataSource;
-                        dataSource = new ProductFileDataSource();
-                        ProductList productList = dataSource.readData();
                         Comparator<Product> productComparator = new Comparator<Product>() {
                             @Override
                             public int compare(Product o1, Product o2) {
@@ -543,9 +541,6 @@ public class MarketPlaceController implements Initializable{
                     else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
                         listProduct.getChildren().removeAll();
                         listProduct.getChildren().setAll();
-                        DataSource<ProductList> dataSource;
-                        dataSource = new ProductFileDataSource();
-                        ProductList productList = dataSource.readData();
                         Comparator<Product> productComparator = new Comparator<Product>() {
                             @Override
                             public int compare(Product o1, Product o2) {
@@ -583,6 +578,7 @@ public class MarketPlaceController implements Initializable{
                     }
                 }
             });
+
             search.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
@@ -593,10 +589,17 @@ public class MarketPlaceController implements Initializable{
                         messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วน");
                     }
                     else {
-                        String priceMinText = priceMinTextField.getText();
-                        double priceMin = Double.parseDouble(priceMinText);
-                        String priceMaxText = priceMaxTextField.getText();
-                        double priceMax = Double.parseDouble(priceMaxText);
+                        double priceMin;
+                        double priceMax;
+                        try {
+                            String priceMinText = priceMinTextField.getText();
+                            priceMin = Double.parseDouble(priceMinText);
+                            String priceMaxText = priceMaxTextField.getText();
+                            priceMax = Double.parseDouble(priceMaxText);
+                        } catch (NumberFormatException e){
+                            messageLabel.setText("ใส่ข้อมูลไม่ถูกต้อง");
+                            return;
+                        }
                         sortComboBox.setValue("ล่าสุด");
 
                         DataSource<ProductList> dataSource;
@@ -631,9 +634,6 @@ public class MarketPlaceController implements Initializable{
                                         if (sortComboBox.getValue().equals("ล่าสุด")) {
                                             listProduct.getChildren().removeAll();
                                             listProduct.getChildren().setAll();
-                                            DataSource<ProductList> dataSource;
-                                            dataSource = new ProductFileDataSource();
-                                            ProductList productList = dataSource.readData();
 
                                             int column = 0;
                                             int row = 1;
@@ -661,9 +661,6 @@ public class MarketPlaceController implements Initializable{
                                         } else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
                                             listProduct.getChildren().removeAll();
                                             listProduct.getChildren().setAll();
-                                            DataSource<ProductList> dataSource;
-                                            dataSource = new ProductFileDataSource();
-                                            ProductList productList = dataSource.readData();
                                             Comparator<Product> productComparator = new Comparator<Product>() {
                                                 @Override
                                                 public int compare(Product o1, Product o2) {
@@ -701,9 +698,6 @@ public class MarketPlaceController implements Initializable{
                                         } else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
                                             listProduct.getChildren().removeAll();
                                             listProduct.getChildren().setAll();
-                                            DataSource<ProductList> dataSource;
-                                            dataSource = new ProductFileDataSource();
-                                            ProductList productList = dataSource.readData();
                                             Comparator<Product> productComparator = new Comparator<Product>() {
                                                 @Override
                                                 public int compare(Product o1, Product o2) {
@@ -769,6 +763,7 @@ public class MarketPlaceController implements Initializable{
                         }}
                 }
             });
+
             productList.sort(productComparator);
             ArrayList<Product> products = productList.filter(filterer);
 
@@ -785,6 +780,341 @@ public class MarketPlaceController implements Initializable{
                     row++;
                 }
 
+                listProduct.add(anchorPane, column++, row);
+                GridPane.setMargin(anchorPane, new Insets(9));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void selectedType(){
+        categoryLabel.setText(categoryComboBox.getValue());
+        listProduct.getChildren().removeAll();
+        listProduct.getChildren().setAll();
+        priceMaxTextField.clear();
+        priceMinTextField.clear();
+        messageLabel.setText("");
+        sortComboBox.setValue("ล่าสุด");
+        DataSource<ProductList> dataSource;
+        dataSource = new ProductFileDataSource();
+        ProductList productList = dataSource.readData();
+        Comparator<Product> productComparator = new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
+                if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
+                return 0;
+            }
+        };
+
+        ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+            @Override
+            public boolean match(Product product) {
+                return product.getType().equals(categoryComboBox.getValue());
+            }
+        };
+
+        int column = 0;
+        int row = 1;
+        try {
+            productList.sort(productComparator);
+            ArrayList<Product> products = productList.filter(filterer);
+            sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    if (sortComboBox.getValue().equals("ล่าสุด")) {
+                        listProduct.getChildren().removeAll();
+                        listProduct.getChildren().setAll();
+
+                        int column  = 0;
+                        int row = 1;
+                        try {
+                            for (int i = 0; i < products.size(); i++){
+                                FXMLLoader fxmlLoader = new FXMLLoader();
+                                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
+                                AnchorPane anchorPane = fxmlLoader.load();
+
+                                CardController cardController = fxmlLoader.getController();
+                                cardController.setData(products.get(i));
+                                if(column == 4){
+                                    column = 0;
+                                    row++;
+                                }
+                                listProduct.add(anchorPane, column++, row);
+                                GridPane.setMargin(anchorPane, new Insets(9));
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
+                        listProduct.getChildren().removeAll();
+                        listProduct.getChildren().setAll();
+                        Comparator<Product> productComparator = new Comparator<Product>() {
+                            @Override
+                            public int compare(Product o1, Product o2) {
+                                if (o1.getPrice() > o2.getPrice()) return 1;
+                                if (o1.getPrice() < o2.getPrice()) return -1;
+                                return 0;
+                            }
+                        };
+                        int column  = 0;
+                        int row = 1;
+                        ArrayList<Product> products = productList.filter(filterer);
+                        try {
+                            for (int i = 0; i < products.size(); i++){
+                                FXMLLoader fxmlLoader = new FXMLLoader();
+                                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
+                                AnchorPane anchorPane = fxmlLoader.load();
+
+                                products.sort(productComparator);
+
+                                CardController cardController = fxmlLoader.getController();
+                                cardController.setData(products.get(i));
+
+                                if(column == 4){
+                                    column = 0;
+                                    row++;
+                                }
+
+                                listProduct.add(anchorPane, column++, row);
+                                GridPane.setMargin(anchorPane, new Insets(9));
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
+                        listProduct.getChildren().removeAll();
+                        listProduct.getChildren().setAll();
+                        Comparator<Product> productComparator = new Comparator<Product>() {
+                            @Override
+                            public int compare(Product o1, Product o2) {
+                                if (o1.getPrice() < o2.getPrice()) return 1;
+                                if (o1.getPrice() > o2.getPrice()) return -1;
+                                return 0;
+                            }
+                        };
+                        int column  = 0;
+                        int row = 1;
+                        ArrayList<Product> products = productList.filter(filterer);
+
+                        try {
+                            for (int i = 0; i < products.size(); i++){
+                                FXMLLoader fxmlLoader = new FXMLLoader();
+                                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
+                                AnchorPane anchorPane = fxmlLoader.load();
+
+                                products.sort(productComparator);
+
+                                CardController cardController = fxmlLoader.getController();
+                                cardController.setData(products.get(i));
+
+                                if(column == 4){
+                                    column = 0;
+                                    row++;
+                                }
+
+                                listProduct.add(anchorPane, column++, row);
+                                GridPane.setMargin(anchorPane, new Insets(9));
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+            search.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    listProduct.getChildren().removeAll();
+                    listProduct.getChildren().setAll();
+                    messageLabel.setText("");
+                    if (priceMinTextField.getText().equals("") || priceMaxTextField.getText().equals("")) {
+                        messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วน");
+                    }
+                    else {
+                        double priceMin;
+                        double priceMax;
+                        try {
+                            String priceMinText = priceMinTextField.getText();
+                            priceMin = Double.parseDouble(priceMinText);
+                            String priceMaxText = priceMaxTextField.getText();
+                            priceMax = Double.parseDouble(priceMaxText);
+                        } catch (NumberFormatException e){
+                            messageLabel.setText("ใส่ข้อมูลไม่ถูกต้อง");
+                            return;
+                        }
+                        sortComboBox.setValue("ล่าสุด");
+
+                        Comparator<Product> productComparator = new Comparator<Product>() {
+                            @Override
+                            public int compare(Product o1, Product o2) {
+                                if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
+                                if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
+                                return 0;
+                            }
+                        };
+
+                        int column = 0;
+                        int row = 1;
+                        try {
+                            if (priceMin >= 0 && priceMax > 0 && priceMax >= priceMin) {
+                                ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+                                    @Override
+                                    public boolean match(Product product) {
+                                        return product.getPrice() >= priceMin && product.getPrice() <= priceMax && product.getType().equals(categoryComboBox.getValue());
+                                    }
+                                };
+                                sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
+                                    @Override
+                                    public void handle(ActionEvent event) {
+                                        if (sortComboBox.getValue().equals("ล่าสุด")) {
+                                            listProduct.getChildren().removeAll();
+                                            listProduct.getChildren().setAll();
+
+                                            int column = 0;
+                                            int row = 1;
+                                            try {
+                                                productList.sort(productComparator);
+                                                ArrayList<Product> products = productList.filter(filterer);
+
+                                                for (int i = 0; i < products.size(); i++) {
+                                                    FXMLLoader fxmlLoader = new FXMLLoader();
+                                                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
+                                                    AnchorPane anchorPane = fxmlLoader.load();
+
+                                                    CardController cardController = fxmlLoader.getController();
+                                                    cardController.setData(products.get(i));
+                                                    if (column == 4) {
+                                                        column = 0;
+                                                        row++;
+                                                    }
+                                                    listProduct.add(anchorPane, column++, row);
+                                                    GridPane.setMargin(anchorPane, new Insets(9));
+                                                }
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                            }
+                                        } else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
+                                            listProduct.getChildren().removeAll();
+                                            listProduct.getChildren().setAll();
+                                            Comparator<Product> productComparator = new Comparator<Product>() {
+                                                @Override
+                                                public int compare(Product o1, Product o2) {
+                                                    if (o1.getPrice() > o2.getPrice()) return 1;
+                                                    if (o1.getPrice() < o2.getPrice()) return -1;
+                                                    return 0;
+                                                }
+                                            };
+                                            int column = 0;
+                                            int row = 1;
+                                            ArrayList<Product> products = productList.filter(filterer);
+
+                                            try {
+                                                for (int i = 0; i < products.size(); i++) {
+                                                    FXMLLoader fxmlLoader = new FXMLLoader();
+                                                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
+                                                    AnchorPane anchorPane = fxmlLoader.load();
+
+                                                    products.sort(productComparator);
+
+                                                    CardController cardController = fxmlLoader.getController();
+                                                    cardController.setData(products.get(i));
+
+                                                    if (column == 4) {
+                                                        column = 0;
+                                                        row++;
+                                                    }
+
+                                                    listProduct.add(anchorPane, column++, row);
+                                                    GridPane.setMargin(anchorPane, new Insets(9));
+                                                }
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                            }
+                                        } else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
+                                            listProduct.getChildren().removeAll();
+                                            listProduct.getChildren().setAll();
+                                            Comparator<Product> productComparator = new Comparator<Product>() {
+                                                @Override
+                                                public int compare(Product o1, Product o2) {
+                                                    if (o1.getPrice() < o2.getPrice()) return 1;
+                                                    if (o1.getPrice() > o2.getPrice()) return -1;
+                                                    return 0;
+                                                }
+                                            };
+                                            int column = 0;
+                                            int row = 1;
+                                            ArrayList<Product> products = productList.filter(filterer);
+
+                                            try {
+                                                for (int i = 0; i < products.size(); i++) {
+                                                    FXMLLoader fxmlLoader = new FXMLLoader();
+                                                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
+                                                    AnchorPane anchorPane = fxmlLoader.load();
+
+                                                    products.sort(productComparator);
+
+                                                    CardController cardController = fxmlLoader.getController();
+                                                    cardController.setData(products.get(i));
+
+                                                    if (column == 4) {
+                                                        column = 0;
+                                                        row++;
+                                                    }
+
+                                                    listProduct.add(anchorPane, column++, row);
+                                                    GridPane.setMargin(anchorPane, new Insets(9));
+                                                }
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                });
+
+                                productList.sort(productComparator);
+                                ArrayList<Product> products = productList.filter(filterer);
+
+                                for (int i = 0; i < products.size(); i++) {
+                                    FXMLLoader fxmlLoader = new FXMLLoader();
+                                    fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
+                                    AnchorPane anchorPane = fxmlLoader.load();
+
+                                    CardController cardController = fxmlLoader.getController();
+                                    cardController.setData(products.get(i));
+                                    if (column == 4) {
+                                        column = 0;
+                                        row++;
+                                    }
+                                    listProduct.add(anchorPane, column++, row);
+                                    GridPane.setMargin(anchorPane, new Insets(9));
+
+                                }
+                            }
+                            else {
+                                messageLabel.setText("กรอกข้อมูลไม่ถูกต้อง");
+                            }
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+            for (int i = 0; i < products.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                CardController cardController = fxmlLoader.getController();
+                cardController.setData(products.get(i));
+                if (column == 4) {
+                    column = 0;
+                    row++;
+                }
                 listProduct.add(anchorPane, column++, row);
                 GridPane.setMargin(anchorPane, new Insets(9));
             }

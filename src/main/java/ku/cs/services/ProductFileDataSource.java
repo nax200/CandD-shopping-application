@@ -70,7 +70,8 @@ public class ProductFileDataSource implements DataSource<ProductList> {
                                 Double.parseDouble(data[6]), // rating
                                 data[7], // imageFilePath
                                 data[8],  // detail
-                                Integer.parseInt(data[9]) // numRemainWarning
+                                Integer.parseInt(data[9]), // numRemainWarning
+                                data[10] // type
                         )
                 );
             }
