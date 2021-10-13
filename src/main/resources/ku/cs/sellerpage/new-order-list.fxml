@@ -64,11 +64,16 @@
       <HBox alignment="CENTER" prefHeight="116.0" prefWidth="143.0">
          <children>
             <TextField fx:id="trackingNumber" styleClass="box-grey-border" stylesheets="@../../../css-style/normal-style.css" />
+            <HBox alignment="CENTER" prefHeight="116.0" prefWidth="50.0">
+               <children>
+                  <Label fx:id="messageLabel" textFill="#ff542f" />
+               </children>
+            </HBox>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="116.0" prefWidth="55.0">
          <children>
-            <Button mnemonicParsing="false" style="-fx-background-radius: 9; -fx-background-color: E2E2E2;" text="เพื่ม" textFill="#6f6f6f">
+            <Button fx:id="addTrackingNumber" mnemonicParsing="false" onAction="#addTrackingNumber" style="-fx-background-radius: 9; -fx-background-color: E2E2E2;" text="เพิ่ม" textFill="#6f6f6f">
                <font>
                   <Font name="Kanit Regular" size="13.0" />
                </font>

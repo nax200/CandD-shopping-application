@@ -161,7 +161,9 @@ public class PurchaseController implements Initializable {
                 order.setAddedTime(LocalDateTime.now());
                 order.setOrderNo( "R"+ String.format("%05d", orderList.count()+1));
                 order.setAddress( addressTextArea.getText() );
+                order.setTrackingNumber("");
                 orderList.addOrder(order);
+
                 dataSource.writeData(orderList);
 
                 com.github.saacsos.FXRouter.goTo("order");
