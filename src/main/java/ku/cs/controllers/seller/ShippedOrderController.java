@@ -13,16 +13,22 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import ku.cs.models.shop.NewOrder;
+import ku.cs.models.shop.Order;
+import ku.cs.models.shop.OrderList;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.services.ConditionFilterer;
+import ku.cs.services.DataSource;
+import ku.cs.services.OrderFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
-
+//"/ku/cs/sellerpage/shipped-order-list.fxml"
 public class ShippedOrderController implements Initializable {
     @FXML
     private VBox contactsLayout;
@@ -32,16 +38,39 @@ public class ShippedOrderController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        List<NewOrder> prototype = new ArrayList<>(prototype());
-        for (int i = 0; i < prototype.size(); i++){
+        DataSource<OrderList> dataSource;
+        dataSource = new OrderFileDataSource();
+        OrderList orderList = dataSource.readData();
+
+
+        Comparator<Order> orderComparator = new Comparator<Order>() {
+            @Override
+            public int compare(Order o1, Order o2) {
+                if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
+                if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
+                return 0;
+            }
+        };
+        ConditionFilterer<Order> filterer = new ConditionFilterer<Order>() {
+            @Override
+            public boolean match(Order order) {
+                return !(order.getTrackingNumber().isEmpty());
+            }
+        };
+
+        ArrayList<Order> orders = orderList.filter(filterer);
+
+
+        for (int i = 0; i < orders.size(); i++){
+
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/shipped-order-list.fxml"));
+            orderList.sort(orderComparator);
 
             try {
-
                 HBox hBox = fxmlLoader.load();
-                ShippedOrderListController hippedList = fxmlLoader.getController();
-                hippedList.setData(prototype.get(i));
+                ShippedOrderListController shippedOrderListController = fxmlLoader.getController();
+                shippedOrderListController.setData(orders.get(i));
                 contactsLayout.getChildren().add(hBox);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -152,26 +181,5 @@ public class ShippedOrderController implements Initializable {
         }
     }
 
-    private List<NewOrder> prototype() {
-        List<NewOrder> ls = new ArrayList<>();
-        NewOrder prototype = new NewOrder();
 
-        prototype.setId_Product("P2109180001");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
-        prototype.setPriceSum("199");
-        prototype.setQuantity("3");
-        prototype.setNameProduct("เสื้อแฟชั่น");
-        prototype.setTrackingNumber("ED 1234 5678 9 TH");
-        ls.add(prototype);
-
-        prototype = new NewOrder();
-        prototype.setId_Product("P2109180002");
-        prototype.setImgSrc("/images/marketpage/img_6.png");
-        prototype.setPriceSum("259");
-        prototype.setQuantity("4");
-        prototype.setNameProduct("รองเท้าแฟชั่น");
-        prototype.setTrackingNumber("ED 1234 5678 8 TH");
-        ls.add(prototype);
-        return ls;
-    }
 }//end

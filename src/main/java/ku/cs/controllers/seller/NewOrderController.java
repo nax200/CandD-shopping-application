@@ -14,6 +14,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import ku.cs.models.shop.*;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
 import ku.cs.services.OrderFileDataSource;
 import ku.cs.services.ProductFileDataSource;
@@ -39,7 +40,9 @@ public class NewOrderController implements Initializable {
         DataSource<OrderList> dataSource;
         dataSource = new OrderFileDataSource();
         OrderList orderList = dataSource.readData();
-        Comparator<Order> productComparator = new Comparator<Order>() {
+
+
+        Comparator<Order> orderComparator = new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
                 if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
@@ -47,16 +50,26 @@ public class NewOrderController implements Initializable {
                 return 0;
             }
         };
+        ConditionFilterer<Order> filterer = new ConditionFilterer<Order>() {
+            @Override
+            public boolean match(Order order) {
+                return order.getTrackingNumber().isEmpty();
+            }
+        };
 
-        for (int i = 0; i < orderList.count(); i++){
+        ArrayList<Order> orders = orderList.filter(filterer);
+
+
+        for (int i = 0; i < orders.size(); i++){
+
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/new-order-list.fxml"));
-            orderList.sort(productComparator);
+            orderList.sort(orderComparator);
 
             try {
                 HBox hBox = fxmlLoader.load();
                 NewOrderListController newOrderListController = fxmlLoader.getController();
-                newOrderListController.setData(orderList.getOrder(i));
+                newOrderListController.setData(orders.get(i));
                 contactsLayout.getChildren().add(hBox);
             } catch (IOException e) {
                 e.printStackTrace();

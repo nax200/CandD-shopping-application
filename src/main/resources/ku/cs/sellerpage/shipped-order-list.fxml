@@ -28,7 +28,7 @@
         </HBox>
       <HBox alignment="CENTER" prefHeight="116.0" prefWidth="111.0">
          <children>
-            <Label text="ผู้สั่งซื้อ" textFill="#6f6f6f" />
+            <Label fx:id="userName" text="ผู้สั่งซื้อ" textFill="#6f6f6f" />
          </children>
       </HBox>
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="124.0">

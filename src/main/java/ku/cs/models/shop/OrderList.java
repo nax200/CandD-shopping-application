@@ -33,6 +33,16 @@ public class OrderList {
         return this.orders.size();
     }
 
+    public ArrayList<Order> filter(ConditionFilterer<Order> filterer) {
+        ArrayList<Order> filtered = new ArrayList<>();
+        for (Order order: this.orders) {
+            if (filterer.match(order)) {
+                filtered.add(order);
+            }
+        }
+        return filtered;
+    }
+
     public void editTrackingNumber(String orderNo,String trackingNumber){
         Order order = this.searchByOrderNo(orderNo);
         if (order == null) {return;}
@@ -40,13 +50,23 @@ public class OrderList {
     }
     
 
-    private Order searchByOrderNo(String orderNo) {
+    public Order searchByOrderNo(String orderNo) {
         for (Order order: orders){
             if (order.getOrderNo().equals(orderNo))
                 return order;
         }
         return null;
     }
+
+    public Order searchByTrackingNumberIsEmoty(String trackingNumber){
+        for (Order order: orders){
+            if (!(order.getTrackingNumber().isEmpty()))
+                return order;
+        }
+        return null;
+    }
+
+
 
     public String toCsv(){
         String result = "";
