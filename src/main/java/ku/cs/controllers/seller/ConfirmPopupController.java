@@ -106,7 +106,7 @@ public class ConfirmPopupController implements Initializable {
                 Files.copy(productImg.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
 
                 Product addProduct = new Product(LocalDateTime.now(), "P" + String.format("%05d", productList.count() + 1), LoginCustomer.customer.getShopName(),
-                        product.getName(), product.getPrice(), product.getRemaining(), 0.0, destDir + "/" + filename, product.getName(), product.getNumRemainWarning());
+                        product.getName(), product.getPrice(), product.getRemaining(), 0.0, destDir + "/" + filename, product.getDetail(), product.getNumRemainWarning());
                 productList.addProduct(addProduct);
                 dataSource.writeData(productList);
             } catch (IOException e) {

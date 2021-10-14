@@ -126,14 +126,15 @@ public class EditAddItemController implements Initializable {
 
         fileChooser.setInitialDirectory(userDirectory);
 
-        imageFile = fileChooser.showOpenDialog(null);
+        File imageFileFromChooser = fileChooser.showOpenDialog(null);
 
-        if (imageFile != null)
+        if (imageFileFromChooser != null)
         {
             try {
-                BufferedImage bufferedImage = ImageIO.read(imageFile);
+                BufferedImage bufferedImage = ImageIO.read(imageFileFromChooser);
                 Image img = SwingFXUtils.toFXImage(bufferedImage, null);
                 productImage.setImage(img);
+                imageFile = imageFileFromChooser;
             } catch (Exception e) {
                 System.err.println("เกิดปัญหาในการเลือกไฟล์");
             }

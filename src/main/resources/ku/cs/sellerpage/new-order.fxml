@@ -95,7 +95,7 @@
                 </HBox>
                 <HBox prefHeight="54.0" prefWidth="201.0">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="201.0" style="-fx-background-color: DCDADA;" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="         รายการสั่งซื้อใหม่" textFill="#6f6f6f">
+                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="201.0" style="-fx-background-color: DCDADA;" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="       รายการสั่งซื้อใหม่" textFill="#6f6f6f">
                             <font>
                                 <Font name="Kanit Regular" size="15.0" />
                             </font>
