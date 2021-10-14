@@ -11,13 +11,15 @@ public class Customer extends User{
     private boolean isBlocked;
     private String shopName;
     private File imageFile;
+    private int loginAttempts;
 
-    public Customer(String userID, String username, String password, LocalDateTime lastTimeLoggedIn, String name, boolean isBlocked, String shopName, String imageFilePath) {
+    public Customer(String userID, String username, String password, LocalDateTime lastTimeLoggedIn, String name, boolean isBlocked, String shopName, String imageFilePath,int loginAttempts) {
         super(username, password, lastTimeLoggedIn);
         this.userID = userID;
         this.name = name;
         this.isBlocked = isBlocked;
         this.shopName = shopName;
+        this.loginAttempts = loginAttempts;
         setImageFile(new File(imageFilePath));
     }
 
@@ -55,6 +57,10 @@ public class Customer extends User{
         return "ปกติ";
     }
 
+    public int getLoginAttempts() {
+        return loginAttempts;
+    }
+
     public File getImageFile() {
         return imageFile;
     }
@@ -71,8 +77,16 @@ public class Customer extends User{
         this.imageFile = imageFile;
     }
 
+    public void resetLoginAttempts() {
+        loginAttempts = 0;
+    }
+
     public void setStatus(Boolean status){
         this.isBlocked = status;
+    }
+
+    public void increaseLoginAttempt(){
+        this.loginAttempts += 1;
     }
 
     public void copyImageFile(){
@@ -99,6 +113,6 @@ public class Customer extends User{
     @Override
     public String toCsv() {
         return "Customer," + userID + ","+ getUsername() + "," + getPassword() + "," + getLastTimeLoggedInToString() + ","
-                + name + "," + isBlocked + "," + shopName + "," + getImageFilePath();
+                + name + "," + isBlocked + "," + shopName + "," + getImageFilePath()+","+getLoginAttempts();
     }
 }

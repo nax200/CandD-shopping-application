@@ -201,7 +201,7 @@ public class ProductController implements Initializable {
             if(messageComment.getText().trim().equals("")){
                 messageComment.setText("ไม่มีความคิดเห็น");
             }
-            Comment comment = new Comment("M"+String.format("%05d",commentList.count()+1),product.getID(),LoginCustomer.customer.getUsername(),messageComment.getText().trim(),localDateTime,Integer.parseInt(score));
+            Comment comment = new Comment("M"+String.format("%05d",commentList.count()+1),product.getID(),LoginCustomer.customer.getUsername(),messageComment.getText().trim(),localDateTime,Integer.parseInt(score),true);
             commentList.addComment(comment);
             dataSource.writeData(commentList);
             messageComment.clear();
@@ -231,7 +231,7 @@ public class ProductController implements Initializable {
         ConditionFilterer<Comment> filterer = new ConditionFilterer<Comment>() {
             @Override
             public boolean match(Comment comment) {
-                return product.getID().equals(comment.getIdProduct());
+                return product.getID().equals(comment.getIdProduct()) && comment.getVisible();
             }
         };
         commentAtProduct.sortTime(commentComparator);

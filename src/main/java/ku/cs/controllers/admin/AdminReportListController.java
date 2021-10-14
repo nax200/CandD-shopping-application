@@ -1,5 +1,5 @@
 package ku.cs.controllers.admin;
-
+import javafx.scene.control.TextArea;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,8 +16,11 @@ import ku.cs.models.admin.AdminUserReport;
 import ku.cs.models.admin.Report;
 import ku.cs.models.admin.ReportList;
 import ku.cs.models.admin.ReportedComment;
+import ku.cs.models.shop.Comment;
+import ku.cs.models.shop.CommentList;
 import ku.cs.models.user.Customer;
 import ku.cs.models.user.UserList;
+import ku.cs.services.CommentFileDataSource;
 import ku.cs.services.DataSource;
 import ku.cs.services.ReportFileDataSource;
 import ku.cs.services.UserFileDataSource;
@@ -39,15 +42,16 @@ public class AdminReportListController implements Initializable {
     private Label reportType;
 
     @FXML
-    private Label moreDetailReport;
+    private TextArea moreDetailTextArea;
 
     @FXML
-    private Label messageReport;
+    private TextArea massageTextArea;
 
     @FXML
     private ComboBox<String> statusUserReport;
     private Customer customer ;
     private Report reportUser;
+
     public void setData(Report report) {
         BufferedImage bufferedImage = null;
         try {
@@ -59,8 +63,8 @@ public class AdminReportListController implements Initializable {
         profileImage.setFill(new ImagePattern(image));
         username.setText(report.getReportedName().getUsername());
         reportType.setText(report.getReportType());
-        moreDetailReport.setText(report.getDetail());
-        messageReport.setText(""+report.getComment().getComment());
+        moreDetailTextArea.setText(""+report.getDetail());
+        massageTextArea.setText(""+report.getComment().getComment());
         customer = report.getReportedName();
         reportUser = report;
     }
@@ -70,6 +74,10 @@ public class AdminReportListController implements Initializable {
         DataSource<ReportList> dataSourceReport;
         dataSourceReport = new ReportFileDataSource();
         ReportList reportList = dataSourceReport.readData();
+
+        DataSource<CommentList> dataSourceComment;
+        dataSourceComment = new CommentFileDataSource();
+        CommentList commentList = dataSourceComment.readData();
         statusUserReport.setValue("รอตรวจสอบ");
         statusUserReport.getItems().addAll("อนุมัติ","ไม่อนุมัติ");
         statusUserReport.setOnAction(new EventHandler<ActionEvent>() {
@@ -81,7 +89,12 @@ public class AdminReportListController implements Initializable {
                     UserList userList = dataSource.readData();
                     (userList.searchUsername(customer.getUsername())).setStatus(true);
                     dataSource.writeData(userList);
+                    Comment comment = commentList.searchIdComment(reportUser.getComment().getIdComment());
+                    comment.setInvisible();
+                }else if (statusUserReport.getValue().equals("ไม่อนุมัติ")) {
+                    (reportList.searchReport(reportUser.getReportId())).setRecentCase(false);
                 }
+                dataSourceComment.writeData(commentList);
                 reportList.searchReport(reportUser.getReportId()).setIsChecked();;
                 dataSourceReport.writeData(reportList);
                 try {

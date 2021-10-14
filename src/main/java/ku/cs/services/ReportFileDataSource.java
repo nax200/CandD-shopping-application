@@ -75,7 +75,8 @@ public class ReportFileDataSource implements DataSource<ReportList> {
                             ));
 
                 else if (data[0].equals("ReportedProduct")) {
-                    reportList.addReport(new ReportedProduct( data[1], //reportId
+                    reportList.addReport(new ReportedProduct(
+                            data[1], //reportId
                             data[2], //reportedUsername
                             data[3], //reporterUsername
                             data[4], //reportType
@@ -83,7 +84,7 @@ public class ReportFileDataSource implements DataSource<ReportList> {
                             LocalDateTime.parse(data[6], dtf), // timeToReport
                             Boolean.parseBoolean(data[7]),//isChecked
                             Boolean.parseBoolean(data[8]),//recentCase
-                            data[8] //productId
+                            data[9] //productId
                     ));
                 }
             }

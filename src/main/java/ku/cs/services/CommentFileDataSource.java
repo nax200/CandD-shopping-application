@@ -64,7 +64,8 @@ public class CommentFileDataSource implements DataSource<CommentList>{
                                 data[2], //nameToComment
                                 data[3], //comment
                                 LocalDateTime.parse(data[4],dtf), // timeToComment
-                                Integer.parseInt(data[5]) // rating
+                                Integer.parseInt(data[5]) ,// rating
+                                Boolean.parseBoolean(data[6])// visible
                         ));
             }
         } catch (FileNotFoundException e) {

@@ -40,9 +40,8 @@ public class LoginPageController {
                     FXRouter.goTo("admin-user-view",user);
                 } else {
                     if( ((Customer) user).isBlocked() ){
-
-                        // รอเพิ่มโค้ดจำนวนครั้งในความพยายามเข้าสู่ระบบ
-
+                        ((Customer) user).increaseLoginAttempt();
+                        dataSource.writeData(userList);
                         messageLabel.setText("ขออภัย! บัญชีของท่านถูกระงับการใช้งาน");
                     } else {
                         LoginCustomer customer = new LoginCustomer(((Customer) user));

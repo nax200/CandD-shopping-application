@@ -111,29 +111,29 @@
          <children>
             <ScrollPane prefHeight="576.0" prefWidth="1024.0">
                <content>
-                  <VBox fx:id="userReportList" prefHeight="577.0" prefWidth="1022.0" />
+                  <VBox fx:id="productReportList" prefHeight="577.0" prefWidth="1022.0" />
                </content>
             </ScrollPane>
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutY="126.0" prefHeight="60.0" prefWidth="1024.0" style="-fx-background-color: #CCCCCC;">
          <children>
-            <Label alignment="CENTER" prefWidth="220.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ผู้ถูกรายงาน">
+            <Label alignment="CENTER" prefHeight="28.0" prefWidth="200.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ผู้ถูกรายงาน">
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
             </Label>
-            <Label prefWidth="210.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ประเภทของการรายงาน">
+            <Label prefHeight="28.0" prefWidth="241.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ประเภทของการรายงาน">
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
             </Label>
-            <Label prefWidth="230.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="รายละเอียดเพิ่มเติม">
+            <Label prefHeight="28.0" prefWidth="245.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="รายละเอียดเพิ่มเติม">
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
             </Label>
-            <Label prefWidth="230.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="สินค้าที่ถูกรายงาน">
+            <Label prefHeight="28.0" prefWidth="179.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="สินค้าที่ถูกรายงาน">
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>

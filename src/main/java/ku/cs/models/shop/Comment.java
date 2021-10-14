@@ -14,14 +14,16 @@ public class Comment {
     private String comment;
     private LocalDateTime timeToComment;
     private int rating;
+    private Boolean visible;
 
-    public Comment(String idComment, String idProduct, String nameToComment, String comment, LocalDateTime timeToComment,int rating) {
+    public Comment(String idComment, String idProduct, String nameToComment, String comment, LocalDateTime timeToComment,int rating,Boolean visible) {
         this.idComment = idComment;
         this.idProduct = idProduct;
         this.nameToComment = nameToComment;
         this.comment = comment;
         this.timeToComment = timeToComment;
         this.rating = rating;
+        this.visible = visible;
     }
 
     public String getIdComment() { return idComment; }
@@ -45,16 +47,21 @@ public class Comment {
 
     public int getRating (){ return  rating ;}
 
+    public Boolean getVisible(){return  visible;}
+
     public String getTimeToCommentToString() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         return dtf.format(timeToComment);
     }
-
     public Boolean isIdComment(String idComment){
          return this.idComment.equals(idComment);
     }
 
+    public void setInvisible(){
+        this.visible = false;
+    }
+
     public String toCsv(){
-        return idComment + "," + idProduct + "," + nameToComment + "," + comment + "," + getTimeToCommentToString() + "," + rating;
+        return idComment + "," + idProduct + "," + nameToComment + "," + comment + "," + getTimeToCommentToString() + "," + rating+","+visible;
     }
 }

@@ -35,18 +35,20 @@ public class ReportController {
 
 
     public void setData(Customer reported, Customer reporter, Object object, Stage stage){
-        nameTextField.setText( reported.getName() );
+
         this.reported = reported;
         this.reporter = reporter;
         if(object instanceof Comment) {
             this.comment = (Comment)object;
             reportTypeComboBox.getItems().addAll("เนื้อหาไม่เหมาะสม","ความคิดเห็นไม่เหมาะสม",
                     "ข่าวปลอม","เนื้อหาล่อแหลม","เนื้อหาอันตรายมีความรุนแรง","อื่น ๆ");
+            nameTextField.setText( reported.getName() );
         }
         if(object instanceof Product){
             this.product = (Product) object;
             reportTypeComboBox.getItems().addAll("สินค้าละเมิดลิขสิทธิ์","รายละเอียดสินค้าไม่เหมาะสม",
                     "สินค้าต้องห้าม","สินค้าที่หลอกลวง","สินค้าที่ส่งผลกระทบต่อบุคคล","อื่น ๆ");
+            nameTextField.setText( product.getName() );
         }
         this.stage = stage;
     }
