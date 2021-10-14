@@ -56,4 +56,8 @@ public class User {
 
     public void setLastTimeLoggedIn(LocalDateTime time){ lastTimeLoggedIn = time; }
 
+    public void setStatus(Boolean bool){
+        return ;
+    }
+
 }

@@ -238,7 +238,7 @@
                                                 </Label>
                                                 <MenuButton mnemonicParsing="false" prefHeight="14.0" prefWidth="17.0" style="-fx-background-color: #ffffff;" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css">
                                                    <items>
-                                                      <MenuItem mnemonicParsing="false" text="รายงานสินค้านี้" />
+                                                      <MenuItem mnemonicParsing="false" onAction="#reportProduct" text="รายงานสินค้านี้" />
                                                    </items>
                                                    <HBox.margin>
                                                       <Insets right="20.0" top="10.0" />

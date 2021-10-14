@@ -1,5 +1,8 @@
 package ku.cs.models.user;
 
+import ku.cs.models.shop.Comment;
+import ku.cs.services.ConditionFilterer;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -25,7 +28,7 @@ public class UserList {
         return null;
     }
 
-    public User searchShopName(String shopName) {
+    public User searchByShopName(String shopName) {
         for (User user: users) {
             if (user.getUsername().equals("admin")){
                 continue;
@@ -59,6 +62,15 @@ public class UserList {
         Collections.sort(this.users,userComparator);
     }
 
+    public ArrayList<User> filter(ConditionFilterer<User> filterer) {
+        ArrayList<User> filtered = new ArrayList<>();
+        for (User user: this.users) {
+            if (filterer.match(user)) {
+                filtered.add(user);
+            }
+        }
+        return filtered;
+    }
 
     public String toCsv() {
         String result = "";
