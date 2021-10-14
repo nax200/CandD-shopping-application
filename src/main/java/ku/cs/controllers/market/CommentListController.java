@@ -1,15 +1,21 @@
 package ku.cs.controllers.market;
-
+import javafx.event.ActionEvent;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import ku.cs.models.shop.Comment;
 import ku.cs.models.user.Customer;
+import ku.cs.models.user.LoginCustomer;
 import ku.cs.models.user.User;
 import ku.cs.models.user.UserList;
 import ku.cs.services.DataSource;
@@ -39,30 +45,52 @@ public class CommentListController implements Initializable {
     @FXML
     private Label ratingLabel;
 
-    public void setData(Comment comment){
+    private User user;
+    private Comment comment;
+
+    public void setData(Comment comment) {
+        this.comment = comment;
         DataSource<UserList> dataSource;
         dataSource = new UserFileDataSource();
         UserList userAll = dataSource.readData();
-        User user = userAll.searchUsername(comment.getNameToComment()) ;
+        user = userAll.searchUsername(comment.getNameToComment());
         BufferedImage bufferedImage = null;
         try {
-            bufferedImage = ImageIO.read(((Customer)user).getImageFile());
+            bufferedImage = ImageIO.read(((Customer) user).getImageFile());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        Image image = SwingFXUtils.toFXImage(bufferedImage, null);
         profileImage.setFill(new ImagePattern(image));
         userName.setText(comment.getNameToComment());
-        if(comment.getComment().equals("")) {
+        if (comment.getComment().equals("")) {
             commentLabel.setText("ไม่มีความคิดเห็น");
-            commentLabel.setTextFill(Color.rgb(156,156,156));
-        }
-        else {
+            commentLabel.setTextFill(Color.rgb(156, 156, 156));
+        } else {
             commentLabel.setText(comment.getComment());
         }
         timeToComment.setText(comment.getTimeToCommentToString());
-        ratingLabel.setText(""+comment.getRating());
+        ratingLabel.setText("" + comment.getRating());
     }
+
+    @FXML
+    public void reportUser(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/marketpage/report.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.initStyle(StageStyle.UNDECORATED);
+            ReportController reportController = fxmlLoader.getController();
+
+            reportController.setData((Customer) user, LoginCustomer.customer, comment, stage);
+            stage.showAndWait();
+        } catch (Exception e) {
+            System.err.println("เปิดหน้าต่าง pop-up ไม่ได้");
+            e.printStackTrace();
+        }
+    }
+
 
 
     @Override
@@ -70,3 +98,5 @@ public class CommentListController implements Initializable {
 
     }
 }
+
+

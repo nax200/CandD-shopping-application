@@ -7,7 +7,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import ku.cs.models.admin.AdminUserReport;
+import ku.cs.models.admin.Report;
+import ku.cs.models.admin.ReportList;
+import ku.cs.models.admin.ReportedComment;
 import ku.cs.models.user.User;
+import ku.cs.services.ConditionFilterer;
+import ku.cs.services.DataSource;
+import ku.cs.services.ReportFileDataSource;
 
 import java.io.IOException;
 import java.net.URL;
@@ -61,21 +67,50 @@ public class AdminReportController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<AdminUserReport> users = new ArrayList<>(adminUserReports());
+       loadReportUser();
+    }
+
+    public void loadReportUser(){
+        userReportList.getChildren().removeAll();
+        userReportList.getChildren().addAll();
         admin = (User) com.github.saacsos.FXRouter.getData();
-        for(int i = 0;i<users.size();i++){
+        DataSource<ReportList> dataSource;
+        dataSource = new ReportFileDataSource();
+        ReportList reportList = dataSource.readData();
+        ConditionFilterer<Report> filterer = new ConditionFilterer<Report>() {
+            @Override
+            public boolean match(Report report) {
+                if (report instanceof ReportedComment && report.getChecked()) {
+                    return  false;
+                }
+                return true;
+            }
+        };
+        ArrayList<Report> reports = reportList.filter(filterer);
+        for(int i = 0;i<reports.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/adminpage/admin-report-list.fxml"));
             try {
                 HBox hBox = fxmlLoader.load();
                 AdminReportListController adminreportListController = fxmlLoader.getController();
-                adminreportListController.setData(users.get(i));
+                adminreportListController.setData(reports.get(i));
                 userReportList.getChildren().add(hBox);
             }catch (IOException e){
                 e.printStackTrace();
             }
         }
     }
+
+    @FXML
+    void productReportButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("admin-reported-product-list",admin);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า admin-reported-product-list ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
     private List<AdminUserReport> adminUserReports(){
         List<AdminUserReport> ls = new ArrayList<>();
         AdminUserReport user = new AdminUserReport();

@@ -7,6 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import ku.cs.models.admin.AdminUser;
@@ -48,8 +49,13 @@ public class AdminUserListController implements Initializable {
         username.setText(user.getUsername());
         shopname.setText(user.getShopName());
         lastlogin.setText(user.getLastTimeLoggedInToString());
+        if(user.isBlocked()) {
+            userBlocked.setTextFill(Color.rgb(255,84,47));
+        }
+        else {
+            userBlocked.setTextFill(Color.rgb(111,111,111));
+        }
         userBlocked.setText(user.getIsUserBlockedToString());
-
     }
 
     @Override

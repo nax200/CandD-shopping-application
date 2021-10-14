@@ -71,6 +71,10 @@ public class Customer extends User{
         this.imageFile = imageFile;
     }
 
+    public void setStatus(Boolean status){
+        this.isBlocked = status;
+    }
+
     public void copyImageFile(){
         File destDir = new File("images/profileImage");
 
