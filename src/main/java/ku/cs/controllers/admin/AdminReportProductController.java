@@ -2,12 +2,29 @@ package ku.cs.controllers.admin;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import ku.cs.models.admin.Report;
+import ku.cs.models.admin.ReportList;
+import ku.cs.models.admin.ReportedComment;
+import ku.cs.models.admin.ReportedProduct;
 import ku.cs.models.user.Admin;
 import ku.cs.models.user.User;
+import ku.cs.services.ConditionFilterer;
+import ku.cs.services.DataSource;
+import ku.cs.services.ReportFileDataSource;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class AdminReportProductController {
+public class AdminReportProductController implements Initializable {
+
+    @FXML
+    private VBox productReportList;
     private User admin;
     @FXML
     void userReportButton(ActionEvent event) {
@@ -65,5 +82,38 @@ public class AdminReportProductController {
             System.err.println("ไปที่หน้า login ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        admin = (User) com.github.saacsos.FXRouter.getData();
+       DataSource<ReportList> reportListDataSource;
+       reportListDataSource = new ReportFileDataSource();
+       ReportList reportList = reportListDataSource.readData();
+       ConditionFilterer<Report> filterer = new ConditionFilterer<Report>() {
+           @Override
+           public boolean match(Report report) {
+               if (report instanceof ReportedProduct && report.getChecked()) {
+                   return  false;
+               }
+               return true;
+           }
+       };
+        ArrayList<Report> reports = reportList.filter(filterer);
+        for(int i = 0;i<reports.size();i++){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/adminpage/admin-report-product-list.fxml"));
+            try {
+                if(reports.get(i) instanceof ReportedProduct) {
+                    HBox hBox = fxmlLoader.load();
+                    AdminReportProductListController adminReportProductListController = fxmlLoader.getController();
+                    adminReportProductListController.setData(reports.get(i));
+                    productReportList.getChildren().add(hBox);
+                }
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+
     }
 }

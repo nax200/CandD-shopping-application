@@ -3,40 +3,47 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" minHeight="60.0" prefHeight="60.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminReportListController">
+<HBox alignment="CENTER_LEFT" minHeight="100.0" prefHeight="100.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminReportListController">
     <children>
       <Circle fx:id="profileImage" fill="WHITE" radius="22.0" stroke="#e2e2e2" strokeType="INSIDE" strokeWidth="1.5">
          <HBox.margin>
             <Insets left="15.0" />
          </HBox.margin>
       </Circle>
-        <Label fx:id="username" prefWidth="155.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="Username">
+        <Label fx:id="username" prefHeight="28.0" prefWidth="140.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="Username">
             <font>
                 <Font name="Kanit Regular" size="18.0" />
             </font>
             <HBox.margin>
-                <Insets left="17.0" />
+                <Insets left="15.0" />
             </HBox.margin>
         </Label>
-        <Label fx:id="reportType" prefWidth="210.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ประเภทการรายงาน">
+        <Label fx:id="reportType" prefHeight="28.0" prefWidth="203.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ประเภทการรายงาน">
             <font>
                 <Font name="Kanit Regular" size="18.0" />
             </font>
         </Label>
-        <Label fx:id="moreDetailReport" prefWidth="230.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="รายละเอียดเพิ่มเติม">
-            <font>
-                <Font name="Kanit Regular" size="18.0" />
-            </font>
-        </Label>
-        <Label fx:id="messageReport" prefWidth="230.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ข้อความที่ถูกรายงาน">
-            <font>
-                <Font name="Kanit Regular" size="18.0" />
-            </font>
-        </Label>
-      <ComboBox fx:id="statusUserReport" prefHeight="25.0" prefWidth="105.0" styleClass="comboBox-grey-border" stylesheets="@../../../css-style/normal-style.css" />
+      <TextArea fx:id="moreDetailTextArea" editable="false" maxHeight="80.0" prefHeight="80.0" prefWidth="215.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" wrapText="true">
+         <font>
+            <Font name="Kanit Regular" size="14.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="massageTextArea" editable="false" maxHeight="80.0" prefHeight="80.0" prefWidth="215.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" wrapText="true">
+         <font>
+            <Font name="Kanit Regular" size="14.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </TextArea>
+      <ComboBox fx:id="statusUserReport" prefHeight="25.0" prefWidth="105.0" styleClass="comboBox-grey-border" stylesheets="@../../../css-style/normal-style.css">
+         <HBox.margin>
+            <Insets left="15.0" />
+         </HBox.margin></ComboBox>
     </children>
 </HBox>

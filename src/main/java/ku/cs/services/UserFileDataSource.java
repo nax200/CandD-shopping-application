@@ -82,7 +82,8 @@ public class UserFileDataSource implements DataSource<UserList>{
                                     data[5], // name
                                     Boolean.parseBoolean(data[6]), // isBlocked
                                     data[7], // shopName
-                                    data[8] // imageFilePath
+                                    data[8], // imageFilePath
+                                    Integer.parseInt(data[9]) //loginAttempts
                             )
                     );
                 }

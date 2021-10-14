@@ -55,7 +55,7 @@ public class AdminStatusListController implements Initializable {
         profileImage.setFill(new ImagePattern(image));
         username.setText(user.getUsername());
         causeTextArea.setText(reportList.searchAllCheckedCase(user.getUsername()));
-        countTryToLogin.setText("");
+        countTryToLogin.setText(""+((Customer) user).getLoginAttempts());
         userStatus.setValue(((Customer)user).getIsUserBlockedToString());
         customer = (Customer)user;
 
@@ -77,6 +77,7 @@ public class AdminStatusListController implements Initializable {
                     dataSourceReport = new ReportFileDataSource();
                     ReportList reportList = dataSourceReport.readData();
                     reportList.searchCaseReportToSetLatest(customer.getUsername());
+                    ((Customer)userList.searchUsername(customer.getUsername())).resetLoginAttempts();
                     dataSourceReport.writeData(reportList);
                 }
                 else {

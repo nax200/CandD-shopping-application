@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import ku.cs.models.admin.AdminUserReport;
-import ku.cs.models.admin.Report;
-import ku.cs.models.admin.ReportList;
-import ku.cs.models.admin.ReportedComment;
+import ku.cs.models.admin.*;
 import ku.cs.models.user.User;
 import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
@@ -91,10 +88,12 @@ public class AdminReportController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/adminpage/admin-report-list.fxml"));
             try {
-                HBox hBox = fxmlLoader.load();
-                AdminReportListController adminreportListController = fxmlLoader.getController();
-                adminreportListController.setData(reports.get(i));
-                userReportList.getChildren().add(hBox);
+                if(reports.get(i) instanceof ReportedComment) {
+                    HBox hBox = fxmlLoader.load();
+                    AdminReportListController adminreportListController = fxmlLoader.getController();
+                    adminreportListController.setData(reports.get(i));
+                    userReportList.getChildren().add(hBox);
+                }
             }catch (IOException e){
                 e.printStackTrace();
             }
@@ -109,56 +108,6 @@ public class AdminReportController implements Initializable {
             System.err.println("ไปที่หน้า admin-reported-product-list ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-    }
-
-    private List<AdminUserReport> adminUserReports(){
-        List<AdminUserReport> ls = new ArrayList<>();
-        AdminUserReport user = new AdminUserReport();
-
-        user.setUsername("moss");
-        user.setImgSrc("/images/creditpage/moss.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(true);
-        user.setMoreDetailReport("-");
-        user.setMessagetoReport("-");
-        user.setReportType("-");
-        ls.add(user);
-
-        user = new AdminUserReport();
-        user.setUsername("nax");
-        user.setImgSrc("/images/creditpage/nax.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(true);
-        user.setMoreDetailReport("-");
-        user.setMessagetoReport("-");
-        user.setReportType("-");
-        ls.add(user);
-
-        user = new AdminUserReport();
-        user.setUsername("bam");
-        user.setImgSrc("/images/creditpage/bamboo.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(true);
-        user.setMoreDetailReport("-");
-        user.setMessagetoReport("-");
-        user.setReportType("-");
-        ls.add(user);
-
-        user = new AdminUserReport();
-        user.setUsername("ploy");
-        user.setImgSrc("/images/creditpage/ploy.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(true);
-        user.setMoreDetailReport("-");
-        user.setMessagetoReport("-");
-        user.setReportType("-");
-        ls.add(user);
-
-        return  ls;
     }
 }
 

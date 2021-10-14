@@ -52,6 +52,7 @@ public class AdminUserController implements Initializable{
         } catch (IOException e) {
             System.err.println("ไปที่หน้า admin-reported-product-list ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
 
