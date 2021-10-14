@@ -169,6 +169,16 @@ public class Product {
 
     //--------- METHOD --------------
 
+    public void increaseRemain() {
+        this.remaining += 1;
+    }
+
+    public void decreaseRemain() {
+        if (this.remaining > 0) {
+            this.remaining -= 1;
+        }
+    }
+
 
     public String toCsv() {
         return getAddedTimeToString() +","+ ID +","+ shopName +","+ name +","+ price +","+ remaining +","+ rating +","+ getImageFilePath() +","+ detail +","+ numRemainWarning+","+type;

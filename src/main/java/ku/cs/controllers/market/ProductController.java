@@ -17,14 +17,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import ku.cs.models.shop.Order;
-import ku.cs.models.shop.Product;
+import ku.cs.models.shop.*;
 import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.DataSource;
-import ku.cs.models.shop.Comment;
-import ku.cs.models.shop.CommentList;
 import ku.cs.services.CommentFileDataSource;
 import ku.cs.services.ConditionFilterer;
+import ku.cs.services.ProductFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -56,6 +54,7 @@ public class ProductController implements Initializable {
     @FXML private Label reviewCount;
     @FXML private Label ratingAverage;
     private Product product;
+    private int quantity;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,6 +63,7 @@ public class ProductController implements Initializable {
         rating.setValue("");
         rating.getItems().addAll("1", "2", "3", "4", "5");
         product = (Product) FXRouter.getData();
+        quantity = 1;
         setChosenProduct();
 
         BufferedImage bufferedImage = null;
@@ -229,6 +229,20 @@ public class ProductController implements Initializable {
             }catch (IOException e){
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void increaseButton() {
+        quantity = Integer.parseInt(quantityTextField.getText());
+        quantity += 1;
+        quantityTextField.setText(quantity+"");
+    }
+
+    public void decreaseButton() {
+        if (quantity >1) {
+            quantity = Integer.parseInt(quantityTextField.getText());
+            quantity -= 1;
+            quantityTextField.setText(quantity+"");
         }
     }
 }

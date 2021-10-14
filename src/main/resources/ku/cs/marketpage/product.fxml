@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -164,26 +165,44 @@
                                                       <Insets left="20.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 10; -fx-background-color: #E2E2E2;" text="-" textFill="#717171">
+                                                <Button mnemonicParsing="false" onAction="#decreaseButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css-style/normal-style.css" text="-" textFill="#717171">
                                                    <font>
                                                       <Font name="Kanit Bold" size="18.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="20.0" />
                                                    </HBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="text-type2" />
+                                                      <String fx:value="button-grey-border" />
+                                                   </styleClass>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
                                                 </Button>
-                                                <TextField fx:id="quantityTextField" alignment="CENTER" prefHeight="40.0" prefWidth="40.0" text="1">
+                                                <TextField fx:id="quantityTextField" alignment="CENTER" prefHeight="44.0" prefWidth="45.0" stylesheets="@../../../css-style/normal-style.css" text="1">
                                                    <HBox.margin>
                                                       <Insets left="20.0" />
                                                    </HBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="box-grey-border" />
+                                                      <String fx:value="text-type2" />
+                                                   </styleClass>
                                                 </TextField>
-                                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 10; -fx-background-color: #E2E2E2;" text="+" textFill="#717171">
+                                                <Button mnemonicParsing="false" onAction="#increaseButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../css-style/normal-style.css" text="+" textFill="#717171">
                                                    <font>
                                                       <Font name="Kanit Bold" size="18.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="20.0" />
                                                    </HBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="text-type2" />
+                                                      <String fx:value="button-grey-border" />
+                                                   </styleClass>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
                                                 </Button>
                                              </children>
                                           </HBox>

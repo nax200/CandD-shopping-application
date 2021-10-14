@@ -6,10 +6,13 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import ku.cs.models.shop.Product;
+import ku.cs.models.shop.ProductList;
 import ku.cs.models.shop.StockTotal;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import ku.cs.services.DataSource;
+import ku.cs.services.ProductFileDataSource;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,6 +46,7 @@ public class StockTotalListController implements Initializable {
             quantity.setTextFill(Color.rgb(255,84,47)); //ff542f 255 84 47
             quantity.setText(product.getRemaining() + "");
         } else {
+            quantity.setTextFill(Color.rgb(111,111,111));
             quantity.setText(product.getRemaining() + "");
         }
     }
@@ -56,5 +60,25 @@ public class StockTotalListController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
 
+    }
+
+    public void increaseButton() {
+        DataSource<ProductList> dataSource;
+        dataSource = new ProductFileDataSource();
+        ProductList productList = dataSource.readData();
+        Product targetProduct = productList.searchByID( product.getID() );
+        targetProduct.increaseRemain();
+        dataSource.writeData(productList);
+        setData(targetProduct);
+    }
+
+    public void decreaseButton() {
+        DataSource<ProductList> dataSource;
+        dataSource = new ProductFileDataSource();
+        ProductList productList = dataSource.readData();
+        Product targetProduct = productList.searchByID( product.getID() );
+        targetProduct.decreaseRemain();
+        dataSource.writeData(productList);
+        setData(targetProduct);
     }
 }//end
