@@ -7,11 +7,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import ku.cs.models.admin.AdminUserReport;
+import ku.cs.models.shop.Comment;
+import ku.cs.models.user.Customer;
 import ku.cs.models.user.User;
+import ku.cs.models.user.UserList;
+import ku.cs.services.ConditionFilterer;
+import ku.cs.services.DataSource;
+import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -49,6 +56,16 @@ public class AdminStatusController implements Initializable {
         }
     }
     @FXML
+    void productReportButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("admin-reported-product-list",admin);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า admin-reported-product-list ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
     void logOut(ActionEvent event) {
         try {
             com.github.saacsos.FXRouter.goTo("login");
@@ -59,16 +76,34 @@ public class AdminStatusController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<AdminUserReport> users = new ArrayList<>(adminUserStatus());
         admin = (User) com.github.saacsos.FXRouter.getData();
-        for(int i = 0;i<users.size();i++){
+        DataSource<UserList> dataSource;
+        dataSource = new UserFileDataSource();
+        UserList userList = dataSource.readData();
+        Comparator<User> userComparator = new Comparator<User>() {
+            @Override
+            public int compare(User o1, User o2) {
+                if(o1.getLastTimeLoggedIn().isBefore(o2.getLastTimeLoggedIn()) ) return 1;
+                if(o2.getLastTimeLoggedIn().isBefore(o1.getLastTimeLoggedIn())) return -1;
+                return 0;
+            }
+        };
+        ConditionFilterer<User> filterer = new ConditionFilterer<User>() {
+            @Override
+            public boolean match(User user) {
+                return user.isBlocked();
+            }
+        };
+        userList.sortTime(userComparator);
+        ArrayList<User> userBlocked = userList.filter(filterer);
+        for(int i = 0;i<userBlocked.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/adminpage/admin-status-list.fxml"));
             try {
-                HBox hBox = fxmlLoader.load();
-                AdminStatusListController adminstatusListController = fxmlLoader.getController();
-                adminstatusListController .setData(users.get(i));
-                userStatusList.getChildren().add(hBox);
+                    HBox hBox = fxmlLoader.load();
+                    AdminStatusListController adminstatusListController = fxmlLoader.getController();
+                    adminstatusListController.setData(userBlocked.get(i));
+                    userStatusList.getChildren().add(hBox);
             }
             catch (IOException e){
                 e.printStackTrace();

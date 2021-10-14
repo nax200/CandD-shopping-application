@@ -45,6 +45,15 @@ public class AdminUserController implements Initializable{
             System.err.println("ให้ตรวจสอบ route");
         }
     }
+    @FXML
+    void productReportButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("admin-reported-product-list",admin);
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า admin-reported-product-list ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 
     @FXML
     void goToEditProfile(ActionEvent event){

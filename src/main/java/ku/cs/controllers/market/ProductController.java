@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -17,13 +19,18 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import ku.cs.models.shop.Comment;
 import ku.cs.models.shop.CommentList;
 import ku.cs.models.shop.Product;
+import ku.cs.models.user.Customer;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.models.user.UserList;
 import ku.cs.services.CommentFileDataSource;
 import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
+import ku.cs.services.UserFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -181,7 +188,10 @@ public class ProductController implements Initializable {
             CommentList commentList = dataSource.readData();
             LocalDateTime localDateTime = LocalDateTime.now();
             String score = ""+rating.getValue();
-            Comment comment = new Comment("M"+String.format("%05d",commentList.count()+1),product.getID(),LoginCustomer.customer.getUsername(),messageComment.getText(),localDateTime,Integer.parseInt(score));
+            if(messageComment.getText().trim().equals("")){
+                messageComment.setText("ไม่มีความคิดเห็น");
+            }
+            Comment comment = new Comment("M"+String.format("%05d",commentList.count()+1),product.getID(),LoginCustomer.customer.getUsername(),messageComment.getText().trim(),localDateTime,Integer.parseInt(score));
             commentList.addComment(comment);
             dataSource.writeData(commentList);
             messageComment.clear();
@@ -189,7 +199,6 @@ public class ProductController implements Initializable {
             loadComment();
         }
         else {
-
             return;
         }
     }
@@ -229,6 +238,27 @@ public class ProductController implements Initializable {
             }catch (IOException e){
                 e.printStackTrace();
             }
+        }
+    }
+    @FXML
+    void reportProduct(ActionEvent event) {
+        try {
+            DataSource<UserList> dataSource;
+            dataSource = new UserFileDataSource();
+            UserList userList = dataSource.readData();
+            Customer reportedSeller = (Customer)userList.searchByShopName(product.getShopName());
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/marketpage/report.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.initStyle(StageStyle.UNDECORATED);
+            ReportController reportController = fxmlLoader.getController();
+
+            reportController.setData( reportedSeller, LoginCustomer.customer, product, stage);
+            stage.showAndWait();
+        } catch (Exception e) {
+            System.err.println("เปิดหน้าต่าง pop-up ไม่ได้");
+            e.printStackTrace();
         }
     }
 }
