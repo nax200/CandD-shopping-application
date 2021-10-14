@@ -3,18 +3,19 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" minHeight="60.0" prefHeight="60.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminStatusListController">
+<HBox alignment="CENTER_LEFT" minHeight="100.0" prefHeight="60.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminStatusListController">
     <children>
       <Circle fx:id="profileImage" fill="WHITE" radius="22.0" stroke="#e2e2e2" strokeType="INSIDE" strokeWidth="1.5">
          <HBox.margin>
             <Insets left="60.0" />
          </HBox.margin>
       </Circle>
-        <Label fx:id="username" prefWidth="215.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="Username">
+        <Label fx:id="username" prefHeight="28.0" prefWidth="172.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="Username">
             <font>
                 <Font name="Kanit Regular" size="18.0" />
             </font>
@@ -22,12 +23,15 @@
                 <Insets left="69.0" />
             </HBox.margin>
         </Label>
-        <Label fx:id="moreCause" prefWidth="210.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="การใช้คำพูดไม่เหมาะสม">
-            <font>
-                <Font name="Kanit Regular" size="18.0" />
-            </font>
-        </Label>
-        <Label fx:id="countTrytoLogin" alignment="CENTER" prefWidth="251.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="3">
+      <TextArea fx:id="causeTextArea" editable="false" prefHeight="80.0" prefWidth="250.0" wrapText="true">
+         <HBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Kanit Regular" size="14.0" />
+         </font>
+      </TextArea>
+        <Label fx:id="countTryToLogin" alignment="CENTER" prefWidth="251.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="3">
             <font>
                 <Font name="Kanit Regular" size="18.0" />
             </font>

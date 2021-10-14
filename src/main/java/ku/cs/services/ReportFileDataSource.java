@@ -70,7 +70,8 @@ public class ReportFileDataSource implements DataSource<ReportList> {
                                     data[5],//detail
                                     LocalDateTime.parse(data[6], dtf),// timeToReport
                                     Boolean.parseBoolean(data[7]),//isChecked
-                                    data[8]// idComment
+                                    Boolean.parseBoolean(data[8]),//recentCase
+                                    data[9]// idComment
                             ));
 
                 else if (data[0].equals("ReportedProduct")) {
@@ -80,7 +81,8 @@ public class ReportFileDataSource implements DataSource<ReportList> {
                             data[4], //reportType
                             data[5],//detail
                             LocalDateTime.parse(data[6], dtf), // timeToReport
-                            Boolean.parseBoolean(data[7]),
+                            Boolean.parseBoolean(data[7]),//isChecked
+                            Boolean.parseBoolean(data[8]),//recentCase
                             data[8] //productId
                     ));
                 }

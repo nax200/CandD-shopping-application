@@ -202,7 +202,7 @@ public class ProductController implements Initializable {
             return;
         }
     }
-    private  void loadComment(){
+    private void loadComment(){
         commentProduct.getChildren().removeAll();
         commentProduct.getChildren().setAll();
         DataSource<CommentList> dataSource;

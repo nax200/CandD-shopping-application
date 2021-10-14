@@ -67,6 +67,10 @@ public class AdminReportController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+       loadReportUser();
+    }
+
+    public void loadReportUser(){
         userReportList.getChildren().removeAll();
         userReportList.getChildren().addAll();
         admin = (User) com.github.saacsos.FXRouter.getData();
@@ -76,7 +80,10 @@ public class AdminReportController implements Initializable {
         ConditionFilterer<Report> filterer = new ConditionFilterer<Report>() {
             @Override
             public boolean match(Report report) {
-                return report instanceof ReportedComment;
+                if (report instanceof ReportedComment && report.getChecked()) {
+                    return  false;
+                }
+                return true;
             }
         };
         ArrayList<Report> reports = reportList.filter(filterer);

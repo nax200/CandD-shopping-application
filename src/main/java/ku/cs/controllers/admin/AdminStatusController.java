@@ -110,49 +110,7 @@ public class AdminStatusController implements Initializable {
             }
         }
     }
-    private List<AdminUserReport> adminUserStatus(){
-        List<AdminUserReport> ls = new ArrayList<>();
-        AdminUserReport user = new AdminUserReport();
-        user.setUsername("moss");
-        user.setImgSrc("/images/creditpage/moss.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(true);
-        user.setTrytoLoginCount(0);
-        user.setReportType("-");
-        ls.add(user);
 
-        user = new AdminUserReport();
-        user.setUsername("nax");
-        user.setImgSrc("/images/creditpage/nax.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(true);
-        user.setTrytoLoginCount(0);
-        user.setReportType("-");
-        ls.add(user);
 
-        user = new AdminUserReport();
-        user.setUsername("bam");
-        user.setImgSrc("/images/creditpage/bamboo.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(true);
-        user.setTrytoLoginCount(0);
-        user.setReportType("-");
-        ls.add(user);
-
-        user = new AdminUserReport();
-        user.setUsername("ploy");
-        user.setImgSrc("/images/creditpage/ploy.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(true);
-        user.setTrytoLoginCount(0);
-        user.setReportType("-");
-        ls.add(user);
-
-        return ls;
-    }
 }
 

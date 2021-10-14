@@ -15,8 +15,8 @@ public class ReportedProduct extends Report{
 
 
     // ตอนอ่านจาก CSV
-    public ReportedProduct(String reportId, String reportedUsername, String reporterUsername, String reportType, String detail, LocalDateTime reportedTime,Boolean isChecked, String productID) {
-        super(reportId, reportedUsername, reporterUsername, reportType, detail, reportedTime,isChecked);
+    public ReportedProduct(String reportId, String reportedUsername, String reporterUsername, String reportType, String detail, LocalDateTime reportedTime,Boolean isChecked,Boolean latestCase, String productID) {
+        super(reportId, reportedUsername, reporterUsername, reportType, detail, reportedTime,isChecked,latestCase);
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();

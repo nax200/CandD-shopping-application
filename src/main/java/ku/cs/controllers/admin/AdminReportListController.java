@@ -14,10 +14,12 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import ku.cs.models.admin.AdminUserReport;
 import ku.cs.models.admin.Report;
+import ku.cs.models.admin.ReportList;
 import ku.cs.models.admin.ReportedComment;
 import ku.cs.models.user.Customer;
 import ku.cs.models.user.UserList;
 import ku.cs.services.DataSource;
+import ku.cs.services.ReportFileDataSource;
 import ku.cs.services.UserFileDataSource;
 
 import javax.imageio.ImageIO;
@@ -45,6 +47,7 @@ public class AdminReportListController implements Initializable {
     @FXML
     private ComboBox<String> statusUserReport;
     private Customer customer ;
+    private Report reportUser;
     public void setData(Report report) {
         BufferedImage bufferedImage = null;
         try {
@@ -59,10 +62,14 @@ public class AdminReportListController implements Initializable {
         moreDetailReport.setText(report.getDetail());
         messageReport.setText(""+report.getComment().getComment());
         customer = report.getReportedName();
+        reportUser = report;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        DataSource<ReportList> dataSourceReport;
+        dataSourceReport = new ReportFileDataSource();
+        ReportList reportList = dataSourceReport.readData();
         statusUserReport.setValue("รอตรวจสอบ");
         statusUserReport.getItems().addAll("อนุมัติ","ไม่อนุมัติ");
         statusUserReport.setOnAction(new EventHandler<ActionEvent>() {
@@ -75,8 +82,15 @@ public class AdminReportListController implements Initializable {
                     (userList.searchUsername(customer.getUsername())).setStatus(true);
                     dataSource.writeData(userList);
                 }
+                reportList.searchReport(reportUser.getReportId()).setIsChecked();;
+                dataSourceReport.writeData(reportList);
+                try {
+                    com.github.saacsos.FXRouter.goTo("admin-reported-list");
+                }catch (IOException e){
+                    System.err.println("ไปหน้า userReport ไม่ได้");
+                    System.err.println("ให้ตรวจสอบ route");
+                }
             }
         });
-
     }
 }

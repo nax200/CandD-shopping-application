@@ -12,8 +12,8 @@ public class ReportedComment extends Report{
     private Comment comment;
 
 
-    public ReportedComment(String reportId, String reportedUsername, String reporterUsername, String reportType, String detail, LocalDateTime reportedTime,Boolean isChecked,String idComment) {
-        super(reportId, reportedUsername, reporterUsername, reportType, detail, reportedTime,isChecked);
+    public ReportedComment(String reportId, String reportedUsername, String reporterUsername, String reportType, String detail, LocalDateTime reportedTime,Boolean isChecked,Boolean latestCase,String idComment) {
+        super(reportId, reportedUsername, reporterUsername, reportType, detail, reportedTime,isChecked,latestCase);
         DataSource<CommentList> dataSource;
         dataSource = new CommentFileDataSource();
         CommentList commentList = dataSource.readData();

@@ -17,9 +17,10 @@ public class Report {
     private String detail;
     private LocalDateTime reportedTime;
     private Boolean isChecked;
+    private Boolean recentCase;
 
     // ตอนอ่านจาก CSV
-    public Report(String reportId, String reportedUsername, String reporterUsername, String reportType, String detail, LocalDateTime reportedTime,Boolean isChecked) {
+    public Report(String reportId, String reportedUsername, String reporterUsername, String reportType, String detail, LocalDateTime reportedTime,Boolean isChecked,Boolean recentCase) {
         DataSource<UserList> dataSource;
         dataSource = new UserFileDataSource();
         UserList userList = dataSource.readData();
@@ -31,6 +32,7 @@ public class Report {
         this.detail = detail;
         this.reportedTime = reportedTime;
         this.isChecked = isChecked;
+        this.recentCase = recentCase;
     }
 
     // ตอนสร้าง report ใหม่
@@ -42,6 +44,7 @@ public class Report {
         this.detail = detail;
         this.reportedTime = LocalDateTime.now();
         this.isChecked = false;
+        this.recentCase = true;
     }
 
     public String getReportId() {
@@ -77,8 +80,13 @@ public class Report {
     public Boolean getChecked() {
         return isChecked;
     }
+    public Boolean getRecentCase(){ return recentCase; }
+
+    public void setIsChecked(){this.isChecked = true;}
+
+    public void setRecentCase(Boolean recentCase){this.recentCase = recentCase;}
 
     public String toCsv(){
-         return getReportId()+","+reportedName.getUsername()+","+reporterName.getUsername()+","+getReportType()+","+getDetail()+","+getReportTimeToString()+","+ getChecked();
+         return getReportId()+","+reportedName.getUsername()+","+reporterName.getUsername()+","+getReportType()+","+getDetail()+","+getReportTimeToString()+","+ getChecked()+","+ getRecentCase();
     }
 }
