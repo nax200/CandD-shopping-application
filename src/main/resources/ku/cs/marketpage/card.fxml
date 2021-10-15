@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMouseClicked="#goToProductPage" prefHeight="280.0" prefWidth="170.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="ku.cs.controllers.market.CardController">
+<AnchorPane fx:id="parent" onMouseClicked="#goToProductPage" prefHeight="280.0" prefWidth="170.0" stylesheets="@../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.CardController">
     <children>
-        <VBox alignment="CENTER" prefHeight="280.0" prefWidth="170.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+        <VBox alignment="CENTER" prefHeight="280.0" prefWidth="170.0" style="-fx-background-radius: 20;" styleClass="bg-white" stylesheets="@../../../css-style/light-mode.css">
             <children>
                 <VBox alignment="CENTER" prefHeight="429.0" prefWidth="200.0">
                     <children>
@@ -31,7 +31,7 @@
                         <VBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="220.0">
                             <children>
                                 <Pane prefHeight="0.0" prefWidth="220.0" VBox.vgrow="ALWAYS" />
-                                <Label fx:id="nameLabel" text="เสื้อแฟชั่นลายฮิต" textFill="#717171">
+                                <Label fx:id="nameLabel" styleClass="text-type1" stylesheets="@../../../css-style/light-mode.css" text="เสื้อแฟชั่นลายฮิต" textFill="#717171">
                                     <VBox.margin>
                                         <Insets left="10.0" right="10.0" />
                                     </VBox.margin>
@@ -46,7 +46,7 @@
                         </VBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="220.0">
                             <children>
-                                <Label text="ราคา" textFill="#ff542f">
+                                <Label styleClass="text-red" stylesheets="@../../../css-style/light-mode.css" text="ราคา" textFill="#ff542f">
                                     <HBox.margin>
                                         <Insets left="10.0" right="10.0" />
                                     </HBox.margin>
@@ -57,7 +57,7 @@
                                         <Font name="Kanit Regular" size="16.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="priceLabel" text="250" textFill="#ff542f">
+                                <Label fx:id="priceLabel" styleClass="text-red" stylesheets="@../../../css-style/light-mode.css" text="250" textFill="#ff542f">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
@@ -65,7 +65,7 @@
                                         <Font name="Kanit Regular" size="16.0" />
                                     </font>
                                 </Label>
-                                <Label text="บาท" textFill="#ff542f">
+                                <Label styleClass="text-red" stylesheets="@../../../css-style/light-mode.css" text="บาท" textFill="#ff542f">
                                     <HBox.margin>
                                         <Insets left="10.0" right="10.0" />
                                     </HBox.margin>

@@ -21,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.Product;
 import java.io.IOException;
 import com.github.saacsos.FXRouter;
@@ -47,9 +48,22 @@ public class MarketPlaceController implements Initializable{
     @FXML private TextField searchTextField;
     @FXML private Label messageLabel;
     @FXML private Button searchProduct;
+    @FXML private AnchorPane parent;
+
+    @FXML private void switchMode(ActionEvent event){
+        ThemeController.switchMode(parent);
+        try {
+            FXRouter.setAnimationType("fade",250);
+            FXRouter.goTo("market-place");
+            FXRouter.setAnimationType("fade",0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         sortByLatest();
         sortComboBox.getItems().addAll("ล่าสุด","ราคาน้อยไปมาก", "ราคามากไปน้อย");
         categoryComboBox.getItems().addAll("เครื่องแต่งกาย", "เสื้อผ้าแฟชั่น");

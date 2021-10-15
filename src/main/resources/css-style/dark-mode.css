@@ -1,0 +1,135 @@
+/* ----------- Background -------------- */
+
+/* พื้นหลังของทุกหน้า */
+.primary-bg{
+    -fx-background-color: #606060;
+}
+
+.bg-white{
+    -fx-background-color: #777777;
+}
+
+ิ.bg-box{
+    -fx-background-color: #777777;
+}
+
+.in-box-bg-type1{
+    -fx-background-color: #8C8C8C;
+}
+
+.in-box-bg-type2{
+    -fx-background-color: #666666;
+}
+
+.title-tab-yellow{
+    -fx-background-color: #E1B000;
+}
+
+/* ----------- Text -------------- */
+
+.text-white{
+    -fx-text-fill: #FFFFFF;
+}
+
+.text-red{
+    -fx-text-fill: #FF9078;
+}
+
+.text-type1{
+    -fx-text-fill: #FFFFFF;
+}
+
+.text-type2{
+    -fx-text-fill: #717171;
+}
+
+.text-type3{
+    -fx-text-fill: #E2E2E2;
+}
+
+/* ----------- Button -------------- */
+
+/*ปุ่มสีเหลืองที่มีเอฟเฟต์กด*/
+.button-yellow{
+    -fx-background-color: #E1B000;
+    -fx-background-radius: 8;
+    -fx-border-width: 10;
+    -fx-text-fill: #FFFFFF;
+}
+.button-yellow:hover{
+    -fx-background-color: #FFC700;
+}
+.button-yellow:pressed{
+    -fx-background-color: #F0BF11;
+}
+
+/*ปุ่มสีเทาแบบกดได้*/
+.button-grey{
+    -fx-background-color: #CCCCCC;
+    -fx-background-radius: 8;
+    -fx-border-width: 10;
+    -fx-text-fill: #FFFFFF;
+}
+.button-grey:hover{
+    -fx-background-color: #C1C1C1;
+}
+.button-grey:pressed{
+    -fx-background-color: #BBBBBB;
+}
+
+/*button ขอบสีเทาตรงกลางสีเทาอ่อน*/
+.button-grey-border{
+    -fx-background-color: #f1f1f1;
+    -fx-background-radius: 8;
+    -fx-border-width: 2;
+    -fx-border-color: #C4C4C4;
+    -fx-border-radius: 8;
+}
+.button-grey-border:hover{
+    -fx-background-color: #F9F9F9;
+}
+.button-grey-border:pressed {
+    -fx-background-color: #EEEEEE;
+}
+
+/* ----------- Choice Box -------------- */
+
+/*choiceBox สีเทา*/
+.choiceBox-grey-border{
+    -fx-background-color: #E2E2E2;
+    -fx-background-radius: 8;
+}
+.choiceBox-grey-border:hover{
+    -fx-background-color: #E0DEDE;
+}
+.choiceBox-grey-border:pressed{
+    -fx-background-color: #EEEEEE;
+}
+
+/* ----------- Side Tab -------------- */
+
+/* แถบเมนูด้านข้าง */
+.side-tab{
+    -fx-background-color: #FFFFFF;
+}
+.side-tab:hover{
+    -fx-background-color: #EEEEEE;
+}
+.side-tab:pressed{
+    -fx-background-color: #E2E2E2;
+}
+
+/*กรอบสีเทา ใช้ใน textField*/
+.box-grey-border{
+    -fx-text-fill: #E2E2E2;
+    -fx-background-color: #777777;
+    -fx-background-radius: 8;
+    -fx-border-width: 2;
+    -fx-border-color: #E2E2E2;
+    -fx-border-radius: 8;
+}
+
+.box-text-field-grey{
+    -fx-background-color: #DCDADA;
+    -fx-background-radius: 4;
+}

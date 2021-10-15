@@ -1,10 +1,14 @@
 package ku.cs.controllers.login;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import com.github.saacsos.FXRouter;
+import javafx.scene.layout.AnchorPane;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.user.Customer;
 import ku.cs.models.user.LoginCustomer;
 import ku.cs.models.user.User;
@@ -13,11 +17,19 @@ import ku.cs.services.DataSource;
 import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginPageController {
+public class LoginPageController implements Initializable {
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordField;
     @FXML private Label messageLabel;
+    @FXML private AnchorPane parent;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
+    }
 
     @FXML
     private void handleLoginButton() {
@@ -67,5 +79,10 @@ public class LoginPageController {
     @FXML
     private void goToCreditPage() throws IOException {
         FXRouter.goTo("credit");
+    }
+
+    @FXML
+    private void switchMode(ActionEvent e){
+        ThemeController.switchMode(parent);
     }
 }
