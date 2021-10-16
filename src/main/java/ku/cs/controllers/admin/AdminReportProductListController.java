@@ -13,10 +13,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.controllers.seller.ConfirmPopupController;
 import ku.cs.models.admin.Report;
 import ku.cs.models.admin.ReportList;
@@ -51,12 +53,15 @@ public class AdminReportProductListController implements Initializable {
     @FXML
     private ComboBox<String> statusUserReport;
 
+    @FXML private AnchorPane parent;
+
     private Customer customer ;
     private ReportedProduct reportProduct;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         DataSource<ReportList> dataSourceReport;
         dataSourceReport = new ReportFileDataSource();
         ReportList reportList = dataSourceReport.readData();

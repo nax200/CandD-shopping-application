@@ -10,8 +10,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.admin.AdminUserReport;
 import ku.cs.models.admin.Report;
 import ku.cs.models.admin.ReportList;
@@ -48,29 +50,16 @@ public class AdminReportListController implements Initializable {
     private TextArea massageTextArea;
 
     @FXML
+    private AnchorPane parent;
+
+    @FXML
     private ComboBox<String> statusUserReport;
     private Customer customer ;
     private Report reportUser;
 
-    public void setData(Report report) {
-        BufferedImage bufferedImage = null;
-        try {
-            bufferedImage = ImageIO.read((report).getReportedName().getImageFile());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
-        profileImage.setFill(new ImagePattern(image));
-        username.setText(report.getReportedName().getUsername());
-        reportType.setText(report.getReportType());
-        moreDetailTextArea.setText(""+report.getDetail());
-        massageTextArea.setText(""+report.getComment().getComment());
-        customer = report.getReportedName();
-        reportUser = report;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         DataSource<ReportList> dataSourceReport;
         dataSourceReport = new ReportFileDataSource();
         ReportList reportList = dataSourceReport.readData();
@@ -105,5 +94,22 @@ public class AdminReportListController implements Initializable {
                 }
             }
         });
+    }
+
+    public void setData(Report report) {
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read((report).getReportedName().getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        profileImage.setFill(new ImagePattern(image));
+        username.setText(report.getReportedName().getUsername());
+        reportType.setText(report.getReportType());
+        moreDetailTextArea.setText(""+report.getDetail());
+        massageTextArea.setText(""+report.getComment().getComment());
+        customer = report.getReportedName();
+        reportUser = report;
     }
 }

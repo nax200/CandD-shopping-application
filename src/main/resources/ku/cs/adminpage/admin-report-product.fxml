@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -15,9 +16,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminReportProductController">
+<AnchorPane fx:id="parent" prefHeight="768.0" prefWidth="1024.0" styleClass="primary-bg" stylesheets="@../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminReportProductController">
    <children>
-      <HBox maxHeight="58.0" prefHeight="58.0" prefWidth="599.0" style="-fx-background-color: #FFD12F; -fx-max-height: 57.6;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox maxHeight="58.0" prefHeight="58.0" prefWidth="599.0" style="-fx-max-height: 57.6;" styleClass="title-tab-yellow" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="57.6" fitWidth="152.96">
                <image>
@@ -38,9 +39,9 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" layoutX="190.0" prefHeight="58.0" prefWidth="426.0" style="-fx-background-color: #FFD12F;" AnchorPane.leftAnchor="598.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="58.0" prefWidth="426.0" style="-fx-background-color: #FFD12F;">
+            <HBox alignment="CENTER_RIGHT" prefHeight="58.0" prefWidth="426.0" styleClass="title-tab-yellow">
                <children>
-                  <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: #ffd12f;">
+                  <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ตั้งค่าบัญชี" />
                         <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
@@ -58,6 +59,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </MenuButton>
                   <HBox prefHeight="58.0" prefWidth="27.0" />
                </children>
@@ -67,15 +71,19 @@
       <HBox alignment="CENTER_LEFT" layoutX="-1.0" layoutY="58.0" prefHeight="68.0" prefWidth="1024.0">
          <children>
             <HBox prefHeight="68.0" prefWidth="10.0" />
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#userListButton" prefHeight="50.0" prefWidth="225.0" styleClass="button-grey" stylesheets="@../../../css-style/normal-style.css" text="รายชื่อของผู้ใช้ทั้งหมด">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#userListButton" prefHeight="50.0" prefWidth="225.0" text="รายชื่อของผู้ใช้ทั้งหมด">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
+               <styleClass>
+                  <String fx:value="box-grey-border" />
+                  <String fx:value="text-type1" />
+               </styleClass>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#userStatusButton" prefHeight="50.0" prefWidth="225.0" styleClass="button-grey" stylesheets="@../../../css-style/normal-style.css" text="รายชื่อที่ถูกจำกัด">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#userStatusButton" prefHeight="50.0" prefWidth="225.0" text="รายชื่อที่ถูกจำกัด">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -85,8 +93,12 @@
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
+               <styleClass>
+                  <String fx:value="box-grey-border" />
+                  <String fx:value="text-type1" />
+               </styleClass>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#userReportButton" prefHeight="50.0" prefWidth="225.0" styleClass="button-grey" stylesheets="@../../../css-style/normal-style.css" text="รายงานผู้ใช้">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#userReportButton" prefHeight="50.0" prefWidth="225.0" text="รายงานผู้ใช้">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -96,49 +108,57 @@
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
+               <styleClass>
+                  <String fx:value="box-grey-border" />
+                  <String fx:value="text-type1" />
+               </styleClass>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="225.0" styleClass="tab-button-yellow" stylesheets="@../../../css-style/normal-style.css" text="รายงานสินค้า">
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="225.0" style="-fx-background-radius: 10;" text="รายงานสินค้า">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
+               <styleClass>
+                  <String fx:value="title-tab-yellow" />
+                  <String fx:value="text-white" />
+               </styleClass>
             </Button>
          </children>
       </HBox>
       <HBox layoutY="186.0" prefHeight="581.0" prefWidth="1024.0">
          <children>
-            <ScrollPane prefHeight="576.0" prefWidth="1024.0">
+            <ScrollPane prefHeight="576.0" prefWidth="1024.0" styleClass="primary-bg">
                <content>
-                  <VBox fx:id="productReportList" prefHeight="577.0" prefWidth="1022.0" />
+                  <VBox fx:id="productReportList" prefHeight="577.0" prefWidth="1022.0" styleClass="primary-bg" />
                </content>
             </ScrollPane>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutY="126.0" prefHeight="60.0" prefWidth="1024.0" style="-fx-background-color: #CCCCCC;">
+      <HBox alignment="CENTER_LEFT" layoutY="126.0" prefHeight="60.0" prefWidth="1024.0" styleClass="in-box-bg-type1">
          <children>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="200.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ผู้ถูกรายงาน">
+            <Label alignment="CENTER" prefHeight="28.0" prefWidth="200.0" styleClass="text-type1" text="ผู้ถูกรายงาน">
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
             </Label>
-            <Label prefHeight="28.0" prefWidth="241.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ประเภทของการรายงาน">
+            <Label prefHeight="28.0" prefWidth="241.0" styleClass="text-type1" text="ประเภทของการรายงาน">
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
             </Label>
-            <Label prefHeight="28.0" prefWidth="245.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="รายละเอียดเพิ่มเติม">
+            <Label prefHeight="28.0" prefWidth="245.0" styleClass="text-type1" text="รายละเอียดเพิ่มเติม">
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
             </Label>
-            <Label prefHeight="28.0" prefWidth="179.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="สินค้าที่ถูกรายงาน">
+            <Label prefHeight="28.0" prefWidth="179.0" styleClass="text-type1" text="สินค้าที่ถูกรายงาน">
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefWidth="110.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="การตรวจสอบ">
+            <Label alignment="CENTER" prefWidth="110.0" styleClass="text-type1" text="การตรวจสอบ">
                <font>
                   <Font name="Kanit Regular" size="18.0" />
                </font>
