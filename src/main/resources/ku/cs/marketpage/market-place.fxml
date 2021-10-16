@@ -48,7 +48,7 @@
                             <children>
                                 <VBox alignment="CENTER" prefHeight="49.0" prefWidth="236.0">
                                     <children>
-                              <Label styleClass="text-type1" stylesheets="@../../../css-style/light-mode.css" text="เลือตามช่วงราคา">
+                              <Label styleClass="text-type1" stylesheets="@../../../css-style/light-mode.css" text="เลือกตามช่วงราคา">
                                  <font>
                                     <Font name="Kanit Regular" size="20.0" />
                                  </font>

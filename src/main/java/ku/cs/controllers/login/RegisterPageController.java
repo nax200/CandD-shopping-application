@@ -6,6 +6,7 @@ import ku.cs.models.user.Register;
 import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class RegisterPageController {
 
@@ -18,7 +19,7 @@ public class RegisterPageController {
 
     public void handleRegisterButton() {
         String name = nameTextField.getText().trim();
-        String username = usernameTextField.getText().trim();
+        String username = usernameTextField.getText().trim().toLowerCase(Locale.ROOT);
         String password = passwordField.getText().trim();
         String cfPassword = confirmPasswordField.getText().trim();
 

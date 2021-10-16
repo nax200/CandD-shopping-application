@@ -92,6 +92,21 @@
     -fx-background-color: #EEEEEE;
 }
 
+/*button ขอบสีเทาตรงกลางสีขาว*/
+.button-grey-border-white-in{
+    -fx-background-color: #777777;
+    -fx-background-radius: 8;
+    -fx-border-width: 2;
+    -fx-border-color: #C4C4C4;
+    -fx-border-radius: 8;
+}
+.button-grey-border-white-in:hover{
+    -fx-background-color: #F9F9F9;
+}
+.button-grey-border-white-in:pressed {
+    -fx-background-color: #EEEEEE;
+}
+
 /* ----------- Choice Box -------------- */
 
 /*choiceBox สีเทา*/

@@ -18,6 +18,7 @@ import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LoginPageController implements Initializable {
@@ -33,7 +34,7 @@ public class LoginPageController implements Initializable {
 
     @FXML
     private void handleLoginButton() {
-        String username = usernameTextField.getText().trim();
+        String username = usernameTextField.getText().trim().toLowerCase(Locale.ROOT);
         String password = passwordField.getText();
 
         DataSource<UserList> dataSource;
