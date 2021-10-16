@@ -150,3 +150,13 @@
     -fx-background-color: #DCDADA;
     -fx-background-radius: 4;
 }
+
+.text-area {
+    text-area-background: #F5F5F5;
+}
+.text-area .content {
+    -fx-background-color: text-area-background ;
+    -fx-border-width: 2;
+    -fx-border-color: #E2E2E2;
+    -fx-border-radius: 10;
+}
