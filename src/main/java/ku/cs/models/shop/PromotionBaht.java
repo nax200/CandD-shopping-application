@@ -3,21 +3,21 @@ package ku.cs.models.shop;
 import ku.cs.models.user.Customer;
 
 
-public class PromotionBath extends Promotion{
+public class PromotionBaht extends Promotion{
     private int minimumAmount;
-    private double bath;
+    private double baht;
 
     // create promotion
-    public PromotionBath(String promotionName, String promotionCode, Customer promotionShopName, int minimumAmount, double bath) {
+    public PromotionBaht(String promotionName, String promotionCode, Customer promotionShopName, int minimumAmount, double baht) {
         super(promotionName, promotionCode, promotionShopName);
         this.minimumAmount = minimumAmount;
-        this.bath = bath;
+        this.baht = baht;
     }
     // read csv
-    public PromotionBath(String promotionName, String promotionCode, String promotionShopName, int minimumAmount, double bath){
+    public PromotionBaht(String promotionName, String promotionCode, String promotionShopName, int minimumAmount, double baht){
         super(promotionName,promotionCode,promotionShopName);
         this.minimumAmount = minimumAmount;
-        this.bath = bath;
+        this.baht = baht;
 
     }
 
@@ -25,25 +25,25 @@ public class PromotionBath extends Promotion{
         return minimumAmount;
     }
 
-    public double getBath() {
-        return bath;
+    public double getBaht() {
+        return baht;
     }
 
     public double getDiscount(int quality){
         if(quality >= minimumAmount) {
-            return bath;
+            return baht;
         }
         return 0;
     }
 
     public double getCalculator(double purchase,int quality){
-        if(purchase >= bath && quality >= minimumAmount){
-            return  purchase - bath;
+        if(purchase >= baht && quality >= minimumAmount){
+            return  purchase - baht;
         }
         return purchase;
     }
     @Override
     public String toCsv() {
-        return "PromotionBath" + super.toCsv()+","+getMinimumAmount()+","+getBath();
+        return "PromotionBaht" + super.toCsv()+","+getMinimumAmount()+","+ getBaht();
     }
 }

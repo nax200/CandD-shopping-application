@@ -11,7 +11,7 @@ public class PromotionList {
 
     public void addPromotion(Promotion promotion){this.promotions.add(promotion);}
 
-    public int Count() {return this.promotions.size();}
+    public int count() {return this.promotions.size();}
 
     public Promotion searchPromotion(String code){
         for (Promotion promotion : promotions){
@@ -33,8 +33,8 @@ public class PromotionList {
 
    public double searchPromotionToDiscount(String code,Order order){
         Promotion promotion = searchPromotion(code);
-        if(promotion != null && promotion instanceof PromotionBath){
-            return ((PromotionBath) promotion).getDiscount(order.getQuantity());
+        if(promotion != null && promotion instanceof PromotionBaht){
+            return ((PromotionBaht) promotion).getDiscount(order.getQuantity());
         }else if (promotion != null && promotion instanceof PromotionPercent){
             return ((PromotionPercent) promotion).getDiscount(order.getTotalPrice());
         }
@@ -43,8 +43,8 @@ public class PromotionList {
 
     public double searchPromotionToCalculator(String code,Order order){
         Promotion promotion = searchPromotion(code);
-        if(promotion != null && promotion instanceof PromotionBath){
-            return ((PromotionBath) promotion).getCalculator(order.getTotalPrice(),order.getQuantity());
+        if(promotion != null && promotion instanceof PromotionBaht){
+            return ((PromotionBaht) promotion).getCalculator(order.getTotalPrice(),order.getQuantity());
         }else if (promotion != null && promotion instanceof PromotionPercent){
             return ((PromotionPercent) promotion).getCalculator(order.getTotalPrice());
         }

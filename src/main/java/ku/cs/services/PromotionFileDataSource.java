@@ -1,15 +1,10 @@
 package ku.cs.services;
 
-import ku.cs.models.admin.ReportList;
-import ku.cs.models.admin.ReportedComment;
-import ku.cs.models.admin.ReportedProduct;
-import ku.cs.models.shop.PromotionBath;
+import ku.cs.models.shop.PromotionBaht;
 import ku.cs.models.shop.PromotionList;
 import ku.cs.models.shop.PromotionPercent;
 
 import java.io.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class PromotionFileDataSource implements DataSource<PromotionList>{
     private String directoryName;
@@ -63,14 +58,14 @@ public class PromotionFileDataSource implements DataSource<PromotionList>{
             String line = "";
             while( (line = buffer.readLine()) != null ) {
                 String[] data = line.split(",");
-                if (data[0].equals("PromotionBath"))
+                if (data[0].equals("PromotionBaht"))
                     promotionList.addPromotion(
-                           new PromotionBath(
+                           new PromotionBaht(
                                     data[1], //reportId
                                     data[2], //reportedUsername
                                     data[3], //promotionShopName
                                     Integer.parseInt(data[4]), //minimumAmount
-                                    Double.parseDouble(data[5]) // bath
+                                    Double.parseDouble(data[5]) // baht
                             ));
 
                 else if (data[0].equals("PromotionPercent")) {
