@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.login.CreditPageController">
+<AnchorPane fx:id="parent" prefHeight="768.0" prefWidth="1024.0" styleClass="bg-white" stylesheets="@../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.login.CreditPageController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
-      <VBox alignment="CENTER" layoutX="167.0" layoutY="36.0" prefHeight="111.0" prefWidth="1024.0" style="-fx-background-color: #ffd12f;" AnchorPane.bottomAnchor="657.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="167.0" layoutY="36.0" prefHeight="111.0" prefWidth="1024.0" styleClass="title-tab-yellow" AnchorPane.bottomAnchor="657.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" text="รายชื่อผู้พัฒนาโปรเจกต์" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" styleClass="text-white" text="รายชื่อผู้พัฒนาโปรเจกต์" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Kanit Medium" size="40.0" />
                </font>
@@ -138,7 +138,7 @@
             </HBox>
             <VBox alignment="TOP_CENTER" prefHeight="305.0" prefWidth="1024.0">
                <children>
-                  <Button fx:id="goToLoginPageButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToLoginPage" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="ย้อนกลับสู่หน้าเข้าระบบ" textFill="WHITE">
+                  <Button fx:id="goToLoginPageButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToLoginPage" styleClass="button-yellow" text="ย้อนกลับสู่หน้าเข้าระบบ" textFill="WHITE">
                      <font>
                         <Font name="Kanit Regular" size="21.0" />
                      </font>

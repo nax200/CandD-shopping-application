@@ -7,12 +7,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.Comment;
 import ku.cs.models.user.Customer;
 import ku.cs.models.user.LoginCustomer;
@@ -45,8 +48,16 @@ public class CommentListController implements Initializable {
     @FXML
     private Label ratingLabel;
 
+    @FXML
+    AnchorPane parent;
+
     private User user;
     private Comment comment;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
+    }
 
     public void setData(Comment comment) {
         this.comment = comment;
@@ -89,13 +100,6 @@ public class CommentListController implements Initializable {
             System.err.println("เปิดหน้าต่าง pop-up ไม่ได้");
             e.printStackTrace();
         }
-    }
-
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }
 

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.seller.ConfirmPopupController">
+<AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: black;" stylesheets="@../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.seller.ConfirmPopupController">
    <children>
       <BorderPane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -23,7 +23,7 @@
                <children>
                   <HBox prefHeight="400.0" prefWidth="231.0">
                      <children>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="tab-bg-yellow" stylesheets="@../../../css-style/normal-style.css" HBox.hgrow="ALWAYS">
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="title-tab-yellow" HBox.hgrow="ALWAYS">
                            <center>
                               <ImageView fx:id="productImage" fitHeight="226.0" fitWidth="205.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER">
                                  <image>
@@ -34,7 +34,7 @@
                            <top>
                               <VBox alignment="CENTER" prefHeight="91.0" prefWidth="231.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="147.0" text="รูปตัวอย่างสินค้า" textFill="WHITE">
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="147.0" styleClass="text-white" text="รูปตัวอย่างสินค้า" textFill="WHITE">
                                        <font>
                                           <Font name="Kanit Regular" size="18.0" />
                                        </font>
@@ -45,7 +45,7 @@
                         </BorderPane>
                      </children>
                   </HBox>
-                  <HBox prefHeight="400.0" prefWidth="340.0" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
+                  <HBox prefHeight="400.0" prefWidth="340.0" styleClass="bg-white" HBox.hgrow="ALWAYS">
                      <children>
                         <VBox prefHeight="173.0" prefWidth="369.0">
                            <HBox.margin>
@@ -54,7 +54,7 @@
                            <children>
                               <VBox alignment="CENTER" prefHeight="40.0" prefWidth="369.0">
                                  <children>
-                                    <Label styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="โปรดตรวจสอบข้อมูลก่อนบันทึก" underline="true">
+                                    <Label styleClass="text-type1" text="โปรดตรวจสอบข้อมูลก่อนบันทึก" underline="true">
                                        <font>
                                           <Font name="Kanit Regular" size="18.0" />
                                        </font>
@@ -67,7 +67,7 @@
                                        <children>
                                           <HBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="96.0">
                                              <children>
-                                                <Label alignment="CENTER_RIGHT" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ชื่อสินค้า">
+                                                <Label alignment="CENTER_RIGHT" styleClass="text-type1" text="ชื่อสินค้า">
                                                    <font>
                                                       <Font name="Kanit Regular" size="14.0" />
                                                    </font>
@@ -79,7 +79,7 @@
                                                 <HBox prefHeight="45.0" prefWidth="15.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextField fx:id="name" editable="false" maxHeight="30.0" minHeight="25.0" prefHeight="25.0" prefWidth="231.0" stylesheets="@../../../css-style/normal-style.css" text="test">
+                                                      <TextField fx:id="name" editable="false" focusTraversable="false" maxHeight="30.0" minHeight="25.0" prefHeight="25.0" prefWidth="231.0" text="test">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
@@ -105,7 +105,7 @@
                                        <children>
                                           <HBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="96.0">
                                              <children>
-                                                <Label alignment="CENTER_RIGHT" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ราคา">
+                                                <Label alignment="CENTER_RIGHT" styleClass="text-type1" text="ราคา">
                                                    <font>
                                                       <Font name="Kanit Regular" size="14.0" />
                                                    </font>
@@ -117,7 +117,7 @@
                                                 <HBox prefHeight="45.0" prefWidth="15.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextField fx:id="price" alignment="CENTER" editable="false" minHeight="25.0" prefHeight="25.0" prefWidth="110.0" stylesheets="@../../../css-style/normal-style.css" text="10">
+                                                      <TextField fx:id="price" alignment="CENTER" editable="false" focusTraversable="false" minHeight="25.0" prefHeight="25.0" prefWidth="110.0" text="10">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
@@ -134,7 +134,7 @@
                                                             <HBox prefHeight="45.0" prefWidth="103.0" />
                                                             <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="175.0">
                                                                <children>
-                                                                  <Label alignment="BOTTOM_LEFT" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="บาท">
+                                                                  <Label alignment="BOTTOM_LEFT" styleClass="text-type1" text="บาท">
                                                                      <font>
                                                                         <Font name="Kanit Regular" size="14.0" />
                                                                      </font>
@@ -157,7 +157,7 @@
                                        <children>
                                           <HBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="153.0">
                                              <children>
-                                                <Label alignment="CENTER_RIGHT" prefHeight="23.0" prefWidth="126.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="จำนวนสินค้าในคลัง">
+                                                <Label alignment="CENTER_RIGHT" prefHeight="23.0" prefWidth="126.0" styleClass="text-type1" text="จำนวนสินค้าในคลัง">
                                                    <font>
                                                       <Font name="Kanit Regular" size="14.0" />
                                                    </font>
@@ -169,7 +169,7 @@
                                                 <HBox prefHeight="45.0" prefWidth="15.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextField fx:id="remain" alignment="CENTER" editable="false" minHeight="25.0" prefHeight="25.0" prefWidth="81.0" stylesheets="@../../../css-style/normal-style.css" text="10">
+                                                      <TextField fx:id="remain" alignment="CENTER" editable="false" focusTraversable="false" minHeight="25.0" prefHeight="25.0" prefWidth="81.0" text="10">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
@@ -186,7 +186,7 @@
                                                             <HBox prefHeight="45.0" prefWidth="103.0" />
                                                             <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="175.0">
                                                                <children>
-                                                                  <Label alignment="BOTTOM_LEFT" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ชิ้น">
+                                                                  <Label alignment="BOTTOM_LEFT" styleClass="text-type1" text="ชิ้น">
                                                                      <font>
                                                                         <Font name="Kanit Regular" size="14.0" />
                                                                      </font>
@@ -209,7 +209,7 @@
                                        <children>
                                           <HBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="301.0">
                                              <children>
-                                                <Label alignment="CENTER_RIGHT" prefHeight="23.0" prefWidth="202.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="แจ้งเตือนหากสินค้าเหลือน้อยกว่า">
+                                                <Label alignment="CENTER_RIGHT" prefHeight="23.0" prefWidth="202.0" styleClass="text-type1" text="แจ้งเตือนหากสินค้าเหลือน้อยกว่า">
                                                    <font>
                                                       <Font name="Kanit Regular" size="14.0" />
                                                    </font>
@@ -221,7 +221,7 @@
                                                 <HBox prefHeight="45.0" prefWidth="58.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextField fx:id="warning" alignment="CENTER" editable="false" minHeight="25.0" prefHeight="25.0" prefWidth="64.0" stylesheets="@../../../css-style/normal-style.css" text="1">
+                                                      <TextField fx:id="warning" alignment="CENTER" editable="false" focusTraversable="false" minHeight="25.0" prefHeight="25.0" prefWidth="64.0" text="1">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
@@ -238,7 +238,7 @@
                                                             <HBox prefHeight="45.0" prefWidth="103.0" />
                                                             <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="175.0">
                                                                <children>
-                                                                  <Label alignment="BOTTOM_LEFT" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ชิ้น">
+                                                                  <Label alignment="BOTTOM_LEFT" styleClass="text-type1" text="ชิ้น">
                                                                      <font>
                                                                         <Font name="Kanit Regular" size="14.0" />
                                                                      </font>
@@ -261,7 +261,7 @@
                                        <children>
                                           <HBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="96.0">
                                              <children>
-                                                <Label alignment="CENTER_RIGHT" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="หมวดหมู่">
+                                                <Label alignment="CENTER_RIGHT" styleClass="text-type1" text="หมวดหมู่">
                                                    <font>
                                                       <Font name="Kanit Regular" size="14.0" />
                                                    </font>
@@ -273,7 +273,7 @@
                                                 <HBox prefHeight="45.0" prefWidth="15.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextField fx:id="type" alignment="CENTER" editable="false" minHeight="25.0" prefHeight="25.0" prefWidth="110.0" stylesheets="@../../../css-style/normal-style.css" text="10">
+                                                      <TextField fx:id="type" alignment="CENTER" editable="false" focusTraversable="false" minHeight="25.0" prefHeight="25.0" prefWidth="110.0" text="10">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
@@ -299,7 +299,7 @@
                                        <children>
                                           <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="96.0">
                                              <children>
-                                                <Label alignment="CENTER_RIGHT" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="รายละเอียด">
+                                                <Label alignment="CENTER_RIGHT" styleClass="text-type1" text="รายละเอียด">
                                                    <font>
                                                       <Font name="Kanit Regular" size="14.0" />
                                                    </font>
@@ -309,19 +309,19 @@
                                           <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="275.0" HBox.hgrow="ALWAYS">
                                              <children>
                                                 <HBox prefHeight="45.0" prefWidth="15.0" />
-                                                <HBox alignment="CENTER_LEFT" prefHeight="98.0" prefWidth="259.0" HBox.hgrow="ALWAYS">
+                                                <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="253.0" styleClass="bg-white" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextArea fx:id="des" editable="false" prefHeight="92.0" prefWidth="200.0" stylesheets="@../../../css-style/normal-style.css" text="ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ " wrapText="true">
+                                                      <TextArea fx:id="des" editable="false" focusTraversable="false" prefHeight="92.0" prefWidth="200.0" text="ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ ทดสอบ " wrapText="true">
                                                          <font>
                                                             <Font name="Kanit Regular" size="13.0" />
                                                          </font>
-                                                         <styleClass>
-                                                            <String fx:value="text-type2" />
-                                                            <String fx:value="box-grey-border" />
-                                                         </styleClass>
                                                          <cursor>
                                                             <Cursor fx:constant="DEFAULT" />
                                                          </cursor>
+                                                         <styleClass>
+                                                            <String fx:value="text-type1" />
+                                                            <String fx:value="bg-white" />
+                                                         </styleClass>
                                                       </TextArea>
                                                    </children>
                                                 </HBox>
@@ -339,14 +339,17 @@
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                                                    <children>
-                                                      <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#handleCancelBtn" prefHeight="37.0" prefWidth="100.0" stylesheets="@../../../css-style/normal-style.css" text="แก้ไขสินค้า..">
+                                                      <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#handleCancelBtn" prefHeight="37.0" prefWidth="100.0" text="แก้ไขสินค้า..">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
                                                          <styleClass>
-                                                            <String fx:value="text-type2" />
-                                                            <String fx:value="button-grey-border" />
+                                                            <String fx:value="text-type1" />
+                                                            <String fx:value="button-grey-border-white-in" />
                                                          </styleClass>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
                                                       </Button>
                                                    </children>
                                                 </HBox>
@@ -358,10 +361,13 @@
                                                 <HBox prefHeight="59.0" prefWidth="30.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                                    <children>
-                                                      <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#handleConfirmBtn" prefHeight="33.0" prefWidth="100.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="ยืนยัน">
+                                                      <Button fx:id="confirmBtn" mnemonicParsing="false" onAction="#handleConfirmBtn" prefHeight="33.0" prefWidth="100.0" styleClass="button-yellow" text="ยืนยัน">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
                                                       </Button>
                                                    </children>
                                                 </HBox>

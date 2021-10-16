@@ -8,10 +8,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.*;
 import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.ConditionFilterer;
@@ -34,9 +36,11 @@ public class NewOrderController implements Initializable {
     private VBox contactsLayout;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
+    @FXML private AnchorPane parent;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         DataSource<OrderList> dataSource;
         dataSource = new OrderFileDataSource();
         OrderList orderList = dataSource.readData();
@@ -67,10 +71,10 @@ public class NewOrderController implements Initializable {
             orderList.sort(orderComparator);
 
             try {
-                HBox hBox = fxmlLoader.load();
+                AnchorPane anchorPane = fxmlLoader.load();
                 NewOrderListController newOrderListController = fxmlLoader.getController();
                 newOrderListController.setData(orders.get(i));
-                contactsLayout.getChildren().add(hBox);
+                contactsLayout.getChildren().add(anchorPane);
             } catch (IOException e) {
                 e.printStackTrace();
             }

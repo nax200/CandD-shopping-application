@@ -15,10 +15,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import com.github.saacsos.FXRouter;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.*;
 
 import ku.cs.models.shop.Order;
@@ -70,11 +72,13 @@ public class ProductController implements Initializable {
     @FXML private VBox commentProduct;
     @FXML private Label reviewCount;
     @FXML private Label ratingAverage;
+    @FXML private AnchorPane parent;
     private Product product;
     private int quantity;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         color.getItems().addAll("สีแดง", "สีชมพู", "สีเหลือง", "สีฟ้า");
         size.getItems().addAll("S", "M", "L", "XL");
         rating.setValue("");
@@ -240,10 +244,10 @@ public class ProductController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/product-comment-list.fxml"));
             try {
-                    HBox hBox = fxmlLoader.load();
+                    AnchorPane anchorPane = fxmlLoader.load();
                     CommentListController commentListController = fxmlLoader.getController();
                     commentListController.setData(comments.get(i));
-                    commentProduct.getChildren().add(hBox);
+                    commentProduct.getChildren().add(anchorPane);
 
             }catch (IOException e){
                 e.printStackTrace();

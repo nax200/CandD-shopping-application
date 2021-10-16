@@ -4,8 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.admin.*;
 import ku.cs.models.user.User;
 import ku.cs.services.ConditionFilterer;
@@ -20,9 +22,17 @@ import java.util.ResourceBundle;
 
 public class AdminReportController implements Initializable {
 
-    @FXML
-    private VBox userReportList;
+    @FXML private VBox userReportList;
+    @FXML private AnchorPane parent;
+
     private User admin;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
+        loadReportUser();
+    }
+
     @FXML
     void userListButton(ActionEvent event) {
         try {
@@ -62,11 +72,6 @@ public class AdminReportController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-       loadReportUser();
-    }
-
     public void loadReportUser(){
         userReportList.getChildren().removeAll();
         userReportList.getChildren().addAll();
@@ -89,10 +94,10 @@ public class AdminReportController implements Initializable {
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/adminpage/admin-report-list.fxml"));
             try {
                 if(reports.get(i) instanceof ReportedComment) {
-                    HBox hBox = fxmlLoader.load();
+                    AnchorPane anchorPane = fxmlLoader.load();
                     AdminReportListController adminreportListController = fxmlLoader.getController();
                     adminreportListController.setData(reports.get(i));
-                    userReportList.getChildren().add(hBox);
+                    userReportList.getChildren().add(anchorPane);
                 }
             }catch (IOException e){
                 e.printStackTrace();

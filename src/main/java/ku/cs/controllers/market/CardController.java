@@ -5,7 +5,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.Product;
 import java.io.IOException;
 
@@ -14,9 +16,12 @@ public class CardController {
     @FXML private ImageView img;
     @FXML private Label nameLabel;
     @FXML private Label priceLabel;
+    @FXML private AnchorPane parent;
     private Product product;
 
+
     public void setData(Product product){
+        ThemeController.setTheme(parent);
         this.product = product;
         nameLabel.setText(product.getName());
         priceLabel.setText(product.getPriceString());

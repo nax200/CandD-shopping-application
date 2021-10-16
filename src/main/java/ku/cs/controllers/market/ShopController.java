@@ -17,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 import ku.cs.services.ConditionFilterer;
@@ -40,10 +41,12 @@ public class ShopController implements Initializable {
     @FXML private Label shopName;
     @FXML private TextField searchTextField;
     @FXML private Label countProduct;
+    @FXML private AnchorPane parent;
     private Product product;
 
     @Override
     public void initialize(URL location, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         product = (Product) FXRouter.getData();
         showShopData();
         sortComboBox.getItems().addAll("ล่าสุด","ราคาน้อยไปมาก", "ราคามากไปน้อย");

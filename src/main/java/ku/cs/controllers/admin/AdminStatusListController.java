@@ -8,8 +8,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.admin.ReportList;
 import ku.cs.models.user.Customer;
 import ku.cs.models.user.User;
@@ -40,30 +42,13 @@ public class AdminStatusListController implements Initializable {
     @FXML
     private ComboBox<String> userStatus;
 
+    @FXML private AnchorPane parent;
+
     private Customer customer;
-    public void setData(User user){
-        BufferedImage bufferedImage = null;
-        try {
-            bufferedImage = ImageIO.read(((Customer)user).getImageFile());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        DataSource<ReportList> dataSourceReport;
-        dataSourceReport = new ReportFileDataSource();
-        ReportList reportList = dataSourceReport.readData();
-        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
-        profileImage.setFill(new ImagePattern(image));
-        username.setText(user.getUsername());
-        causeTextArea.setText(reportList.searchAllCheckedCase(user.getUsername()));
-        countTryToLogin.setText(""+((Customer) user).getLoginAttempts());
-        userStatus.setValue(((Customer)user).getIsUserBlockedToString());
-        customer = (Customer)user;
-
-    }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         DataSource<UserList> dataSource;
         dataSource = new UserFileDataSource();
         UserList userList = dataSource.readData();
@@ -92,6 +77,26 @@ public class AdminStatusListController implements Initializable {
                 }
             }
         });
+
+    }
+
+    public void setData(User user){
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(((Customer)user).getImageFile());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        DataSource<ReportList> dataSourceReport;
+        dataSourceReport = new ReportFileDataSource();
+        ReportList reportList = dataSourceReport.readData();
+        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        profileImage.setFill(new ImagePattern(image));
+        username.setText(user.getUsername());
+        causeTextArea.setText(reportList.searchAllCheckedCase(user.getUsername()));
+        countTryToLogin.setText(""+((Customer) user).getLoginAttempts());
+        userStatus.setValue(((Customer)user).getIsUserBlockedToString());
+        customer = (Customer)user;
 
     }
 }

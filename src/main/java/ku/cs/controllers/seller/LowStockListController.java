@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.StockTotal;
 
@@ -19,12 +21,13 @@ public class LowStockListController implements Initializable {
     @FXML private Label nameProduct;
     @FXML private Label price;
     @FXML private Label quantity;
+    @FXML private AnchorPane parent;
 
     private Product product;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        ThemeController.setTheme(parent);
     }
 
     public void setData(Product product){

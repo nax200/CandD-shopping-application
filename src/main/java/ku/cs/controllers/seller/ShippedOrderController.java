@@ -8,10 +8,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.NewOrder;
 import ku.cs.models.shop.Order;
 import ku.cs.models.shop.OrderList;
@@ -28,16 +30,17 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
-//"/ku/cs/sellerpage/shipped-order-list.fxml"
+
 public class ShippedOrderController implements Initializable {
     @FXML
     private VBox contactsLayout;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
+    @FXML private AnchorPane parent;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        ThemeController.setTheme(parent);
         DataSource<OrderList> dataSource;
         dataSource = new OrderFileDataSource();
         OrderList orderList = dataSource.readData();
@@ -64,14 +67,14 @@ public class ShippedOrderController implements Initializable {
         for (int i = 0; i < orders.size(); i++){
 
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/shipped-order-list.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/new-order-list.fxml"));
             orderList.sort(orderComparator);
 
             try {
-                HBox hBox = fxmlLoader.load();
-                ShippedOrderListController shippedOrderListController = fxmlLoader.getController();
-                shippedOrderListController.setData(orders.get(i));
-                contactsLayout.getChildren().add(hBox);
+                AnchorPane anchorPane = fxmlLoader.load();
+                NewOrderListController newOrderListController = fxmlLoader.getController();
+                newOrderListController.setData(orders.get(i));
+                contactsLayout.getChildren().add(anchorPane);
             } catch (IOException e) {
                 e.printStackTrace();
             }

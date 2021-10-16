@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.UserProfileEditController">
+<AnchorPane fx:id="parent" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.UserProfileEditController">
     <children>
         <BorderPane layoutX="-19.0" layoutY="294.0" prefHeight="768.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -26,12 +27,12 @@
                     <center>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                             <children>
-                                <BorderPane prefHeight="638.0" prefWidth="556.0" HBox.hgrow="ALWAYS">
+                                <BorderPane prefHeight="638.0" prefWidth="556.0" styleClass="primary-bg" HBox.hgrow="ALWAYS">
                                     <top>
                                         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="0.0" prefWidth="809.0" BorderPane.alignment="CENTER" />
                                     </top>
                                     <center>
-                                        <HBox alignment="CENTER" prefHeight="619.0" prefWidth="769.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" BorderPane.alignment="CENTER">
+                                        <HBox alignment="CENTER" prefHeight="619.0" prefWidth="769.0" style="-fx-background-radius: 20;" styleClass="bg-white" BorderPane.alignment="CENTER">
                                             <children>
                                                 <VBox prefHeight="651.0" prefWidth="939.0">
                                                     <children>
@@ -44,7 +45,7 @@
                                                                     <children>
                                                                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="439.0">
                                                                             <children>
-                                                                                <Label stylesheets="@../../../css-style/normal-style.css" text="แก้ไขข้อมูลส่วนตัว" textFill="#717171">
+                                                                                <Label styleClass="text-type1" text="แก้ไขข้อมูลส่วนตัว" textFill="#717171">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="24.0" />
                                                                                     </font>
@@ -53,7 +54,7 @@
                                                                         </HBox>
                                                                         <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="377.0">
                                                                             <children>
-                                                                                <Label prefHeight="25.0" prefWidth="107.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ชื่อผู้ใช้" textFill="#717171">
+                                                                                <Label prefHeight="25.0" prefWidth="107.0" styleClass="text-type1" text="ชื่อผู้ใช้" textFill="#717171">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                                     </font>
@@ -61,13 +62,17 @@
                                                                                         <Insets right="20.0" />
                                                                                     </HBox.margin>
                                                                                 </Label>
-                                                                                <TextField fx:id="nameTextField" prefHeight="26.0" prefWidth="319.0" styleClass="box-grey-border" stylesheets="@../../../css-style/normal-style.css">
+                                                                                <TextField fx:id="nameTextField" prefHeight="26.0" prefWidth="319.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="TEXT" />
                                                                </cursor>
                                                                <font>
                                                                   <Font name="Kanit Regular" size="16.0" />
-                                                               </font></TextField>
+                                                               </font>
+                                                               <styleClass>
+                                                                  <String fx:value="box-grey-border" />
+                                                                  <String fx:value="text-type1" />
+                                                               </styleClass></TextField>
                                                                             </children>
                                                                             <VBox.margin>
                                                                                 <Insets />
@@ -75,7 +80,7 @@
                                                                         </HBox>
                                                                         <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="0.0">
                                                                             <children>
-                                                                                <Label prefHeight="25.0" prefWidth="110.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ชื่อบัญชี" textFill="#717171">
+                                                                                <Label prefHeight="25.0" prefWidth="110.0" styleClass="text-type1" text="ชื่อบัญชี" textFill="#717171">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                                     </font>
@@ -97,7 +102,7 @@
                                                                         </HBox>
                                                                         <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="507.0" prefHeight="70.0" prefWidth="0.0">
                                                                             <children>
-                                                                                <Label prefHeight="25.0" prefWidth="132.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="รหัสผ่านเดิม" textFill="#717171">
+                                                                                <Label prefHeight="25.0" prefWidth="132.0" styleClass="text-type1" text="รหัสผ่านเดิม" textFill="#717171">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                                     </font>
@@ -105,10 +110,14 @@
                                                                                         <Insets />
                                                                                     </HBox.margin>
                                                                                 </Label>
-                                                            <PasswordField fx:id="oldPasswordField" prefHeight="26.0" prefWidth="319.0" promptText="กรอกรหัสผ่านเดิม" styleClass="box-grey-border" stylesheets="@../../../css-style/normal-style.css">
+                                                            <PasswordField fx:id="oldPasswordField" prefHeight="26.0" prefWidth="319.0" promptText="กรอกรหัสผ่านเดิม">
                                                                <font>
                                                                   <Font name="Kanit Regular" size="16.0" />
                                                                </font>
+                                                               <styleClass>
+                                                                  <String fx:value="box-grey-border" />
+                                                                  <String fx:value="text-type1" />
+                                                               </styleClass>
                                                             </PasswordField>
                                                                             </children>
                                                                             <VBox.margin>
@@ -117,7 +126,7 @@
                                                                         </HBox>
                                                                         <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="0.0">
                                                                             <children>
-                                                                                <Label prefHeight="25.0" prefWidth="133.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="รหัสผ่านใหม่" textFill="#717171">
+                                                                                <Label prefHeight="25.0" prefWidth="133.0" styleClass="text-type1" text="รหัสผ่านใหม่" textFill="#717171">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                                     </font>
@@ -125,10 +134,14 @@
                                                                                         <Insets />
                                                                                     </HBox.margin>
                                                                                 </Label>
-                                                            <PasswordField fx:id="newPasswordField" prefHeight="26.0" prefWidth="319.0" promptText="กรอกรหัสผ่านใหม่" styleClass="box-grey-border" stylesheets="@../../../css-style/normal-style.css">
+                                                            <PasswordField fx:id="newPasswordField" prefHeight="26.0" prefWidth="319.0" promptText="กรอกรหัสผ่านใหม่">
                                                                <font>
                                                                   <Font name="Kanit Regular" size="16.0" />
                                                                </font>
+                                                               <styleClass>
+                                                                  <String fx:value="box-grey-border" />
+                                                                  <String fx:value="text-type1" />
+                                                               </styleClass>
                                                             </PasswordField>
                                                                             </children>
                                                                             <VBox.margin>
@@ -137,7 +150,7 @@
                                                                         </HBox>
                                                                         <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="0.0">
                                                                             <children>
-                                                                                <Label prefHeight="25.0" prefWidth="135.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ยืนยันรหัสผ่านใหม่" textFill="#717171" textOverrun="CENTER_ELLIPSIS">
+                                                                                <Label prefHeight="25.0" prefWidth="135.0" styleClass="text-type1" text="ยืนยันรหัสผ่านใหม่" textFill="#717171" textOverrun="CENTER_ELLIPSIS">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                                     </font>
@@ -145,10 +158,14 @@
                                                                                         <Insets />
                                                                                     </HBox.margin>
                                                                                 </Label>
-                                                            <PasswordField fx:id="confirmPasswordField" prefHeight="26.0" prefWidth="319.0" promptText="ยืนยันรหัสผ่านใหม่" styleClass="box-grey-border" stylesheets="@../../../css-style/normal-style.css">
+                                                            <PasswordField fx:id="confirmPasswordField" prefHeight="26.0" prefWidth="319.0" promptText="ยืนยันรหัสผ่านใหม่">
                                                                <font>
                                                                   <Font name="Kanit Regular" size="16.0" />
                                                                </font>
+                                                               <styleClass>
+                                                                  <String fx:value="box-grey-border" />
+                                                                  <String fx:value="text-type1" />
+                                                               </styleClass>
                                                             </PasswordField>
                                                                             </children>
                                                                             <VBox.margin>
@@ -196,7 +213,7 @@
                                                                             </VBox.margin>
                                                                             <children>
                                                             <Circle fx:id="profileImage" fill="WHITE" radius="107.0" stroke="#e2e2e2" strokeType="INSIDE" strokeWidth="2.0" />
-                                                                                <Button fx:id="browseImageButton" mnemonicParsing="false" onAction="#browseImageButton" prefWidth="93.0" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="แก้ไขรูปภาพ" textFill="#717171">
+                                                                                <Button fx:id="browseImageButton" mnemonicParsing="false" onAction="#browseImageButton" prefWidth="93.0" text="แก้ไขรูปภาพ" textFill="#717171">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="14.0" />
                                                                                     </font>
@@ -206,12 +223,16 @@
                                                                                     <cursor>
                                                                                         <Cursor fx:constant="HAND" />
                                                                                     </cursor>
+                                                               <styleClass>
+                                                                  <String fx:value="button-grey-border-white-in" />
+                                                                  <String fx:value="text-type1" />
+                                                               </styleClass>
                                                                                 </Button>
                                                                             </children>
                                                                         </VBox>
                                                                         <HBox alignment="CENTER" prefHeight="60.0" prefWidth="357.0">
                                                                             <children>
-                                                                                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButton" prefHeight="50.0" prefWidth="144.0" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="ยกเลิก" textFill="#717171">
+                                                                                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButton" prefHeight="50.0" prefWidth="144.0" text="ยกเลิก" textFill="#717171">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                                     </font>
@@ -221,6 +242,10 @@
                                                                                     <cursor>
                                                                                         <Cursor fx:constant="HAND" />
                                                                                     </cursor>
+                                                               <styleClass>
+                                                                  <String fx:value="button-grey-border-white-in" />
+                                                                  <String fx:value="text-type1" />
+                                                               </styleClass>
                                                                                 </Button>
                                                                                 <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButton" prefHeight="50.0" prefWidth="144.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="บันทึกข้อมูล" textFill="WHITE">
                                                                                     <font>
@@ -272,7 +297,7 @@
             <top>
                 <HBox alignment="CENTER" prefHeight="57.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="779.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="786.0" styleClass="title-tab-yellow" HBox.hgrow="ALWAYS">
                             <children>
                                 <HBox alignment="CENTER" prefHeight="57.0" prefWidth="184.0" HBox.hgrow="ALWAYS">
                                     <children>
@@ -297,7 +322,7 @@
                                 </HBox>
                                 <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
+                                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
@@ -313,9 +338,9 @@
                                 </HBox>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="242.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="242.0" styleClass="title-tab-yellow" HBox.hgrow="ALWAYS">
                             <children>
-                                <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
+                                <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow">
                                     <items>
                                         <MenuItem mnemonicParsing="false" onAction="#clickToMarketPlace" text="หน้าหลัก" />
                                         <MenuItem mnemonicParsing="false" onAction="#goToOpenShop" text="ร้านค้าของฉัน" />

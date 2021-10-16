@@ -9,8 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import com.github.saacsos.FXRouter;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.OpenShop;
 import ku.cs.models.user.LoginCustomer;
 
@@ -25,9 +27,11 @@ public class OpenShopController implements Initializable {
     @FXML private Label usernameLabel;
     @FXML private TextField shopNameTextField;
     @FXML private Label messageLabel;
+    @FXML private AnchorPane parent;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         BufferedImage bufferedImage = null;
         try {
             bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());

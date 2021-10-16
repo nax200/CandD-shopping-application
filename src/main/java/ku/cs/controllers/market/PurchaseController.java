@@ -10,8 +10,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.Order;
 import ku.cs.models.shop.OrderList;
 import ku.cs.models.shop.Product;
@@ -46,11 +48,13 @@ public class PurchaseController implements Initializable {
     @FXML private Label quantityLabel;
     @FXML private Label quantity;
     @FXML private TextArea addressTextArea;
+    @FXML private AnchorPane parent;
     private Order order;
     private Product product;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         order = (Order) FXRouter.getData();
         product = order.getProduct();
         setChosenProduct();

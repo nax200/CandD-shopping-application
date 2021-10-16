@@ -5,9 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.NewOrder;
 import ku.cs.models.shop.Order;
 import ku.cs.models.shop.OrderList;
@@ -20,6 +23,7 @@ import ku.cs.services.OrderFileDataSource;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class NewOrderListController implements Initializable {
@@ -50,13 +54,16 @@ public class NewOrderListController implements Initializable {
     @FXML
     private Label messageLabel;
 
+    @FXML
+    private AnchorPane parent;
 
+    @FXML Label promotionLabel;
+    @FXML Label dateLabel;
+    @FXML TextArea addressTextArea;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
-
+        ThemeController.setTheme(parent);
     }
 
 
@@ -73,6 +80,8 @@ public class NewOrderListController implements Initializable {
         priceSum.setText(""+order.getTotalPrice());
         quantity.setText(""+order.getQuantity());
         trackingNumber.setText(order.getTrackingNumber());
+        addressTextArea.setText(order.getAddress());
+        dateLabel.setText(order.getAddedTime().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
 
 

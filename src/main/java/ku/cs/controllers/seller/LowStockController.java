@@ -8,10 +8,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.shop.StockTotal;
@@ -35,9 +37,11 @@ public class LowStockController implements Initializable {
     private VBox contactsLayout;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
+    @FXML private AnchorPane parent;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -68,10 +72,10 @@ public class LowStockController implements Initializable {
 
             try {
                 if(products.get(i).getRemaining() < products.get(i).getNumRemainWarning()) {
-                    HBox hBox = fxmlLoader.load();
+                    AnchorPane anchorPane = fxmlLoader.load();
                     LowStockListController lowStockListController = fxmlLoader.getController();
                     lowStockListController.setData(products.get(i));
-                    contactsLayout.getChildren().add(hBox);
+                    contactsLayout.getChildren().add(anchorPane);
                 }
             } catch (IOException e) {
                 e.printStackTrace();

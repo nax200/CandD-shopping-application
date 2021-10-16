@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.layout.AnchorPane;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.user.Admin;
 import ku.cs.models.user.User;
 import ku.cs.models.user.UserList;
@@ -25,6 +27,7 @@ public class AdminChangePassword {
     private PasswordField confirmPasswordField;
     @FXML
     private Label messageLabel;
+    @FXML private AnchorPane parent;
 
     private UserList userList;
     private User admin;
@@ -32,6 +35,7 @@ public class AdminChangePassword {
 
     @FXML
     public void initialize(){
+        ThemeController.setTheme(parent);
         dataSource = new UserFileDataSource();
         this.userList = dataSource.readData();
         admin = (User) com.github.saacsos.FXRouter.getData();
