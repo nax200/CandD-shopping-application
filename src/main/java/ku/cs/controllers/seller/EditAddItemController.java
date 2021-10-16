@@ -13,11 +13,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.user.LoginCustomer;
@@ -49,12 +51,14 @@ public class EditAddItemController implements Initializable {
     @FXML private Label usernameLabel;
     @FXML private ImageView productImage;
     @FXML private Label messageLabel;
+    @FXML private AnchorPane parent;
 
     private File imageFile;
     private Product product;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         // Title-bar
         BufferedImage bufferedImage = null;
         try {

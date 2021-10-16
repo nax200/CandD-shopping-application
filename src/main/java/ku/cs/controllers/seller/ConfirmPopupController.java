@@ -10,7 +10,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.user.LoginCustomer;
@@ -37,12 +39,14 @@ public class ConfirmPopupController implements Initializable {
     @FXML private TextField warning;
     @FXML private TextField type;
     @FXML private TextArea des;
+    @FXML private AnchorPane parent;
 
     private Product product;
     Stage stage;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
     }
 
     public void initData(Stage stage){

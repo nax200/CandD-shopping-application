@@ -2,44 +2,50 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" minHeight="60.0" prefHeight="60.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminUserListController">
+
+<AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="60.0" prefHeight="60.0" prefWidth="1024.0" styleClass="primary-bg" stylesheets="@../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AdminUserListController">
    <children>
-      <Circle fx:id="profileImage" fill="WHITE" radius="22.0" stroke="#e2e2e2" strokeType="INSIDE" strokeWidth="1.5">
-         <HBox.margin>
-            <Insets left="60.0" />
-         </HBox.margin>
-      </Circle>
-      <Label fx:id="username" prefWidth="160.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="Username">
-         <font>
-            <Font name="Kanit Regular" size="18.0" />
-         </font>
-         <HBox.margin>
-            <Insets left="65.0" />
-         </HBox.margin>
-      </Label>
-      <Label fx:id="name" prefWidth="160.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ชื่อผู้ใช้">
-         <font>
-            <Font name="Kanit Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="shopname" prefWidth="170.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="ชื่อร้านค้า">
-         <font>
-            <Font name="Kanit Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="lastlogin" prefWidth="190.0" styleClass="text-type2" stylesheets="@../../../css-style/normal-style.css" text="วันเวลาเข้าใช้ล่าสุด">
-         <font>
-            <Font name="Kanit Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="userBlocked" alignment="CENTER" prefHeight="28.0" prefWidth="170.0" stylesheets="@../../../css-style/normal-style.css" text="ปกติ">
-         <font>
-            <Font name="Kanit Regular" size="18.0" />
-         </font>
-      </Label>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" minHeight="60.0" prefHeight="60.0" prefWidth="1024.0" style="-fx-background-radius: 5;" styleClass="bg-white" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
+         <children>
+            <Circle fx:id="profileImage" fill="WHITE" radius="22.0" stroke="#e2e2e2" strokeType="INSIDE" strokeWidth="1.5">
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+            </Circle>
+            <Label fx:id="username" prefWidth="160.0" styleClass="text-type1" text="Username">
+               <font>
+                  <Font name="Kanit Regular" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="65.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="name" prefWidth="160.0" styleClass="text-type1" text="ชื่อผู้ใช้">
+               <font>
+                  <Font name="Kanit Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="shopname" prefWidth="170.0" styleClass="text-type1" text="ชื่อร้านค้า">
+               <font>
+                  <Font name="Kanit Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lastlogin" prefWidth="190.0" styleClass="text-type1" text="วันเวลาเข้าใช้ล่าสุด">
+               <font>
+                  <Font name="Kanit Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="userBlocked" alignment="CENTER" prefHeight="28.0" prefWidth="170.0" stylesheets="@../../../css-style/normal-style.css" text="ปกติ">
+               <font>
+                  <Font name="Kanit Regular" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
-</HBox>
+</AnchorPane>

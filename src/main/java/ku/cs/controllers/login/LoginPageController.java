@@ -67,6 +67,7 @@ public class LoginPageController implements Initializable {
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
             System.err.println("เข้าหน้าหลังจากล็อกอินไม่ได้");
         }
 
