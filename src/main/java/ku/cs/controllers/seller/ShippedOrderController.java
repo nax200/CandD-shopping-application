@@ -14,13 +14,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import ku.cs.controllers.ThemeController;
-import ku.cs.models.shop.NewOrder;
-import ku.cs.models.shop.Order;
-import ku.cs.models.shop.OrderList;
+import ku.cs.models.shop.*;
 import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
 import ku.cs.services.OrderFileDataSource;
+import ku.cs.services.ProductFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -45,6 +44,10 @@ public class ShippedOrderController implements Initializable {
         dataSource = new OrderFileDataSource();
         OrderList orderList = dataSource.readData();
 
+        DataSource<ProductList> dataSource1;
+        dataSource1 = new ProductFileDataSource();
+        ProductList productList = dataSource1.readData();
+
 
         Comparator<Order> orderComparator = new Comparator<Order>() {
             @Override
@@ -54,14 +57,14 @@ public class ShippedOrderController implements Initializable {
                 return 0;
             }
         };
-        ConditionFilterer<Order> filterer = new ConditionFilterer<Order>() {
+        ConditionFilterer<Order> filterer1 = new ConditionFilterer<Order>() {
             @Override
             public boolean match(Order order) {
-                return !(order.getTrackingNumber().isEmpty());
+                Product product = productList.searchByID(order.getProduct().getID());
+                return LoginCustomer.customer.getShopName().equals(product.getShopName());
             }
         };
-
-        ArrayList<Order> orders = orderList.filter(filterer);
+        ArrayList<Order> orders = orderList.filter(filterer1);
 
 
         for (int i = 0; i < orders.size(); i++){
@@ -71,10 +74,11 @@ public class ShippedOrderController implements Initializable {
             orderList.sort(orderComparator);
 
             try {
+                if(!orders.get(i).getTrackingNumber().isEmpty()){
                 AnchorPane anchorPane = fxmlLoader.load();
                 NewOrderListController newOrderListController = fxmlLoader.getController();
                 newOrderListController.setData(orders.get(i));
-                contactsLayout.getChildren().add(anchorPane);
+                contactsLayout.getChildren().add(anchorPane);}
             } catch (IOException e) {
                 e.printStackTrace();
             }

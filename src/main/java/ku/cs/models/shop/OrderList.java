@@ -66,6 +66,15 @@ public class OrderList {
         return null;
     }
 
+    public Order searchByShopName(String shopName){
+        for (Order order: orders){
+            if(order.getProduct().getShopName().equals(shopName))
+                return order;
+        }
+
+        return null;
+    }
+
 
 
     public String toCsv(){
