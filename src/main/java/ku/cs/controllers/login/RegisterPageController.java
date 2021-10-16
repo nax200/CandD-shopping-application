@@ -1,21 +1,31 @@
 package ku.cs.controllers.login;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.user.Register;
 import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
-public class RegisterPageController {
+public class RegisterPageController implements Initializable {
 
     @FXML private TextField nameTextField;
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordField;
     @FXML private PasswordField confirmPasswordField;
     @FXML private Label errorLabel;
+    @FXML private AnchorPane parent;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
+    }
 
     public void handleRegisterButton() {
         String name = nameTextField.getText().trim();
@@ -42,7 +52,6 @@ public class RegisterPageController {
         }
 
         }
-
 
     @FXML
     private void goToLoginPage() throws IOException {
