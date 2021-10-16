@@ -18,13 +18,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import ku.cs.models.shop.Product;
-
 import ku.cs.models.shop.ProductList;
 import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
 import ku.cs.models.user.LoginCustomer;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -50,21 +48,29 @@ public class ShopController implements Initializable {
         showShopData();
         sortComboBox.getItems().addAll("ล่าสุด","ราคาน้อยไปมาก", "ราคามากไปน้อย");
         sortComboBox.setValue("ล่าสุด");
+
+        ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+            @Override
+            public boolean match(Product product) {
+                return product.getShopName().equals(shopName.getText());
+            }
+        };
+
         sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 if (sortComboBox.getValue().equals("ล่าสุด")) {
-                    sortByLatest();
+                    sortByLatest(filterer);
                 }
                 else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
-                    sortByPriceMinToMax();
+                    sortByPriceMinToMax(filterer);
                 }
                 else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
-                    sortByPriceMaxToMin();
+                    sortByPriceMaxToMin(filterer);
                 }
             }
         });
-        sortByLatest();
+        sortByLatest(filterer);
 
         BufferedImage bufferedImage = null;
         try {
@@ -77,7 +83,7 @@ public class ShopController implements Initializable {
         usernameLabel.setText(LoginCustomer.customer.getUsername());
     }
 
-    public void sortByLatest() {
+    public void sortByLatest(ConditionFilterer<Product> filterer) {
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -89,32 +95,35 @@ public class ShopController implements Initializable {
                 return 0;
             }
         };
+        productList.sort(productComparator);
+        ArrayList<Product> products = productList.filter(filterer);
         int column  = 0;
         int row = 1;
         try {
-            ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+            sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
-                public boolean match(Product product) {
-                    return product.getShopName().equals(shopName.getText());
+                public void handle(ActionEvent event) {
+                    if (sortComboBox.getValue().equals("ล่าสุด")) {
+                        sortByLatest(filterer);
+                    }
+                    else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
+                        sortByPriceMinToMax(filterer);
+                    }
+                    else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
+                        sortByPriceMaxToMin(filterer);
+                    }
                 }
-            };
-            ArrayList<Product> products = productList.filter(filterer);
-
+            });
             for (int i = 0; i < products.size(); i++){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
-
-                products.sort(productComparator);
-
                 CardController cardController = fxmlLoader.getController();
                 cardController.setData(products.get(i));
-
                 if(column == 5){
                     column = 0;
                     row++;
                 }
-
                 listProduct.add(anchorPane, column++, row);
                 GridPane.setMargin(anchorPane, new Insets(9));
             }
@@ -123,7 +132,7 @@ public class ShopController implements Initializable {
         }
     }
 
-    public void sortByPriceMaxToMin() {
+    public void sortByPriceMaxToMin(ConditionFilterer<Product> filterer){
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -137,30 +146,33 @@ public class ShopController implements Initializable {
         };
         int column  = 0;
         int row = 1;
+        productList.sort(productComparator);
+        ArrayList<Product> products = productList.filter(filterer);
         try {
-            ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+            sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
-                public boolean match(Product product) {
-                    return product.getShopName().equals(shopName.getText());
+                public void handle(ActionEvent event) {
+                    if (sortComboBox.getValue().equals("ล่าสุด")) {
+                        sortByLatest(filterer);
+                    }
+                    else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
+                        sortByPriceMinToMax(filterer);
+                    }
+                    else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
+                        sortByPriceMaxToMin(filterer);
+                    }
                 }
-            };
-            ArrayList<Product> products = productList.filter(filterer);
-
+            });
             for (int i = 0; i < products.size(); i++){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
-
-                products.sort(productComparator);
-
                 CardController cardController = fxmlLoader.getController();
                 cardController.setData(products.get(i));
-
                 if(column == 5){
                     column = 0;
                     row++;
                 }
-
                 listProduct.add(anchorPane, column++, row);
                 GridPane.setMargin(anchorPane, new Insets(9));
             }
@@ -169,7 +181,7 @@ public class ShopController implements Initializable {
         }
     }
 
-    public void sortByPriceMinToMax() {
+    public void sortByPriceMinToMax(ConditionFilterer<Product> filterer) {
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -183,30 +195,33 @@ public class ShopController implements Initializable {
         };
         int column  = 0;
         int row = 1;
+        productList.sort(productComparator);
+        ArrayList<Product> products = productList.filter(filterer);
         try {
-            ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+            sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
-                public boolean match(Product product) {
-                    return product.getShopName().equals(shopName.getText());
+                public void handle(ActionEvent event) {
+                    if (sortComboBox.getValue().equals("ล่าสุด")) {
+                        sortByLatest(filterer);
+                    }
+                    else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
+                        sortByPriceMinToMax(filterer);
+                    }
+                    else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
+                        sortByPriceMaxToMin(filterer);
+                    }
                 }
-            };
-            ArrayList<Product> products = productList.filter(filterer);
-
+            });
             for (int i = 0; i < products.size(); i++){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
-
-                products.sort(productComparator);
-
                 CardController cardController = fxmlLoader.getController();
                 cardController.setData(products.get(i));
-
                 if(column == 5){
                     column = 0;
                     row++;
                 }
-
                 listProduct.add(anchorPane, column++, row);
                 GridPane.setMargin(anchorPane, new Insets(9));
             }
@@ -229,179 +244,25 @@ public class ShopController implements Initializable {
         countProduct.setText(String.valueOf(productList.filter(filterer).size()));
     }
 
-    public void searchProduct(ActionEvent event){
-        sortComboBox.setValue("ล่าสุด");
-        listProduct.getChildren().removeAll();
-        listProduct.getChildren().setAll();
+    public void searchProduct(){
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
-
-        Comparator<Product> productComparator = new Comparator<Product>() {
+        ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
             @Override
-            public int compare(Product o1, Product o2) {
-                if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
-                if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
-                return 0;
+            public boolean match(Product product) {
+                return product.getName().equals(searchTextField.getText()) && product.getShopName().equals(shopName.getText());
             }
         };
-
-        int column  = 0;
-        int row = 1;
-        try {
-            ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
-                @Override
-                public boolean match(Product product) {
-                    return product.getName().equals(searchTextField.getText()) && product.getShopName().equals(shopName.getText());
-                }
-            };
-            countProduct.setText(String.valueOf(productList.filter(filterer).size()));
-
-            sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    if (sortComboBox.getValue().equals("ล่าสุด")) {
-                        listProduct.getChildren().removeAll();
-                        listProduct.getChildren().setAll();
-                        DataSource<ProductList> dataSource;
-                        dataSource = new ProductFileDataSource();
-                        ProductList productList = dataSource.readData();
-
-                        int column  = 0;
-                        int row = 1;
-                        try {
-                            productList.sort(productComparator);
-                            ArrayList<Product> products = productList.filter(filterer);
-
-                            for (int i = 0; i < products.size(); i++){
-                                FXMLLoader fxmlLoader = new FXMLLoader();
-                                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
-                                AnchorPane anchorPane = fxmlLoader.load();
-
-                                CardController cardController = fxmlLoader.getController();
-                                cardController.setData(products.get(i));
-                                if(column == 5){
-                                    column = 0;
-                                    row++;
-                                }
-                                listProduct.add(anchorPane, column++, row);
-                                GridPane.setMargin(anchorPane, new Insets(9));
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    else if (sortComboBox.getValue().equals("ราคาน้อยไปมาก")) {
-                        listProduct.getChildren().removeAll();
-                        listProduct.getChildren().setAll();
-                        DataSource<ProductList> dataSource;
-                        dataSource = new ProductFileDataSource();
-                        ProductList productList = dataSource.readData();
-                        Comparator<Product> productComparator = new Comparator<Product>() {
-                            @Override
-                            public int compare(Product o1, Product o2) {
-                                if (o1.getPrice() > o2.getPrice()) return 1;
-                                if (o1.getPrice() < o2.getPrice()) return -1;
-                                return 0;
-                            }
-                        };
-                        int column  = 0;
-                        int row = 1;
-                        ArrayList<Product> products = productList.filter(filterer);
-
-                        try {
-                            for (int i = 0; i < products.size(); i++){
-                                FXMLLoader fxmlLoader = new FXMLLoader();
-                                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
-                                AnchorPane anchorPane = fxmlLoader.load();
-
-                                products.sort(productComparator);
-
-                                CardController cardController = fxmlLoader.getController();
-                                cardController.setData(products.get(i));
-
-                                if(column == 5){
-                                    column = 0;
-                                    row++;
-                                }
-
-                                listProduct.add(anchorPane, column++, row);
-                                GridPane.setMargin(anchorPane, new Insets(9));
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    else if (sortComboBox.getValue().equals("ราคามากไปน้อย")) {
-                        listProduct.getChildren().removeAll();
-                        listProduct.getChildren().setAll();
-                        DataSource<ProductList> dataSource;
-                        dataSource = new ProductFileDataSource();
-                        ProductList productList = dataSource.readData();
-                        Comparator<Product> productComparator = new Comparator<Product>() {
-                            @Override
-                            public int compare(Product o1, Product o2) {
-                                if (o1.getPrice() < o2.getPrice()) return 1;
-                                if (o1.getPrice() > o2.getPrice()) return -1;
-                                return 0;
-                            }
-                        };
-                        int column  = 0;
-                        int row = 1;
-                        ArrayList<Product> products = productList.filter(filterer);
-
-                        try {
-                            for (int i = 0; i < products.size(); i++){
-                                FXMLLoader fxmlLoader = new FXMLLoader();
-                                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
-                                AnchorPane anchorPane = fxmlLoader.load();
-
-                                products.sort(productComparator);
-
-                                CardController cardController = fxmlLoader.getController();
-                                cardController.setData(products.get(i));
-
-                                if(column == 5){
-                                    column = 0;
-                                    row++;
-                                }
-
-                                listProduct.add(anchorPane, column++, row);
-                                GridPane.setMargin(anchorPane, new Insets(9));
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            });
-
-            productList.sort(productComparator);
-            ArrayList<Product> products = productList.filter(filterer);
-
-            for (int i = 0; i < products.size(); i++){
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/ku/cs/marketpage/card.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-
-                CardController cardController = fxmlLoader.getController();
-                cardController.setData(products.get(i));
-
-                if(column == 5){
-                    column = 0;
-                    row++;
-                }
-
-                listProduct.add(anchorPane, column++, row);
-                GridPane.setMargin(anchorPane, new Insets(9));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        sortComboBox.setValue("ล่าสุด");
+        listProduct.getChildren().removeAll();
+        listProduct.getChildren().setAll();
+        sortByLatest(filterer);
+        countProduct.setText(String.valueOf(productList.filter(filterer).size()));
     }
 
     @FXML
-    void goToEditProfile(ActionEvent event) {
+    public void goToEditProfile(ActionEvent event) {
         try {
             FXRouter.goTo("user-profile-edit");
         } catch (IOException e) {
@@ -411,7 +272,7 @@ public class ShopController implements Initializable {
     }
 
     @FXML
-    void clickLogoBackToMarketPlace(MouseEvent event){
+    public void clickLogoBackToMarketPlace(MouseEvent event){
         try {
             FXRouter.goTo("market-place");
         } catch (IOException e) {
@@ -421,7 +282,7 @@ public class ShopController implements Initializable {
     }
 
     @FXML
-    void logOut(ActionEvent event) {
+    public void logOut(ActionEvent event) {
         try {
             FXRouter.goTo("login");
         } catch (IOException e) {
@@ -431,7 +292,7 @@ public class ShopController implements Initializable {
     }
 
     @FXML
-    void goToOpenShop(ActionEvent event){
+    public void goToOpenShop(ActionEvent event){
         try {
             if(LoginCustomer.customer.getShopName().equals("-")) {
                 FXRouter.goTo("open-shop");
