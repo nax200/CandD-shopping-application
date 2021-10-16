@@ -3,8 +3,10 @@ package ku.cs.controllers.seller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.Product;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.shop.StockTotal;
@@ -25,13 +27,14 @@ public class StockTotalListController implements Initializable {
     @FXML private Label nameProduct;
     @FXML private Label price;
     @FXML private Label quantity;
+    @FXML private AnchorPane parent;
 
     private Product product;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        ThemeController.setTheme(parent);
     }
 
     public void setData(Product product){
@@ -43,10 +46,18 @@ public class StockTotalListController implements Initializable {
         nameProduct.setText(product.getName());
         price.setText(product.getPriceString());
         if (product.getRemaining() < product.getNumRemainWarning()) {
-            quantity.setTextFill(Color.rgb(255,84,47)); //ff542f 255 84 47
+            if (ThemeController.isLightMode) {
+                quantity.setTextFill(Color.rgb(255, 84, 47)); //ff542f 255 84 47
+            } else {
+                quantity.setTextFill(Color.rgb(255, 144, 120));
+            }
             quantity.setText(product.getRemaining() + "");
         } else {
-            quantity.setTextFill(Color.rgb(111,111,111));
+            if (ThemeController.isLightMode) {
+                quantity.setTextFill(Color.rgb(111, 111, 111)); //ff542f 255 84 47
+            } else {
+                quantity.setTextFill(Color.rgb(255, 255, 255));
+            }
             quantity.setText(product.getRemaining() + "");
         }
     }

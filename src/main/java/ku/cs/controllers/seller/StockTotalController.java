@@ -8,10 +8,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.StockTotal;
 import ku.cs.models.shop.ProductList;
 import ku.cs.models.shop.Product;
@@ -33,9 +35,11 @@ public class StockTotalController implements Initializable {
     @FXML private VBox contactsLayout;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
+    @FXML private AnchorPane parent;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -65,10 +69,10 @@ public class StockTotalController implements Initializable {
                 products.sort(productComparator);
 
                 try {
-                    HBox hBox = fxmlLoader.load();
+                    AnchorPane anchorPane = fxmlLoader.load();
                     StockTotalListController stockTotalList = fxmlLoader.getController();
                     stockTotalList.setData(products.get(i));
-                    contactsLayout.getChildren().add(hBox);
+                    contactsLayout.getChildren().add(anchorPane);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -94,6 +98,7 @@ public class StockTotalController implements Initializable {
         try {
             com.github.saacsos.FXRouter.goTo("low-stock");
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า low-stock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }

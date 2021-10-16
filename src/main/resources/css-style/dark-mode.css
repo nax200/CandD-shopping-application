@@ -57,10 +57,10 @@
     -fx-text-fill: #FFFFFF;
 }
 .button-yellow:hover{
-    -fx-background-color: #FFC700;
+    -fx-background-color: #D6A600;
 }
 .button-yellow:pressed{
-    -fx-background-color: #F0BF11;
+    -fx-background-color: #BE9502;
 }
 
 /*ปุ่มสีเทาแบบกดได้*/
@@ -101,10 +101,10 @@
     -fx-border-radius: 8;
 }
 .button-grey-border-white-in:hover{
-    -fx-background-color: #F9F9F9;
+    -fx-background-color: #6C6C6C;
 }
 .button-grey-border-white-in:pressed {
-    -fx-background-color: #EEEEEE;
+    -fx-background-color: #656363;
 }
 
 /* ----------- Choice Box -------------- */
@@ -125,13 +125,13 @@
 
 /* แถบเมนูด้านข้าง */
 .side-tab{
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: #777777;
 }
 .side-tab:hover{
-    -fx-background-color: #EEEEEE;
+    -fx-background-color: #6C6C6C;
 }
 .side-tab:pressed{
-    -fx-background-color: #E2E2E2;
+    -fx-background-color: #656363;
 }
 
 /*กรอบสีเทา ใช้ใน textField*/

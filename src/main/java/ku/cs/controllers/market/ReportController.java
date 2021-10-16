@@ -7,7 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.admin.Report;
 import ku.cs.models.admin.ReportList;
 import ku.cs.models.admin.ReportedComment;
@@ -21,11 +23,12 @@ import ku.cs.services.ReportFileDataSource;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ReportController {
+public class ReportController implements Initializable {
 
     @FXML private TextField nameTextField;
     @FXML private ComboBox<String> reportTypeComboBox;
     @FXML private TextArea detailTextArea;
+    @FXML private AnchorPane parent;
 
     private Customer reported;
     private Customer reporter;
@@ -33,6 +36,10 @@ public class ReportController {
     private Product product;
     private Stage stage;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ThemeController.setTheme(parent);
+    }
 
     public void setData(Customer reported, Customer reporter, Object object, Stage stage){
 

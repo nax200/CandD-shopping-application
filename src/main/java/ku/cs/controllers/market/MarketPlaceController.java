@@ -1177,6 +1177,7 @@ public class MarketPlaceController implements Initializable{
                 FXRouter.goTo("stock-total");
             }
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.println("ไปที่หน้า open-shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
