@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -20,17 +21,17 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.ShopController">
+<AnchorPane fx:id="parent" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.ShopController">
     <children>
         <BorderPane layoutX="-9.0" layoutY="304.0" prefHeight="768.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
-                <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1088.0" prefWidth="1024.0">
+                <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1088.0" prefWidth="1024.0" styleClass="primary-bg">
                     <top>
-                        <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="968.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+                        <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="74.0" prefWidth="968.0" style="-fx-background-radius: 10;" styleClass="bg-white" BorderPane.alignment="CENTER">
                             <children>
                                 <HBox alignment="CENTER" prefHeight="60.0" prefWidth="484.0">
                                     <children>
-                                        <Button mnemonicParsing="false" onAction="#backToProductButton" prefHeight="44.0" prefWidth="137.0" styleClass="button-grey-border" stylesheets="@../../../css-style/normal-style.css" text="ย้อนกลับ" textFill="#717171">
+                                        <Button mnemonicParsing="false" onAction="#backToProductButton" prefHeight="44.0" prefWidth="137.0" text="ย้อนกลับ" textFill="#717171">
                                             <font>
                                                 <Font name="Kanit Regular" size="18.0" />
                                             </font>
@@ -40,8 +41,12 @@
                                             <HBox.margin>
                                                 <Insets left="30.0" />
                                             </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="button-grey-border-white-in" />
+                                    <String fx:value="text-type1" />
+                                 </styleClass>
                                         </Button>
-                                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="360.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="360.0" style="-fx-background-radius: 10;" styleClass="bg-white">
                                             <children>
                                                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="110.0">
                                                     <children>
@@ -56,7 +61,7 @@
                                                     <children>
                                                         <VBox alignment="CENTER_LEFT" prefHeight="276.0" prefWidth="223.0">
                                                             <children>
-                                                                <Label fx:id="shopName" text="ร้านมั่งมี ร่ำรวยเงินทอง" textFill="#717171">
+                                                                <Label fx:id="shopName" styleClass="text-type1" text="ร้านมั่งมี ร่ำรวยเงินทอง" textFill="#717171">
                                                                     <font>
                                                                         <Font name="Kanit Regular" size="20.0" />
                                                                     </font>
@@ -80,12 +85,12 @@
                                 </HBox>
                                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                     <children>
-                                        <Label text="รายการสินค้า" textFill="#717171">
+                                        <Label styleClass="text-type1" text="รายการสินค้า" textFill="#717171">
                                             <font>
                                                 <Font name="Kanit Regular" size="20.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="countProduct" prefHeight="31.0" prefWidth="55.0" text="10" textFill="#717171">
+                                        <Label fx:id="countProduct" prefHeight="31.0" prefWidth="55.0" styleClass="text-type1" text="10" textFill="#717171">
                                             <font>
                                                 <Font name="Kanit Regular" size="20.0" />
                                             </font>
@@ -102,12 +107,12 @@
                                     <children>
                                         <HBox alignment="CENTER" prefHeight="74.0" prefWidth="236.0">
                                             <children>
-                                                <Label text="เรียงโดย  " textFill="#717171">
+                                                <Label styleClass="text-type1" text="เรียงโดย  " textFill="#717171">
                                                     <font>
                                                         <Font name="Kanit Regular" size="20.0" />
                                                     </font>
                                                 </Label>
-                                                <ComboBox fx:id="sortComboBox" prefHeight="36.0" prefWidth="158.0" styleClass="comboBox-grey-border" stylesheets="@../../../css-style/normal-style.css">
+                                                <ComboBox fx:id="sortComboBox" prefHeight="36.0" prefWidth="158.0" styleClass="choiceBox-grey-border">
                                                     <HBox.margin>
                                                         <Insets left="10.0" />
                                                     </HBox.margin>
@@ -128,9 +133,9 @@
                                 <Insets top="10.0" />
                             </BorderPane.margin>
                             <children>
-                                <ScrollPane prefHeight="615.0" prefWidth="964.0">
+                                <ScrollPane prefHeight="615.0" prefWidth="964.0" style="-fx-border-color: #E2E2E2; -fx-border-width: 2; -fx-border-radius: 10;" styleClass="primary-bg">
                                     <content>
-                                        <GridPane fx:id="listProduct" prefHeight="0.0" prefWidth="0.0">
+                                        <GridPane fx:id="listProduct" prefHeight="0.0" prefWidth="0.0" styleClass="primary-bg">
                                             <rowConstraints>
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" />
                                             </rowConstraints>
@@ -148,7 +153,7 @@
             <top>
                 <HBox alignment="CENTER" prefHeight="57.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="779.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="787.0" styleClass="title-tab-yellow" HBox.hgrow="ALWAYS">
                             <children>
                                 <HBox alignment="CENTER" prefHeight="57.0" prefWidth="184.0" HBox.hgrow="ALWAYS">
                                     <children>
@@ -171,7 +176,7 @@
                                         </HBox>
                                         <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0">
                                             <children>
-                                                <Button fx:id="searchProduct" mnemonicParsing="false" onAction="#searchProduct" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
+                                                <Button fx:id="searchProduct" mnemonicParsing="false" onAction="#searchProduct" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow">
                                                     <cursor>
                                                         <Cursor fx:constant="HAND" />
                                                     </cursor>
@@ -189,9 +194,9 @@
                                 </HBox>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="242.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="242.0" styleClass="title-tab-yellow" HBox.hgrow="ALWAYS">
                             <children>
-                                <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
+                                <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow">
                                     <items>
                                         <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ข้อมูลส่วนตัว" />
                                         <MenuItem mnemonicParsing="false" onAction="#goToOpenShop" text="ร้านค้าของฉัน" />

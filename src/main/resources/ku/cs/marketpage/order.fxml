@@ -16,11 +16,11 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.OrderController">
+<AnchorPane fx:id="parent" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.OrderController">
     <children>
         <BorderPane layoutX="-9.0" layoutY="304.0" prefHeight="768.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
-                <BorderPane prefHeight="711.0" prefWidth="855.0">
+                <BorderPane prefHeight="711.0" prefWidth="855.0" styleClass="primary-bg">
                     <top>
                         <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="634.0" BorderPane.alignment="CENTER">
                             <BorderPane.margin>
@@ -31,7 +31,7 @@
                     <center>
                         <HBox alignment="CENTER" prefHeight="0.0" prefWidth="634.0" BorderPane.alignment="CENTER">
                             <children>
-                                <HBox alignment="CENTER" prefHeight="671.0" prefWidth="976.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+                                <HBox alignment="CENTER" prefHeight="671.0" prefWidth="976.0" style="-fx-background-radius: 10;" styleClass="bg-white">
                                     <HBox.margin>
                                         <Insets bottom="20.0" />
                                     </HBox.margin>
@@ -57,7 +57,7 @@
                                                                 <Image url="@../../../images/marketpage/img_20.png" />
                                                             </image>
                                                         </ImageView>
-                                                        <Label prefHeight="46.0" prefWidth="165.0" text="สั่งซื้อสำเร็จ" textFill="#717171">
+                                                        <Label prefHeight="46.0" prefWidth="165.0" styleClass="text-type1" text="สั่งซื้อสำเร็จ" textFill="#717171">
                                                             <font>
                                                                 <Font name="Kanit Regular" size="30.0" />
                                                             </font>
@@ -69,7 +69,7 @@
                                                 </HBox>
                                                 <VBox alignment="CENTER" prefHeight="135.0" prefWidth="365.0">
                                                     <children>
-                                                        <Button mnemonicParsing="false" onAction="#goToMarketPlace" prefHeight="45.0" prefWidth="140.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="กลับไปหน้าหลัก" textFill="WHITE">
+                                                        <Button mnemonicParsing="false" onAction="#goToMarketPlace" prefHeight="45.0" prefWidth="140.0" styleClass="button-yellow" text="กลับไปหน้าหลัก" textFill="WHITE">
                                                             <font>
                                                                 <Font name="Kanit Regular" size="18.0" />
                                                             </font>
@@ -91,7 +91,7 @@
             <top>
                 <HBox alignment="CENTER" prefHeight="57.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="779.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="788.0" styleClass="title-tab-yellow" HBox.hgrow="ALWAYS">
                             <children>
                                 <HBox alignment="CENTER" prefHeight="57.0" prefWidth="184.0" HBox.hgrow="ALWAYS">
                                     <children>
@@ -132,9 +132,9 @@
                                 </HBox>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="242.0" style="-fx-background-color: #ffd12f;" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="242.0" styleClass="title-tab-yellow" HBox.hgrow="ALWAYS">
                             <children>
-                                <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css">
+                                <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow">
                                     <items>
                                         <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ข้อมูลส่วนตัว" />
                                         <MenuItem mnemonicParsing="false" onAction="#goToOpenShop" text="ร้านค้าของฉัน" />

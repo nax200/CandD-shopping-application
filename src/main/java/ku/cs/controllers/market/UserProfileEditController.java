@@ -19,9 +19,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import com.github.saacsos.FXRouter;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
+import ku.cs.controllers.ThemeController;
 import ku.cs.models.user.Customer;
 import ku.cs.models.user.LoginCustomer;
 import ku.cs.models.user.User;
@@ -40,6 +42,7 @@ public class UserProfileEditController {
     @FXML private Circle profileImageTab;
     @FXML private Label usernameLabel;
     @FXML private Label messageLabel;
+    @FXML private AnchorPane parent;
 
     private File imageFile = null;
     private UserList userList;
@@ -48,6 +51,7 @@ public class UserProfileEditController {
 
     @FXML
     public void initialize() {
+        ThemeController.setTheme(parent);
         dataSource = new UserFileDataSource();
         this.userList = dataSource.readData();
         loginCustomer = ( (Customer)userList.searchUsername( LoginCustomer.customer.getUsername() ) );
