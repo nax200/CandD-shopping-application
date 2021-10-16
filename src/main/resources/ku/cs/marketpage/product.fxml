@@ -231,7 +231,7 @@
                                           </HBox>
                                           <HBox alignment="TOP_CENTER" prefHeight="42.0" prefWidth="310.0">
                                              <children>
-                                                <Label fx:id="messageLabel" prefHeight="42.0" prefWidth="260.0" textFill="#ff542f">
+                                                <Label fx:id="messageLabel" prefHeight="42.0" prefWidth="260.0" styleClass="text-red" textFill="#ff542f">
                                                    <font>
                                                       <Font name="Kanit Regular" size="14.0" />
                                                    </font>

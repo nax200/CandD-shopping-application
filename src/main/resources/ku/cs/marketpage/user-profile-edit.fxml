@@ -62,7 +62,7 @@
                                                                                         <Insets right="20.0" />
                                                                                     </HBox.margin>
                                                                                 </Label>
-                                                                                <TextField fx:id="nameTextField" prefHeight="26.0" prefWidth="319.0">
+                                                                                <TextField fx:id="nameTextField" focusTraversable="false" prefHeight="26.0" prefWidth="319.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="TEXT" />
                                                                </cursor>
@@ -88,13 +88,17 @@
                                                                                         <Insets right="20.0" />
                                                                                     </HBox.margin>
                                                                                 </Label>
-                                                                                <TextField fx:id="usernameTextField" editable="false" prefHeight="26.0" prefWidth="319.0" style="-fx-background-color: #f5f5f5;" styleClass="text-type1" stylesheets="@../../../css-style/normal-style.css">
+                                                                                <TextField fx:id="usernameTextField" editable="false" focusTraversable="false" prefHeight="26.0" prefWidth="319.0" text="test">
                                                                <font>
                                                                   <Font name="Kanit Regular" size="16.0" />
                                                                </font>
                                                                <cursor>
                                                                   <Cursor fx:constant="DEFAULT" />
-                                                               </cursor></TextField>
+                                                               </cursor>
+                                                               <styleClass>
+                                                                  <String fx:value="in-box-bg-type2" />
+                                                                  <String fx:value="text-type1" />
+                                                               </styleClass></TextField>
                                                                             </children>
                                                                             <VBox.margin>
                                                                                 <Insets />
@@ -247,7 +251,7 @@
                                                                   <String fx:value="text-type1" />
                                                                </styleClass>
                                                                                 </Button>
-                                                                                <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButton" prefHeight="50.0" prefWidth="144.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="บันทึกข้อมูล" textFill="WHITE">
+                                                                                <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButton" prefHeight="50.0" prefWidth="144.0" styleClass="button-yellow" text="บันทึกข้อมูล" textFill="WHITE">
                                                                                     <font>
                                                                                         <Font name="Kanit Regular" size="17.0" />
                                                                                     </font>
@@ -262,7 +266,7 @@
                                                                         </HBox>
                                                       <HBox alignment="CENTER" prefHeight="53.0" prefWidth="357.0">
                                                          <children>
-                                                            <Label fx:id="messageLabel" textFill="#ff4747">
+                                                            <Label fx:id="messageLabel" styleClass="text-red" textFill="#ff4747">
                                                                <font>
                                                                   <Font name="Kanit Regular" size="16.0" />
                                                                </font>
@@ -313,7 +317,7 @@
                                 </HBox>
                                 <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <TextField prefHeight="36.0" prefWidth="565.0" promptText="ค้นหาสินค้า" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+                                        <TextField prefHeight="36.0" prefWidth="565.0" promptText="ค้นหาสินค้า" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" visible="false">
                                             <font>
                                                 <Font name="Kanit Regular" size="16.0" />
                                             </font>
@@ -322,12 +326,12 @@
                                 </HBox>
                                 <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0" HBox.hgrow="ALWAYS">
                                     <children>
-                                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow">
+                                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow" visible="false">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                             <graphic>
-                                                <ImageView fitHeight="28.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="28.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                                     <image>
                                                         <Image url="@../../../images/assets/title-bar/search.png" />
                                                     </image>

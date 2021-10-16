@@ -34,7 +34,7 @@
                   <Font name="Kanit Regular" size="18.0" />
                </font>
             </Label>
-            <TextArea fx:id="moreDetailTextArea" maxHeight="80.0" prefHeight="80.0" prefWidth="219.0" promptText="รายละเอียดเพิ่มเติม" wrapText="true">
+            <TextArea fx:id="moreDetailTextArea" editable="false" maxHeight="80.0" prefHeight="80.0" prefWidth="219.0" promptText="รายละเอียดเพิ่มเติม" wrapText="true">
                <styleClass>
                   <String fx:value="bg-white" />
                   <String fx:value="text-type1" />

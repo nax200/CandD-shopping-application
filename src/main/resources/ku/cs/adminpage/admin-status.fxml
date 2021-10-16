@@ -137,7 +137,7 @@
                               <Font name="Kanit Regular" size="18.0" />
                           </font>
                       </Label>
-                      <Label prefHeight="28.0" prefWidth="192.0" styleClass="text-type1" text="Username">
+                      <Label prefHeight="28.0" prefWidth="192.0" styleClass="text-type1" text="ชื่อบัญชี">
                           <font>
                               <Font name="Kanit Regular" size="18.0" />
                           </font>

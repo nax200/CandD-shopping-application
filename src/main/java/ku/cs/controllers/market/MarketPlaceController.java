@@ -50,17 +50,6 @@ public class MarketPlaceController implements Initializable{
     @FXML private Button searchProduct;
     @FXML private AnchorPane parent;
 
-    @FXML private void switchMode(ActionEvent event){
-        ThemeController.switchMode(parent);
-        try {
-            FXRouter.setAnimationType("fade",250);
-            FXRouter.goTo("market-place");
-            FXRouter.setAnimationType("fade",0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ThemeController.setTheme(parent);
@@ -114,6 +103,17 @@ public class MarketPlaceController implements Initializable{
         Image image = SwingFXUtils.toFXImage(bufferedImage,null);
         imageProfileTitle.setFill(new ImagePattern(image));
         usernameLabel.setText(LoginCustomer.customer.getUsername());
+    }
+
+    @FXML private void switchMode(ActionEvent event){
+        ThemeController.switchMode(parent);
+        try {
+            FXRouter.setAnimationType("fade",250);
+            FXRouter.goTo("market-place");
+            FXRouter.setAnimationType("fade",0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sortByLatest() {

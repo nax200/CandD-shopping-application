@@ -164,7 +164,7 @@
                                 <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="379.0">
                                     <children>
                                         <HBox prefHeight="59.0" prefWidth="61.0" />
-                                        <Label fx:id="errorLabel" alignment="CENTER" textFill="#df0000">
+                                        <Label fx:id="errorLabel" alignment="CENTER" styleClass="text-red" textFill="#df0000">
                                             <font>
                                                 <Font name="Kanit Light" size="13.0" />
                                             </font>

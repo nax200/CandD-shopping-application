@@ -23,6 +23,7 @@ public class Order {
         this.buyer = buyer;
         this.product = product;
         this.quantity = quantity;
+        this.trackingNumber = "";
     }
 
     // ตอนอ่านจาก csv

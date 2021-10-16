@@ -397,7 +397,10 @@
                                                 <HBox prefHeight="9.0" prefWidth="270.0" />
                                                 <HBox prefHeight="37.0" prefWidth="270.0">
                                                     <children>
-                                                        <ChoiceBox prefHeight="25.0" prefWidth="105.0" styleClass="choiceBox-grey-border" />
+                                                        <ChoiceBox prefHeight="25.0" prefWidth="105.0" styleClass="choiceBox-grey-border">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></ChoiceBox>
                                                     </children>
                                                 </HBox>
                                                 <HBox prefHeight="21.0" prefWidth="270.0" />

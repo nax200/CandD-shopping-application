@@ -234,7 +234,7 @@
                                                       </HBox>
                                                    </children>
                                                 </VBox>
-                                                <TextArea fx:id="addressTextArea" prefHeight="154.0" prefWidth="564.0" promptText="กรอกที่อยู่จัดส่ง" style="-fx-background-radius: 10;" wrapText="true">
+                                                <TextArea fx:id="addressTextArea" focusTraversable="false" prefHeight="154.0" prefWidth="564.0" promptText="กรอกที่อยู่จัดส่ง" style="-fx-background-radius: 10;" wrapText="true">
                                                    <font>
                                                       <Font name="Kanit Regular" size="16.0" />
                                                    </font>
@@ -284,7 +284,7 @@
                                                         </Label>
                                                         <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="350.0">
                                                             <children>
-                                                                <TextField prefHeight="36.0" prefWidth="221.0" promptText="กรอกโค้ดส่วนลด" style="-fx-background-color: #f5f5f5; -fx-background-radius: 10;">
+                                                                <TextField focusTraversable="false" prefHeight="36.0" prefWidth="221.0" promptText="กรอกโค้ดส่วนลด" style="-fx-background-radius: 10;">
                                                                     <HBox.margin>
                                                                         <Insets left="15.0" right="20.0" />
                                                                     </HBox.margin>
@@ -293,10 +293,10 @@
                                                                     </font>
                                                    <styleClass>
                                                       <String fx:value="box-grey-border" />
-                                                      <String fx:value="text-type3" />
+                                                      <String fx:value="text-type1" />
                                                    </styleClass>
                                                                 </TextField>
-                                                                <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" styleClass="button-yellow" stylesheets="@../../../css-style/normal-style.css" text="ใช้ส่วนลด" textFill="WHITE">
+                                                                <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" styleClass="button-yellow" text="ใช้ส่วนลด" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                     </font>
@@ -316,7 +316,7 @@
                                                 </VBox>
                                                 <VBox prefHeight="276.0" prefWidth="350.0">
                                                     <children>
-                                                        <Label fx:id="nameLabel11" prefHeight="56.0" prefWidth="186.0" text="สรุปรายการสั่งซื้อ" textFill="#717171">
+                                                        <Label fx:id="nameLabel11" prefHeight="56.0" prefWidth="186.0" styleClass="text-type1" text="สรุปรายการสั่งซื้อ" textFill="#717171">
                                                             <font>
                                                                 <Font name="Kanit Regular" size="20.0" />
                                                             </font>
