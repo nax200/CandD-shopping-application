@@ -40,12 +40,8 @@ public class PurchaseController implements Initializable {
     @FXML private Label price;
     @FXML private Label allProductPrice;
     @FXML private ImageView img;
-    @FXML private RadioButton ems;
-    @FXML private RadioButton registered;
-    @FXML private Label shippingCost;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
-    @FXML private Label messageLabel;
     @FXML private Label messageLabel2;
     @FXML private Label quantityLabel;
     @FXML private Label quantity;
@@ -73,29 +69,13 @@ public class PurchaseController implements Initializable {
     public void setChosenProduct() {
         productName.setText(product.getName());
         productPrice.setText(product.getPriceString());
-        price.setText( ""+order.getTotalPrice() );
+        price.setText(String.format("%.2f", order.getTotalPrice()));
         Image image = new Image("file:"+product.getImageFilePath(),true);
         img.setImage(image);
         allProductPrice.setText(String.format("%.2f", order.getTotalPrice() ));
         quantityLabel.setText( ""+order.getQuantity() );
         quantity.setText( ""+order.getQuantity() );
 
-    }
-
-    @FXML void shipping() {
-        double price = 0;
-        if (ems.isSelected()) {
-            int emsPrice = 35;
-            price += order.getTotalPrice() + emsPrice;
-            shippingCost.setText(emsPrice + "");
-            allProductPrice.setText(String.format("%.2f", price));
-        }
-        else if (registered.isSelected()) {
-            int registeredPrice = 15;
-            price += order.getTotalPrice() + registeredPrice;
-            shippingCost.setText(registeredPrice + "");
-            allProductPrice.setText(String.format("%.2f", price));
-        }
     }
 
     @FXML
@@ -160,30 +140,25 @@ public class PurchaseController implements Initializable {
             return;
         }
         try {
-            if (ems.isSelected() || registered.isSelected()) {
-                DataSource<OrderList> dataSource;
-                dataSource = new OrderFileDataSource();
-                OrderList orderList = dataSource.readData();
+            DataSource<OrderList> dataSource;
+            dataSource = new OrderFileDataSource();
+            OrderList orderList = dataSource.readData();
 
-                order.setAddedTime(LocalDateTime.now());
-                order.setOrderNo( "R"+ String.format("%05d", orderList.count()+1));
-                order.setAddress( addressTextArea.getText() );
-                orderList.addOrder(order);
-                dataSource.writeData(orderList);
+            order.setAddedTime(LocalDateTime.now());
+            order.setOrderNo( "R"+ String.format("%05d", orderList.count()+1));
+            order.setAddress( addressTextArea.getText() );
+            orderList.addOrder(order);
+            dataSource.writeData(orderList);
 
-                DataSource<ProductList> dataSource2;
-                dataSource2 = new ProductFileDataSource();
-                ProductList productList = dataSource2.readData();
+            DataSource<ProductList> dataSource2;
+            dataSource2 = new ProductFileDataSource();
+            ProductList productList = dataSource2.readData();
 
-                Product remaining = productList.searchByID(product.getID());
-                remaining.setRemaining(product.getRemaining()-Integer.parseInt(quantity.getText().trim()));
-                dataSource2.writeData(productList);
+            Product remaining = productList.searchByID(product.getID());
+            remaining.setRemaining(product.getRemaining()-Integer.parseInt(quantity.getText().trim()));
+            dataSource2.writeData(productList);
 
-                com.github.saacsos.FXRouter.goTo("order");
-            }
-            else {
-                messageLabel.setText("เลือกรูปแบบการจัดส่ง");
-            }
+            com.github.saacsos.FXRouter.goTo("order");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า order ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
