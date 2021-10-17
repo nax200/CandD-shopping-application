@@ -107,6 +107,18 @@
     -fx-background-color: #656363;
 }
 
+/*ปุ่มสำหรับเปลี่ยนธีม*/
+.button-for-switch-mode{
+    -fx-background-color: #606060;
+    -fx-background-radius: 100;
+}
+.button-for-switch-mode:hover{
+    -fx-background-color: #6C6C6C;
+}
+.button-for-switch-mode:pressed{
+    -fx-background-color: #777777;
+}
+
 /* ----------- Choice Box -------------- */
 
 /*choiceBox สีเทา*/

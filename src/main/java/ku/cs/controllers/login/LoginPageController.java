@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import com.github.saacsos.FXRouter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import ku.cs.controllers.ThemeController;
 import ku.cs.models.user.Customer;
@@ -26,10 +28,15 @@ public class LoginPageController implements Initializable {
     @FXML private PasswordField passwordField;
     @FXML private Label messageLabel;
     @FXML private AnchorPane parent;
+    @FXML private ImageView logoImg;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ThemeController.setTheme(parent);
+        if (!ThemeController.isLightMode){
+            Image image = new Image("/images/assets/title-bar/logo.png");
+            logoImg.setImage(image);
+        }
     }
 
     @FXML

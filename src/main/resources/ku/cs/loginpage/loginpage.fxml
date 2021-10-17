@@ -17,18 +17,17 @@
    <children>
       <HBox alignment="TOP_RIGHT" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../../../css-style/light-mode.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#switchMode" text="Button" />
+            <Button mnemonicParsing="false" onAction="#switchMode" text="Button" visible="false" />
             <VBox prefHeight="768.0" prefWidth="2.0" styleClass="primary-bg" stylesheets="@../../../css-style/light-mode.css" />
             <VBox alignment="TOP_CENTER" prefHeight="768.0" prefWidth="379.0" styleClass="bg-white" stylesheets="@../../../css-style/light-mode.css">
                <children>
                   <VBox prefHeight="54.0" prefWidth="377.0" />
                   <VBox alignment="CENTER" prefHeight="153.0" prefWidth="377.0">
                      <children>
-                        <ImageView fitHeight="107.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logoImg" fitHeight="136.0" fitWidth="336.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../images/loginpage/BrandLogo.png" />
-                           </image>
-                        </ImageView>
+                              <Image url="@../../../images/loginpage/logo-light-mode.png" />
+                           </image></ImageView>
                      </children>
                   </VBox>
                   <VBox prefHeight="72.0" prefWidth="377.0">

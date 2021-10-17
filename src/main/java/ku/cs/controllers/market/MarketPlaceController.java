@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -49,10 +50,19 @@ public class MarketPlaceController implements Initializable{
     @FXML private Label messageLabel;
     @FXML private Button searchProduct;
     @FXML private AnchorPane parent;
+    @FXML private ImageView switchModeImgBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ThemeController.setTheme(parent);
+        if (ThemeController.isLightMode){
+            Image img = new Image("/images/assets/title-bar/moon.png");
+            switchModeImgBtn.setImage(img);
+        } else {
+            Image img = new Image("/images/assets/title-bar/sun.png");
+            switchModeImgBtn.setImage(img);
+        }
+
         sortByLatest();
         sortComboBox.getItems().addAll("ล่าสุด","ราคาน้อยไปมาก", "ราคามากไปน้อย");
         categoryComboBox.getItems().addAll("เครื่องแต่งกาย", "เสื้อผ้าแฟชั่น");

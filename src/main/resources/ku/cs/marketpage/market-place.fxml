@@ -127,7 +127,28 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </VBox>
-                  <Button mnemonicParsing="false" onAction="#switchMode" text="เปลี่ยนโหมด" />
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="320.0" prefWidth="215.0">
+                     <children>
+                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchMode" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 100;" styleClass="button-for-switch-mode">
+                           <graphic>
+                              <ImageView fx:id="switchModeImgBtn" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/assets/title-bar/moon.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" />
+                     </VBox.margin>
+                  </VBox>
                     </children>
                 </VBox>
             </left>

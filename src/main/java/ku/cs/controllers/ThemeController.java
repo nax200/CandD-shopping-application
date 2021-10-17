@@ -3,7 +3,7 @@ package ku.cs.controllers;
 import javafx.scene.layout.AnchorPane;
 
 public class ThemeController {
-    public static boolean isLightMode;
+    public static boolean isLightMode = true;
 
     public static void switchMode(AnchorPane parent){
         isLightMode = !isLightMode;
