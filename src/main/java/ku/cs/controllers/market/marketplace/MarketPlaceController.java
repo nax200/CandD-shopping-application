@@ -27,11 +27,13 @@ import ku.cs.models.shop.product.Product;
 import java.io.IOException;
 import com.github.saacsos.FXRouter;
 import ku.cs.models.shop.product.ProductList;
+import ku.cs.models.shop.ProductTypeList;
 import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ConditionFilterer;
 import ku.cs.services.ProductFileDataSource;
 import javafx.scene.control.TextField;
+import ku.cs.services.ProductTypeFileDataSource;
 import javax.imageio.ImageIO;
 
 
@@ -65,13 +67,20 @@ public class MarketPlaceController implements Initializable{
 
         sortByLatest();
         sortComboBox.getItems().addAll("ล่าสุด","ราคาน้อยไปมาก", "ราคามากไปน้อย");
-        categoryComboBox.getItems().addAll("เครื่องแต่งกาย", "เสื้อผ้าแฟชั่น");
+
+        DataSource<ProductTypeList> dataSource;
+        dataSource = new ProductTypeFileDataSource();
+        ProductTypeList productTypeList = dataSource.readData();
+        String type = productTypeList.toString().replaceAll("\\[|\\]", "");
+        String[] strings = type.split(", ");
+        categoryComboBox.getItems().addAll(strings);
         categoryComboBox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 selectedType();
             }
         });
+
         sortComboBox.setValue("ล่าสุด");
         sortComboBox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -127,6 +136,8 @@ public class MarketPlaceController implements Initializable{
     }
 
     public void sortByLatest() {
+        listProduct.getChildren().removeAll();
+        listProduct.getChildren().setAll();
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -161,6 +172,8 @@ public class MarketPlaceController implements Initializable{
     }
 
     public void sortByLatest(ConditionFilterer<Product> filterer) {
+        listProduct.getChildren().removeAll();
+        listProduct.getChildren().setAll();
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -210,6 +223,8 @@ public class MarketPlaceController implements Initializable{
     }
 
     public void sortByPriceMaxToMin() {
+        listProduct.getChildren().removeAll();
+        listProduct.getChildren().setAll();
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -244,6 +259,8 @@ public class MarketPlaceController implements Initializable{
     }
 
     public void sortByPriceMaxToMin(ConditionFilterer<Product> filterer){
+        listProduct.getChildren().removeAll();
+        listProduct.getChildren().setAll();
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -293,6 +310,8 @@ public class MarketPlaceController implements Initializable{
     }
 
     public void sortByPriceMinToMax() {
+        listProduct.getChildren().removeAll();
+        listProduct.getChildren().setAll();
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -327,6 +346,8 @@ public class MarketPlaceController implements Initializable{
     }
 
     public void sortByPriceMinToMax(ConditionFilterer<Product> filterer) {
+        listProduct.getChildren().removeAll();
+        listProduct.getChildren().setAll();
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
@@ -516,6 +537,8 @@ public class MarketPlaceController implements Initializable{
     }
 
     public void clearSearch() {
+        listProduct.getChildren().removeAll();
+        listProduct.getChildren().setAll();
         priceMinTextField.clear();
         priceMaxTextField.clear();
         searchTextField.clear();

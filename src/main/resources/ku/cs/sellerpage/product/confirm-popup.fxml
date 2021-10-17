@@ -273,7 +273,7 @@
                                                 <HBox prefHeight="45.0" prefWidth="15.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextField fx:id="type" alignment="CENTER" editable="false" focusTraversable="false" minHeight="25.0" prefHeight="25.0" prefWidth="110.0" text="10">
+                                                      <TextField fx:id="type" editable="false" focusTraversable="false" minHeight="25.0" prefHeight="25.0" prefWidth="231.0" text="10">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>

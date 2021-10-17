@@ -4,7 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -113,7 +113,7 @@
                 </HBox>
                 <HBox prefHeight="54.0" prefWidth="201.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#handleShippedOrderButton" prefHeight="56.0" prefWidth="201.0" text="จัดส่งแล้ว   " textFill="#6f6f6f">
+                        <Button mnemonicParsing="false" onAction="#handleShippedOrderButton" prefHeight="56.0" prefWidth="201.0" text="จัดส่งแล้ว      " textFill="#6f6f6f">
                             <font>
                                 <Font name="Kanit Regular" size="15.0" />
                             </font>
@@ -395,12 +395,14 @@
                                                     </children>
                                                 </HBox>
                                                 <HBox prefHeight="9.0" prefWidth="270.0" />
-                                                <HBox prefHeight="37.0" prefWidth="270.0">
+                                                <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="270.0">
                                                     <children>
-                                                        <ChoiceBox prefHeight="25.0" prefWidth="105.0" styleClass="choiceBox-grey-border">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor></ChoiceBox>
+                                          <ComboBox fx:id="categoryComboBox" prefHeight="26.0" prefWidth="269.0">
+                                             <styleClass>
+                                                <String fx:value="choiceBox-grey-border" />
+                                                <String fx:value="text-type1" />
+                                             </styleClass>
+                                          </ComboBox>
                                                     </children>
                                                 </HBox>
                                                 <HBox prefHeight="21.0" prefWidth="270.0" />

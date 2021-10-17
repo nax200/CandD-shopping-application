@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,6 +19,10 @@ import javafx.stage.StageStyle;
 import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.product.Product;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.models.shop.ProductTypeList;
+import ku.cs.services.DataSource;
+import javafx.scene.control.ComboBox;
+import ku.cs.services.ProductTypeFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -31,18 +32,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EditProductController implements Initializable {
-    @FXML private Button cancelButton;
     @FXML private TextField nameTextField;
     @FXML private TextArea detailTextArea;
     @FXML private TextField priceTextField;
     @FXML private TextField remainingTextField;
     @FXML private TextField numRemainWarningTextField;
-    @FXML private Button SaveAddDataButton;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
     @FXML private ImageView productImage;
     @FXML private Label messageLabel;
     @FXML private AnchorPane parent;
+    @FXML private ComboBox<String> categoryComboBox;
 
     private File imageFile;
     private Product product;
@@ -68,9 +68,17 @@ public class EditProductController implements Initializable {
         priceTextField.setText( product.getPriceString() );
         remainingTextField.setText( ""+product.getRemaining() );
         numRemainWarningTextField.setText( ""+product.getNumRemainWarning() );
+        categoryComboBox.setValue(product.getType());
         Image productImg = new Image("file:"+product.getImageFilePath(),true);
         imageFile = new File( product.getImageFilePath() );
         productImage.setImage(productImg);
+
+        DataSource<ProductTypeList> dataSource;
+        dataSource = new ProductTypeFileDataSource();
+        ProductTypeList productTypeList = dataSource.readData();
+        String type = productTypeList.toString().replaceAll("\\[|\\]", "");
+        String[] strings = type.split(", ");
+        categoryComboBox.getItems().addAll(strings);
     }
 
     @FXML
@@ -98,7 +106,7 @@ public class EditProductController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.initStyle(StageStyle.UNDECORATED);
             ConfirmPopupController confirmPopupController = fxmlLoader.getController();
-            Product previewProduct = new Product(product.getID(),name,price,remaining,numRemainWarning,"",detail,imageFile.toPath()+"");
+            Product previewProduct = new Product(product.getID(),name,price,remaining,numRemainWarning,categoryComboBox.getValue(),detail,imageFile.toPath()+"");
             confirmPopupController.setData(previewProduct);
             confirmPopupController.initData(stage);
             stage.showAndWait();

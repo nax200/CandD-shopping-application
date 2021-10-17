@@ -24,23 +24,9 @@ public class Product {
         this.price = price;
         this.remaining = remaining;
         this.numRemainWarning = numRemainWarning;
+        this.type = type;
         this.detail = detail;
         this.imageFilePath = imageFilePath;
-    }
-
-    public Product(LocalDateTime addedTime, String ID,String shopName, String name, double price, int remaining,
-                   double rating, String imageFilePath, String detail, int numRemainWarning)
-    {
-        this.addedTime = addedTime;
-        this.ID = ID;
-        this.shopName = shopName;
-        this.name = name;
-        this.price = price;
-        this.remaining = remaining;
-        this.rating = rating;
-        this.imageFilePath = imageFilePath;
-        this.detail = detail;
-        this.numRemainWarning = numRemainWarning;
     }
 
     public Product(LocalDateTime addedTime, String ID,String shopName, String name, double price, int remaining,
@@ -167,6 +153,9 @@ public class Product {
         this.type = type;
     }
 
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
     //--------- METHOD --------------
 
     public void increaseRemain() {
