@@ -230,12 +230,12 @@
                                           <Font name="Kanit Regular" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="139.0" styleClass="text-type1" text="ราคา">
+                                    <Label alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="84.0" styleClass="text-type1" text="ราคา">
                                        <font>
                                           <Font name="Kanit Regular" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="126.0" styleClass="text-type1" text="จำนวนสินค้าในคลัง">
+                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="215.0" styleClass="text-type1" text="จำนวนสินค้าในคลัง">
                                        <font>
                                           <Font name="Kanit Regular" size="15.0" />
                                        </font>
