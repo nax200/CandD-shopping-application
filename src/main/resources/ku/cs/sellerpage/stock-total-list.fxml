@@ -36,7 +36,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="124.0">
                <children>
-                  <Label fx:id="nameProduct" alignment="CENTER" prefHeight="28.0" prefWidth="123.0" styleClass="text-type1" text="เสื้อแฟชั่น" textFill="#6f6f6f">
+                  <Label fx:id="nameProduct" alignment="CENTER" prefHeight="105.0" prefWidth="117.0" styleClass="text-type1" text="เสื้อแฟชั่น" textFill="#6f6f6f" wrapText="true">
                      <font>
                         <Font name="Kanit Regular" size="13.0" />
                      </font>

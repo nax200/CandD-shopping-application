@@ -58,8 +58,6 @@ public class ProductController implements Initializable {
     @FXML private Label productName;
     @FXML private Label productPrice;
     @FXML private TextField quantityTextField;
-    @FXML private ChoiceBox<String> color;
-    @FXML private ChoiceBox<String> size;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
     @FXML private Label remainInStock;
@@ -73,14 +71,13 @@ public class ProductController implements Initializable {
     @FXML private Label reviewCount;
     @FXML private Label ratingAverage;
     @FXML private AnchorPane parent;
+    @FXML private Label type;
     private Product product;
     private int quantity;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ThemeController.setTheme(parent);
-        color.getItems().addAll("สีแดง", "สีชมพู", "สีเหลือง", "สีฟ้า");
-        size.getItems().addAll("S", "M", "L", "XL");
         rating.setValue("");
         rating.getItems().addAll("1", "2", "3", "4", "5");
         product = (Product) FXRouter.getData();
@@ -108,6 +105,7 @@ public class ProductController implements Initializable {
         remainInStock.setText(product.getRemaining()+"");
         shopName.setText(product.getShopName());
         productDes.setText(product.getDetail());
+        type.setText(product.getType());
     }
 
     @FXML
@@ -256,16 +254,30 @@ public class ProductController implements Initializable {
     }
 
     public void increaseButton() {
+        messageLabel.setText("");
+        if (quantityTextField.getText().equals("")) {
+            quantityTextField.setText("0");
+        }
         quantity = Integer.parseInt(quantityTextField.getText());
-        quantity += 1;
-        quantityTextField.setText(quantity+"");
+
+        if (quantity < product.getRemaining()){
+            quantity += 1;
+            quantityTextField.setText(quantity+"");
+        }
+        else {
+            quantityTextField.setText(quantity+"");
+        }
     }
 
     public void decreaseButton() {
+        messageLabel.setText("");
+        if (quantityTextField.getText().equals("")) {
+            quantityTextField.setText("1");
+        }
         if (quantity > 1) {
             quantity = Integer.parseInt(quantityTextField.getText());
             quantity -= 1;
-            quantityTextField.setText(quantity + "");
+            quantityTextField.setText(quantity+"");
         }
     }
 

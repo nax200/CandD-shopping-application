@@ -60,7 +60,7 @@ public class ConfirmPopupController implements Initializable {
         price.setText(product.getPriceString());
         remain.setText(product.getRemaining()+"");
         warning.setText(product.getNumRemainWarning()+"");
-        type.setText("no type");
+        type.setText(product.getType());
         des.setText(product.getDetail());
         Image image = new Image("file:"+product.getImageFilePath(),true);
         productImage.setImage(image);
@@ -79,6 +79,7 @@ public class ConfirmPopupController implements Initializable {
             editedProduct.setPrice( product.getPrice() );
             editedProduct.setRemaining( product.getRemaining() );
             editedProduct.setNumRemainWarning( product.getNumRemainWarning() );
+            editedProduct.setType(product.getType());
             try {
                 // CREATE FOLDER IF NOT EXIST
                 File destDir = new File("images/productImage");
@@ -110,7 +111,7 @@ public class ConfirmPopupController implements Initializable {
                 Files.copy(productImg.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
 
                 Product addProduct = new Product(LocalDateTime.now(), "P" + String.format("%05d", productList.count() + 1), LoginCustomer.customer.getShopName(),
-                        product.getName(), product.getPrice(), product.getRemaining(), 0.0, destDir + "/" + filename, product.getDetail(), product.getNumRemainWarning());
+                        product.getName(), product.getPrice(), product.getRemaining(), 0.0, destDir + "/" + filename, product.getDetail(), product.getNumRemainWarning(), product.getType());
                 productList.addProduct(addProduct);
                 dataSource.writeData(productList);
             } catch (IOException e) {

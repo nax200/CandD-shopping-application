@@ -49,6 +49,7 @@ public class PurchaseController implements Initializable {
     @FXML private Label quantity;
     @FXML private TextArea addressTextArea;
     @FXML private AnchorPane parent;
+    @FXML private Label type;
     private Order order;
     private Product product;
 
@@ -79,7 +80,7 @@ public class PurchaseController implements Initializable {
         allProductPrice.setText(String.format("%.2f", order.getTotalPrice() ));
         quantityLabel.setText( ""+order.getQuantity() );
         quantity.setText( ""+order.getQuantity() );
-
+        type.setText(product.getType());
     }
 
     @FXML
