@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parent" prefHeight="768.0" prefWidth="1024.0" stylesheets="@../../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.productdetail.ProductDetailController">
+   <children>
+      <BorderPane layoutX="-19.0" layoutY="294.0" prefHeight="768.0" prefWidth="252.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="primary-bg" stylesheets="@../../../../css-style/light-mode.css" BorderPane.alignment="CENTER_LEFT">
+               <top>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="23.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <HBox alignment="CENTER" prefHeight="576.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="566.0" prefWidth="576.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="478.0" prefWidth="556.0" style="-fx-background-radius: 10;" styleClass="bg-white" stylesheets="@../../../../css-style/light-mode.css">
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="221.0">
+                                       <children>
+                                          <ImageView fx:id="img" fitHeight="189.0" fitWidth="234.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../images/marketpage/img_1.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="20.0" right="10.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox prefHeight="438.0" prefWidth="315.0">
+                                       <children>
+                                          <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="220.0">
+                                             <VBox.margin>
+                                                <Insets top="30.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label fx:id="productName" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="เสื้อแฟชั่นลายฮิต" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="23.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="220.0">
+                                             <children>
+                                                <Label styleClass="text-red" stylesheets="@../../../../css-style/light-mode.css" text="ราคา" textFill="#ff542f">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </HBox.margin>
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="productPrice" styleClass="text-red" stylesheets="@../../../../css-style/light-mode.css" text="250" textFill="#ff542f">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label styleClass="text-red" stylesheets="@../../../../css-style/light-mode.css" text="บาท" textFill="#ff542f">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="315.0">
+                                             <children>
+                                                <Label styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="สี" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <ChoiceBox fx:id="color" prefHeight="30.0" prefWidth="141.0" styleClass="choiceBox-grey-border" stylesheets="@../../../../css-style/light-mode.css">
+                                                   <HBox.margin>
+                                                      <Insets left="50.0" />
+                                                   </HBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ChoiceBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="315.0">
+                                             <children>
+                                                <Label styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="ขนาด" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <ChoiceBox fx:id="size" prefHeight="30.0" prefWidth="141.0" styleClass="choiceBox-grey-border" stylesheets="@../../../../css-style/light-mode.css">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ChoiceBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="315.0">
+                                             <children>
+                                                <Label styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="หมวดหมู่" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="type" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="เสื้อผ้าแฟชั่น" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="200.0">
+                                             <children>
+                                                <Label styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="จำนวน" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Button mnemonicParsing="false" onAction="#decreaseButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../../css-style/light-mode.css" text="-" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Bold" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="text-type1" />
+                                                      <String fx:value="button-grey-border-white-in" />
+                                                   </styleClass>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </Button>
+                                                <TextField fx:id="quantityTextField" alignment="CENTER" prefHeight="44.0" prefWidth="45.0" style="-fx-border-color: #C4C4C4;" stylesheets="@../../../../css-style/light-mode.css" text="1">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="box-grey-border" />
+                                                      <String fx:value="text-type1" />
+                                                   </styleClass>
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#increaseButton" prefHeight="40.0" prefWidth="40.0" stylesheets="@../../../../css-style/light-mode.css" text="+" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Bold" size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="text-type1" />
+                                                      <String fx:value="button-grey-border-white-in" />
+                                                   </styleClass>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="200.0">
+                                             <children>
+                                                <Label styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="จำนวนสินค้าในคลัง" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label fx:id="remainInStock" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="57" textFill="#717171">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="18.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_CENTER" prefHeight="42.0" prefWidth="310.0">
+                                             <children>
+                                                <Label fx:id="messageLabel" prefHeight="42.0" prefWidth="260.0" styleClass="text-red" textFill="#ff542f">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <MenuButton mnemonicParsing="false" prefHeight="14.0" prefWidth="17.0" styleClass="button-grey-border-white-in" stylesheets="@../../../../css-style/light-mode.css">
+                                                   <items>
+                                                      <MenuItem mnemonicParsing="false" onAction="#reportProduct" text="รายงานสินค้านี้" />
+                                                   </items>
+                                                   <HBox.margin>
+                                                      <Insets right="20.0" top="10.0" />
+                                                   </HBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="10.0" />
+                                                   </font>
+                                                </MenuButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="199.0" prefWidth="594.0" style="-fx-background-radius: 10;" styleClass="bg-white" stylesheets="@../../../../css-style/light-mode.css">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="668.0">
+                                       <children>
+                                          <Label styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="รายละเอียดสินค้า" textFill="#717171">
+                                             <font>
+                                                <Font name="Kanit Regular" size="18.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="20.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="143.0" prefWidth="556.0">
+                                       <children>
+                                          <HBox maxWidth="-Infinity" prefHeight="233.0" prefWidth="520.0" style="-fx-background-radius: 10;" styleClass="primary-bg" stylesheets="@../../../../css-style/light-mode.css">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label fx:id="productDes" alignment="TOP_LEFT" prefHeight="127.0" prefWidth="497.0" stylesheets="@../../../../css-style/light-mode.css" textFill="#717171" wrapText="true">
+                                                   <font>
+                                                      <Font name="Kanit Regular" size="16.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" top="5.0" />
+                                                   </HBox.margin>
+                                                   <styleClass>
+                                                      <String fx:value="primary-bg" />
+                                                      <String fx:value="text-type1" />
+                                                   </styleClass>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" right="20.0" top="15.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="711.0" prefWidth="390.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="703.0" prefWidth="390.0" style="-fx-background-radius: 10;" styleClass="bg-white" stylesheets="@../../../../css-style/light-mode.css">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="110.0">
+                                             <children>
+                                                <ImageView fx:id="imageShop" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../../images/marketpage/img_15.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <VBox prefHeight="100.0" prefWidth="177.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <VBox prefHeight="100.0" prefWidth="228.0">
+                                                   <children>
+                                                      <Label fx:id="shopName" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="ร้านมั่งมี ร่ำรวยเงินทอง" textFill="#717171">
+                                                         <font>
+                                                            <Font name="Kanit Regular" size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="15.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="280.0">
+                                                         <children>
+                                                            <Button mnemonicParsing="false" onAction="#goToShopButton" prefHeight="3.0" prefWidth="85.0" styleClass="button-yellow" stylesheets="@../../../../css-style/light-mode.css" text="ดูร้านค้า" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Kanit Regular" size="16.0" />
+                                                               </font>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="433.0" prefWidth="358.0" style="-fx-background-radius: 10;" styleClass="primary-bg" stylesheets="@../../../../css-style/light-mode.css">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <HBox prefHeight="61.0" prefWidth="358.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="49.0" prefWidth="158.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Label styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="รีวิวสินค้า" textFill="#717171">
+                                                               <font>
+                                                                  <Font name="Kanit Regular" size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="reviewCount" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="(0)" textFill="#717171">
+                                                               <font>
+                                                                  <Font name="Kanit Regular" size="16.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="5.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="10.0" />
+                                                         </padding>
+                                                         <VBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <HBox prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Label fx:id="ratingAverage" styleClass="text-red" stylesheets="@../../../../css-style/light-mode.css" text="4.0 / 5" textFill="#ff542f">
+                                                               <font>
+                                                                  <Font name="Kanit Regular" size="16.0" />
+                                                               </font>
+                                                               <padding>
+                                                                  <Insets left="10.0" />
+                                                               </padding>
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" />
+                                             </children>
+                                          </HBox>
+                                          <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="277.0" prefWidth="326.0" styleClass="primary-bg" stylesheets="@../../../../css-style/light-mode.css">
+                                             <content>
+                                                <VBox fx:id="commentProduct" prefHeight="287.0" prefWidth="309.0" styleClass="primary-bg" stylesheets="@../../../../css-style/light-mode.css" />
+                                             </content>
+                                          </ScrollPane>
+                                          <HBox prefHeight="69.0" prefWidth="358.0">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="97.0" prefWidth="354.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="46.0">
+                                                         <children>
+                                                            <Circle fx:id="imageProfileComment" fill="WHITE" radius="22.0" stroke="#e2e2e2" strokeType="INSIDE" />
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="18.0" />
+                                                         </HBox.margin>
+                                                      </VBox>
+                                                      <TextField fx:id="messageComment" prefHeight="39.0" prefWidth="173.0" promptText="เขียนรีวิวสินค้า" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" stylesheets="@../../../../css-style/light-mode.css">
+                                                         <font>
+                                                            <Font name="Kanit Regular" size="16.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" right="5.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <ComboBox fx:id="rating" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="70.0" style="-fx-background-radius: 10;" stylesheets="@../../../../css-style/light-mode.css">
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                         <styleClass>
+                                                            <String fx:value="choiceBox-grey-border" />
+                                                            <String fx:value="text-type1" />
+                                                         </styleClass>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </ComboBox>
+                                                      <VBox alignment="CENTER" prefHeight="97.0" prefWidth="52.0">
+                                                         <children>
+                                                            <Button mnemonicParsing="false" onAction="#sendComment" prefHeight="34.0" prefWidth="38.0" styleClass="primary-bg" stylesheets="@../../../../css-style/light-mode.css">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                               <graphic>
+                                                                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                                                                     <image>
+                                                                        <Image url="@../../../../images/marketpage/img_21.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER" prefHeight="46.0" prefWidth="390.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#backToMarketPlaceButton" prefHeight="50.0" prefWidth="115.0" stylesheets="@../../../../css-style/light-mode.css" text="ย้อนกลับ" textFill="#717171">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets top="15.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <styleClass>
+                                                <String fx:value="button-grey-border-white-in" />
+                                                <String fx:value="text-type1" />
+                                             </styleClass>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#goToPurchase" prefHeight="50.0" prefWidth="200.0" styleClass="button-yellow" stylesheets="@../../../../css-style/light-mode.css" text="สร้างคำสั่งซื้อ" textFill="WHITE">
+                                             <font>
+                                                <Font name="Kanit Regular" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="15.0" top="15.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+            </BorderPane>
+         </center>
+         <top>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="785.0" styleClass="title-tab-yellow" stylesheets="@../../../../css-style/light-mode.css" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="57.0" prefWidth="184.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fitHeight="76.8" fitWidth="152.96" onMouseClicked="#clickLogoBackToMarketPlace" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                 <image>
+                                    <Image url="@../../../../images/marketpage/img_14.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0">
+                           <children>
+                              <Label text="หน้ารายละเอียดสินค้า" textFill="WHITE">
+                                 <font>
+                                    <Font name="Kanit Regular" size="22.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0" visible="false" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="242.0" styleClass="title-tab-yellow" stylesheets="@../../../../css-style/light-mode.css" HBox.hgrow="ALWAYS">
+                     <children>
+                        <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow" stylesheets="@../../../../css-style/light-mode.css">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="แก้ไขข้อมูลส่วนตัว" />
+                              <MenuItem mnemonicParsing="false" onAction="#goToOpenShop" text="ร้านค้าของฉัน" />
+                              <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
+                           </items>
+                           <graphic>
+                              <ImageView fitHeight="56.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../images/assets/title-bar/menu.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Kanit Regular" size="13.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </MenuButton>
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="50.0" prefWidth="309.0">
+                           <children>
+                              <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" prefHeight="40.0" prefWidth="165.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                       <children>
+                                          <Circle fx:id="imageProfileTitle" fill="WHITE" radius="17.5" stroke="#e2e2e2" strokeType="INSIDE" />
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="usernameLabel" prefHeight="31.0" prefWidth="118.0" styleClass="text-type2" stylesheets="@../../../../css-style/normal-style.css" textFill="#717171">
+                                       <font>
+                                          <Font name="Kanit Regular" size="20.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -1,12 +1,9 @@
 package ku.cs.models.user;
 
-import ku.cs.models.shop.Comment;
 import ku.cs.services.ConditionFilterer;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 

@@ -1,7 +1,7 @@
 package ku.cs.services;
 
-import ku.cs.models.shop.Product;
-import ku.cs.models.shop.ProductList;
+import ku.cs.models.shop.product.Product;
+import ku.cs.models.shop.product.ProductList;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

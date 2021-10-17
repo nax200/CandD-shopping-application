@@ -1,5 +1,6 @@
 package ku.cs.models.shop;
 
+import ku.cs.models.shop.product.ProductList;
 import ku.cs.models.user.Customer;
 import ku.cs.models.user.User;
 import ku.cs.models.user.UserList;

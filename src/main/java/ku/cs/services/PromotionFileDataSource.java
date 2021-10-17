@@ -1,8 +1,8 @@
 package ku.cs.services;
 
-import ku.cs.models.shop.PromotionBaht;
-import ku.cs.models.shop.PromotionList;
-import ku.cs.models.shop.PromotionPercent;
+import ku.cs.models.shop.promotion.PromotionBaht;
+import ku.cs.models.shop.promotion.PromotionList;
+import ku.cs.models.shop.promotion.PromotionPercent;
 
 import java.io.*;
 

@@ -1,11 +1,9 @@
 package ku.cs.services;
 
-import ku.cs.models.shop.Comment;
-import ku.cs.models.shop.CommentList;
-import ku.cs.models.shop.Product;
+import ku.cs.models.shop.comment.Comment;
+import ku.cs.models.shop.comment.CommentList;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 

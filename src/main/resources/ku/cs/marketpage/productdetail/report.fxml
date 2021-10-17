@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parent" maxHeight="400.0" maxWidth="500.0" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: #717171; -fx-border-width: 0.5;" styleClass="bg-white" stylesheets="@../../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.productdetail.ReportPopupController">
+   <children>
+      <Button layoutX="67.0" layoutY="349.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="37.0" prefWidth="175.0" text="ยกเลิก">
+         <font>
+            <Font name="Kanit Regular" size="14.0" />
+         </font>
+         <styleClass>
+            <String fx:value="button-grey-border-white-in" />
+            <String fx:value="text-type1" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="255.0" layoutY="351.0" mnemonicParsing="false" onAction="#confirmButton" prefHeight="33.0" prefWidth="175.0" styleClass="button-yellow" text="ตกลง">
+         <font>
+            <Font name="Kanit Regular" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label layoutX="66.0" layoutY="81.0" prefHeight="23.0" prefWidth="175.0" style="-fx-font-family: Kanit;" styleClass="text-type1" text="ชื่อสินค้า/ผู้ใช้ที่จะรายงาน" textFill="#717171">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextField" editable="false" layoutX="241.0" layoutY="78.0" minHeight="30.0" prefHeight="30.0" prefWidth="189.0" style="-fx-background-radius: 10;" styleClass="box-text-field-grey">
+         <font>
+            <Font name="Kanit Regular" size="14.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="reportTypeComboBox" layoutX="241.0" layoutY="126.0" minHeight="30.0" prefHeight="30.0" prefWidth="189.0">
+         <styleClass>
+            <String fx:value="choiceBox-grey-border" />
+            <String fx:value="text-type1" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <Label layoutX="66.0" layoutY="173.0" prefHeight="23.0" prefWidth="175.0" style="-fx-font-family: Kanit;" styleClass="text-type1" text="รายงานเพิ่มเติม" textFill="#717171">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="66.0" layoutY="129.0" prefHeight="23.0" prefWidth="175.0" style="-fx-font-family: Kanit;" styleClass="text-type1" text="ประเภทการรายงาน" textFill="#717171">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="11.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="579.0" style="-fx-background-radius: 10;" styleClass="title-tab-yellow" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0">
+         <children>
+            <Label alignment="CENTER" style="-fx-font-family: Kanit;" styleClass="text-white" text="รายงานความไม่เหมาะสม">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <TextArea fx:id="detailTextArea" layoutX="66.0" layoutY="201.0" prefHeight="135.0" prefWidth="364.0" style="-fx-font-family: Kanit; -fx-background-radius: 10;" wrapText="true">
+         <styleClass>
+            <String fx:value="text-type1" />
+            <String fx:value="primary-bg" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextArea>
+   </children>
+</AnchorPane>

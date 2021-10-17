@@ -1,11 +1,8 @@
 package ku.cs.services;
 
-import ku.cs.models.admin.Report;
-import ku.cs.models.admin.ReportList;
-import ku.cs.models.admin.ReportedComment;
-import ku.cs.models.admin.ReportedProduct;
-import ku.cs.models.shop.Comment;
-import ku.cs.models.shop.CommentList;
+import ku.cs.models.report.ReportList;
+import ku.cs.models.report.ReportedComment;
+import ku.cs.models.report.ReportedProduct;
 
 import java.io.*;
 import java.time.LocalDateTime;
