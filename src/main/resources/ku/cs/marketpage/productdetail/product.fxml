@@ -9,6 +9,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -252,23 +253,20 @@
                                     </VBox>
                                     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="242.0" prefWidth="556.0">
                                        <children>
-                                          <HBox maxWidth="-Infinity" prefHeight="233.0" prefWidth="520.0" style="-fx-background-radius: 10;" styleClass="primary-bg" stylesheets="@../../../../css-style/light-mode.css">
+                                          <HBox maxWidth="-Infinity" prefHeight="233.0" prefWidth="520.0">
                                              <VBox.margin>
                                                 <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
                                              </VBox.margin>
                                              <children>
-                                                <Label fx:id="productDes" alignment="TOP_LEFT" prefHeight="216.0" prefWidth="497.0" stylesheets="@../../../../css-style/light-mode.css" textFill="#717171" wrapText="true">
+                                                <TextArea fx:id="productDes" editable="false" prefHeight="197.0" prefWidth="532.0" style="-fx-background-radius: 10;" wrapText="true">
                                                    <font>
                                                       <Font name="Kanit Regular" size="16.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets bottom="15.0" left="10.0" top="5.0" />
-                                                   </HBox.margin>
                                                    <styleClass>
-                                                      <String fx:value="primary-bg" />
+                                                      <String fx:value="bg-white" />
                                                       <String fx:value="text-type1" />
                                                    </styleClass>
-                                                </Label>
+                                                </TextArea>
                                              </children>
                                           </HBox>
                                        </children>
@@ -288,11 +286,7 @@
                                        <children>
                                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="110.0">
                                              <children>
-                                                <ImageView fx:id="imageShop" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../../../images/marketpage/img_15.png" />
-                                                   </image>
-                                                </ImageView>
+                                                <Circle fx:id="imageShop" fill="WHITE" radius="38.0" stroke="#e2e2e2" strokeType="INSIDE" />
                                              </children>
                                           </HBox>
                                           <VBox prefHeight="100.0" prefWidth="177.0" HBox.hgrow="ALWAYS">

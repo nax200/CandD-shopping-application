@@ -34,6 +34,7 @@ public class App extends Application {
         FXRouter.when("admin-reported-list", packageStr+ "adminpage/reportlist/customer/admin-report.fxml");
         FXRouter.when("admin-reported-product-list", packageStr+ "adminpage/reportlist/product/admin-report-product.fxml");
         FXRouter.when("admin-change-password", packageStr+ "adminpage/admin-change-password.fxml");
+        FXRouter.when("admin-add-product-type", packageStr+ "adminpage/admin-add-product-type.fxml");
 
         FXRouter.when("stock-total", packageStr+ "sellerpage/stock/stock-total.fxml");
         FXRouter.when("low-stock", packageStr+ "sellerpage/stock/low-stock.fxml");
@@ -41,8 +42,6 @@ public class App extends Application {
         FXRouter.when("shipped-order", packageStr+ "sellerpage/order/shipped-order.fxml");
         FXRouter.when("add-item", packageStr+ "sellerpage/product/add-product.fxml");
         FXRouter.when("edit-add-shop", packageStr+ "sellerpage/product/edit-product.fxml");
-        FXRouter.when("edit-shop", packageStr+ "sellerpage/edit-shop.fxml");
-        FXRouter.when("edit-add-shop", packageStr+ "sellerpage/edit-add-item.fxml");
 
         FXRouter.when("create-promotion", packageStr+ "sellerpage/promotion/create-promotion.fxml");
         FXRouter.when("all-promotion-create", packageStr+ "sellerpage/promotion/all-promotion.fxml");

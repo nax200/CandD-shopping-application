@@ -54,7 +54,10 @@ public class ProductTypeFileDataSource implements DataSource<ProductTypeList>{
             String line = "";
             while( (line = buffer.readLine()) != null ) {
                 String[] data = line.split(",");
-                productTypeList.addProduct( new ProductType( data[0] ) );
+                productTypeList.addProduct( new ProductType(
+                        Integer.parseInt(data[0]), //index
+                        data[1]
+                ) );
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -28,6 +28,9 @@
                                  <image>
                                     <Image url="@../../../../images/marketpage/img_1.png" />
                                  </image>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
                               </ImageView>
                            </children>
                         </HBox>

@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -29,15 +26,13 @@ import ku.cs.models.shop.comment.Comment;
 import ku.cs.models.shop.comment.CommentList;
 
 import ku.cs.models.shop.product.Product;
+import ku.cs.models.shop.product.ProductList;
 import ku.cs.models.user.Customer;
 import ku.cs.models.user.LoginCustomer;
 
-import ku.cs.services.DataSource;
-import ku.cs.services.CommentFileDataSource;
-import ku.cs.services.ConditionFilterer;
+import ku.cs.services.*;
 
 import ku.cs.models.user.UserList;
-import ku.cs.services.UserFileDataSource;
 
 
 import javax.imageio.ImageIO;
@@ -60,7 +55,7 @@ public class ProductDetailController implements Initializable {
     @FXML private Label remainInStock;
     @FXML private Circle imageProfileComment;
     @FXML private Label shopName;
-    @FXML private Label productDes;
+    @FXML private TextArea productDes;
     @FXML private ComboBox rating;
     @FXML private Label messageLabel;
     @FXML private TextField messageComment;
@@ -69,6 +64,7 @@ public class ProductDetailController implements Initializable {
     @FXML private Label ratingAverage;
     @FXML private AnchorPane parent;
     @FXML private Label type;
+    @FXML private Circle imageShop;
     private Product product;
     private int quantity;
 
@@ -90,6 +86,19 @@ public class ProductDetailController implements Initializable {
         Image image = SwingFXUtils.toFXImage(bufferedImage,null);
         imageProfileTitle.setFill(new ImagePattern(image));
         imageProfileComment.setFill(new ImagePattern(image));
+
+        DataSource<UserList> dataSource;
+        dataSource = new UserFileDataSource();
+        UserList userList = dataSource.readData();
+        Customer seller = (Customer) userList.searchByShopName(product.getShopName());
+
+        try {
+            bufferedImage = ImageIO.read( seller.getImageFile() );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        image = SwingFXUtils.toFXImage(bufferedImage, null);
+        imageShop.setFill(new ImagePattern(image));
         usernameLabel.setText(LoginCustomer.customer.getUsername());
         loadComment();
     }

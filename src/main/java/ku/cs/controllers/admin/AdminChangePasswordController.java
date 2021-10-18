@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import ku.cs.controllers.ThemeController;
 import ku.cs.models.user.Admin;
@@ -98,5 +99,12 @@ public class AdminChangePasswordController {
         }
     }
 
-
+    @FXML public void clickLogoGoToAdminUserView(MouseEvent mouseEvent){
+        try {
+            com.github.saacsos.FXRouter.goTo("admin-user-view");
+        }catch (IOException e){
+            System.err.println("ไปหน้า userList ไม่ได้");
+            System.err.println("ให้ตรวจสอบ route");
+        }
+    }
 }
