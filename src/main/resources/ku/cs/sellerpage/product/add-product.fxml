@@ -416,6 +416,9 @@
                                                       <String fx:value="choiceBox-grey-border" />
                                                       <String fx:value="text-type1" />
                                                    </styleClass>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
                                                 </ComboBox>
                                              </children>
                                           </HBox>

@@ -123,6 +123,7 @@
 
 /*choiceBox สีเทา*/
 .choiceBox-grey-border{
+    -fx-font: 14px "Kanit";
     -fx-background-color: #E2E2E2;
     -fx-background-radius: 8;
 }
@@ -165,12 +166,12 @@
 
 .text-area {
     text-area-background: #F5F5F5;
-}
-.text-area .content {
-    -fx-background-color: text-area-background ;
     -fx-border-width: 2;
     -fx-border-color: #E2E2E2;
     -fx-border-radius: 10;
+}
+.text-area .content {
+    -fx-background-color: text-area-background ;
 }
 
 .scroll-pane > .viewport {
@@ -179,6 +180,12 @@
 .scroll-pane {
     -fx-background-color: transparent;
 }
-/*.scroll-pane {*/
-/*    -fx-background: #F5F5F5;*/
-/*}*/
+
+.combo-box {
+    -fx-font-family: Kanit;
+}
+
+.menu-button {
+    -fx-font-family: Kanit;
+    -fx-text-fill: #717171;
+}

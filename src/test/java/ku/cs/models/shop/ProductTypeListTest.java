@@ -1,5 +1,6 @@
 package ku.cs.models.shop;
 
+import ku.cs.models.shop.product.ProductTypeList;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductTypeFileDataSource;
 import org.junit.jupiter.api.Test;

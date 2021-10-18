@@ -43,7 +43,7 @@ public class ProductDetailPopupController implements Initializable {
         price.setText(product.getPriceString());
         remain.setText(product.getRemaining()+"");
         warning.setText(product.getNumRemainWarning()+"");
-        type.setText("no type");
+        type.setText(product.getType());
         des.setText(product.getDetail());
         Image image = new Image("file:"+product.getImageFilePath(),true);
         productImage.setImage(image);

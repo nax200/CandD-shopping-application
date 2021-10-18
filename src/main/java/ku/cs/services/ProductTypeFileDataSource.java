@@ -1,7 +1,7 @@
 package ku.cs.services;
 
-import ku.cs.models.shop.ProductType;
-import ku.cs.models.shop.ProductTypeList;
+import ku.cs.models.shop.product.ProductType;
+import ku.cs.models.shop.product.ProductTypeList;
 
 import java.io.*;
 

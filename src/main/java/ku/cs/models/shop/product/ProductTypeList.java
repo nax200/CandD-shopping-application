@@ -1,4 +1,4 @@
-package ku.cs.models.shop;
+package ku.cs.models.shop.product;
 
 import java.util.ArrayList;
 

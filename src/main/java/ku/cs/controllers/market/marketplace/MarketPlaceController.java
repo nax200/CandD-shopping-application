@@ -27,7 +27,7 @@ import ku.cs.models.shop.product.Product;
 import java.io.IOException;
 import com.github.saacsos.FXRouter;
 import ku.cs.models.shop.product.ProductList;
-import ku.cs.models.shop.ProductTypeList;
+import ku.cs.models.shop.product.ProductTypeList;
 import ku.cs.models.user.LoginCustomer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ConditionFilterer;

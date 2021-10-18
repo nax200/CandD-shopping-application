@@ -58,7 +58,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ComboBox fx:id="statusUserReport" prefHeight="25.0" prefWidth="105.0" styleClass="choiceBox-grey-border">
+            <ComboBox fx:id="statusUserReport" prefHeight="33.0" prefWidth="124.0" styleClass="choiceBox-grey-border">
                <HBox.margin>
                   <Insets left="55.0" />
                </HBox.margin>

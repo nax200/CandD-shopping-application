@@ -19,7 +19,7 @@ import javafx.stage.StageStyle;
 import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.product.Product;
 import ku.cs.models.user.LoginCustomer;
-import ku.cs.models.shop.ProductTypeList;
+import ku.cs.models.shop.product.ProductTypeList;
 import ku.cs.services.DataSource;
 import javafx.scene.control.ComboBox;
 import ku.cs.services.ProductTypeFileDataSource;
@@ -93,13 +93,14 @@ public class EditProductController implements Initializable {
             messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วนก่อนดำเนินการ");
             return;
         }
-        String name = nameTextField.getText().trim();
-        String detail = detailTextArea.getText().trim();
-        double price = Double.parseDouble( priceTextField.getText().trim() );
-        int remaining = Integer.parseInt( remainingTextField.getText().trim() );
-        int numRemainWarning = Integer.parseInt( numRemainWarningTextField.getText().trim() );
 
         try {
+            String name = nameTextField.getText().trim();
+            String detail = detailTextArea.getText().trim();
+            double price = Double.parseDouble( priceTextField.getText().trim() );
+            int remaining = Integer.parseInt( remainingTextField.getText().trim() );
+            int numRemainWarning = Integer.parseInt( numRemainWarningTextField.getText().trim() );
+
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/sellerpage/product/confirm-popup.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
@@ -110,6 +111,8 @@ public class EditProductController implements Initializable {
             confirmPopupController.setData(previewProduct);
             confirmPopupController.initData(stage);
             stage.showAndWait();
+        } catch (IllegalArgumentException e) {
+            messageLabel.setText("โปรดใส่ประเภทข้อมูลให้ถูกต้อง");
         } catch (Exception e) {
             System.err.println("เปิดหน้าต่าง pop-up ไม่ได้");
             e.printStackTrace();

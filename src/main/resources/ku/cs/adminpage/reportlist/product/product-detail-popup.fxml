@@ -79,7 +79,7 @@
                                                 <HBox prefHeight="45.0" prefWidth="15.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextField fx:id="name" editable="false" focusTraversable="false" maxHeight="30.0" minHeight="25.0" prefHeight="25.0" prefWidth="231.0" text="test">
+                                                      <TextField fx:id="name" editable="false" focusTraversable="false" maxHeight="30.0" minHeight="25.0" prefHeight="25.0" prefWidth="231.0" text="ทดสอบชื่อสินค้า">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
@@ -117,7 +117,7 @@
                                                 <HBox prefHeight="45.0" prefWidth="15.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextField fx:id="price" alignment="CENTER" editable="false" focusTraversable="false" minHeight="25.0" prefHeight="25.0" prefWidth="110.0" text="10">
+                                                      <TextField fx:id="price" alignment="CENTER" editable="false" focusTraversable="false" minHeight="25.0" prefHeight="25.0" prefWidth="110.0" text="1000">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
@@ -273,7 +273,7 @@
                                                 <HBox prefHeight="45.0" prefWidth="15.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextField fx:id="type" alignment="CENTER" editable="false" focusTraversable="false" minHeight="25.0" prefHeight="25.0" prefWidth="110.0" text="10">
+                                                      <TextField fx:id="type" editable="false" focusTraversable="false" minHeight="25.0" prefHeight="25.0" prefWidth="230.0" text="ทดสอบประเภทสินค้า">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
@@ -311,7 +311,7 @@
                                                 <HBox prefHeight="45.0" prefWidth="15.0" />
                                                 <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="247.0" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <TextArea fx:id="des" editable="false" focusTraversable="false" prefHeight="114.0" prefWidth="229.0" text="test" wrapText="true">
+                                                      <TextArea fx:id="des" editable="false" focusTraversable="false" prefHeight="114.0" prefWidth="229.0" text="ทดสอบรายละเอียด" wrapText="true">
                                                          <font>
                                                             <Font name="Kanit Regular" size="14.0" />
                                                          </font>
