@@ -74,6 +74,8 @@ public class MarketPlaceController implements Initializable{
         String type = productTypeList.toString().replaceAll("\\[|\\]", "");
         String[] strings = type.split(", ");
         categoryComboBox.getItems().addAll(strings);
+        categoryComboBox.setValue("");
+        categoryLabel.setText("ทั้งหมด");
         categoryComboBox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -109,6 +111,8 @@ public class MarketPlaceController implements Initializable{
             public void handle(ActionEvent event) {
                 listProduct.getChildren().removeAll();
                 listProduct.getChildren().setAll();
+                categoryComboBox.setValue("");
+                categoryLabel.setText("ทั้งหมด");
                 searchProduct();
             }
         });
@@ -399,6 +403,8 @@ public class MarketPlaceController implements Initializable{
     public void searchByPrice() {
         listProduct.getChildren().removeAll();
         listProduct.getChildren().setAll();
+        categoryComboBox.setValue("");
+        categoryLabel.setText("ทั้งหมด");
         sortComboBox.setValue("ล่าสุด");
         messageLabel.setText("");
         if (priceMinTextField.getText().equals("") || priceMaxTextField.getText().equals("")) {
@@ -498,7 +504,22 @@ public class MarketPlaceController implements Initializable{
                         return product.getPrice() >= Double.parseDouble(priceMinTextField.getText()) && product.getPrice() <= Double.parseDouble(priceMaxTextField.getText()) && product.getName().equals(searchTextField.getText());
                     }
                 };
+                categoryComboBox.setValue("");
+                categoryLabel.setText("ทั้งหมด");
                 searchByPrice(filterer);
+            }
+        });
+        categoryComboBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+                    @Override
+                    public boolean match(Product product) {
+                        return product.getType().equals(categoryComboBox.getValue()) && product.getName().equals(searchTextField.getText());
+                    }
+                };
+                categoryLabel.setText(categoryComboBox.getValue());
+                sortByLatest(filterer);
             }
         });
     }

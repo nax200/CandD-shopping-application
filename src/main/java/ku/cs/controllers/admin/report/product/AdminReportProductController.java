@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import ku.cs.controllers.ThemeController;
@@ -139,4 +140,24 @@ public class AdminReportProductController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
+    @FXML
+    void addProductType(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("admin-add-product-type");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า admin-add-product-type ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML public void clickLogoGoToAdminUserView(MouseEvent mouseEvent){
+        try {
+            com.github.saacsos.FXRouter.goTo("admin-user-view");
+        }catch (IOException e){
+            System.err.println("ไปหน้า userList ไม่ได้");
+            System.err.println("ให้ตรวจสอบ route");
+        }
+    }
+
 }

@@ -28,13 +28,18 @@ public class ProductTypeList {
         }
         return result;
     }
+
+    public ProductType getProductType(int i){
+        return productTypes.get(i);
+    }
+
     @Override
     public String toString() {
         return ""+productTypes;
     }
 
     public void addProduct(String type) {
-        ProductType productType = new ProductType(type);
+        ProductType productType = new ProductType(productTypes.size(), type);
         productTypes.add(productType);
     }
 }

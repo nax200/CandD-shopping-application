@@ -38,6 +38,7 @@ public class PurchaseController implements Initializable {
     @FXML private ImageView img;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
+    @FXML private Label messageLabel1;
     @FXML private Label messageLabel2;
     @FXML private Label quantityLabel;
     @FXML private Label quantity;
@@ -135,7 +136,7 @@ public class PurchaseController implements Initializable {
     @FXML
     void confirmOrder(ActionEvent event){
         if (addressTextArea.getText().equals("")){
-            messageLabel2.setText("โปรดใส่ที่อยู่จัดส่ง");
+            messageLabel1.setText("โปรดใส่ที่อยู่จัดส่ง");
             return;
         }
         try {

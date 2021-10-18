@@ -1,10 +1,16 @@
 package ku.cs.models.shop.product;
 
 public class ProductType {
+    private int index;
     private String type;
 
-    public ProductType(String type) {
+    public ProductType(int index, String type) {
+        this.index = index;
         this.type = type;
+    }
+
+    public int getIndex() {
+        return index;
     }
 
     public String getType() {
@@ -16,7 +22,7 @@ public class ProductType {
     }
 
     public String toCsv() {
-        return type;
+        return index + "," + type;
     }
 
     @Override
