@@ -42,7 +42,10 @@ public class App extends Application {
         FXRouter.when("add-item", packageStr+ "sellerpage/product/add-product.fxml");
         FXRouter.when("edit-add-shop", packageStr+ "sellerpage/product/edit-product.fxml");
         FXRouter.when("edit-shop", packageStr+ "sellerpage/edit-shop.fxml");
+        FXRouter.when("edit-add-shop", packageStr+ "sellerpage/edit-add-item.fxml");
 
+        FXRouter.when("create-promotion", packageStr+ "sellerpage/promotion/create-promotion.fxml");
+        FXRouter.when("all-promotion-create", packageStr+ "sellerpage/promotion/all-promotion.fxml");
     }
 
     public static void main(String[] args) {

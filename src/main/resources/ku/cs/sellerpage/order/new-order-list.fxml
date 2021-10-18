@@ -92,7 +92,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="116.0" prefWidth="55.0">
                            <children>
-                              <Button fx:id="addTrackingNumber" mnemonicParsing="false" onAction="#addTrackingNumber" text="เพิ่ม" textFill="#6f6f6f">
+                              <Button fx:id="addTrackingNumber" mnemonicParsing="false" onAction="#addTrackingNumber" style="-fx-border-color: #DCDADA;" text="เพิ่ม" textFill="#6f6f6f">
                                  <font>
                                     <Font name="Kanit Regular" size="13.0" />
                                  </font>

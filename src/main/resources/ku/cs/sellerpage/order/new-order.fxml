@@ -141,7 +141,7 @@
                 </HBox>
                 <HBox prefHeight="54.0" prefWidth="201.0">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="201.0" text="       โปรโมชันทั้งหมด" textFill="#6f6f6f">
+                        <Button mnemonicParsing="false" onAction="#handleAllPromotionCreateButton" prefHeight="56.0" prefWidth="201.0" text="       โปรโมชันทั้งหมด" textFill="#6f6f6f">
                             <font>
                                 <Font name="Kanit Regular" size="15.0" />
                             </font>
@@ -157,7 +157,7 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="51.0" prefWidth="201.0">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="115.0" styleClass="button-yellow" text="สร้างโปรโมชันใหม่">
+                        <Button mnemonicParsing="false" onAction="#handleCreatePromotionButton" prefHeight="29.0" prefWidth="115.0" styleClass="button-yellow" text="สร้างโปรโมชันใหม่">
                             <font>
                                 <Font name="Kanit Regular" size="11.0" />
                             </font>

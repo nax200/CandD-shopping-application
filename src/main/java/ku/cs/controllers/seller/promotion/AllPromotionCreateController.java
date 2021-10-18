@@ -1,53 +1,38 @@
-package ku.cs.controllers.seller.product;
+package ku.cs.controllers.seller.promotion;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import ku.cs.controllers.ThemeController;
-import ku.cs.models.shop.product.Product;
+import ku.cs.models.shop.promotion.Promotion;
+import ku.cs.models.shop.promotion.PromotionList;
 import ku.cs.models.user.LoginCustomer;
-import ku.cs.models.shop.product.ProductTypeList;
+import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
-import ku.cs.services.ProductTypeFileDataSource;
-import javafx.scene.control.ComboBox;
+import ku.cs.services.PromotionFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class NewProductController implements Initializable {
-    @FXML private TextField nameTextField;
-    @FXML private TextArea detailTextArea;
-    @FXML private TextField priceTextField;
-    @FXML private TextField remainingTextField;
-    @FXML private TextField numRemainWarningTextField;
+public class AllPromotionCreateController implements Initializable {
+
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
-    @FXML private ImageView productImage;
-    @FXML private Label messageLabel;
     @FXML private AnchorPane parent;
-    @FXML private ComboBox<String> categoryComboBox;
-
-    private File imageFile;
+    @FXML private VBox allPromotionVBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -61,90 +46,33 @@ public class NewProductController implements Initializable {
         Image image = SwingFXUtils.toFXImage(bufferedImage,null);
         imageProfileTitle.setFill(new ImagePattern(image));
         usernameLabel.setText(LoginCustomer.customer.getUsername());
-
-        DataSource<ProductTypeList> dataSource;
-        dataSource = new ProductTypeFileDataSource();
-        ProductTypeList productTypeList = dataSource.readData();
-        String type = productTypeList.toString().replaceAll("\\[|\\]", "");
-        String[] strings = type.split(", ");
-        categoryComboBox.getItems().addAll(strings);
-        categoryComboBox.setValue("");
-    }
-
-    @FXML
-    private void handleSaveAddDataButton() throws IOException{
-        if (    imageFile==null ||
-                nameTextField.getText().trim().equals("") ||
-                detailTextArea.getText().trim().equals("") ||
-                priceTextField.getText().trim().equals("") ||
-                remainingTextField.getText().trim().equals("") ||
-                numRemainWarningTextField.getText().trim().equals("") || categoryComboBox.getValue().equals("")
-        ){
-            messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วนก่อนดำเนินการ");
-            return;
-        }
-
-        try {
-            String name = nameTextField.getText().trim();
-            String detail = detailTextArea.getText().trim();
-            double price = Double.parseDouble( priceTextField.getText().trim() );
-            int remaining = Integer.parseInt( remainingTextField.getText().trim() );
-            int numRemainWarning = Integer.parseInt( numRemainWarningTextField.getText().trim() );
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/sellerpage/product/confirm-popup.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.initStyle(StageStyle.UNDECORATED);
-            ConfirmPopupController confirmPopupController = fxmlLoader.getController();
-            Product previewProduct = new Product("",name,price,remaining,numRemainWarning,categoryComboBox.getValue(),detail,imageFile.toPath()+"");
-            confirmPopupController.setData(previewProduct);
-            confirmPopupController.initData(stage);
-            stage.showAndWait();
-        } catch (IllegalArgumentException e){
-            messageLabel.setText("โปรดใส่ประเภทข้อมูลให้ถูกต้อง");
-        } catch (IOException e) {
-            System.err.println("เปิดหน้าต่าง pop-up ไม่ได้");
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void handleCancelButton(){
-        nameTextField.clear();
-        detailTextArea.clear();
-        priceTextField.clear();
-        remainingTextField.clear();
-        numRemainWarningTextField.clear();
-        productImage.setImage(null);
-    }
-
-    @FXML
-    public void browseImage(){
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("เลือกรูปภาพ...");
-
-        // ใช้ filter เพื่อกรองเอาแต่ไฟล์ jpg และ png
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
-
-        String userDirectoryString = System.getProperty("user.home");
-        File userDirectory = new File(userDirectoryString);
-
-        fileChooser.setInitialDirectory(userDirectory);
-
-        imageFile = fileChooser.showOpenDialog(null);
-
-        if (imageFile != null)
-        {
+        DataSource<PromotionList> dataSource;
+        dataSource = new PromotionFileDataSource();
+        PromotionList promotionList = dataSource.readData();
+        ConditionFilterer<Promotion> filterer = new ConditionFilterer<Promotion>() {
+            @Override
+            public boolean match(Promotion promotion) {
+                return promotion.isShopName(LoginCustomer.customer.getUsername());
+            }
+        };
+        ArrayList<Promotion> promotions = promotionList.filter(filterer);
+        for(int i = 0 ;i < promotions.size();i++){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/promotion/promotion-list.fxml"));
             try {
-                BufferedImage bufferedImage = ImageIO.read(imageFile);
-                Image img = SwingFXUtils.toFXImage(bufferedImage, null);
-                productImage.setImage(img);
-            } catch (Exception e) {
-                System.err.println("เกิดปัญหาในการเลือกไฟล์");
+                AnchorPane anchorPane = fxmlLoader.load();
+                PromotionListController promotionListController = fxmlLoader.getController();
+                promotionListController.setData(promotions.get(i));
+                allPromotionVBox.getChildren().add(anchorPane);
+            }
+            catch (IOException e){
+                e.printStackTrace();
             }
         }
     }
+
+
+
 
     @FXML
     public void handleLowStockButton(ActionEvent actionEvent) {
@@ -154,7 +82,6 @@ public class NewProductController implements Initializable {
             System.err.println("ไปที่หน้า low-stock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
 
     @FXML
@@ -259,14 +186,6 @@ public class NewProductController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-    @FXML
-    void handleAllPromotionCreateButton(ActionEvent event) {
-        try {
-            com.github.saacsos.FXRouter.goTo("all-promotion-create");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า all-promotion-create ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
+
 
 }

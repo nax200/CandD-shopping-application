@@ -64,8 +64,9 @@ public class PromotionFileDataSource implements DataSource<PromotionList>{
                                     data[1], //reportId
                                     data[2], //reportedUsername
                                     data[3], //promotionShopName
-                                    Integer.parseInt(data[4]), //minimumAmount
-                                    Double.parseDouble(data[5]) // baht
+                                    data[4], //useCondition
+                                    Double.parseDouble(data[5]), //minimumAmount
+                                    Double.parseDouble(data[6])// baht
                             ));
 
                 else if (data[0].equals("PromotionPercent")) {
@@ -73,8 +74,9 @@ public class PromotionFileDataSource implements DataSource<PromotionList>{
                             data[1], //promotionName
                             data[2], //promotionCode
                             data[3], //promotionShopName
-                            Double.parseDouble(data[4]), //minimumPurchase
-                            Double.parseDouble(data[5])//Percent
+                            data[4], //useCondition
+                            Double.parseDouble(data[5]), //minimumAmount
+                            Double.parseDouble(data[6])//Percent
 
                     ));
                 }

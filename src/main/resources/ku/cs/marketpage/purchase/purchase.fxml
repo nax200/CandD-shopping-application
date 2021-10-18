@@ -126,7 +126,7 @@
                                                                 </HBox>
                                                 <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="315.0">
                                                    <children>
-                                                      <Label styleClass="text-type1" stylesheets="@../../../css-style/light-mode.css" text="หมวดหมู่" textFill="#717171">
+                                                      <Label styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="หมวดหมู่" textFill="#717171">
                                                          <font>
                                                             <Font name="Kanit Regular" size="18.0" />
                                                          </font>
@@ -134,7 +134,7 @@
                                                             <Insets left="20.0" />
                                                          </HBox.margin>
                                                       </Label>
-                                                      <Label fx:id="type" styleClass="text-type1" stylesheets="@../../../css-style/light-mode.css" text="เสื้อผ้าแฟชั่น" textFill="#717171">
+                                                      <Label fx:id="type" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="เสื้อผ้าแฟชั่น" textFill="#717171">
                                                          <font>
                                                             <Font name="Kanit Regular" size="18.0" />
                                                          </font>
@@ -254,29 +254,50 @@
                                             <children>
                                                 <VBox prefHeight="133.0" prefWidth="350.0">
                                                     <children>
-                                          <HBox prefHeight="45.0" prefWidth="350.0">
-                                             <children>
-                                                              <Label prefHeight="45.0" prefWidth="123.0" styleClass="text-type1" text="โค้ดส่วนลด" textFill="#717171">
-                                                                  <font>
-                                                                      <Font name="Kanit Regular" size="20.0" />
-                                                                  </font>
-                                                   <HBox.margin>
-                                                      <Insets left="20.0" />
-                                                   </HBox.margin>
-                                                              </Label>
-                                                <Label fx:id="messageLabel2" prefHeight="45.0" prefWidth="248.0" styleClass="text-red" textFill="#ff542f">
-                                                   <font>
-                                                      <Font name="Kanit Regular" size="14.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="20.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                                        <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="350.0">
+<!--<<<<<<< HEAD:src/main/resources/ku/cs/marketpage/purchase/purchase.fxml-->
+<!--                                          <HBox prefHeight="45.0" prefWidth="350.0">-->
+<!--                                             <children>-->
+<!--                                                              <Label prefHeight="45.0" prefWidth="123.0" styleClass="text-type1" text="โค้ดส่วนลด" textFill="#717171">-->
+<!--                                                                  <font>-->
+<!--                                                                      <Font name="Kanit Regular" size="20.0" />-->
+<!--                                                                  </font>-->
+<!--                                                   <HBox.margin>-->
+<!--                                                      <Insets left="20.0" />-->
+<!--                                                   </HBox.margin>-->
+<!--                                                              </Label>-->
+<!--                                                <Label fx:id="messageLabel3" prefHeight="45.0" prefWidth="248.0" styleClass="text-red" textFill="#ff542f">-->
+<!--                                                   <font>-->
+<!--                                                      <Font name="Kanit Regular" size="14.0" />-->
+<!--                                                   </font>-->
+<!--                                                   <HBox.margin>-->
+<!--                                                      <Insets left="20.0" />-->
+<!--                                                   </HBox.margin>-->
+<!--                                                </Label>-->
+<!--                                             </children>-->
+<!--                                          </HBox>-->
+<!--                                                        <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="350.0">-->
+<!--                                                            <children>-->
+<!--                                                                <TextField focusTraversable="false" prefHeight="36.0" prefWidth="220.0" promptText="กรอกโค้ดส่วนลด" style="-fx-background-radius: 10;">-->
+<!--=======-->
+                                                        <Label fx:id="nameLabel111" prefHeight="31.0" prefWidth="97.0" styleClass="text-type1" text="โค้ดส่วนลด" textFill="#717171">
+                                                            <font>
+                                                                <Font name="Kanit Regular" size="20.0" />
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets left="15.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                          <Label fx:id="messageCodeLabel" styleClass="text-red">
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Kanit Regular" size="12.0" />
+                                             </font>
+                                          </Label>
+                                                        <HBox alignment="CENTER_LEFT" prefHeight="63.0" prefWidth="350.0">
                                                             <children>
-                                                                <TextField focusTraversable="false" prefHeight="36.0" prefWidth="220.0" promptText="กรอกโค้ดส่วนลด" style="-fx-background-radius: 10;">
+                                                                <TextField fx:id="codeIdTextField" focusTraversable="false" prefHeight="36.0" prefWidth="221.0" promptText="กรอกโค้ดส่วนลด" style="-fx-background-radius: 10;">
                                                                     <HBox.margin>
                                                                         <Insets left="15.0" right="20.0" />
                                                                     </HBox.margin>
@@ -288,7 +309,7 @@
                                                       <String fx:value="text-type1" />
                                                    </styleClass>
                                                                 </TextField>
-                                                                <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" styleClass="button-yellow" text="ใช้ส่วนลด" textFill="WHITE">
+                                                                <Button mnemonicParsing="false" onAction="#userCodeIdButton" prefHeight="36.0" prefWidth="87.0" styleClass="button-yellow" text="ใช้ส่วนลด" textFill="WHITE">
                                                                     <font>
                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                     </font>
@@ -382,12 +403,12 @@
                                                                         <Insets />
                                                                     </HBox.margin>
                                                                 </Label>
-                                                                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="173.0" styleClass="text-type1" text="0" textFill="#717171">
+                                                                <Label fx:id="discountLabel" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="173.0" styleClass="text-type1" text="0" textFill="#717171">
                                                                     <font>
                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label styleClass="text-type1" text="บาท" textFill="#717171">
+                                                                <Label fx:id="percentLabel" styleClass="text-type1" text="บาท" textFill="#717171">
                                                                     <font>
                                                                         <Font name="Kanit Regular" size="16.0" />
                                                                     </font>

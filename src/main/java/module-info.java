@@ -16,8 +16,6 @@ module ku.cs {
     exports ku.cs.controllers.admin;
     opens ku.cs.controllers.admin to javafx.fxml;
 
-    exports ku.cs.controllers.seller;
-    opens ku.cs.controllers.seller to javafx.fxml;
     exports ku.cs.controllers.market.productdetail;
     opens ku.cs.controllers.market.productdetail to javafx.fxml;
     exports ku.cs.controllers.market.marketplace;
@@ -38,5 +36,7 @@ module ku.cs {
     opens ku.cs.controllers.seller.stock to javafx.fxml;
     exports ku.cs.controllers.seller.order;
     opens ku.cs.controllers.seller.order to javafx.fxml;
+    exports ku.cs.controllers.seller.promotion;
+    opens ku.cs.controllers.seller.promotion to javafx.fxml;
 
 }

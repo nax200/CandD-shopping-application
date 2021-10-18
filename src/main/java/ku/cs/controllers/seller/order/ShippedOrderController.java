@@ -71,14 +71,14 @@ public class ShippedOrderController implements Initializable {
         for (int i = 0; i < orders.size(); i++){
 
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/order/new-order-list.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/order/shipped-order-list.fxml"));
             orderList.sort(orderComparator);
 
             try {
                 if(!orders.get(i).getTrackingNumber().isEmpty()){
                 AnchorPane anchorPane = fxmlLoader.load();
-                NewOrderListController newOrderListController = fxmlLoader.getController();
-                newOrderListController.setData(orders.get(i));
+                ShippedOrderListController shippedOrderListController = fxmlLoader.getController();
+                shippedOrderListController.setData(orders.get(i));
                 contactsLayout.getChildren().add(anchorPane);}
             } catch (IOException e) {
                 e.printStackTrace();
@@ -189,5 +189,23 @@ public class ShippedOrderController implements Initializable {
         }
     }
 
+    @FXML
+    void handleCreatePromotionButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("create-promotion");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า create-promotion ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+    @FXML
+    void handleAllPromotionCreateButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("all-promotion-create");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า all-promotion-create ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 
 }//end

@@ -159,7 +159,7 @@ public class ProductDetailController implements Initializable {
     void goToPurchase(ActionEvent event) {
         try {
             int quantity = Integer.parseInt(quantityTextField.getText());
-            Order order = new Order(LoginCustomer.customer, product, quantity);
+            Order order = new Order(LoginCustomer.customer, product, quantity,null);
             if (quantity <= 0) {
                 messageLabel.setText("จำนวนสินค้าไม่ถูกต้อง");
             } else if (quantity > product.getRemaining()) {
@@ -255,7 +255,12 @@ public class ProductDetailController implements Initializable {
         if (quantityTextField.getText().equals("")) {
             quantityTextField.setText("0");
         }
-        quantity = Integer.parseInt(quantityTextField.getText());
+        try {
+            quantity = Integer.parseInt(quantityTextField.getText());
+        } catch (NumberFormatException e) {
+            messageLabel.setText("จำนวนสินค้าไม่ถูกต้อง");
+            return;
+        }
 
         if (quantity < product.getRemaining()){
             quantity += 1;
@@ -272,7 +277,12 @@ public class ProductDetailController implements Initializable {
             quantityTextField.setText("1");
         }
         if (quantity > 1) {
-            quantity = Integer.parseInt(quantityTextField.getText());
+            try {
+                quantity = Integer.parseInt(quantityTextField.getText());
+            } catch (NumberFormatException e) {
+                messageLabel.setText("จำนวนสินค้าไม่ถูกต้อง");
+                return;
+            }
             quantity -= 1;
             quantityTextField.setText(quantity+"");
         }

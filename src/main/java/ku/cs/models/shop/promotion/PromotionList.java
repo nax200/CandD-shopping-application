@@ -2,6 +2,8 @@ package ku.cs.models.shop.promotion;
 
 import ku.cs.models.shop.order.Order;
 import ku.cs.models.user.Customer;
+import ku.cs.models.user.User;
+import ku.cs.services.ConditionFilterer;
 
 import java.util.ArrayList;
 
@@ -16,7 +18,7 @@ public class PromotionList {
 
     public Promotion searchPromotion(String code){
         for (Promotion promotion : promotions){
-            if(promotion.getPromotionCode().equals(code)){
+            if(promotion.getPromotionCode().equalsIgnoreCase(code)){
                 return promotion;
             }
         }
@@ -42,10 +44,20 @@ public class PromotionList {
         return -1;
    }
 
+    public ArrayList<Promotion> filter(ConditionFilterer<Promotion> filterer) {
+        ArrayList<Promotion> filtered = new ArrayList<>();
+        for (Promotion promotion: this.promotions) {
+            if (filterer.match(promotion)) {
+                filtered.add(promotion);
+            }
+        }
+        return filtered;
+    }
+
     public double searchPromotionToCalculator(String code,Order order){
         Promotion promotion = searchPromotion(code);
         if(promotion != null && promotion instanceof PromotionBaht){
-            return ((PromotionBaht) promotion).getCalculator(order.getTotalPrice(),order.getQuantity());
+            return ((PromotionBaht) promotion).getCalculator(order.getTotalPrice());
         }else if (promotion != null && promotion instanceof PromotionPercent){
             return ((PromotionPercent) promotion).getCalculator(order.getTotalPrice());
         }

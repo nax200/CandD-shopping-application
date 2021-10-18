@@ -53,7 +53,7 @@ public class Product {
         return this.ID.equals(ID);
     }
 
-//----------- GETTER ----------------
+   //----------- GETTER ----------------
 
 
     public LocalDateTime getAddedTime() {

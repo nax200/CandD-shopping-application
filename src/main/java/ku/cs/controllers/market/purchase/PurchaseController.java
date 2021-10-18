@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -17,11 +18,14 @@ import ku.cs.models.shop.order.Order;
 import ku.cs.models.shop.order.OrderList;
 import ku.cs.models.shop.product.Product;
 import ku.cs.models.shop.product.ProductList;
+import ku.cs.models.shop.promotion.Promotion;
+import ku.cs.models.shop.promotion.PromotionBaht;
+import ku.cs.models.shop.promotion.PromotionList;
+import ku.cs.models.shop.promotion.PromotionPercent;
 import ku.cs.models.user.LoginCustomer;
 import com.github.saacsos.FXRouter;
-import ku.cs.services.DataSource;
-import ku.cs.services.OrderFileDataSource;
-import ku.cs.services.ProductFileDataSource;
+import ku.cs.models.user.UserList;
+import ku.cs.services.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -44,6 +48,10 @@ public class PurchaseController implements Initializable {
     @FXML private TextArea addressTextArea;
     @FXML private AnchorPane parent;
     @FXML private Label type;
+    @FXML private TextField codeIdTextField;
+    @FXML private Label discountLabel;
+    @FXML private Label percentLabel;
+    @FXML private Label messageCodeLabel;
     private Order order;
     private Product product;
 
@@ -149,18 +157,61 @@ public class PurchaseController implements Initializable {
             orderList.addOrder(order);
             dataSource.writeData(orderList);
 
-            DataSource<ProductList> dataSource2;
-            dataSource2 = new ProductFileDataSource();
-            ProductList productList = dataSource2.readData();
-
-            Product remaining = productList.searchByID(product.getID());
-            remaining.setRemaining(product.getRemaining()-Integer.parseInt(quantity.getText().trim()));
-            dataSource2.writeData(productList);
-
             com.github.saacsos.FXRouter.goTo("order");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า order ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+    @FXML
+    void userCodeIdButton(ActionEvent event) {
+        discountLabel.setText("0");
+        percentLabel.setText("บาท");
+        order.setPromotion(null);
+        allProductPrice.setText(String.format("%.2f", order.getTotalPrice()));
+        DataSource<PromotionList> dataSource;
+        dataSource = new PromotionFileDataSource();
+        PromotionList promotionList = dataSource.readData();
+        DataSource<UserList> dataSourceUser;
+        dataSourceUser = new UserFileDataSource();
+        UserList userList = dataSourceUser.readData();
+        String codeInput = codeIdTextField.getText().trim();
+        if(codeInput.equals("")){
+            return;
+        }
+        Promotion promotion = promotionList.searchPromotion(codeInput);
+        if( promotion == null ) {
+            messageCodeLabel.setText("กรอกโค้ดไม่ถูกต้อง");
+            return;
+        }
+        if(!promotion.isShopName(userList.searchByShopName(product.getShopName()).getUsername())){
+            messageCodeLabel.setText("โค้ดส่วนลดไม่สามารถใช้กับร้านนี้ได้");
+            return;
+        }
+        if(promotion.getUseCondition().equals("ราคาขั้นต่ำ") && order.getTotalPrice() < promotion.getMinimumAmount()){
+            messageCodeLabel.setText("ราคาขั้นต่ำไม่ถึงที่กำหนด");
+            return;
+        }
+        if(promotion.getUseCondition().equals("จำนวนขั้นต่ำ") && order.getQuantity()< promotion.getMinimumAmount()){
+            messageCodeLabel.setText("จำนวนขั้นต่ำไม่ถึงที่กำหนด");
+            return;
+        }
+        if(promotion instanceof PromotionBaht){
+            if(((PromotionBaht) promotion).getBaht() > order.getTotalPrice()){
+                messageCodeLabel.setText("ไม่สามารถใช้ได้เนื่องจากส่วนลดมีมูลค่ามากกว่าราคาสินค้ารวม");
+                return;
+            }
+            discountLabel.setText(String.format("%.2f",((PromotionBaht) promotion).getBaht()));
+            allProductPrice.setText(String.format("%.2f",((PromotionBaht) promotion).getCalculator(order.getTotalPrice())));
+            order.setPromotion(promotion);
+            messageCodeLabel.setText("");
+
+        }else if(promotion instanceof PromotionPercent){
+            discountLabel.setText(String.format("%.2f",((PromotionPercent) promotion).getPercent()));
+            percentLabel.setText("%");
+            allProductPrice.setText(String.format("%.2f",((PromotionPercent) promotion).getCalculator(order.getTotalPrice())));
+            order.setPromotion(promotion);
+            messageCodeLabel.setText("");
         }
     }
 
