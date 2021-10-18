@@ -37,6 +37,10 @@ public class Promotion {
         return promotionShopName;
     }
 
+    public Boolean isShopName(String shopName){
+        return promotionShopName.getUsername().equals(shopName);
+    }
+
     public String toCsv(){
         return getPromotionName()+","+getPromotionCode()+","+getPromotionShopName().getUsername(); // เขียนเก็บเป็น username
     }

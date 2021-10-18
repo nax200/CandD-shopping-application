@@ -5,12 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import ku.cs.controllers.ThemeController;
-import ku.cs.models.admin.AdminUserReport;
-import ku.cs.models.shop.Comment;
-import ku.cs.models.user.Customer;
 import ku.cs.models.user.User;
 import ku.cs.models.user.UserList;
 import ku.cs.services.ConditionFilterer;
@@ -21,7 +17,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class AdminStatusController implements Initializable {

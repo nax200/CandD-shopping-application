@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -14,15 +15,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import ku.cs.controllers.ThemeController;
-import ku.cs.models.shop.Order;
-import ku.cs.models.shop.OrderList;
-import ku.cs.models.shop.Product;
-import ku.cs.models.shop.ProductList;
+import ku.cs.models.shop.*;
 import ku.cs.models.user.LoginCustomer;
 import com.github.saacsos.FXRouter;
-import ku.cs.services.DataSource;
-import ku.cs.services.OrderFileDataSource;
-import ku.cs.services.ProductFileDataSource;
+import ku.cs.models.user.UserList;
+import ku.cs.services.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -49,6 +46,10 @@ public class PurchaseController implements Initializable {
     @FXML private Label quantity;
     @FXML private TextArea addressTextArea;
     @FXML private AnchorPane parent;
+    @FXML private TextField codeIdTextField;
+    @FXML private Label discountLabel;
+    @FXML private Label percentLabel;
+    @FXML private Label messageCodeLabel;
     private Order order;
     private Product product;
 
@@ -166,6 +167,54 @@ public class PurchaseController implements Initializable {
         } catch (IOException e) {
             System.err.println("ไปที่หน้า order ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+    @FXML
+    void userCodeIdButton(ActionEvent event) {
+        discountLabel.setText("0");
+        percentLabel.setText("บาท");
+        order.setIdPromotion(null);
+        allProductPrice.setText(String.format("%.2f", order.getTotalPrice()));
+        DataSource<PromotionList> dataSource;
+        dataSource = new PromotionFileDataSource();
+        PromotionList promotionList = dataSource.readData();
+        DataSource<UserList> dataSourceUser;
+        dataSourceUser = new UserFileDataSource();
+        UserList userList = dataSourceUser.readData();
+        String codeInput = codeIdTextField.getText().trim();
+        if(codeInput.equals("")){
+            return;
+        }
+        Promotion promotion = promotionList.searchPromotion(codeInput);
+        if( promotion == null ) {
+            messageCodeLabel.setText("กรอกโค้ดไม่ถูกต้อง");
+            return;
+        }
+        if(!promotion.isShopName(userList.searchByShopName(product.getShopName()).getUsername())){
+            messageCodeLabel.setText("โค้ดส่วนลดไม่สามารถใช้กับร้านนี้ได้");
+            return;
+        }
+        if(promotion instanceof PromotionBaht){
+            if(order.getQuantity() >=((PromotionBaht) promotion).getMinimumAmount()){
+                discountLabel.setText(((PromotionBaht) promotion).getBaht()+"");
+                allProductPrice.setText(((PromotionBaht) promotion).getCalculator(order.getTotalPrice())+"");
+                order.setIdPromotion(promotion);
+                messageCodeLabel.setText("");
+            }else {
+                messageCodeLabel.setText("เงื่อนไขโค้ดไม่ถูกต้อง");
+                return;
+            }
+        }else if(promotion instanceof PromotionPercent){
+            if(order.getTotalPrice() >= ((PromotionPercent) promotion).getMinimumPurchase()){
+                discountLabel.setText(((PromotionPercent) promotion).getPercent()+"");
+                percentLabel.setText("%");
+                allProductPrice.setText(((PromotionPercent) promotion).getCalculator(order.getTotalPrice())+"");
+                order.setIdPromotion(promotion);
+                messageCodeLabel.setText("");
+            }else {
+                messageCodeLabel.setText("เงื่อนไขโค้ดไม่ถูกต้อง");
+                return;
+            }
         }
     }
 

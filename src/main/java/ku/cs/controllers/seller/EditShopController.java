@@ -136,4 +136,22 @@ public class EditShopController implements Initializable {
 
     }
 
+    @FXML
+    void handleCreatePromotionButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("create-promotion");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า create-promotion ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+    @FXML
+    void handleAllPromotionCreateButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("all-promotion-create");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า all-promotion-create ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 }

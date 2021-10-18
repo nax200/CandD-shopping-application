@@ -190,26 +190,23 @@ public class LowStockController implements Initializable {
         }
     }
 
-    private List<StockTotal> prototype() {
-        List<StockTotal> ls = new ArrayList<>();
-        StockTotal prototype = new StockTotal();
-
-        prototype.setId_Product("P2109180001");
-        prototype.setImgSrc("/images/marketpage/img_1.png");
-        prototype.setPrice("199");
-        prototype.setQuantity("3");
-        prototype.setNameProduct("เสื้อแฟชั่น");
-        ls.add(prototype);
-
-        prototype = new StockTotal();
-        prototype.setId_Product("P2109180002");
-        prototype.setImgSrc("/images/marketpage/img_6.png");
-        prototype.setPrice("259");
-        prototype.setQuantity("4");
-        prototype.setNameProduct("รองเท้าแฟชั่น");
-        ls.add(prototype);
-        return ls;
+    @FXML
+    void handleCreatePromotionButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("create-promotion");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า create-promotion ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
-
+    @FXML
+    void handleAllPromotionCreateButton(ActionEvent event) {
+        try {
+            com.github.saacsos.FXRouter.goTo("all-promotion-create");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า all-promotion-create ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 
 }//end

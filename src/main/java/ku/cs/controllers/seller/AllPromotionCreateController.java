@@ -1,65 +1,44 @@
 package ku.cs.controllers.seller;
+
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import ku.cs.controllers.ThemeController;
-import ku.cs.models.shop.Product;
-import ku.cs.models.shop.ProductList;
+import ku.cs.controllers.admin.AdminStatusListController;
+import ku.cs.models.shop.Promotion;
+import ku.cs.models.shop.PromotionList;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
-import ku.cs.services.ProductFileDataSource;
+import ku.cs.services.PromotionFileDataSource;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 
-public class EditAddItemController implements Initializable {
-    @FXML private Button cancelButton;
-    @FXML private TextField nameTextField;
-    @FXML private TextArea detailTextArea;
-    @FXML private TextField priceTextField;
-    @FXML private TextField remainingTextField;
-    @FXML private TextField numRemainWarningTextField;
-    @FXML private Button SaveAddDataButton;
+public class AllPromotionCreateController implements Initializable {
+
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
-    @FXML private ImageView productImage;
-    @FXML private Label messageLabel;
     @FXML private AnchorPane parent;
-
-    private File imageFile;
-    private Product product;
+    @FXML private VBox allPromotionVBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ThemeController.setTheme(parent);
-        // Title-bar
         BufferedImage bufferedImage = null;
         try {
             bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
@@ -69,81 +48,33 @@ public class EditAddItemController implements Initializable {
         Image image = SwingFXUtils.toFXImage(bufferedImage,null);
         imageProfileTitle.setFill(new ImagePattern(image));
         usernameLabel.setText(LoginCustomer.customer.getUsername());
-
-        // ------------------------------
-        product = (Product) com.github.saacsos.FXRouter.getData();
-        nameTextField.setText( product.getName() );
-        detailTextArea.setText( product.getDetail() );
-        priceTextField.setText( product.getPriceString() );
-        remainingTextField.setText( ""+product.getRemaining() );
-        numRemainWarningTextField.setText( ""+product.getNumRemainWarning() );
-        Image productImg = new Image("file:"+product.getImageFilePath(),true);
-        imageFile = new File( product.getImageFilePath() );
-        productImage.setImage(productImg);
-    }
-
-    @FXML
-    private void handleSaveAddDataButton(){
-        if (    imageFile==null ||
-                nameTextField.getText().trim().equals("") ||
-                detailTextArea.getText().trim().equals("") ||
-                priceTextField.getText().trim().equals("") ||
-                remainingTextField.getText().trim().equals("") ||
-                numRemainWarningTextField.getText().trim().equals("")
-        ){
-            messageLabel.setText("โปรดใส่ข้อมูลให้ครบถ้วนก่อนดำเนินการ");
-            return;
-        }
-        String name = nameTextField.getText().trim();
-        String detail = detailTextArea.getText().trim();
-        double price = Double.parseDouble( priceTextField.getText().trim() );
-        int remaining = Integer.parseInt( remainingTextField.getText().trim() );
-        int numRemainWarning = Integer.parseInt( numRemainWarningTextField.getText().trim() );
-
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/marketpage/confirm-popup.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.initStyle(StageStyle.UNDECORATED);
-            ConfirmPopupController confirmPopupController = fxmlLoader.getController();
-            Product previewProduct = new Product(product.getID(),name,price,remaining,numRemainWarning,"",detail,imageFile.toPath()+"");
-            confirmPopupController.setData(previewProduct);
-            confirmPopupController.initData(stage);
-            stage.showAndWait();
-        } catch (Exception e) {
-            System.err.println("เปิดหน้าต่าง pop-up ไม่ได้");
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void browseImage(){
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("เลือกรูปภาพ...");
-
-        // ใช้ filter เพื่อกรองเอาแต่ไฟล์ jpg และ png
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
-
-        String userDirectoryString = System.getProperty("user.home");
-        File userDirectory = new File(userDirectoryString);
-
-        fileChooser.setInitialDirectory(userDirectory);
-
-        File imageFileFromChooser = fileChooser.showOpenDialog(null);
-
-        if (imageFileFromChooser != null)
-        {
+        DataSource<PromotionList> dataSource;
+        dataSource = new PromotionFileDataSource();
+        PromotionList promotionList = dataSource.readData();
+        ConditionFilterer<Promotion> filterer = new ConditionFilterer<Promotion>() {
+            @Override
+            public boolean match(Promotion promotion) {
+                return promotion.isShopName(LoginCustomer.customer.getUsername());
+            }
+        };
+        ArrayList<Promotion> promotions = promotionList.filter(filterer);
+        for(int i = 0 ;i < promotions.size();i++){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/promotion-list.fxml"));
             try {
-                BufferedImage bufferedImage = ImageIO.read(imageFileFromChooser);
-                Image img = SwingFXUtils.toFXImage(bufferedImage, null);
-                productImage.setImage(img);
-                imageFile = imageFileFromChooser;
-            } catch (Exception e) {
-                System.err.println("เกิดปัญหาในการเลือกไฟล์");
+                AnchorPane anchorPane = fxmlLoader.load();
+                PromotionListController promotionListController = fxmlLoader.getController();
+                promotionListController.setData(promotions.get(i));
+                allPromotionVBox.getChildren().add(anchorPane);
+            }
+            catch (IOException e){
+                e.printStackTrace();
             }
         }
     }
+
+
+
 
     @FXML
     public void handleLowStockButton(ActionEvent actionEvent) {
@@ -153,7 +84,6 @@ public class EditAddItemController implements Initializable {
             System.err.println("ไปที่หน้า low-stock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
 
     @FXML
@@ -258,13 +188,6 @@ public class EditAddItemController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-    @FXML
-    void handleAllPromotionCreateButton(ActionEvent event) {
-        try {
-            com.github.saacsos.FXRouter.goTo("all-promotion-create");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า all-promotion-create ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
+
+
 }

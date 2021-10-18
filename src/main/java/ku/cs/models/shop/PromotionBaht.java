@@ -36,14 +36,11 @@ public class PromotionBaht extends Promotion{
         return 0;
     }
 
-    public double getCalculator(double purchase,int quality){
-        if(purchase >= baht && quality >= minimumAmount){
-            return  purchase - baht;
-        }
-        return purchase;
+    public double getCalculator(double purchase){
+        return  purchase - baht;
     }
     @Override
     public String toCsv() {
-        return "PromotionBaht" + super.toCsv()+","+getMinimumAmount()+","+ getBaht();
+        return "PromotionBaht," + super.toCsv()+","+getMinimumAmount()+","+ getBaht();
     }
 }

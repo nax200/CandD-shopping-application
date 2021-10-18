@@ -63,7 +63,8 @@ public class OrderFileDataSource implements DataSource<OrderList> {
                                 data[3], //productID
                                 Integer.parseInt(data[4]), //quantity
                                 data[5],  //tracking number
-                                data[6]  //address
+                                data[6],  //address
+                                data[7] // idPromotion
                         )
                 );
             }

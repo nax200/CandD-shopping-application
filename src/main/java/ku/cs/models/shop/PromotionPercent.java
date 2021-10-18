@@ -43,6 +43,6 @@ public class PromotionPercent extends Promotion {
     }
     @Override
     public String toCsv(){
-        return "PromotionPercent" + super.toCsv() +","+getMinimumPurchase()+","+getPercent();
+        return "PromotionPercent," + super.toCsv() +","+getMinimumPurchase()+","+getPercent();
     }
 }

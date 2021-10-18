@@ -164,7 +164,7 @@ public class ProductController implements Initializable {
     void goToPurchase(ActionEvent event) {
         try {
             int quantity = Integer.parseInt(quantityTextField.getText());
-            Order order = new Order(LoginCustomer.customer, product, quantity);
+            Order order = new Order(LoginCustomer.customer, product, quantity,null);
             if (quantity <= 0) {
                 messageLabel.setText("จำนวนสินค้าไม่ถูกต้อง");
             } else if (quantity > product.getRemaining()) {

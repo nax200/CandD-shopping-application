@@ -5,11 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import ku.cs.controllers.ThemeController;
-import ku.cs.models.admin.AdminUser;
-import ku.cs.models.user.Admin;
 import ku.cs.models.user.Customer;
 import ku.cs.models.user.User;
 import ku.cs.models.user.UserList;
@@ -18,7 +15,6 @@ import ku.cs.services.UserFileDataSource;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -114,44 +110,5 @@ public class AdminUserController implements Initializable{
         }
     }
 
-
-
-    private List<AdminUser> adminUsers(){
-        List<AdminUser> ls = new ArrayList<>();
-        AdminUser user = new AdminUser();
-
-        user.setUsername("moss");
-        user.setImgSrc("/images/creditpage/moss.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(false);
-        ls.add(user);
-
-        user = new AdminUser();
-        user.setUsername("nax");
-        user.setImgSrc("/images/creditpage/nax.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(false);
-        ls.add(user);
-
-        user = new AdminUser();
-        user.setUsername("bam");
-        user.setImgSrc("/images/creditpage/bamboo.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(false);
-        ls.add(user);
-
-        user = new AdminUser();
-        user.setUsername("ploy");
-        user.setImgSrc("/images/creditpage/ploy.jpg");
-        user.setShopname("happyshop");
-        user.setLastlogin("NaN");
-        user.setUserBlocked(true);
-        ls.add(user);
-
-        return ls;
-    }
 
 }
