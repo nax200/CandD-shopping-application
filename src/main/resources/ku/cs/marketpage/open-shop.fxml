@@ -144,28 +144,13 @@
                                         </ImageView>
                                     </children>
                                 </HBox>
-                                <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0" HBox.hgrow="ALWAYS">
-                                    <children>
-                                        <TextField prefHeight="36.0" prefWidth="565.0" promptText="ค้นหาสินค้า" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
-                                            <font>
-                                                <Font name="Kanit Regular" size="16.0" />
-                                            </font>
-                                        </TextField>
-                                    </children>
-                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="54.0" prefWidth="558.0" HBox.hgrow="ALWAYS" />
                                 <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="38.0" HBox.hgrow="ALWAYS">
                                     <children>
                                         <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="32.0" styleClass="button-yellow">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
-                                            <graphic>
-                                                <ImageView fitHeight="28.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                                                    <image>
-                                                        <Image url="@../../../images/assets/title-bar/search.png" />
-                                                    </image>
-                                                </ImageView>
-                                            </graphic>
                                         </Button>
                                     </children>
                                 </HBox>
@@ -175,7 +160,7 @@
                             <children>
                                 <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow">
                                     <items>
-                                        <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ข้อมูลส่วนตัว" />
+                                        <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="แก้ไขข้อมูลส่วนตัว" />
                                         <MenuItem mnemonicParsing="false" onAction="#goToOpenShop" text="ร้านค้าของฉัน" />
                                         <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
                                     </items>
