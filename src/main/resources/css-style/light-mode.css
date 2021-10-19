@@ -189,3 +189,15 @@
     -fx-font-family: Kanit;
     -fx-text-fill: #717171;
 }
+
+.scroll-bar{
+ -fx-background-color: rgb(245,245,245);
+ -fx-background-radius: 2em;
+}
+.scroll-bar:vertical .thumb {
+ -fx-background-color: rgb(226,226,226);
+ -fx-background-radius: 2em;
+}
+.scroll-bar:vertical:focused {
+ -fx-background-color: transparent,rgb(96,96,96),rgb(96,96,96);
+}
