@@ -91,6 +91,11 @@ public class NewProductController implements Initializable {
             int remaining = Integer.parseInt( remainingTextField.getText().trim() );
             int numRemainWarning = Integer.parseInt( numRemainWarningTextField.getText().trim() );
 
+            if (  price < 0 || remaining < 0 || numRemainWarning < 0 ) {
+                messageLabel.setText("ไม่สามารถใส่ค่าเป็นจำนวนลบได้");
+                return;
+            }
+
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ku/cs/sellerpage/product/confirm-popup.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
@@ -117,6 +122,7 @@ public class NewProductController implements Initializable {
         remainingTextField.clear();
         numRemainWarningTextField.clear();
         productImage.setImage(null);
+        messageLabel.setText("");
     }
 
     @FXML
