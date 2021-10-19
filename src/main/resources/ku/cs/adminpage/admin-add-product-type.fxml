@@ -167,6 +167,7 @@
                                 <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="button-yellow" HBox.hgrow="ALWAYS">
                                     <items>
                                         <MenuItem mnemonicParsing="false" onAction="#goToAdminUserView" text="หน้าผู้ใช้ทั้งหมด" />
+                              <MenuItem mnemonicParsing="false" onAction="#goToEditProfile" text="ตั้งค่าบัญชี" />
                                         <MenuItem mnemonicParsing="false" onAction="#logOut" text="ออกจากระบบ" />
                                     </items>
                                     <font>

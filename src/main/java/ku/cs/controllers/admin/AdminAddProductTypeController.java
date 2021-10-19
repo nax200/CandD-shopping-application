@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.product.ProductTypeList;
+import ku.cs.models.user.User;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductTypeFileDataSource;
 import javafx.scene.input.MouseEvent;
@@ -22,10 +23,12 @@ public class AdminAddProductTypeController implements Initializable {
     @FXML private Label messageLabel;
     @FXML private TextField productTypeTextField;
     @FXML private VBox productTypeVBox;
+    private User admin;
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ThemeController.setTheme(parent);
+        admin = (User) com.github.saacsos.FXRouter.getData();
         loadProductType();
     }
 
@@ -90,6 +93,16 @@ public class AdminAddProductTypeController implements Initializable {
         }catch (IOException e){
             System.err.println("ไปหน้า userList ไม่ได้");
             System.err.println("ให้ตรวจสอบ route");
+        }
+    }
+
+    @FXML
+    void goToEditProfile(ActionEvent event){
+        try {
+            com.github.saacsos.FXRouter.goTo("admin-change-password",admin);
+        }catch (IOException e){
+            System.err.println("ไปที่หน้า admin-change-password ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 }

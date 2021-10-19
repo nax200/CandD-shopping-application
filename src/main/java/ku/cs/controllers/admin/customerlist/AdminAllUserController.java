@@ -133,7 +133,7 @@ public class AdminAllUserController implements Initializable{
     @FXML
     void addProductType(ActionEvent event) {
         try {
-            com.github.saacsos.FXRouter.goTo("admin-add-product-type");
+            com.github.saacsos.FXRouter.goTo("admin-add-product-type", admin);
         } catch (IOException e) {
             System.err.println("ไปที่หน้า admin-add-product-type ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
