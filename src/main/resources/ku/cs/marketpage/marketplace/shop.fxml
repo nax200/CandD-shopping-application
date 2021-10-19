@@ -50,11 +50,7 @@
                                             <children>
                                                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="110.0">
                                                     <children>
-                                                        <ImageView fitHeight="54.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                                            <image>
-                                                                <Image url="@../../../../images/marketpage/img_15.png" />
-                                                            </image>
-                                                        </ImageView>
+                                          <Circle fx:id="shopImg" fill="WHITE" radius="25.0" stroke="#e2e2e2" strokeType="INSIDE" />
                                                     </children>
                                                 </HBox>
                                                 <VBox alignment="CENTER" prefHeight="135.0" prefWidth="232.0" HBox.hgrow="ALWAYS">

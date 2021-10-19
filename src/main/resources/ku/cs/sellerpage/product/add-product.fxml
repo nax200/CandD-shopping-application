@@ -494,6 +494,14 @@
                                                         </Button>
                                                     </children>
                                                 </HBox>
+                                    <Label prefHeight="63.0" prefWidth="267.0" styleClass="text-type1" text="***ข้อควรระวังห้ามใส่ข้อความที่ประกอบด้วยเครื่องหมายจุลภาค ( , ) หรือการขึ้นบรรทัดใหม่เด็ดขาด***" wrapText="true">
+                                       <font>
+                                          <Font name="Kanit Regular" size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
                                             </children>
                                         </VBox>
                                     </children>

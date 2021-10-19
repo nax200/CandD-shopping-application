@@ -20,10 +20,14 @@ import javafx.scene.shape.Circle;
 import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.product.Product;
 import ku.cs.models.shop.product.ProductList;
+import ku.cs.models.user.Customer;
+import ku.cs.models.user.UserList;
 import ku.cs.services.ConditionFilterer;
 import ku.cs.services.DataSource;
 import ku.cs.services.ProductFileDataSource;
 import ku.cs.models.user.LoginCustomer;
+import ku.cs.services.UserFileDataSource;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -42,6 +46,7 @@ public class SelectedShopController implements Initializable {
     @FXML private TextField searchTextField;
     @FXML private Label countProduct;
     @FXML private AnchorPane parent;
+    @FXML private Circle shopImg;
     private Product product;
 
     @Override
@@ -49,6 +54,20 @@ public class SelectedShopController implements Initializable {
         ThemeController.setTheme(parent);
         product = (Product) FXRouter.getData();
         showShopData();
+
+        DataSource<UserList> dataSource;
+        dataSource = new UserFileDataSource();
+        UserList userList = dataSource.readData();
+        Customer seller = (Customer) userList.searchByShopName(product.getShopName());
+        BufferedImage bufferedShopImage = null;
+        try {
+            bufferedShopImage = ImageIO.read( seller.getImageFile() );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image = SwingFXUtils.toFXImage(bufferedShopImage, null);
+
+        shopImg.setFill(new ImagePattern(image));
         sortComboBox.getItems().addAll("ล่าสุด","ราคาน้อยไปมาก", "ราคามากไปน้อย");
         sortComboBox.setValue("ล่าสุด");
 
@@ -81,7 +100,7 @@ public class SelectedShopController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Image image = SwingFXUtils.toFXImage(bufferedImage,null);
+        image = SwingFXUtils.toFXImage(bufferedImage,null);
         imageProfileTitle.setFill(new ImagePattern(image));
         usernameLabel.setText(LoginCustomer.customer.getUsername());
     }
