@@ -13,6 +13,8 @@ public class Customer extends User{
     private File imageFile;
     private int loginAttempts;
 
+    // ------------ CONSTRUCTOR ------------------
+
     public Customer(String userID, String username, String password, LocalDateTime lastTimeLoggedIn, String name, boolean isBlocked, String shopName, String imageFilePath,int loginAttempts) {
         super(username, password, lastTimeLoggedIn);
         this.userID = userID;
@@ -27,9 +29,7 @@ public class Customer extends User{
         super(username, password, lastTimeLoggedIn);
     }
 
-    public boolean isShopName(String shopName){
-        return this.shopName.equals(shopName);
-    }
+    // ------------ GETTER ------------------
 
     public String getUserID() {
         return userID;
@@ -67,6 +67,8 @@ public class Customer extends User{
 
     public String getImageFilePath() { return "images/profileImage/" + imageFile.getName(); }
 
+    // ------------ SETTER ------------------
+
     public void setName(String name) {
         this.name = name;
     }
@@ -77,13 +79,15 @@ public class Customer extends User{
         this.imageFile = imageFile;
     }
 
+    public void setStatus(Boolean status){
+        this.isBlocked = status;
+    }
+
     public void resetLoginAttempts() {
         loginAttempts = 0;
     }
 
-    public void setStatus(Boolean status){
-        this.isBlocked = status;
-    }
+    // ------------ METHODS ------------------
 
     public void increaseLoginAttempt(){
         this.loginAttempts += 1;
@@ -108,6 +112,10 @@ public class Customer extends User{
 
         imageFile = new File(destDir+"/"+filename);
         LoginCustomer.customer.setImageFile(imageFile);
+    }
+
+    public boolean isShopName(String shopName){
+        return this.shopName.equals(shopName);
     }
 
     @Override

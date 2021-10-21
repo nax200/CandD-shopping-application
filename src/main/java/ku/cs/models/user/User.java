@@ -1,6 +1,5 @@
 package ku.cs.models.user;
 
-import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -9,6 +8,8 @@ public class User {
     private String password;
     private LocalDateTime lastTimeLoggedIn;
 
+    // ------------ CONSTRUCTOR ------------------
+
     public User(String username, String password,LocalDateTime lastTimeLoggedIn) {
         this.username = username;
         this.password = password;
@@ -16,25 +17,18 @@ public class User {
 
     }
 
-
-    public String toCsv() {
-        return "User," + username + "," +password + "," + lastTimeLoggedIn;
-   }
-
-    public boolean isUsername(String Username) {
-        return this.username.equals(Username);
-    }
+    // ------------ GETTER ------------------
 
     public String getUsername(){
         return username;
    }
 
-    public String getName(){ return "ไม่มีชื่อผู้ใช้";
-    }
+    public String getName(){ return "ไม่มีชื่อผู้ใช้"; }
 
     public String getPassword(){
         return password;
    }
+
     public LocalDateTime getLastTimeLoggedIn() {
         return lastTimeLoggedIn;
     }
@@ -50,6 +44,8 @@ public class User {
 
     public String getIsUserBlockedToString(){return "ปกติ";}
 
+    // ------------ SETTER ------------------
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -60,4 +56,13 @@ public class User {
         return ;
     }
 
+    // ------------ METHODS ------------------
+
+    public boolean isUsername(String Username) {
+        return this.username.equals(Username);
+    }
+
+    public String toCsv() {
+        return "User," + username + "," +password + "," + lastTimeLoggedIn;
+    }
 }

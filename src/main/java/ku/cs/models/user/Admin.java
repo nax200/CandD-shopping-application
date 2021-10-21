@@ -4,9 +4,13 @@ import java.time.LocalDateTime;
 
 public class Admin extends User{
 
+    // ------------ CONSTRUCTOR ------------------
+
     public Admin(String username, String password, LocalDateTime lastTimeLoggedIn) {
         super(username, password,lastTimeLoggedIn);
     }
+
+    // ------------ METHODS ------------------
 
     @Override
     public String toCsv() {

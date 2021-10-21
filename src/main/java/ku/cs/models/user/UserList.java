@@ -12,6 +12,10 @@ public class UserList {
 
     public UserList(){ users = new ArrayList<>();}
 
+    public User getUser(int i){
+        return users.get(i);
+    }
+
     public void addUser(User user){this.users.add(user);}
 
     public int count(){ return this.users.size();}
@@ -37,7 +41,6 @@ public class UserList {
         return null;
     }
 
-
     public boolean verifyLogin(String username, String password){
         for (User user: users){
             if (  username.equals(user.getUsername()) && password.equals(user.getPassword())  ){
@@ -49,10 +52,6 @@ public class UserList {
 
     public void setLastLogInTime(User user) {
         user.setLastTimeLoggedIn(LocalDateTime.now());
-    }
-
-    public User getUser(int i){
-        return users.get(i);
     }
 
     public void sortTime(Comparator<User> userComparator){

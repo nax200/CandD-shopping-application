@@ -39,6 +39,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -225,9 +226,19 @@ public class ProductDetailController implements Initializable {
         commentProduct.getChildren().setAll();
         DataSource<CommentList> dataSource;
         dataSource = new CommentFileDataSource();
+
+        DataSource<ProductList> productDateSource;
+        productDateSource = new ProductFileDataSource();
+        ProductList productList = productDateSource.readData();
+
         CommentList commentAtProduct = dataSource.readData();
         reviewCount.setText("("+commentAtProduct.countCommentInProduct(product.getID())+")");
-        ratingAverage.setText(""+String.format("%.1f",commentAtProduct.ratingAverage(product.getID()))+"/5");
+
+        DecimalFormat df = new DecimalFormat("#.#");
+        Double rating = commentAtProduct.ratingAverage(product.getID());
+        ratingAverage.setText(""+String.format("%.1f",rating)+"/5");
+        productList.searchByID(product.getID()).setRating(Double.parseDouble(df.format(rating)));
+        productDateSource.writeData(productList);
         Comparator<Comment> commentComparator = new Comparator<Comment>() {
             @Override
             public int compare(Comment o1, Comment o2) {

@@ -14,8 +14,7 @@ public class Product {
     private String imageFilePath;
     private String detail;
     private int numRemainWarning;
-    public String type;
-    //public String type; กรณีถ้าจะทำเพิ่ม
+    private String type;
 
     // for preview in confirm box
     public Product(String ID, String name, Double price, int remaining, int numRemainWarning, String type, String detail, String imageFilePath){
