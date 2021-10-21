@@ -23,6 +23,7 @@ import ku.cs.services.ProductFileDataSource;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
@@ -85,6 +86,7 @@ public class NewOrderListController implements Initializable {
         if (!trackingNumber.getText().equals("")) {
             Order order = orderList.searchByOrderNo(id_Product.getText().trim());
             order.setTrackingNumber(trackingNumber.getText());
+            order.setAddedTime(LocalDateTime.now());
             dataSource.writeData(orderList);
 
             Product product = productList.searchByName(nameProduct.getText());

@@ -264,7 +264,7 @@
                                             <children>
                                                 <ScrollPane prefHeight="549.0" prefWidth="761.0" styleClass="primary-bg">
                                                     <content>
-                                                        <VBox fx:id="contactsLayout" prefHeight="547.0" prefWidth="745.0" styleClass="primary-bg" />
+                                                        <VBox fx:id="contactsLayout" maxWidth="-Infinity" prefHeight="547.0" prefWidth="745.0" styleClass="primary-bg" />
                                                     </content>
                                                 </ScrollPane>
                                             </children>
