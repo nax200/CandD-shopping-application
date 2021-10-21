@@ -1,10 +1,10 @@
 package ku.cs.controllers.login;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.github.saacsos.FXRouter;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
-import ku.cs.App;
 import ku.cs.controllers.ThemeController;
 
 import java.io.IOException;
@@ -20,7 +20,22 @@ public class CreditController implements Initializable {
     }
 
     @FXML
-    private void goToLoginPage() throws IOException {
-        FXRouter.goTo("login");
+    private void goToLoginPage() {
+        try {
+            FXRouter.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    void goToUserGuidePage(ActionEvent event) {
+        try {
+            FXRouter.goTo("user-guide");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า user-guide ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 }

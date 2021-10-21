@@ -20,6 +20,7 @@ public class App extends Application {
         FXRouter.when("login", packageStr+ "loginpage/loginpage.fxml");
         FXRouter.when("register", packageStr+ "loginpage/registerpage.fxml");
         FXRouter.when("credit", packageStr+ "loginpage/creditpage.fxml");
+        FXRouter.when("user-guide", packageStr+ "loginpage/user-guide.fxml");
 
         FXRouter.when("market-place", packageStr+ "marketpage/marketplace/market-place.fxml");
         FXRouter.when("user-profile-edit", packageStr+ "marketpage/user-profile-edit.fxml");

@@ -446,6 +446,9 @@ public class MarketPlaceController implements Initializable{
                     }
                 });
             }
+            else {
+                messageLabel.setText("ใส่ข้อมูลไม่ถูกต้อง");
+            }
         }
     }
 
@@ -474,6 +477,9 @@ public class MarketPlaceController implements Initializable{
                 listProduct.getChildren().removeAll();
                 listProduct.getChildren().setAll();
                 sortByLatest(filterer);
+            }
+            else {
+                messageLabel.setText("ใส่ข้อมูลไม่ถูกต้อง");
             }
         }
     }

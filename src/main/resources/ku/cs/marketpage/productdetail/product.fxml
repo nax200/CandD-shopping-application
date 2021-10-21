@@ -146,7 +146,7 @@
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
                                                 </Button>
-                                                <TextField fx:id="quantityTextField" alignment="CENTER" prefHeight="44.0" prefWidth="45.0" style="-fx-border-color: #C4C4C4;" stylesheets="@../../../../css-style/light-mode.css" text="1">
+                                                <TextField fx:id="quantityTextField" alignment="CENTER" prefHeight="44.0" prefWidth="67.0" style="-fx-border-color: #C4C4C4;" stylesheets="@../../../../css-style/light-mode.css" text="1">
                                                    <HBox.margin>
                                                       <Insets left="20.0" />
                                                    </HBox.margin>

@@ -65,6 +65,7 @@ public class CreatePromotionController implements Initializable {
         useConditionCombobox.setValue("");
         discountTextField.clear();
         minimumAmount.clear();
+        messageLabel.setText("");
     }
 
     @FXML

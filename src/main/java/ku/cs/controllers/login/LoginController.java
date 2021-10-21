@@ -86,8 +86,13 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void goToCreditPage() throws IOException {
-        FXRouter.goTo("credit");
+    private void goToCreditPage() {
+        try {
+            FXRouter.goTo("credit");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า credit ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 
     @FXML
