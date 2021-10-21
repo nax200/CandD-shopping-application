@@ -785,7 +785,6 @@ java/nio/DirectIntBufferRU
 jdk/internal/jimage/ImageStringsReader
 jdk/internal/jimage/ImageStrings
 jdk/internal/jimage/decompressor/Decompressor
-jdk/internal/jimage/ImageLocation
 java/util/Collections$EmptyIterator
 java/util/Collections$EmptyEnumeration
 jdk/internal/loader/BuiltinClassLoader$1
@@ -1122,6 +1121,7 @@ java/util/ResourceBundle$3
 sun/util/logging/resources/logging
 java/util/ResourceBundle$BundleReference
 jdk/internal/module/Checks
+jdk/internal/jimage/ImageLocation
 java/util/Formatter$DateTime
 java/util/Formatter$FixedString
 java/time/ZonedDateTime$1

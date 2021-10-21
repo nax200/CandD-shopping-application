@@ -58,7 +58,7 @@ public class ShippedOrderListController implements Initializable {
         promotionLabel.setText(order.getPromotionToString());
         addressTextArea.setText(order.getAddress());
         dateLabel.setText(order.getAddedTime().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        priceSum.setText(order.getTotalPrice()+"");
+        priceSum.setText(String.format("%.2f",order.getTotalPrice()));
         if(order.getPromotion() instanceof PromotionBaht){
             priceSum.setText(((PromotionBaht) order.getPromotion()).calculatePriceSum(order.getTotalPrice())+"");
         }
