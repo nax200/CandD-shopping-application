@@ -55,7 +55,7 @@
          <center>
             <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="primary-bg" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                <Tab text="สมัครสมาชิก">
+                <Tab text="สมัครบัญชี">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -63,12 +63,12 @@
                                  <children>
                                     <ImageView fitHeight="360.0" fitWidth="450.0">
                                        <image>
-                                          <Image url="@../../../images/loginpage/รูปภาพ5.png" />
+                                          <Image url="@../../../images/loginpage/register1.png" />
                                        </image>
                                     </ImageView>
                                     <ImageView fitHeight="356.0" fitWidth="450.0">
                                        <image>
-                                          <Image url="@../../../images/loginpage/รูปภาพ6.png" />
+                                          <Image url="@../../../images/loginpage/register2.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -85,7 +85,7 @@
                                  <children>
                                     <ImageView fitHeight="508.0" fitWidth="656.0">
                                        <image>
-                                          <Image url="@../../../images/loginpage/รูปภาพ4.png" />
+                                          <Image url="@../../../images/loginpage/login.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -102,12 +102,12 @@
                                  <children>
                                     <ImageView fitHeight="360.0" fitWidth="450.0">
                                        <image>
-                                          <Image url="@../../../images/loginpage/รูปภาพ2.png" />
+                                          <Image url="@../../../images/loginpage/marketplace.png" />
                                        </image>
                                     </ImageView>
                                     <ImageView fitHeight="360.0" fitWidth="450.0">
                                        <image>
-                                          <Image url="@../../../images/loginpage/รูปภาพ1.png" />
+                                          <Image url="@../../../images/loginpage/product-detail.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -124,7 +124,7 @@
                                  <children>
                                     <ImageView fitHeight="431.0" fitWidth="565.0">
                                        <image>
-                                          <Image url="@../../../images/loginpage/รูปภาพ3.png" />
+                                          <Image url="@../../../images/loginpage/purchase.png" />
                                        </image>
                                     </ImageView>
                                     <VBox alignment="CENTER" prefHeight="622.0" prefWidth="358.0">
@@ -178,6 +178,9 @@
                      </content>
                   </Tab>
               </tabs>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
             </TabPane>
          </center>
       </BorderPane>

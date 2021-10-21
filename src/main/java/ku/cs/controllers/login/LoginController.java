@@ -81,8 +81,13 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void goToRegisterPage() throws IOException {
-        FXRouter.goTo("register");
+    private void goToRegisterPage() {
+        try {
+            FXRouter.goTo("register");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า register ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 
     @FXML

@@ -42,19 +42,19 @@ public class RegisterController implements Initializable {
             confirmPasswordField.clear();
         }
         else if ( Register.Register(name,username,password,cfPassword) ) {
-            try {
-                goToLoginPage();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            goToLoginPage();
         }else{
             errorLabel.setText("ชื่อบัญชีนี้ถูกใช้แล้ว");
         }
-
-        }
+    }
 
     @FXML
-    private void goToLoginPage() throws IOException {
-        FXRouter.goTo("login");
+    private void goToLoginPage() {
+        try {
+            FXRouter.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 }
