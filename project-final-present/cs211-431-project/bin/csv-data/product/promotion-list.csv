@@ -1,0 +1,5 @@
+PromotionBaht,ส่วนลดต.ค. 100 บาท,OCT100,bamnat,ราคาขั้นต่ำ,1000.0,100.0
+PromotionPercent,ครบ50ลด3%,PPS50,ploy,ราคาขั้นต่ำ,50.0,3.0
+PromotionBaht,ครบ100ลด10บ,PPS10,ploy,ราคาขั้นต่ำ,100.0,10.0
+PromotionPercent,ครบหมื่นลด10%,MOSS10,moss,จำนวนขั้นต่ำ,10000.0,10.0
+PromotionPercent,ครบ1000ลด15%,NAX15P,nax,ราคาขั้นต่ำ,1000.0,15.0
