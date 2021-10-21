@@ -53,8 +53,8 @@ public class ShippedOrderController implements Initializable {
         Comparator<Order> orderComparator = new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
-                if (o1.getAddedTime().isBefore(o2.getAddedTime())) return 1;
-                if (o2.getAddedTime().isBefore(o1.getAddedTime())) return -1;
+                if (o1.getAddedTime().isAfter(o2.getAddedTime())) return -1;
+                if (o2.getAddedTime().isAfter(o1.getAddedTime())) return 1;
                 return 0;
             }
         };
@@ -72,7 +72,7 @@ public class ShippedOrderController implements Initializable {
 
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/order/shipped-order-list.fxml"));
-            orderList.sort(orderComparator);
+            orders.sort(orderComparator);//ใช้ของอันใหม่
 
             try {
                 if(!orders.get(i).getTrackingNumber().isEmpty()){
