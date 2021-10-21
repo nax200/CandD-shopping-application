@@ -17,7 +17,6 @@ import ku.cs.controllers.ThemeController;
 import ku.cs.models.shop.order.Order;
 import ku.cs.models.shop.order.OrderList;
 import ku.cs.models.shop.product.Product;
-import ku.cs.models.shop.product.ProductList;
 import ku.cs.models.shop.promotion.Promotion;
 import ku.cs.models.shop.promotion.PromotionBaht;
 import ku.cs.models.shop.promotion.PromotionList;
@@ -203,14 +202,14 @@ public class PurchaseController implements Initializable {
                 return;
             }
             discountLabel.setText(String.format("%.2f",((PromotionBaht) promotion).getBaht()));
-            allProductPrice.setText(String.format("%.2f",((PromotionBaht) promotion).getCalculator(order.getTotalPrice())));
+            allProductPrice.setText(String.format("%.2f",((PromotionBaht) promotion).calculatePriceSum(order.getTotalPrice())));
             order.setPromotion(promotion);
             messageCodeLabel.setText("");
 
         }else if(promotion instanceof PromotionPercent){
             discountLabel.setText(String.format("%.2f",((PromotionPercent) promotion).getPercent()));
             percentLabel.setText("%");
-            allProductPrice.setText(String.format("%.2f",((PromotionPercent) promotion).getCalculator(order.getTotalPrice())));
+            allProductPrice.setText(String.format("%.2f",((PromotionPercent) promotion).calculatePriceSum(order.getTotalPrice())));
             order.setPromotion(promotion);
             messageCodeLabel.setText("");
         }

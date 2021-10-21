@@ -41,7 +41,7 @@ public class PromotionPercent extends Promotion {
         return 0;
     }
 
-    public double getCalculator(double purchase){
+    public double calculatePriceSum(double purchase){
         if(percent>0 && percent<=100) {
             return purchase -((percent / 100) * purchase);
         }

@@ -60,10 +60,10 @@ public class ShippedOrderListController implements Initializable {
         dateLabel.setText(order.getAddedTime().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         priceSum.setText(order.getTotalPrice()+"");
         if(order.getPromotion() instanceof PromotionBaht){
-            priceSum.setText(((PromotionBaht) order.getPromotion()).getCalculator(order.getTotalPrice())+"");
+            priceSum.setText(((PromotionBaht) order.getPromotion()).calculatePriceSum(order.getTotalPrice())+"");
         }
         else if (order.getPromotion() instanceof PromotionPercent){
-            priceSum.setText(((PromotionPercent) order.getPromotion()).getCalculator(order.getTotalPrice())+"");
+            priceSum.setText(((PromotionPercent) order.getPromotion()).calculatePriceSum(order.getTotalPrice())+"");
         }
     }
 

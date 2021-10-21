@@ -63,7 +63,7 @@ public class CommentCardController implements Initializable {
         DataSource<UserList> dataSource;
         dataSource = new UserFileDataSource();
         UserList userAll = dataSource.readData();
-        user = userAll.searchUsername(comment.getNameToComment());
+        user = userAll.searchUsername(comment.getSender());
         BufferedImage bufferedImage = null;
         try {
             bufferedImage = ImageIO.read(((Customer) user).getImageFile());
@@ -72,7 +72,7 @@ public class CommentCardController implements Initializable {
         }
         Image image = SwingFXUtils.toFXImage(bufferedImage, null);
         profileImage.setFill(new ImagePattern(image));
-        userName.setText(comment.getNameToComment());
+        userName.setText(comment.getSender());
         if (comment.getComment().equals("")) {
             commentLabel.setText("ไม่มีความคิดเห็น");
             commentLabel.setTextFill(Color.rgb(156, 156, 156));

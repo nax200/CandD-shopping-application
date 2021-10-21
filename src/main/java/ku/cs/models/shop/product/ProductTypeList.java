@@ -33,24 +33,6 @@ public class ProductTypeList {
         return productTypes.get(i);
     }
 
-    public String searchTypeByIndex(int i) {
-        for (ProductType productType: productTypes) {
-            if ( productType.getIndex() == i){
-                return productType.getType();
-            }
-        }
-        return "";
-    }
-
-    public int searchIndexByType(String type) {
-        for (ProductType productType: productTypes) {
-            if ( productType.getType().equals(type) ){
-                return productType.getIndex();
-            }
-        }
-        return 0;
-    }
-
     @Override
     public String toString() {
         return ""+productTypes;

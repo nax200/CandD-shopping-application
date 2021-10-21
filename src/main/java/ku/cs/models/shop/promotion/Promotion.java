@@ -8,25 +8,25 @@ import ku.cs.services.UserFileDataSource;
 public class Promotion {
     private String promotionName;
     private String promotionCode;
-    private Customer promotionShopName;
+    private Customer shopOwner;
     private String useCondition;
     private double minimumAmount;
     // create promotion
-    public Promotion(String promotionName, String promotionCode, Customer promotionShopName ,String useCondition,double minimumAmount) {
+    public Promotion(String promotionName, String promotionCode, Customer shopOwner, String useCondition, double minimumAmount) {
         this.promotionName = promotionName;
         this.promotionCode = promotionCode;
-        this.promotionShopName = promotionShopName;
+        this.shopOwner = shopOwner;
         this.useCondition = useCondition;
         this.minimumAmount = minimumAmount;
     }
     // read csv
-    public Promotion(String promotionName, String promotionCode, String promotionShopName,String useCondition,double minimumAmount){
+    public Promotion(String promotionName, String promotionCode, String shopOwner, String useCondition, double minimumAmount){
         DataSource<UserList> dataSource;
         dataSource = new UserFileDataSource();
         UserList userList = dataSource.readData();
         this.promotionName = promotionName;
         this.promotionCode = promotionCode;
-        this.promotionShopName = (Customer)userList.searchUsername(promotionShopName);
+        this.shopOwner = (Customer)userList.searchUsername(shopOwner);
         this.useCondition = useCondition;
         this.minimumAmount = minimumAmount;
     }
@@ -39,12 +39,12 @@ public class Promotion {
         return promotionCode;
     }
 
-    public Customer getPromotionShopName() {
-        return promotionShopName;
+    public Customer getShopOwner() {
+        return shopOwner;
     }
 
     public Boolean isShopName(String shopName){
-        return promotionShopName.getUsername().equals(shopName);
+        return shopOwner.getUsername().equals(shopName);
     }
 
     public String getUseCondition(){return useCondition;}
@@ -65,7 +65,7 @@ public class Promotion {
     }
 
     public String toCsv(){
-        return getPromotionName()+","+getPromotionCode()+","+getPromotionShopName().getUsername()+","+getUseCondition()+","+minimumAmount; // เขียนเก็บเป็น username
+        return getPromotionName()+","+getPromotionCode()+","+ getShopOwner().getUsername()+","+getUseCondition()+","+minimumAmount; // เขียนเก็บเป็น username
     }
 
 }

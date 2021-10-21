@@ -242,8 +242,8 @@ public class ProductDetailController implements Initializable {
         Comparator<Comment> commentComparator = new Comparator<Comment>() {
             @Override
             public int compare(Comment o1, Comment o2) {
-                if(o1.getTimeToComment().isBefore(o2.getTimeToComment())) return 1;
-                if(o2.getTimeToComment().isBefore(o1.getTimeToComment())) return -1;
+                if(o1.getCommentTime().isBefore(o2.getCommentTime())) return 1;
+                if(o2.getCommentTime().isBefore(o1.getCommentTime())) return -1;
                 return 0;
             }
         };

@@ -1,27 +1,23 @@
 package ku.cs.models.shop.comment;
 
-import ku.cs.services.CommentFileDataSource;
-import ku.cs.services.DataSource;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Comment {
     private String idComment;
     private String idProduct;
-    private String nameToComment;
+    private String sender;
     private String comment;
-    private LocalDateTime timeToComment;
+    private LocalDateTime commentTime;
     private int rating;
     private Boolean visible;
 
-    public Comment(String idComment, String idProduct, String nameToComment, String comment, LocalDateTime timeToComment,int rating,Boolean visible) {
+    public Comment(String idComment, String idProduct, String sender, String comment, LocalDateTime commentTime, int rating, Boolean visible) {
         this.idComment = idComment;
         this.idProduct = idProduct;
-        this.nameToComment = nameToComment;
+        this.sender = sender;
         this.comment = comment;
-        this.timeToComment = timeToComment;
+        this.commentTime = commentTime;
         this.rating = rating;
         this.visible = visible;
     }
@@ -32,8 +28,8 @@ public class Comment {
         return idProduct;
     }
 
-    public String getNameToComment() {
-        return nameToComment;
+    public String getSender() {
+        return sender;
     }
 
 
@@ -41,8 +37,8 @@ public class Comment {
         return comment;
     }
 
-    public LocalDateTime getTimeToComment() {
-        return timeToComment;
+    public LocalDateTime getCommentTime() {
+        return commentTime;
     }
 
     public int getRating (){ return  rating ;}
@@ -51,7 +47,7 @@ public class Comment {
 
     public String getTimeToCommentToString() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        return dtf.format(timeToComment);
+        return dtf.format(commentTime);
     }
     public Boolean isIdComment(String idComment){
          return this.idComment.equals(idComment);
@@ -62,6 +58,6 @@ public class Comment {
     }
 
     public String toCsv(){
-        return idComment + "," + idProduct + "," + nameToComment + "," + comment + "," + getTimeToCommentToString() + "," + rating+","+visible;
+        return idComment + "," + idProduct + "," + sender + "," + comment + "," + getTimeToCommentToString() + "," + rating+","+visible;
     }
 }

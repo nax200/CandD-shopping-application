@@ -42,7 +42,7 @@ public class PromotionBaht extends Promotion{
         return 0;
     }
 
-    public double getCalculator(double purchase){
+    public double calculatePriceSum(double purchase){
         if(purchase - baht <= 0){
             return 0;
         }
