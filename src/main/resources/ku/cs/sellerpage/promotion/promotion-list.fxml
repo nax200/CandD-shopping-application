@@ -8,11 +8,11 @@
 
 <AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="80.0" prefHeight="80.0" prefWidth="761.0" stylesheets="@../../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.seller.promotion.PromotionListController">
     <children>
-        <HBox layoutX="10.0" layoutY="10.0" minHeight="116.0" prefHeight="116.0" prefWidth="761.0" style="-fx-background-radius: 10;" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="6.0">
+        <HBox layoutX="10.0" layoutY="10.0" minHeight="116.0" prefHeight="116.0" prefWidth="761.0" style="-fx-background-radius: 10;" styleClass="bg-white" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="6.0">
             <children>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="140.0">
                <children>
-                  <Label fx:id="nameCodeLabel" ellipsisString="" styleClass="text-type1" wrapText="true">
+                  <Label fx:id="nameCodeLabel" ellipsisString="" styleClass="text-type1" text="ทดสอบ" wrapText="true">
                      <font>
                         <Font name="Kanit Regular" size="14.0" />
                      </font>
@@ -24,7 +24,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
                <children>
-                  <Label fx:id="idCodeLabel" ellipsisString="" styleClass="text-type1" wrapText="true">
+                  <Label fx:id="idCodeLabel" ellipsisString="" styleClass="text-type1" text="TEST1000" wrapText="true">
                      <font>
                         <Font name="Kanit Regular" size="14.0" />
                      </font>
@@ -36,7 +36,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
                <children>
-                  <Label fx:id="typePromotionLabel" ellipsisString="" styleClass="text-type1" wrapText="true">
+                  <Label fx:id="typePromotionLabel" ellipsisString="" styleClass="text-type1" text="test" wrapText="true">
                      <font>
                         <Font name="Kanit Regular" size="14.0" />
                      </font>
@@ -48,7 +48,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
                <children>
-                  <Label fx:id="minimumAmountLabel" ellipsisString="" styleClass="text-type1" wrapText="true">
+                  <Label fx:id="minimumAmountLabel" ellipsisString="" styleClass="text-type1" text="test" wrapText="true">
                      <font>
                         <Font name="Kanit Regular" size="14.0" />
                      </font>
@@ -63,7 +63,7 @@
                   <Insets left="10.0" />
                </padding>
                <children>
-                  <Label fx:id="discountLabel" alignment="CENTER" ellipsisString="" styleClass="text-type1" wrapText="true">
+                  <Label fx:id="discountLabel" alignment="CENTER" ellipsisString="" styleClass="text-type1" text="test" wrapText="true">
                      <font>
                         <Font name="Kanit Regular" size="14.0" />
                      </font>

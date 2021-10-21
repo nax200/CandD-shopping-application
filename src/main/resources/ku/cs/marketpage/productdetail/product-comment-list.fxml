@@ -14,65 +14,65 @@
 
 <AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="309.0" styleClass="primary-bg" stylesheets="@../../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.market.productdetail.CommentCardController">
    <children>
-      <HBox layoutX="8.0" layoutY="14.0" minHeight="80.0" prefHeight="80.0" prefWidth="309.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER_LEFT" layoutX="8.0" layoutY="14.0" minHeight="80.0" prefHeight="80.0" prefWidth="309.0" style="-fx-background-radius: 10;" styleClass="bg-white" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="46.0">
+            <VBox alignment="CENTER" prefHeight="70.0" prefWidth="67.0">
                <children>
-                  <Circle fx:id="profileImage" fill="WHITE" radius="17.5" stroke="#e2e2e2" strokeType="INSIDE" />
+                  <Circle fx:id="profileImage" fill="WHITE" radius="22.0" stroke="#e2e2e2" strokeType="INSIDE">
+                     <VBox.margin>
+                        <Insets left="4.0" />
+                     </VBox.margin></Circle>
                </children>
             </VBox>
-            <VBox prefHeight="77.0" prefWidth="150.0">
+            <VBox prefHeight="70.0" prefWidth="238.0">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="150.0">
                      <children>
-                        <Label fx:id="userName" prefHeight="39.0" prefWidth="129.0" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="Somsak" textFill="#717171">
-                           <font>
-                              <Font name="Kanit Regular" size="14.0" />
-                           </font>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-                        </Label>
-                        <Label fx:id="ratingLabel" prefHeight="39.0" prefWidth="26.0" styleClass="text-red" stylesheets="@../../../../css-style/light-mode.css" text="5" textFill="#ff542f">
+                        <Label fx:id="userName" prefHeight="26.0" prefWidth="137.0" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="Somsak" textFill="#717171">
                            <font>
                               <Font name="Kanit Regular" size="14.0" />
                            </font>
                         </Label>
+                        <Label fx:id="ratingLabel" prefHeight="26.0" prefWidth="26.0" styleClass="text-red" stylesheets="@../../../../css-style/light-mode.css" text="5" textFill="#ff542f">
+                           <font>
+                              <Font name="Kanit Regular" size="14.0" />
+                           </font>
+                        </Label>
+                        <VBox prefHeight="28.0" prefWidth="93.0">
+                           <children>
+                              <HBox alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="116.0">
+                                 <children>
+                                    <Label fx:id="timeToComment" alignment="CENTER" ellipsisString="" prefHeight="24.0" prefWidth="59.0" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="05/07/2021" textFill="#717171" wrapText="true">
+                                       <font>
+                                          <Font name="Kanit Regular" size="10.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#reportUser" prefHeight="17.0" prefWidth="24.0" styleClass="bg-white" stylesheets="@../../../../css-style/light-mode.css">
+                                       <graphic>
+                                          <ImageView fitHeight="26.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../images/marketpage/img_16.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
-                  <Label fx:id="commentLabel" ellipsisString="" prefHeight="23.0" prefWidth="140.0" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="ผ้าดี ใส่แล้วสวย" textFill="#717171" wrapText="true">
+                  <Label fx:id="commentLabel" alignment="TOP_LEFT" ellipsisString="" prefHeight="42.0" prefWidth="228.0" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="ผ้าดี ใส่แล้วสวย" textFill="#717171" wrapText="true">
                      <font>
-                        <Font name="Kanit Regular" size="14.0" />
+                        <Font name="Kanit Regular" size="12.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </Label>
-               </children>
-            </VBox>
-            <VBox prefHeight="80.0" prefWidth="121.0">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="72.0" prefWidth="114.0">
-                     <children>
-                        <Label fx:id="timeToComment" ellipsisString="" prefHeight="62.0" prefWidth="80.0" styleClass="text-type1" stylesheets="@../../../../css-style/light-mode.css" text="05/07/2021" textFill="#717171" wrapText="true">
-                           <font>
-                              <Font name="Kanit Regular" size="14.0" />
-                           </font>
-                        </Label>
-                        <Button mnemonicParsing="false" onAction="#reportUser" prefHeight="17.0" prefWidth="24.0" styleClass="primary-bg" stylesheets="@../../../../css-style/light-mode.css">
-                           <graphic>
-                              <ImageView fitHeight="26.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../images/marketpage/img_16.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
                </children>
             </VBox>
          </children>
