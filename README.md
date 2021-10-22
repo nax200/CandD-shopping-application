@@ -40,6 +40,7 @@
 สำหรับ mac
 1. ติดตั้ง font kanit ก่อนการใช้แอปพลิเคชัน (font อยู่ใน folder project-final-present โฟลเดอร์ Kanit)
 2. การรันแอปพลิเคชัน change directory ไปที่ project-final-present/cs211-431-project/bin รันผ่าน terminal ด้วยคำสั่ง ./launch.sh
+
 สำหรับ windows
 1. ติดตั้ง font kanit ก่อนการใช้แอปพลิเคชัน (font อยู่ใน folder project-final-present โฟลเดอร์ Kanit)
 2. ให้เปิดไปที่ project-final-present/cs211-431-project-for-windows/bin แล้วไปเปิดไฟล์ที่ชื่อ launch.sh 
