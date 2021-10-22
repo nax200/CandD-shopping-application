@@ -6,6 +6,10 @@
   * Register page: หน้าแอปพลิเคชันส่วนสมัครบัญชีใหม่, ระบบสร้างบัญชีผู้ใช้
   * Edit profile: เปลี่ยนรูปโปรไฟล์ เปลี่ยนชื่อ, รหัสผ่าน
   * Credit page
+  * Add product: ระบบเพิ่มสินค้า หน้าต่างยืนยันการเพิ่มสินค้า
+  * Edit product: ระบบแก้ไขสินค้า
+  * ปุ่มเพิ่มจำนวนสินค้าในคลัง
+  * Dark mode: ระบบเปลี่ยนโทนสีแอปพลิเคชัน
 * 6310450522 ธนบดี กังวลกิจ github: nax200
   * แสดงหน้ารายชื่อผู้ใช้
   * การรายงาน
@@ -26,9 +30,34 @@
 
 
 ## วิธีการติดตั้งหรือรันโปรแกรม
-change directory ไปที่ project-final-present/cs211-431-project/bin รันผ่าน terminal ด้วยคำสั่ง ./launch.sh
+1. ติดตั้ง font kanit ก่อนการใช้แอปพลิเคชัน (font อยู่ใน folder project-final-present โฟลเดอร์ Kanit)
+2. การรันแอปพลิเคชัน change directory ไปที่ project-final-present/cs211-431-project/bin รันผ่าน terminal ด้วยคำสั่ง ./launch.sh
 
 ## การวางโครงสร้างไฟล์
+* Controller
+  * admin
+    - blocklist : ดูรายชื่อที่ถูกบล็อก
+    - customerlist : ดูรายชื่อผู้ใช้ทั้งหมดในระบบ
+    - report : ดูรายงานที่เข้ามาใหม่
+    - producttype : จัดการหมวดหมู่สินค้า
+  * login
+  * market
+    - marketplace : หน้ารายการสินค้าทั้งหมด
+    - productdetail : หน้ารายละเอียดสินค้า
+    - purchase : หน้าชำระเงิน
+  * seller
+    - order : หน้าคำสั่งซื้อจากลูกค้า
+    - product : หน้าจัดการรายละเอียดสินค้า
+    - promotion : หน้าจัดการโปรโมชัน
+    - stock : หน้าจัดการสินค้าในคลัง
+* Model
+  * report
+  * shop
+    - comment
+    - order
+    - product
+    - promotion
+  * user
 
 ## ตัวอย่างข้อมูลผู้ใช้ระบบ
 * ผู้ดูแลระบบ admin 1234
