@@ -8,6 +8,7 @@ import ku.cs.models.user.User;
 import ku.cs.models.user.UserList;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -57,7 +58,7 @@ public class UserFileDataSource implements DataSource<UserList>{
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file,StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
 
             String line = "";
@@ -122,7 +123,7 @@ public class UserFileDataSource implements DataSource<UserList>{
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file,StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             buffer.write(userList.toCsv());

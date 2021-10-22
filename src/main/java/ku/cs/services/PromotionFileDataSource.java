@@ -5,6 +5,7 @@ import ku.cs.models.shop.promotion.PromotionList;
 import ku.cs.models.shop.promotion.PromotionPercent;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class PromotionFileDataSource implements DataSource<PromotionList>{
     private String directoryName;
@@ -49,7 +50,7 @@ public class PromotionFileDataSource implements DataSource<PromotionList>{
         BufferedReader buffer = null;
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file,StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
 
 
@@ -104,7 +105,7 @@ public class PromotionFileDataSource implements DataSource<PromotionList>{
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file,StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             buffer.write(promotionList.toCsv());

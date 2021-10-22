@@ -4,6 +4,7 @@ import ku.cs.models.shop.product.ProductType;
 import ku.cs.models.shop.product.ProductTypeList;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class ProductTypeFileDataSource implements DataSource<ProductTypeList>{
     private String directoryName;
@@ -48,7 +49,7 @@ public class ProductTypeFileDataSource implements DataSource<ProductTypeList>{
         BufferedReader buffer = null;
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file,StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
 
             String line = "";
@@ -84,7 +85,7 @@ public class ProductTypeFileDataSource implements DataSource<ProductTypeList>{
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file,StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             buffer.write(productTypeList.toCsv());

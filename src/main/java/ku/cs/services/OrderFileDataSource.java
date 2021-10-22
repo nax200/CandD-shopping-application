@@ -3,6 +3,7 @@ package ku.cs.services;
 import ku.cs.models.shop.order.Order;
 import ku.cs.models.shop.order.OrderList;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -48,7 +49,7 @@ public class OrderFileDataSource implements DataSource<OrderList> {
         BufferedReader buffer = null;
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file,StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             String line = "";
@@ -94,7 +95,7 @@ public class OrderFileDataSource implements DataSource<OrderList> {
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file,StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             buffer.write(order.toCsv());
