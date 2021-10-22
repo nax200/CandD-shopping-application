@@ -13,28 +13,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PromotionListController implements Initializable {
-    @FXML
-    private AnchorPane parent;
-
-    @FXML
-    private Label nameCodeLabel;
-
-    @FXML
-    private Label idCodeLabel;
-
-    @FXML
-    private Label typePromotionLabel;
-
-    @FXML
-    private Label minimumAmountLabel;
-
-    @FXML
-    private Label discountLabel;
+    @FXML private AnchorPane parent;
+    @FXML private Label nameCodeLabel;
+    @FXML private Label idCodeLabel;
+    @FXML private Label typePromotionLabel;
+    @FXML private Label minimumAmountLabel;
+    @FXML private Label discountLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ThemeController.setTheme(parent);
     }
+
     public void setData(Promotion promotion){
         nameCodeLabel.setText(promotion.getPromotionName());
         idCodeLabel.setText(promotion.getPromotionCode());

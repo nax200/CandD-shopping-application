@@ -26,9 +26,7 @@ public class StockTotalListController implements Initializable {
     @FXML private Label price;
     @FXML private Label quantity;
     @FXML private AnchorPane parent;
-
     private Product product;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

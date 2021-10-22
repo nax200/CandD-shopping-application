@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -37,7 +36,7 @@ public class CreatePromotionController implements Initializable {
     @FXML private TextField discountTextField;
     @FXML private TextField minimumAmount;
     @FXML private Label messageLabel;
-    @FXML private ComboBox<String> useConditionCombobox;
+    @FXML private ComboBox<String> useConditionComboBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -53,8 +52,8 @@ public class CreatePromotionController implements Initializable {
         usernameLabel.setText(LoginCustomer.customer.getUsername());
         typeCodeComboBox.setValue("");
         typeCodeComboBox.getItems().addAll("มูลค่าส่วนลด (บาท)", "โดย %");
-        useConditionCombobox.setValue("");
-        useConditionCombobox.getItems().addAll("ราคาขั้นต่ำ","จำนวนขั้นต่ำ");
+        useConditionComboBox.setValue("");
+        useConditionComboBox.getItems().addAll("ราคาขั้นต่ำ","จำนวนขั้นต่ำ");
     }
 
     @FXML
@@ -62,7 +61,7 @@ public class CreatePromotionController implements Initializable {
         nameCodeTextField.clear();
         codeIdTextField.clear();
         typeCodeComboBox.setValue("");
-        useConditionCombobox.setValue("");
+        useConditionComboBox.setValue("");
         discountTextField.clear();
         minimumAmount.clear();
         messageLabel.setText("");
@@ -75,7 +74,7 @@ public class CreatePromotionController implements Initializable {
         PromotionList promotions = dataSource.readData();
         if(     nameCodeTextField.getText().equals("") || codeIdTextField.getText().equals("") ||
                 typeCodeComboBox.getValue().equals("") || discountTextField.getText().equals("") ||
-                minimumAmount.getText().equals("") || useConditionCombobox.getValue().equals("")
+                minimumAmount.getText().equals("") || useConditionComboBox.getValue().equals("")
         ){
             messageLabel.setText("กรุณากรอกข้อมูลให้ครบก่อนดำเนินการ");
             return;
@@ -84,7 +83,7 @@ public class CreatePromotionController implements Initializable {
             messageLabel.setText("ขออภัยรหัสส่วนลดนี้ถูกใช้แล้ว");
             return;
         }
-        String condition = useConditionCombobox.getValue();
+        String condition = useConditionComboBox.getValue();
         try {
             if (    Double.parseDouble(minimumAmount.getText().trim()) <= 0 ||
                     Double.parseDouble(discountTextField.getText().trim()) <= 0 )
@@ -92,7 +91,7 @@ public class CreatePromotionController implements Initializable {
                 messageLabel.setText("ข้อมูลที่กรอกไม่ถูกต้อง");
                 return;
             }
-            if(useConditionCombobox.getValue().trim().equals("จำนวนขั้นต่ำ")){
+            if(useConditionComboBox.getValue().trim().equals("จำนวนขั้นต่ำ")){
                 int amountInt = (int) Double.parseDouble(minimumAmount.getText());
                 double amountDouble = Double.parseDouble(minimumAmount.getText());
                 if (amountDouble-amountInt != 0.0) {
@@ -246,6 +245,7 @@ public class CreatePromotionController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
     @FXML
     void handleAllPromotionCreateButton(ActionEvent event) {
         try {

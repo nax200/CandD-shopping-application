@@ -206,7 +206,7 @@
                                                             </HBox>
                                                             <HBox prefHeight="100.0" prefWidth="200.0">
                                                                <children>
-                                                                  <Label fx:id="messageLabel1" prefHeight="38.0" prefWidth="201.0" styleClass="text-red" textFill="#ff542f">
+                                                                  <Label fx:id="messageLabel" prefHeight="38.0" prefWidth="201.0" styleClass="text-red" textFill="#ff542f">
                                                                      <font>
                                                                         <Font name="Kanit Regular" size="14.0" />
                                                                      </font>

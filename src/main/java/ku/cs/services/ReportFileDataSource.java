@@ -36,8 +36,6 @@ public class ReportFileDataSource implements DataSource<ReportList> {
         }
     }
 
-
-
     @Override
     public ReportList readData() {
         ReportList reportList = new ReportList();

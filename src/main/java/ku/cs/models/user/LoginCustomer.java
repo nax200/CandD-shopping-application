@@ -15,7 +15,4 @@ public class LoginCustomer {
         LoginCustomer.customer = customer;
     }
 
-    public void setCustomerToNull(Customer customer) {
-        this.customer = null;
-    }
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="parent" maxHeight="70.0" maxWidth="380.0" minHeight="-Infinity" prefHeight="70.0" prefWidth="380.0" styleClass="primary-bg" stylesheets="@../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.AddProductTypeListController">
+<AnchorPane fx:id="parent" maxHeight="70.0" maxWidth="380.0" minHeight="-Infinity" prefHeight="70.0" prefWidth="380.0" styleClass="primary-bg" stylesheets="@../../../css-style/light-mode.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.admin.producttype.AddProductTypeListController">
    <children>
       <HBox alignment="CENTER_LEFT" maxHeight="80.0" prefHeight="80.0" prefWidth="380.0" style="-fx-background-radius: 10;" styleClass="bg-white" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

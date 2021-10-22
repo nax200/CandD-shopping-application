@@ -32,8 +32,7 @@ import java.util.Comparator;
 import java.util.ResourceBundle;
 
 public class ShippedOrderController implements Initializable {
-    @FXML
-    private VBox contactsLayout;
+    @FXML private VBox contactsLayout;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
     @FXML private AnchorPane parent;
@@ -49,7 +48,6 @@ public class ShippedOrderController implements Initializable {
         dataSource1 = new ProductFileDataSource();
         ProductList productList = dataSource1.readData();
 
-
         Comparator<Order> orderComparator = new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
@@ -58,18 +56,17 @@ public class ShippedOrderController implements Initializable {
                 return 0;
             }
         };
-        ConditionFilterer<Order> filterer1 = new ConditionFilterer<Order>() {
+
+        ConditionFilterer<Order> filterer = new ConditionFilterer<Order>() {
             @Override
             public boolean match(Order order) {
                 Product product = productList.searchByID(order.getProduct().getID());
                 return LoginCustomer.customer.getShopName().equals(product.getShopName());
             }
         };
-        ArrayList<Order> orders = orderList.filter(filterer1);
-
+        ArrayList<Order> orders = orderList.filter(filterer);
 
         for (int i = 0; i < orders.size(); i++){
-
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/order/shipped-order-list.fxml"));
             orders.sort(orderComparator);//ใช้ของอันใหม่
@@ -105,7 +102,6 @@ public class ShippedOrderController implements Initializable {
             System.err.println("ไปที่หน้า stock-total ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
 
     @FXML
@@ -116,7 +112,6 @@ public class ShippedOrderController implements Initializable {
             System.err.println("ไปที่หน้า low-stock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
 
     @FXML
@@ -127,8 +122,8 @@ public class ShippedOrderController implements Initializable {
             System.err.println("ไปที่หน้า new-order ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
+
     @FXML
     public void handleAddItemButton(ActionEvent actionEvent) {
         try {
@@ -137,8 +132,8 @@ public class ShippedOrderController implements Initializable {
             System.err.println("ไปที่หน้า add-item ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
+
     @FXML
     public void handleEditShopButton(ActionEvent actionEvent) {
         try {
@@ -147,8 +142,8 @@ public class ShippedOrderController implements Initializable {
             System.err.println("ไปที่หน้า edit-shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
+
     @FXML
     void goToEditProfile(ActionEvent event) {
         try {
@@ -198,6 +193,7 @@ public class ShippedOrderController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
     @FXML
     void handleAllPromotionCreateButton(ActionEvent event) {
         try {

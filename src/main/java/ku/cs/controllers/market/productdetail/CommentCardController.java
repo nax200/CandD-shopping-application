@@ -31,25 +31,12 @@ import java.util.ResourceBundle;
 
 public class CommentCardController implements Initializable {
 
-
-    @FXML
-    private Label userName;
-
-    @FXML
-    private Label commentLabel;
-
-    @FXML
-    private Label timeToComment;
-
-    @FXML
-    private Circle profileImage;
-
-    @FXML
-    private Label ratingLabel;
-
-    @FXML
-    AnchorPane parent;
-
+    @FXML private Label userName;
+    @FXML private Label commentLabel;
+    @FXML private Label timeToComment;
+    @FXML private Circle profileImage;
+    @FXML private Label ratingLabel;
+    @FXML AnchorPane parent;
     private User user;
     private Comment comment;
 

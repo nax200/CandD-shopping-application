@@ -338,7 +338,7 @@
                                                                         <Insets />
                                                                     </HBox.margin>
                                                                 </Label>
-                                                <ComboBox fx:id="useConditionCombobox" prefHeight="40.0" prefWidth="191.0" styleClass="choiceBox-grey-border">
+                                                <ComboBox fx:id="useConditionComboBox" prefHeight="40.0" prefWidth="191.0" styleClass="choiceBox-grey-border">
                                                    <HBox.margin>
                                                       <Insets left="20.0" />
                                                    </HBox.margin>

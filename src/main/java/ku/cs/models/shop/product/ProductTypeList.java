@@ -13,10 +13,6 @@ public class ProductTypeList {
         this.productTypes.add(productType);
     }
 
-    public ArrayList<ProductType> getProductTypes() {
-        return productTypes;
-    }
-
     public int count() {
         return this.productTypes.size();
     }

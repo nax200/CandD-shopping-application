@@ -37,9 +37,11 @@ public class StockTotalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ThemeController.setTheme(parent);
+
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
+
         Comparator<Product> productComparator = new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {
@@ -49,34 +51,29 @@ public class StockTotalController implements Initializable {
             }
         };
 
-        int column = 0;
-        int row = 1;
-            ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
-                @Override
-                public boolean match(Product product) {
-                    return product.getShopName().equals(LoginCustomer.customer.getShopName());
-                }
-            };
-
-            ArrayList<Product> products = productList.filter(filterer);
-
-            for (int i = 0; i < products.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/stock/stock-total-list.fxml"));
-                products.sort(productComparator);
-
-                try {
-                    AnchorPane anchorPane = fxmlLoader.load();
-                    StockTotalListController stockTotalList = fxmlLoader.getController();
-                    stockTotalList.setData(products.get(i));
-                    contactsLayout.getChildren().add(anchorPane);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+        ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
+            @Override
+            public boolean match(Product product) {
+                return product.getShopName().equals(LoginCustomer.customer.getShopName());
             }
+        };
 
+        ArrayList<Product> products = productList.filter(filterer);
 
+        for (int i = 0; i < products.size(); i++) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/stock/stock-total-list.fxml"));
+            products.sort(productComparator);
+
+            try {
+                AnchorPane anchorPane = fxmlLoader.load();
+                StockTotalListController stockTotalList = fxmlLoader.getController();
+                stockTotalList.setData(products.get(i));
+                contactsLayout.getChildren().add(anchorPane);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         BufferedImage bufferedImage = null;
         try {
@@ -101,7 +98,6 @@ public class StockTotalController implements Initializable {
         }
 
     }
-
 
     @FXML
     public void handleNewOrderButton(ActionEvent actionEvent) {
@@ -196,6 +192,7 @@ public class StockTotalController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
     @FXML
     void handleAllPromotionCreateButton(ActionEvent event) {
         try {
@@ -205,6 +202,5 @@ public class StockTotalController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
 
 }

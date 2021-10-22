@@ -46,8 +46,6 @@ public class NewOrderListController implements Initializable {
         ThemeController.setTheme(parent);
     }
 
-
-
     public void setData(Order order){
         Image imgProfile;
         Product product = order.getProduct();
@@ -70,8 +68,6 @@ public class NewOrderListController implements Initializable {
             priceSum.setText(((PromotionPercent) order.getPromotion()).calculatePriceSum(order.getTotalPrice())+"");
         }
     }
-
-
 
     @FXML
     void addTrackingNumber(ActionEvent event){

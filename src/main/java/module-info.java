@@ -38,5 +38,7 @@ module ku.cs {
     opens ku.cs.controllers.seller.order to javafx.fxml;
     exports ku.cs.controllers.seller.promotion;
     opens ku.cs.controllers.seller.promotion to javafx.fxml;
+    exports ku.cs.controllers.admin.producttype;
+    opens ku.cs.controllers.admin.producttype to javafx.fxml;
 
 }

@@ -49,7 +49,6 @@ public class ConfirmPopupController implements Initializable {
         this.stage = stage;
     }
 
-
     public void setData(Product product){
         this.product = product;
         name.setText(product.getName());

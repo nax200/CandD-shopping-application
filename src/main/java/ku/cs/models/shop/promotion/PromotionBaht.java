@@ -35,19 +35,13 @@ public class PromotionBaht extends Promotion{
         return price;
     }
 
-    public double getDiscount(double minimumAmount){
-        if(super.getMinimumAmount() >= minimumAmount) {
-            return baht;
-        }
-        return 0;
-    }
-
     public double calculatePriceSum(double purchase){
         if(purchase - baht <= 0){
             return 0;
         }
         return  purchase - baht;
     }
+
     @Override
     public String toCsv() {
         return "PromotionBaht," + super.toCsv()+","+ getBaht();

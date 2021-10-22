@@ -38,8 +38,6 @@ public class PromotionFileDataSource implements DataSource<PromotionList>{
 
     }
 
-
-
     @Override
     public PromotionList readData() {
         PromotionList promotionList = new PromotionList();

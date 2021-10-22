@@ -40,7 +40,6 @@ public class ReportPopupController implements Initializable {
     }
 
     public void setData(Customer reported, Customer reporter, Object object, Stage stage){
-
         this.reported = reported;
         this.reporter = reporter;
         if(object instanceof Comment) {

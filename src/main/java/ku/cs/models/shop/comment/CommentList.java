@@ -15,7 +15,7 @@ public class CommentList {
         this.comments.add(comment);
     }
 
-    public int count(){ return  this.comments.size();}
+    public int count(){ return this.comments.size();}
 
     public int countCommentInProduct(String productId){
         int count = 0;
@@ -57,10 +57,6 @@ public class CommentList {
         return null;
     }
     public void sortTime(Comparator<Comment> commentComparator){ Collections.sort(this.comments,commentComparator); }
-
-    public Comment getComment(int i){
-        return comments.get(i);
-    }
 
     public String toCsv(){
         String result = "";

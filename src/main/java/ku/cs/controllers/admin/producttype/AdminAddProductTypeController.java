@@ -1,4 +1,4 @@
-package ku.cs.controllers.admin;
+package ku.cs.controllers.admin.producttype;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import ku.cs.controllers.ThemeController;
+import ku.cs.controllers.admin.producttype.AddProductTypeListController;
 import ku.cs.models.shop.product.ProductTypeList;
 import ku.cs.models.user.User;
 import ku.cs.services.DataSource;

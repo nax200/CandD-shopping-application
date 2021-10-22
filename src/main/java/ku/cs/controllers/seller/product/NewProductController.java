@@ -206,6 +206,7 @@ public class NewProductController implements Initializable {
         }
 
     }
+
     @FXML
     public void handleEditShopButton(ActionEvent actionEvent) {
         try {
@@ -216,6 +217,7 @@ public class NewProductController implements Initializable {
         }
 
     }
+
     @FXML
     void goToEditProfile(ActionEvent event) {
         try {
@@ -265,6 +267,7 @@ public class NewProductController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
     @FXML
     void handleAllPromotionCreateButton(ActionEvent event) {
         try {

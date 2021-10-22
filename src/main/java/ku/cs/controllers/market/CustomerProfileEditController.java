@@ -37,7 +37,6 @@ public class CustomerProfileEditController {
     @FXML private PasswordField oldPasswordField;
     @FXML private PasswordField newPasswordField;
     @FXML private PasswordField confirmPasswordField;
-    @FXML private TextArea addressTextArea;
     @FXML private Circle profileImage;
     @FXML private Circle profileImageTab;
     @FXML private Label usernameLabel;
@@ -56,7 +55,6 @@ public class CustomerProfileEditController {
         this.userList = dataSource.readData();
         loginCustomer = ( (Customer)userList.searchUsername( LoginCustomer.customer.getUsername() ) );
 
-
         nameTextField.setText(loginCustomer.getName());
         usernameTextField.setText(loginCustomer.getUsername());
         usernameLabel.setText(loginCustomer.getUsername());
@@ -71,16 +69,6 @@ public class CustomerProfileEditController {
             e.printStackTrace();
         }
 
-    }
-
-    @FXML
-    void goToEditProfile(ActionEvent event) {
-        try {
-            FXRouter.goTo("user-profile-edit");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า user-profile-edit ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
     }
 
     @FXML

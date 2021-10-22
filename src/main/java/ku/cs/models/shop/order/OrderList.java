@@ -24,9 +24,6 @@ public class OrderList {
     public void sort(Comparator<Order> orderComparator){
         Collections.sort(this.orders, orderComparator);
     }
-    public Order getOrder(int i){
-        return orders.get(i);
-    }
 
     public int count(){
         return this.orders.size();
@@ -42,13 +39,6 @@ public class OrderList {
         return filtered;
     }
 
-    public void editTrackingNumber(String orderNo,String trackingNumber){
-        Order order = this.searchByOrderNo(orderNo);
-        if (order == null) {return;}
-        order.setTrackingNumber(trackingNumber);
-    }
-    
-
     public Order searchByOrderNo(String orderNo) {
         for (Order order: orders){
             if (order.getOrderNo().equals(orderNo))
@@ -56,25 +46,6 @@ public class OrderList {
         }
         return null;
     }
-
-    public Order searchByTrackingNumberIsEmoty(String trackingNumber){
-        for (Order order: orders){
-            if (!(order.getTrackingNumber().isEmpty()))
-                return order;
-        }
-        return null;
-    }
-
-    public Order searchByShopName(String shopName){
-        for (Order order: orders){
-            if(order.getProduct().getShopName().equals(shopName))
-                return order;
-        }
-
-        return null;
-    }
-
-
 
     public String toCsv(){
         String result = "";

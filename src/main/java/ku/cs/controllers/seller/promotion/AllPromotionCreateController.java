@@ -37,6 +37,7 @@ public class AllPromotionCreateController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ThemeController.setTheme(parent);
+
         BufferedImage bufferedImage = null;
         try {
             bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
@@ -46,9 +47,11 @@ public class AllPromotionCreateController implements Initializable {
         Image image = SwingFXUtils.toFXImage(bufferedImage,null);
         imageProfileTitle.setFill(new ImagePattern(image));
         usernameLabel.setText(LoginCustomer.customer.getUsername());
+
         DataSource<PromotionList> dataSource;
         dataSource = new PromotionFileDataSource();
         PromotionList promotionList = dataSource.readData();
+
         ConditionFilterer<Promotion> filterer = new ConditionFilterer<Promotion>() {
             @Override
             public boolean match(Promotion promotion) {
@@ -56,6 +59,7 @@ public class AllPromotionCreateController implements Initializable {
             }
         };
         ArrayList<Promotion> promotions = promotionList.filter(filterer);
+
         for(int i = 0 ;i < promotions.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/promotion/promotion-list.fxml"));
@@ -70,9 +74,6 @@ public class AllPromotionCreateController implements Initializable {
             }
         }
     }
-
-
-
 
     @FXML
     public void handleLowStockButton(ActionEvent actionEvent) {
@@ -127,6 +128,7 @@ public class AllPromotionCreateController implements Initializable {
         }
 
     }
+
     @FXML
     public void handleEditShopButton(ActionEvent actionEvent) {
         try {
@@ -137,6 +139,7 @@ public class AllPromotionCreateController implements Initializable {
         }
 
     }
+
     @FXML
     void goToEditProfile(ActionEvent event) {
         try {
@@ -186,6 +189,5 @@ public class AllPromotionCreateController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
 
 }

@@ -32,7 +32,6 @@ public class Comment {
         return sender;
     }
 
-
     public String getComment() {
         return comment;
     }
@@ -49,6 +48,7 @@ public class Comment {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         return dtf.format(commentTime);
     }
+
     public Boolean isIdComment(String idComment){
          return this.idComment.equals(idComment);
     }

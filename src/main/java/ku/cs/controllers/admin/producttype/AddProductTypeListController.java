@@ -1,4 +1,4 @@
-package ku.cs.controllers.admin;
+package ku.cs.controllers.admin.producttype;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

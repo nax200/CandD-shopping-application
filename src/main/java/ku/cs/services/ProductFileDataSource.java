@@ -38,7 +38,6 @@ public class ProductFileDataSource implements DataSource<ProductList> {
 
     }
 
-
     @Override
     public ProductList readData() {
         ProductList productList = new ProductList();

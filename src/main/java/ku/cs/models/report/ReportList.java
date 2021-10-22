@@ -12,9 +12,11 @@ public class ReportList {
     public void  addReport(Report report){
         this.reports.add(report);
     }
+
     public int count(){
         return this.reports.size();
     }
+
     public Report searchReport(String reportId){
         for(Report report : reports){
             if(report.getReportId().equals(reportId)) {
@@ -23,6 +25,7 @@ public class ReportList {
         }
         return null;
     }
+
     public String searchAllCheckedCase(String userName){
         String result = "";
         for (Report report : this.reports){

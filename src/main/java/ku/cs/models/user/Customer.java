@@ -114,10 +114,6 @@ public class Customer extends User{
         LoginCustomer.customer.setImageFile(imageFile);
     }
 
-    public boolean isShopName(String shopName){
-        return this.shopName.equals(shopName);
-    }
-
     @Override
     public String toCsv() {
         return "Customer," + userID + ","+ getUsername() + "," + getPassword() + "," + getLastTimeLoggedInToString() + ","

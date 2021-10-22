@@ -69,15 +69,6 @@ public class AdminAllUserListController implements Initializable {
             }
             userBlocked.setText(user.getIsUserBlockedToString());
         }
-
-//        if(user.isBlocked()) {
-//            userBlocked.setTextFill(Color.rgb(255,84,47));
-//        }
-//        else {
-//            userBlocked.setTextFill(Color.rgb(111,111,111));
-//        }
-//        userBlocked.setText(user.getIsUserBlockedToString());
-//    }
     }
 
 }

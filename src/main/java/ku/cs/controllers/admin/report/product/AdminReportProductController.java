@@ -94,15 +94,6 @@ public class AdminReportProductController implements Initializable {
     }
 
     @FXML
-    void productReportButton(ActionEvent event) {
-        try {
-            com.github.saacsos.FXRouter.goTo("admin-reported-product-list",admin);
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า admin-reported-product-list ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-    @FXML
     void userListButton(ActionEvent event) {
         try {
             com.github.saacsos.FXRouter.goTo("admin-user-view",admin);

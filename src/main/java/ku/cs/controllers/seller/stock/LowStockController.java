@@ -30,8 +30,7 @@ import java.util.ResourceBundle;
 
 public class LowStockController implements Initializable {
 
-    @FXML
-    private VBox contactsLayout;
+    @FXML private VBox contactsLayout;
     @FXML private Circle imageProfileTitle;
     @FXML private Label usernameLabel;
     @FXML private AnchorPane parent;
@@ -39,9 +38,11 @@ public class LowStockController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ThemeController.setTheme(parent);
+
         DataSource<ProductList> dataSource;
         dataSource = new ProductFileDataSource();
         ProductList productList = dataSource.readData();
+
         Comparator<Product> productComparator = new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {
@@ -51,8 +52,6 @@ public class LowStockController implements Initializable {
             }
         };
 
-        int column = 0;
-        int row = 1;
         ConditionFilterer<Product> filterer = new ConditionFilterer<Product>() {
             @Override
             public boolean match(Product product) {
@@ -80,8 +79,6 @@ public class LowStockController implements Initializable {
 
         }
 
-
-
         BufferedImage bufferedImage = null;
         try {
             bufferedImage = ImageIO.read(LoginCustomer.customer.getImageFile());
@@ -104,6 +101,7 @@ public class LowStockController implements Initializable {
         }
 
     }
+
     @FXML
     public void handleAddItemButton(ActionEvent actionEvent) {
         try {
@@ -147,6 +145,7 @@ public class LowStockController implements Initializable {
         }
 
     }
+
     @FXML
     void goToEditProfile(ActionEvent event) {
         try {
@@ -186,6 +185,7 @@ public class LowStockController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
     @FXML
     void handleCreatePromotionButton(ActionEvent event) {
         try {
@@ -195,6 +195,7 @@ public class LowStockController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
     @FXML
     void handleAllPromotionCreateButton(ActionEvent event) {
         try {

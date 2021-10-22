@@ -50,7 +50,6 @@ public class NewOrderController implements Initializable {
         dataSource1 = new ProductFileDataSource();
         ProductList productList = dataSource1.readData();
 
-
         Comparator<Order> orderComparator = new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
@@ -60,16 +59,16 @@ public class NewOrderController implements Initializable {
             }
         };
 
-        ConditionFilterer<Order> filterer1 = new ConditionFilterer<Order>() {
+        ConditionFilterer<Order> filterer = new ConditionFilterer<Order>() {
             @Override
             public boolean match(Order order) {
                 Product product = productList.searchByID(order.getProduct().getID());
                 return LoginCustomer.customer.getShopName().equals(product.getShopName());
             }
         };
-        ArrayList<Order> orders = orderList.filter(filterer1);
-        for (int i = 0; i < orders.size(); i++){
+        ArrayList<Order> orders = orderList.filter(filterer);
 
+        for (int i = 0; i < orders.size(); i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/ku/cs/sellerpage/order/new-order-list.fxml"));
             orderList.sort(orderComparator);
@@ -106,7 +105,6 @@ public class NewOrderController implements Initializable {
             System.err.println("ไปที่หน้า low-stock ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
 
     @FXML
@@ -117,7 +115,6 @@ public class NewOrderController implements Initializable {
             System.err.println("ไปที่หน้า shipped-order ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
 
     @FXML
@@ -128,7 +125,6 @@ public class NewOrderController implements Initializable {
             System.err.println("ไปที่หน้า stock-total ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
 
     @FXML
@@ -139,7 +135,6 @@ public class NewOrderController implements Initializable {
             System.err.println("ไปที่หน้า add-item ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
 
     @FXML
@@ -150,7 +145,6 @@ public class NewOrderController implements Initializable {
             System.err.println("ไปที่หน้า edit-shop ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
-
     }
 
     @FXML
@@ -202,6 +196,7 @@ public class NewOrderController implements Initializable {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
     @FXML
     void handleAllPromotionCreateButton(ActionEvent event) {
         try {

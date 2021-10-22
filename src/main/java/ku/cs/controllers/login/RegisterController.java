@@ -5,8 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import ku.cs.controllers.ThemeController;
-import ku.cs.models.user.Register;
 import com.github.saacsos.FXRouter;
+import ku.cs.models.user.UserList;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,7 +41,7 @@ public class RegisterController implements Initializable {
             passwordField.clear();
             confirmPasswordField.clear();
         }
-        else if ( Register.Register(name,username,password,cfPassword) ) {
+        else if (UserList.register(name,username,password) ) {
             goToLoginPage();
         }else{
             errorLabel.setText("ชื่อบัญชีนี้ถูกใช้แล้ว");
