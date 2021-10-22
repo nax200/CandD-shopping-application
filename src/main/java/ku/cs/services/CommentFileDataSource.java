@@ -4,6 +4,7 @@ import ku.cs.models.shop.comment.Comment;
 import ku.cs.models.shop.comment.CommentList;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -48,7 +49,7 @@ public class CommentFileDataSource implements DataSource<CommentList>{
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file,StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
 
 
@@ -92,7 +93,7 @@ public class CommentFileDataSource implements DataSource<CommentList>{
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file,StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             buffer.write(commentList.toCsv());

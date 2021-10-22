@@ -3,6 +3,7 @@ package ku.cs.services;
 import ku.cs.models.shop.product.Product;
 import ku.cs.models.shop.product.ProductList;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -50,7 +51,7 @@ public class ProductFileDataSource implements DataSource<ProductList> {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file,StandardCharsets.UTF_8);
             buffer = new BufferedReader(reader);
 
 
@@ -99,7 +100,7 @@ public class ProductFileDataSource implements DataSource<ProductList> {
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
+            writer = new FileWriter(file,StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
             buffer.write(productList.toCsv());
